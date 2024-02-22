@@ -1,0 +1,84 @@
+{
+    "name": "gammamatrix/playground-cms-resource",
+    "description": "Playground: Provide the CMS UI for a Laravel application.",
+    "keywords": [
+        "matrix",
+        "agile",
+        "sprints",
+        "projects",
+        "tickets",
+        "gammamatrix",
+        "laravel",
+        "playground"
+    ],
+    "homepage": "https://github.com/gammamatrix/playground-cms-resource",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeremy Postlethwaite",
+            "email": "jeremy.postlethwaite@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/gammamatrix/playground-cms.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/gammamatrix/playground-http.git"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "gammamatrix/playground-auth": "dev-develop|dev-master|dev-feature/*|^73.0",
+        "gammamatrix/playground-blade": "dev-develop|dev-master|dev-feature/*|^73.0",
+        "gammamatrix/playground-http": "dev-develop|dev-master|dev-feature/*|^73.0",
+        "gammamatrix/playground-login-blade": "dev-develop|dev-master|dev-feature/*|^73.0",
+        "gammamatrix/playground-site-blade": "dev-develop|dev-master|dev-feature/*|^73.0",
+        "gammamatrix/playground-cms": "dev-develop|dev-master|dev-feature/*|^73.0"
+    },
+    "require-dev": {
+        "gammamatrix/playground-test": "dev-develop|dev-master|dev-feature/*|^73.0"
+    },
+    "suggest": {
+        "gammamatrix/playground-cms": "Provides the models used by the Resource API in this package."
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Playground\\Cms\\Resource\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Feature\\Playground\\Cms\\Resource\\": "tests/Feature/",
+            "Tests\\Unit\\Playground\\Cms\\Resource\\": "tests/Unit/"
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": {
+            "gammamatrix/*": "source",
+            "*": "dist"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "73.x-dev",
+            "dev-master": "73.x-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Playground\\Cms\\Resource\\ServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "format": "vendor/bin/php-cs-fixer fix",
+        "analyse": "vendor/bin/phpstan analyse --verbose --debug --level max"
+    }
+}

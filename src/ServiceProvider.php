@@ -1,0 +1,184 @@
+<?php
+/**
+ * Playground
+ */
+namespace Playground\Cms\Resource;
+
+use Illuminate\Foundation\Console\AboutCommand;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\View;
+
+/**
+ * \Playground\Cms\Resource\ServiceProvider
+ */
+class ServiceProvider extends AuthServiceProvider
+{
+    public const VERSION = '73.0.0';
+
+    protected string $package = 'playground-cms-resource';
+
+    /**
+     * Bootstrap any package services.
+     * Register any authentication / authorization services.
+     */
+    public function boot(): void
+    {
+        /**
+         * @var array<string, mixed> $config
+         */
+        $config = config($this->package);
+
+        if (! empty($config['load']) && is_array($config['load'])) {
+
+            // $this->loadTranslationsFrom(
+            //     dirname(__DIR__).'/resources/lang',
+            //     'playground-cms-resource'
+            // );
+
+            if (! empty($config['load']['policies'])
+                && ! empty($config['policies'])
+                && is_array($config['policies'])
+            ) {
+                $this->setPolicies($config['policies']);
+                $this->registerPolicies();
+            }
+
+            if (! empty($config['load']['routes'])
+                && ! empty($config['routes'])
+                && is_array($config['routes'])
+            ) {
+                $this->routes($config['routes']);
+            }
+
+            if (! empty($config['load']['views'])) {
+                $this->loadViewsFrom(
+                    dirname(__DIR__).'/resources/views',
+                    $this->package
+                );
+            }
+
+            if ($this->app->runningInConsole()) {
+                // Publish configuration
+                $this->publishes([
+                    sprintf('%1$s/config/%2$s.php', dirname(__DIR__), $this->package) => config_path(sprintf('%1$s.php', $this->package)),
+                ], 'playground-config');
+
+                // Publish routes
+                $this->publishes([
+                    dirname(__DIR__).'/routes' => base_path('routes/playground-cms-resource'),
+                ], 'playground-routes');
+            }
+        }
+
+        if (! empty($config['layout']) && is_string($config['layout'])) {
+            View::share('layout', $config['layout']);
+        }
+
+        $this->about();
+    }
+
+    /**
+     * Register any application services.
+     */
+    public function register(): void
+    {
+        $this->mergeConfigFrom(
+            dirname(__DIR__).'/config/playground-cms-resource.php',
+            $this->package
+        );
+    }
+
+    /**
+     * Set the application's policies from the configuration.
+     *
+     * @param array<class-string, class-string> $policies
+     */
+    public function setPolicies(array $policies): void
+    {
+        foreach ($policies as $model => $policy) {
+            if (! is_string($model) || ! class_exists($model)) {
+                Log::error(__METHOD__, [
+                    'error' => 'Expecting the model to exist.',
+                    'model' => is_string($model) ? $model : gettype($model),
+                    'policy' => is_string($policy) ? $policy : gettype($policy),
+                    'policies' => $policies,
+                ]);
+
+                continue;
+            }
+            if (! is_string($policy) || ! class_exists($policy)) {
+                Log::error(__METHOD__, [
+                    'error' => 'Expecting the policy to exist.',
+                    'model' => is_string($model) ? $model : gettype($model),
+                    'policy' => is_string($policy) ? $policy : gettype($policy),
+                    'policies' => $policies,
+                ]);
+
+                continue;
+            }
+            $this->policies[$model] = $policy;
+        }
+    }
+
+    /**
+     * @param array<string, mixed> $config
+     */
+    public function routes(array $config): void
+    {
+        if (! empty($config['cms'])) {
+            $this->loadRoutesFrom(dirname(__DIR__).'/routes/cms.php');
+        }
+        if (! empty($config['snippets'])) {
+            $this->loadRoutesFrom(dirname(__DIR__).'/routes/snippets.php');
+        }
+        if (! empty($config['pages'])) {
+            $this->loadRoutesFrom(dirname(__DIR__).'/routes/pages.php');
+        }
+    }
+
+    public function about(): void
+    {
+        $config = config($this->package);
+        $config = is_array($config) ? $config : [];
+
+        $load = ! empty($config['load']) && is_array($config['load']) ? $config['load'] : [];
+
+        $middleware = ! empty($config['middleware']) && is_array($config['middleware']) ? $config['middleware'] : [];
+
+        $routes = ! empty($config['routes']) && is_array($config['routes']) ? $config['routes'] : [];
+
+        $sitemap = ! empty($config['sitemap']) && is_array($config['sitemap']) ? $config['sitemap'] : [];
+
+        $version = $this->version();
+
+        AboutCommand::add('Playground: CMS Resource', fn () => [
+            '<fg=yellow;options=bold>Load</> Policies' => ! empty($load['policies']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+            '<fg=yellow;options=bold>Load</> Routes' => ! empty($load['routes']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+            '<fg=yellow;options=bold>Load</> Views' => ! empty($load['views']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+
+            '<fg=yellow;options=bold>Middleware</> auth' => ! empty($middleware['auth']) ? sprintf('%s', json_encode($middleware['auth'])) : '',
+            '<fg=yellow;options=bold>Middleware</> default' => ! empty($middleware['default']) ? sprintf('%s', json_encode($middleware['default'])) : '',
+            '<fg=yellow;options=bold>Middleware</> guest' => ! empty($middleware['guest']) ? sprintf('%s', json_encode($middleware['guest'])) : '',
+
+            '<fg=blue;options=bold>View</> [Blade]' => ! empty($config['blade']) ? sprintf('[%s]', $config['blade']) : '',
+
+            '<fg=magenta;options=bold>Sitemap</> Views' => ! empty($sitemap['enable']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+            '<fg=magenta;options=bold>Sitemap</> Guest' => ! empty($sitemap['guest']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+            '<fg=magenta;options=bold>Sitemap</> User' => ! empty($sitemap['user']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+            '<fg=magenta;options=bold>Sitemap</> [view]' => sprintf('[%s]', $sitemap['view']),
+
+            '<fg=red;options=bold>Route</> cms' => ! empty($routes['cms']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+            '<fg=red;options=bold>Route</> snippets' => ! empty($routes['snippets']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+            '<fg=red;options=bold>Route</> pages' => ! empty($routes['pages']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+
+            'Package' => $this->package,
+            'Version' => $version,
+        ]);
+    }
+
+    public function version(): string
+    {
+        return static::VERSION;
+    }
+}

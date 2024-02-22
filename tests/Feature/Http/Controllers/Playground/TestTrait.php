@@ -1,0 +1,50 @@
+<?php
+/**
+ * Playground
+ */
+namespace Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground;
+
+/**
+ * \Tests\Unit\Playground\Cms\Resource\Playground\TestTrait
+ */
+trait TestTrait
+{
+    /**
+     * Set up the environment.
+     *
+     * @param  \Illuminate\Foundation\Application  $app
+     */
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('auth.providers.users.model', '\\Playground\\Test\\Models\\PlaygroundUser');
+
+        $app['config']->set('playground-cms.load.migrations', true);
+
+        $app['config']->set('app.debug', true);
+        $app['config']->set('playground-auth.debug', true);
+
+        $app['config']->set('playground-auth.verify', 'roles');
+        // $app['config']->set('playground-auth.verify', 'privileges');
+        $app['config']->set('playground-auth.sanctum', false);
+        $app['config']->set('playground-auth.hasPrivilege', true);
+        $app['config']->set('playground-auth.userPrivileges', true);
+        $app['config']->set('playground-auth.hasRole', true);
+        $app['config']->set('playground-auth.userRole', true);
+        $app['config']->set('playground-auth.userRoles', true);
+
+        // $app['config']->set('playground-auth.token.roles', true);
+        // $app['config']->set('playground-auth.token.sanctum', true);
+
+        // $middleware = [];
+        // api,auth:sanctum,web
+
+        // $app['config']->set('playground-cms-resource.routes.cms', true);
+        // $app['config']->set('playground-cms-resource.routes.pages', true);
+        // $app['config']->set('playground-cms-resource.routes.routes', true);
+
+        // $app['config']->set('playground-cms-resource.sitemap.enable', true);
+        // $app['config']->set('playground-cms-resource.sitemap.guest', true);
+        // $app['config']->set('playground-cms-resource.sitemap.user', true);
+
+    }
+}
