@@ -8,12 +8,35 @@ The `playground-cms-resource` Laravel package.
 
 This package provides an API and a Blade UI for interacting with the [Playground CMS](https://github.com/gammamatrix/playground-cms), a project management and task system.
 
-If you only need the JSON API, the Blade UI may be disabled.
+## Documentation
+
+### Swagger
 
 This application provides Swagger documentation: [swagger.json](swagger.json).
-- See the [Playground CMS Resource swagger.json on the Swagger Editor.](https://editor.swagger.io/?url=https://raw.githubusercontent.com/gammamatrix/playground-cms-resource/develop/swagger.json)
-- The endpoint models support locks, trash with force delete, restoring and more.
+- The endpoint models support locks, trash with force delete, restoring, revisions and more.
 - Index endpoints support advanced query filtering.
+
+Swagger API Documentation is built with npm.
+- npm is only needed to generate documentation and is not needed to operate the CMS UI and API Resource.
+
+See [package.json](package.json) requirements.
+
+Install npm.
+
+```sh
+npm install
+```
+
+Build the documentation to generate the [swagger.json](swagger.json) configuration.
+
+```sh
+npm run docs
+```
+
+Documentation
+- Preview [swagger.json on the Swagger Editor UI.](https://editor.swagger.io/?url=https://raw.githubusercontent.com/gammamatrix/playground-cms-resource/develop/swagger.json)
+- Preview [swagger.json on the Swagger Editor UI.](https://editor-next.swagger.io/?url=https://raw.githubusercontent.com/gammamatrix/playground-cms-resource/develop/swagger.json)
+- Preview [swagger.json on the Redocly Editor UI.](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/gammamatrix/playground-cms-resource/develop/swagger.json)
 
 ## Installation
 

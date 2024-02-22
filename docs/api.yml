@@ -29,7 +29,7 @@ tags:
 paths:
   '/resource/snippets/{id}':
     $ref: paths/snippets/id.yml
-  /api/snippets:
+  /resource/snippets:
     $ref: paths/snippets/index.yml
   '/resource/snippets/lock/{id}':
     $ref: paths/snippets/lock.yml
@@ -37,7 +37,7 @@ paths:
     $ref: paths/snippets/restore.yml
   '/resource/pages/{id}':
     $ref: paths/pages/id.yml
-  /api/pages:
+  /resource/pages:
     $ref: paths/pages/index.yml
   '/resource/pages/lock/{id}':
     $ref: paths/pages/lock.yml

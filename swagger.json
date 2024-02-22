@@ -18,9 +18,6 @@
     "title": "Playground CMS Resource",
     "description": "",
     "termsOfService": "",
-    "contact": {
-      "email": "support@example.com"
-    },
     "version": "73.0.0"
   },
   "externalDocs": {
@@ -485,7 +482,7 @@
         }
       }
     },
-    "/api/snippets": {
+    "/resource/snippets": {
       "get": {
         "tags": [
           "Snippet"
@@ -1461,7 +1458,7 @@
         }
       }
     },
-    "/api/pages": {
+    "/resource/pages": {
       "get": {
         "tags": [
           "Page"
