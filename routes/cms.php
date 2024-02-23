@@ -18,6 +18,5 @@ Route::group([
     Route::get('/', [
         'as' => 'playground.cms.resource',
         'uses' => 'IndexController@index',
-    ])
-        ->can('index', Playground\Cms\Models\Page::class);
+    ])->can('index', Playground\Cms\Models\Page::class);
 });
