@@ -32,6 +32,13 @@ trait TestTrait
         $app['config']->set('playground-auth.userRole', true);
         $app['config']->set('playground-auth.userRoles', true);
 
+        // dd([
+        //     '__METHOD__' => __METHOD__,
+        //     '__FILE__' => __FILE__,
+        //     '__LINE__' => __LINE__,
+        //     'config(playground-auth)' => config('playground-auth'),
+        // ]);
+
         // $app['config']->set('playground-auth.token.roles', true);
         // $app['config']->set('playground-auth.token.sanctum', true);
 

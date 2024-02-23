@@ -559,7 +559,9 @@ class PageController extends Controller
         $page->save();
 
         if ($request->expectsJson()) {
-            return (new PageResource($page))->response($request);
+            return (new PageResource($page))
+                ->response($request)
+                ->setStatusCode(201);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';

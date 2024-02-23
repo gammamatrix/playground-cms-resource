@@ -65,7 +65,7 @@ $validated = [];
     //         // 'linkType' => 'fk',
     //         // 'accessor' => 'parent',
     //         'property' => 'title',
-    //         // 'linkRoute' => 'cms.api.pages.id',
+    //         // 'linkRoute' => 'cms.resource.pages.id',
     //         'label' => 'Parent',
     //     ],
     //     'description' => [
