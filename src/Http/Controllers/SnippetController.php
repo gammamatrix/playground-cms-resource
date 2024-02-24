@@ -559,7 +559,9 @@ class SnippetController extends Controller
         $snippet->save();
 
         if ($request->expectsJson()) {
-            return (new SnippetResource($snippet))->response($request);
+            return (new SnippetResource($snippet))
+                ->response($request)
+                ->setStatusCode(201);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';

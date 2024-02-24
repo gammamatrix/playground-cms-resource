@@ -6,7 +6,7 @@
 
 The `playground-cms-resource` Laravel package.
 
-This package provides an API and a Blade UI for interacting with the [Playground CMS](https://github.com/gammamatrix/playground-cms), a project management and task system.
+This package provides an API and a Blade UI for interacting with the [Playground CMS](https://github.com/gammamatrix/playground-cms), a Content Management System for Laravel.
 
 ## Documentation
 
@@ -35,7 +35,7 @@ npm run docs
 
 Documentation
 - Preview [swagger.json on the Swagger Editor UI.](https://editor.swagger.io/?url=https://raw.githubusercontent.com/gammamatrix/playground-cms-resource/develop/swagger.json)
-- Preview [swagger.json on the Swagger Editor UI.](https://editor-next.swagger.io/?url=https://raw.githubusercontent.com/gammamatrix/playground-cms-resource/develop/swagger.json)
+- Preview [swagger.json on the Swagger Next Editor UI.](https://editor-next.swagger.io/?url=https://raw.githubusercontent.com/gammamatrix/playground-cms-resource/develop/swagger.json)
 - Preview [swagger.json on the Redocly Editor UI.](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/gammamatrix/playground-cms-resource/develop/swagger.json)
 
 ## Installation

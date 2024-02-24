@@ -62,8 +62,7 @@ class StoreRequest extends BaseStoreRequest
         'suspended' => ['boolean'],
         'unknown' => ['boolean'],
         'label' => ['string'],
-        'title' => ['string'],
-        'byline' => ['string'],
+        'title' => ['string', 'required'],
         'slug' => ['nullable', 'string'],
         'url' => ['string'],
         'description' => ['string'],
@@ -94,38 +93,17 @@ class StoreRequest extends BaseStoreRequest
 
         $input = [];
 
-        if ($this->filled('content')) {
-            $input['content'] = $this->purify($this->input('content'));
-        }
+        $this->filterContentFields($input);
+        $this->filterCommonFields($input);
+        $this->filterStatus($input);
+        $this->filterSystemFields($input);
 
-        if ($this->filled('summary')) {
-            $input['summary'] = $this->purify($this->input('summary'));
-        }
-
-        if ($this->filled('description')) {
-            $input['description'] = $this->exorcise($this->input('description'));
-        } elseif ($this->has('description')) {
-            $input['description'] = '';
-        }
-
-        if ($this->filled('introduction')) {
-            $input['introduction'] = $this->exorcise($this->input('introduction'));
-        } elseif ($this->has('introduction')) {
-            $input['introduction'] = '';
+        if ($this->exists('label')) {
+            $input['label'] = isset($input['label']) ? $this->filterHtml($input['label']) : '';
         }
 
         if (! empty($input)) {
             $this->merge($input);
         }
     }
-
-    //    /**
-    //      * Handle a passed validation attempt.
-    //      *
-    //      * @return void
-    //      */
-    //     protected function passedValidation()
-    //     {
-    //
-    //     }
 }
