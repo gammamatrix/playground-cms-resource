@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-02-24 00:34:34</timestamp>
+  <timestamp>2024-02-24 01:42:52</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>67</methodCount>
+    <methodCount>71</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>218</totalCrap>
+    <totalCrap>227.12</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -388,12 +388,34 @@
     <method>
       <package>Playground\Cms\Resource\Http\Requests\Page</package>
       <className>Playground\Cms\Resource\Http\Requests\Page\StoreRequest</className>
+      <methodName>rules</methodName>
+      <methodSignature>rules(): array</methodSignature>
+      <fullMethod>rules(): array</fullMethod>
+      <crap>2.03</crap>
+      <complexity>2</complexity>
+      <coverage>80</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Cms\Resource\Http\Requests\Page</package>
+      <className>Playground\Cms\Resource\Http\Requests\Page\StoreRequest</className>
       <methodName>prepareForValidation</methodName>
       <methodSignature>prepareForValidation()</methodSignature>
       <fullMethod>prepareForValidation()</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Cms\Resource\Http\Requests\Page</package>
+      <className>Playground\Cms\Resource\Http\Requests\Page\UpdateRequest</className>
+      <methodName>rules</methodName>
+      <methodSignature>rules(): array</methodSignature>
+      <fullMethod>rules(): array</fullMethod>
+      <crap>2.03</crap>
+      <complexity>2</complexity>
+      <coverage>80</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -421,12 +443,34 @@
     <method>
       <package>Playground\Cms\Resource\Http\Requests\Snippet</package>
       <className>Playground\Cms\Resource\Http\Requests\Snippet\StoreRequest</className>
+      <methodName>rules</methodName>
+      <methodSignature>rules(): array</methodSignature>
+      <fullMethod>rules(): array</fullMethod>
+      <crap>2.03</crap>
+      <complexity>2</complexity>
+      <coverage>80</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Cms\Resource\Http\Requests\Snippet</package>
+      <className>Playground\Cms\Resource\Http\Requests\Snippet\StoreRequest</className>
       <methodName>prepareForValidation</methodName>
       <methodSignature>prepareForValidation()</methodSignature>
       <fullMethod>prepareForValidation()</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>Playground\Cms\Resource\Http\Requests\Snippet</package>
+      <className>Playground\Cms\Resource\Http\Requests\Snippet\UpdateRequest</className>
+      <methodName>rules</methodName>
+      <methodSignature>rules(): array</methodSignature>
+      <fullMethod>rules(): array</fullMethod>
+      <crap>2.03</crap>
+      <complexity>2</complexity>
+      <coverage>80</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -688,8 +732,8 @@
       <methodName>boot</methodName>
       <methodSignature>boot(): void</methodSignature>
       <fullMethod>boot(): void</fullMethod>
-      <crap>11</crap>
-      <complexity>11</complexity>
+      <crap>12</crap>
+      <complexity>12</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
