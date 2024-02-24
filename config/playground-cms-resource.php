@@ -15,7 +15,13 @@ return [
     'load' => [
         'policies' => (bool) env('PLAYGROUND_CMS_RESOURCE_LOAD_POLICIES', true),
         'routes' => (bool) env('PLAYGROUND_CMS_RESOURCE_LOAD_ROUTES', true),
+        'translations' => (bool) env('PLAYGROUND_CMS_RESOURCE_LOAD_TRANSLATIONS', true),
         'views' => (bool) env('PLAYGROUND_CMS_RESOURCE_LOAD_VIEWS', true),
+    ],
+    'revisions' => [
+        'optional' => (bool) env('PLAYGROUND_CMS_RESOURCE_ROUTES_OPTIONAL', false),
+        'pages' => (bool) env('PLAYGROUND_CMS_RESOURCE_REVISIONS_PAGES', true),
+        'snippets' => (bool) env('PLAYGROUND_CMS_RESOURCE_REVISIONS_SNIPPETS', true),
     ],
     'routes' => [
         'cms' => (bool) env('PLAYGROUND_CMS_RESOURCE_ROUTES_CMS', true),

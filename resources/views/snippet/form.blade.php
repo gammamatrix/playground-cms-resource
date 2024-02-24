@@ -6,3 +6,7 @@
 @section('form-tertiary')
 @include('playground-cms-resource::snippet/form-publishing')
 @endsection
+
+@section('form-quaternary')
+@include('playground-cms-resource::snippet/form-revisions')
+@endsection
