@@ -21,7 +21,7 @@ class PageTestCase extends TestCase
      * @var array<string, string>
      */
     public array $packageInfo = [
-        'model_attribute' => 'label',
+        'model_attribute' => 'title',
         'model_label' => 'Page',
         'model_label_plural' => 'Pages',
         'model_route' => 'playground.cms.resource.pages',

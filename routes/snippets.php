@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Route;
 |
 |
 */
+Route::group([
+    'prefix' => 'resource/cms/snippet',
+    'middleware' => config('playground-cms-resource.middleware.default'),
+    'namespace' => '\Playground\Cms\Resource\Http\Controllers',
+], function () {
+
+    Route::get('/{snippet:slug}', [
+        'as' => 'playground.cms.resource.snippets.slug',
+        'uses' => 'SnippetController@show',
+    ])->where('slug', '[a-zA-Z0-9\-]+');
+});
 
 Route::group([
     'prefix' => 'resource/cms/snippets',
@@ -61,16 +72,6 @@ Route::group([
         'uses' => 'SnippetController@restoreRevision',
     ])->whereUuid('snippet_revision')
         ->can('restoreRevision', 'snippet_revision');
-
-    // Route::get('/{slug}', [
-    //     'as'   => 'playground.cms.resource.snippets.slug',
-    //     'uses' => 'SnippetController@slug',
-    // ])->where('slug', '[a-zA-Z0-9\-]+');
-
-    // Route::post('/store', [
-    //     'as'   => 'playground.cms.resource.snippets.store',
-    //     'uses' => 'SnippetController@store',
-    // ])->can('store', \Playground\Cms\Models\Snippet::class);
 
     // API
 

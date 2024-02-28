@@ -9,6 +9,17 @@ use Illuminate\Support\Facades\Route;
 |
 |
 */
+Route::group([
+    'prefix' => 'resource/cms/page',
+    'middleware' => config('playground-cms-resource.middleware.default'),
+    'namespace' => '\Playground\Cms\Resource\Http\Controllers',
+], function () {
+
+    Route::get('/{page:slug}', [
+        'as' => 'playground.cms.resource.pages.slug',
+        'uses' => 'PageController@show',
+    ])->where('slug', '[a-zA-Z0-9\-]+');
+});
 
 Route::group([
     'prefix' => 'resource/cms/pages',
@@ -61,16 +72,6 @@ Route::group([
         'uses' => 'PageController@restoreRevision',
     ])->whereUuid('page_revision')
         ->can('restoreRevision', 'page_revision');
-
-    // Route::get('/{slug}', [
-    //     'as'   => 'playground.cms.resource.pages.slug',
-    //     'uses' => 'PageController@slug',
-    // ])->where('slug', '[a-zA-Z0-9\-]+');
-
-    // Route::post('/store', [
-    //     'as'   => 'playground.cms.resource.pages.store',
-    //     'uses' => 'PageController@store',
-    // ])->can('store', \Playground\Cms\Models\Page::class);
 
     // API
 

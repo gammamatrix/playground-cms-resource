@@ -21,7 +21,7 @@ class SnippetTestCase extends TestCase
      * @var array<string, string>
      */
     public array $packageInfo = [
-        'model_attribute' => 'label',
+        'model_attribute' => 'title',
         'model_label' => 'Snippet',
         'model_label_plural' => 'Snippets',
         'model_route' => 'playground.cms.resource.snippets',

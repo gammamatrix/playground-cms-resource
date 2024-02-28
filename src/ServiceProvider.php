@@ -30,10 +30,12 @@ class ServiceProvider extends AuthServiceProvider
 
         if (! empty($config['load']) && is_array($config['load'])) {
 
-            // $this->loadTranslationsFrom(
-            //     dirname(__DIR__).'/resources/lang',
-            //     'playground-cms-resource'
-            // );
+            if (! empty($config['load']['translations'])) {
+                $this->loadTranslationsFrom(
+                    dirname(__DIR__).'/lang',
+                    $this->package
+                );
+            }
 
             if (! empty($config['load']['policies'])
                 && ! empty($config['policies'])
