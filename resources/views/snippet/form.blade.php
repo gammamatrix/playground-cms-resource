@@ -8,5 +8,8 @@
 @endsection
 
 @section('form-quaternary')
-@include('playground-cms-resource::snippet/form-revisions')
+@includeWhen(
+    !empty($_method) && 'patch' === $_method,
+    'playground-cms-resource::snippet/form-revisions'
+)
 @endsection

@@ -28,10 +28,8 @@
         "gammamatrix/playground-cms": "dev-develop|dev-master|dev-feature/*|^73.0"
     },
     "require-dev": {
-        "gammamatrix/playground-test": "dev-develop|dev-master|dev-feature/*|^73.0"
-    },
-    "suggest": {
-        "gammamatrix/playground-cms": "Provides the models used by the Resource API in this package."
+        "gammamatrix/playground-test": "dev-develop|dev-master|dev-feature/*|^73.0",
+        "tomasvotruba/bladestan": "^0.5.0"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

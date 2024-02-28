@@ -1,5 +1,6 @@
 includes:
     - vendor/larastan/larastan/extension.neon
+    - vendor/tomasvotruba/bladestan/config/extension.neon
     - vendor/phpstan/phpstan-phpunit/extension.neon
     - vendor/phpstan/phpstan-phpunit/rules.neon
 
@@ -11,6 +12,7 @@ parameters:
         - database
         - src
         - tests
+        - resources/views
 
     excludePaths:
         - 'output/*'

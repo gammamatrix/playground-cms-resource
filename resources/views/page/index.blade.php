@@ -8,18 +8,19 @@ $validated = [];
     'withTableColumns' => [
         'title' => [
             'linkType' => 'id',
-            // 'linkRoute' => sprintf('%1$s.id', $apiInfo['model_route']),
+            'linkRoute' => sprintf('%1$s.show', $meta['info']['model_route']),
             'label' => 'Title',
         ],
         'label' => [
+            'hide-sm' => true,
             'linkType' => 'id',
-            // 'linkRoute' => sprintf('%1$s.id', $apiInfo['model_route']),
-            'label' => 'Title',
+            // 'linkRoute' => sprintf('%1$s.show', $apiInfo['model_route']),
+            'label' => 'Label',
         ],
         'slug' => [
             'hide-sm' => true,
-            // 'linkType' => 'slug',
-            // 'linkRoute' => sprintf('%1$s.slug', $apiInfo['model_route']),
+            'linkType' => 'slug',
+            'linkRoute' => sprintf('%1$s.slug', $meta['info']['model_route']),
             'label' => 'Slug',
         ],
         'active' => [
@@ -38,29 +39,34 @@ $validated = [];
             'onTrueClass' => 'fas fa-upload text-primary',
         ],
         'flagged' => [
+            'hide-sm' => true,
             'flag' => true,
             'label' => 'Flagged',
             'onTrueClass' => 'fas fa-flag text-warning',
         ],
         'allow_public' => [
+            'hide-sm' => true,
             'flag' => true,
             'label' => 'Public',
             // 'onFalseClass' => 'fas fa-user text-danger',
             'onTrueClass' => 'fas fa-users text-success',
         ],
         'only_admin' => [
+            'hide-sm' => true,
             'flag' => true,
             'label' => 'Admin Only',
             // 'onFalseClass' => 'fas fa-user text-danger',
             'onTrueClass' => 'fas fa-user-shield text-danger',
         ],
         'only_user' => [
+            'hide-sm' => true,
             'flag' => true,
             'label' => 'User Only',
             // 'onFalseClass' => 'fas fa-user text-danger',
             'onTrueClass' => 'fas fa-user text-warning',
         ],
         'only_guest' => [
+            'hide-sm' => true,
             'flag' => true,
             'label' => 'Guest Only',
             // 'onFalseClass' => 'fas fa-user text-danger',
@@ -70,7 +76,7 @@ $validated = [];
             // 'linkType' => 'fk',
             // 'accessor' => 'parent',
             'property' => 'title',
-            // 'linkRoute' => 'cms.resource.pages.id',
+            // 'linkRoute' => 'cms.resource.pages.show',
             'label' => 'Parent',
         ],
         'description' => [
