@@ -16,7 +16,7 @@ trait TestTrait
      */
     protected function getEnvironmentSetUp($app)
     {
-        $app['config']->set('auth.providers.users.model', '\\Playground\\Test\\Models\\PlaygroundUser');
+        $app['config']->set('auth.providers.users.model', '\\Playground\\Test\\Models\\AppPlaygroundUser');
 
         $app['config']->set('playground-cms.load.migrations', true);
 
