@@ -1,9 +1,9 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Playground
- *
  */
-
 namespace Tests\Unit\Playground\Cms\Resource\Policies\SnippetPolicy;
 
 use Playground\Cms\Resource\Policies\SnippetPolicy;
@@ -11,7 +11,6 @@ use Tests\Unit\Playground\Cms\Resource\TestCase;
 
 /**
  * \ests\Unit\Playground\Cms\Resource\Policies\SnippetPolicy\PolicyTest
- *
  */
 class PolicyTest extends TestCase
 {
@@ -22,4 +21,3 @@ class PolicyTest extends TestCase
         $this->assertInstanceOf(SnippetPolicy::class, $instance);
     }
 }
-
