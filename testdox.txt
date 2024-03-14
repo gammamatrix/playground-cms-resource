@@ -24,8 +24,6 @@ Instance (Tests\Unit\Playground\Cms\Resource\Http\Requests\FormRequest\Instance)
 Instance (Tests\Unit\Playground\Cms\Resource\ServiceProvider\Instance)
  [x] Version matches
  [x] SetPolicies with empty array
- [x] SetPolicies with invalid model
- [x] SetPolicies with invalid policy
 
 Page Route (Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRoute)
  [x] Guest cannot render index view
