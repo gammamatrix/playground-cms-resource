@@ -558,6 +558,8 @@ class SnippetController extends Controller
 
         $snippet = new Snippet($validated);
 
+        $snippet->created_by_id = $user?->id;
+
         $snippet->save();
 
         if ($request->expectsJson()) {
@@ -619,6 +621,8 @@ class SnippetController extends Controller
         $user = $request->user();
 
         $this->saveRevision($snippet);
+
+        $snippet->modified_by_id = $user?->id;
 
         $snippet->update($validated);
 
