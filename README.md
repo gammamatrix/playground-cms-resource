@@ -8,9 +8,11 @@ The `playground-cms-resource` Laravel package.
 
 This package provides an API and a Blade UI for interacting with the [Playground CMS](https://github.com/gammamatrix/playground-cms), a Content Management System for Laravel.
 
+If you need a CMS without a UI, then have a look at [Playground CMS API.](https://github.com/gammamatrix/playground-cms-api)
+
 ## Documentation
 
-Read more on using Playground CMS Resource [at the Read the Docs for Playground.](https://gammamatrix-playground.readthedocs.io/)
+Read more on using [Playground CMS Resource at Read the Docs: Playground Documentation.](https://gammamatrix-playground.readthedocs.io/en/develop/components/cms.html)
 
 ### Swagger
 

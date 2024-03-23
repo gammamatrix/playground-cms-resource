@@ -558,6 +558,8 @@ class PageController extends Controller
 
         $page = new Page($validated);
 
+        $page->created_by_id = $user?->id;
+
         $page->save();
 
         if ($request->expectsJson()) {
@@ -619,6 +621,8 @@ class PageController extends Controller
         $user = $request->user();
 
         $this->saveRevision($page);
+
+        $page->modified_by_id = $user?->id;
 
         $page->update($validated);
 
