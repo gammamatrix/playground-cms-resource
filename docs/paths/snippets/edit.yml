@@ -7,14 +7,14 @@ parameters:
     schema:
       type: string
       format: uuid
-put:
+get:
   tags:
     - Snippet
-  summary: 'Restore a snippet from the trash by id.'
-  operationId: restore_snippet
+  summary: 'Edit a snippet form.'
+  operationId: edit_snippet
   responses:
     200:
-      description: 'The restored snippet.'
+      description: 'The edit information (JSON) or form (HTML).'
       content:
         application/json:
           schema:
@@ -24,6 +24,10 @@ put:
                 $ref: ../../models/snippet.yml
               meta:
                 type: object
+        text/html:
+          schema:
+            type: string
+            example: '<html><body><form method="POST" action="/resource/cms/snippets/{id}">Edit a snippet</form></body></html>'
     401:
       description: Unauthorized
     403:

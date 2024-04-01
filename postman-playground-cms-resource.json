@@ -717,7 +717,6 @@
 										"exec": [
 											"pm.test('Create a CMS Page', function() {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
-											"    // pm.response.to.have.status(200);",
 											"    pm.response.to.not.be.error;",
 											"    pm.response.to.be.ok;",
 											"    pm.response.to.be.withBody;",
@@ -778,7 +777,7 @@
 										},
 										{
 											"key": "content",
-											"value": "Lorem impsum",
+											"value": "Original: Lorem impsum",
 											"type": "text"
 										},
 										{
@@ -1173,6 +1172,11 @@
 											"key": "allow_public",
 											"value": "1",
 											"type": "text"
+										},
+										{
+											"key": "content",
+											"value": "Update: Lorem impsum",
+											"type": "text"
 										}
 									]
 								},
@@ -1184,6 +1188,350 @@
 									"path": [
 										"pages",
 										"{{CMS_RESOURCE_PAGE_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "revisions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Get the revisions for a CMS Page', function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.not.be.json;",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_PAGE_ID', function() {",
+											"    const CMS_RESOURCE_PAGE_ID = pm.environment.get('CMS_RESOURCE_PAGE_ID');",
+											"    console.info('CMS_RESOURCE_PAGE_ID', CMS_RESOURCE_PAGE_ID);",
+											"    pm.expect(CMS_RESOURCE_PAGE_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_PAGE_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/pages/{{CMS_RESOURCE_PAGE_ID}}/revisions",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"pages",
+										"{{CMS_RESOURCE_PAGE_ID}}",
+										"revisions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "revisions - CMS_RESOURCE_PAGE_REVISION_ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Get the revisions for a CMS Page', function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.be.json;",
+											"    pm.response.to.have.jsonBody('data');",
+											"    pm.response.to.have.jsonBody('meta');",
+											"    pm.response.to.not.have.jsonBody('error');",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"",
+											"    const responseJson = pm.response.json();",
+											"",
+											"    pm.expect(responseJson.data).to.be.a('array');",
+											"    pm.expect(responseJson.data[0]).to.be.a('object');",
+											"",
+											"    pm.expect(responseJson.data[0].id).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].id).to.not.be.empty;",
+											"",
+											"    pm.environment.set('CMS_RESOURCE_PAGE_REVISION_ID', responseJson.data[0].id);",
+											"    console.info('CMS_RESOURCE_PAGE_REVISION_ID', pm.environment.get('CMS_RESOURCE_PAGE_REVISION_ID'));",
+											"",
+											"    pm.expect(responseJson.data[0].page_id).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].page_id).to.not.be.empty;",
+											"    pm.expect(responseJson.data[0].page_id).to.be.equal(pm.environment.get('CMS_RESOURCE_PAGE_ID'));",
+											"",
+											"    pm.expect(responseJson.data[0].title).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].slug).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].content).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].created_at).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].active).to.be.true;",
+											"",
+											"    pm.expect(responseJson.meta).to.be.a('object');",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_PAGE_ID', function() {",
+											"    const CMS_RESOURCE_PAGE_ID = pm.environment.get('CMS_RESOURCE_PAGE_ID');",
+											"    console.info('CMS_RESOURCE_PAGE_ID', CMS_RESOURCE_PAGE_ID);",
+											"    pm.expect(CMS_RESOURCE_PAGE_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_PAGE_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/pages/{{CMS_RESOURCE_PAGE_ID}}/revisions",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"pages",
+										"{{CMS_RESOURCE_PAGE_ID}}",
+										"revisions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "revision",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Get a revision for a CMS Page', function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.not.be.json;",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_PAGE_REVISION_ID', function() {",
+											"    const CMS_RESOURCE_PAGE_REVISION_ID = pm.environment.get('CMS_RESOURCE_PAGE_REVISION_ID');",
+											"    console.info('CMS_RESOURCE_PAGE_REVISION_ID', CMS_RESOURCE_PAGE_REVISION_ID);",
+											"    pm.expect(CMS_RESOURCE_PAGE_REVISION_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_PAGE_REVISION_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_token",
+											"value": "{{TOKEN_CSRF}}",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "{{CMS_RESOURCE_PAGE_SLUG}}",
+											"type": "text"
+										},
+										{
+											"key": "slug",
+											"value": "{{CMS_RESOURCE_PAGE_SLUG}}",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "active",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "allow_public",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/pages/revision/{{CMS_RESOURCE_PAGE_REVISION_ID}}",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"pages",
+										"revision",
+										"{{CMS_RESOURCE_PAGE_REVISION_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restore revision",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Restore a CMS Page to a previous revision\", function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.not.be.json;",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_PAGE_REVISION_ID', function() {",
+											"    const CMS_RESOURCE_PAGE_REVISION_ID = pm.environment.get('CMS_RESOURCE_PAGE_REVISION_ID');",
+											"    console.info('CMS_RESOURCE_PAGE_REVISION_ID', CMS_RESOURCE_PAGE_REVISION_ID);",
+											"    pm.expect(CMS_RESOURCE_PAGE_REVISION_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_PAGE_REVISION_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "_token",
+											"value": "{{TOKEN_CSRF}}",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/pages/revision/{{CMS_RESOURCE_PAGE_REVISION_ID}}",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"pages",
+										"revision",
+										"{{CMS_RESOURCE_PAGE_REVISION_ID}}"
 									]
 								}
 							},
@@ -2386,6 +2734,413 @@
 							"response": []
 						},
 						{
+							"name": "revisions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Get the revisions for a CMS Snippet', function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.not.be.json;",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_SNIPPET_ID', function() {",
+											"    const CMS_RESOURCE_SNIPPET_ID = pm.environment.get('CMS_RESOURCE_SNIPPET_ID');",
+											"    console.info('CMS_RESOURCE_SNIPPET_ID', CMS_RESOURCE_SNIPPET_ID);",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "{{CMS_RESOURCE_PAGE_SLUG}}",
+											"type": "text"
+										},
+										{
+											"key": "_token",
+											"value": "{{TOKEN_CSRF}}",
+											"type": "text"
+										},
+										{
+											"key": "slug",
+											"value": "{{CMS_RESOURCE_PAGE_SLUG}}",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "active",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "allow_public",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/snippets/{{CMS_RESOURCE_SNIPPET_ID}}/revisions",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"snippets",
+										"{{CMS_RESOURCE_SNIPPET_ID}}",
+										"revisions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "revisions - CMS_RESOURCE_SNIPPET_REVISION_ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Get the revisions for a CMS Snippet', function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.be.json;",
+											"    pm.response.to.have.jsonBody('data');",
+											"    pm.response.to.have.jsonBody('meta');",
+											"    pm.response.to.not.have.jsonBody('error');",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"",
+											"    const responseJson = pm.response.json();",
+											"",
+											"    pm.expect(responseJson.data).to.be.a('array');",
+											"    pm.expect(responseJson.data[0]).to.be.a('object');",
+											"",
+											"    pm.expect(responseJson.data[0].id).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].id).to.not.be.empty;",
+											"",
+											"    pm.environment.set('CMS_RESOURCE_SNIPPET_REVISION_ID', responseJson.data[0].id);",
+											"    console.info('CMS_RESOURCE_SNIPPET_REVISION_ID', pm.environment.get('CMS_RESOURCE_SNIPPET_REVISION_ID'));",
+											"",
+											"    pm.expect(responseJson.data[0].snippet_id).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].snippet_id).to.not.be.empty;",
+											"    pm.expect(responseJson.data[0].snippet_id).to.be.equal(pm.environment.get('CMS_RESOURCE_SNIPPET_ID'));",
+											"",
+											"    pm.expect(responseJson.data[0].title).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].slug).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].content).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].created_at).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].active).to.be.true;",
+											"",
+											"    pm.expect(responseJson.meta).to.be.a('object');",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_SNIPPET_ID', function() {",
+											"    const CMS_RESOURCE_SNIPPET_ID = pm.environment.get('CMS_RESOURCE_SNIPPET_ID');",
+											"    console.info('CMS_RESOURCE_SNIPPET_ID', CMS_RESOURCE_SNIPPET_ID);",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/snippets/{{CMS_RESOURCE_SNIPPET_ID}}/revisions",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"snippets",
+										"{{CMS_RESOURCE_SNIPPET_ID}}",
+										"revisions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "revision",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Get a revision for a CMS Snippet', function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.not.be.json;",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_SNIPPET_REVISION_ID', function() {",
+											"    const CMS_RESOURCE_SNIPPET_REVISION_ID = pm.environment.get('CMS_RESOURCE_SNIPPET_REVISION_ID');",
+											"    console.info('CMS_RESOURCE_SNIPPET_REVISION_ID', CMS_RESOURCE_SNIPPET_REVISION_ID);",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_REVISION_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_REVISION_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "{{CMS_RESOURCE_PAGE_SLUG}}",
+											"type": "text"
+										},
+										{
+											"key": "_token",
+											"value": "{{TOKEN_CSRF}}",
+											"type": "text"
+										},
+										{
+											"key": "slug",
+											"value": "{{CMS_RESOURCE_PAGE_SLUG}}",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "active",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "allow_public",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/snippets/revision/{{CMS_RESOURCE_SNIPPET_REVISION_ID}}",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"snippets",
+										"revision",
+										"{{CMS_RESOURCE_SNIPPET_REVISION_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restore revision",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Update a CMS Snippet', function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.not.be.json;",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_SNIPPET_REVISION_ID', function() {",
+											"    const CMS_RESOURCE_SNIPPET_REVISION_ID = pm.environment.get('CMS_RESOURCE_SNIPPET_REVISION_ID');",
+											"    console.info('CMS_RESOURCE_SNIPPET_REVISION_ID', CMS_RESOURCE_SNIPPET_REVISION_ID);",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_REVISION_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_REVISION_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text",
+										"disabled": true
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "title",
+											"value": "{{CMS_RESOURCE_PAGE_SLUG}}",
+											"type": "text"
+										},
+										{
+											"key": "_token",
+											"value": "{{TOKEN_CSRF}}",
+											"type": "text"
+										},
+										{
+											"key": "slug",
+											"value": "{{CMS_RESOURCE_PAGE_SLUG}}",
+											"type": "text"
+										},
+										{
+											"key": "published",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "active",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "allow_public",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/snippets/revision/{{CMS_RESOURCE_SNIPPET_REVISION_ID}}",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"snippets",
+										"revision",
+										"{{CMS_RESOURCE_SNIPPET_REVISION_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "trash",
 							"event": [
 								{
@@ -3320,7 +4075,7 @@
 									"script": {
 										"exec": [
 											"pm.test('See an index response from CMS Pages', function() {",
-											"    pm.response.to.have.status(200);",
+											"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
 											"    pm.response.to.not.be.error;",
 											"    pm.response.to.be.ok;",
 											"    pm.response.to.be.withBody;",
@@ -3374,7 +4129,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"slug\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"content\": \"Lorem impsum\",\n    \"_token\": \"{{TOKEN_CSRF}}\",\n    \"published\": true,\n    \"active\": true,\n    \"allow_public\": true\n}",
+									"raw": "{\n    \"title\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"slug\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"content\": \"Original: Lorem impsum\",\n    \"_token\": \"{{TOKEN_CSRF}}\",\n    \"published\": true,\n    \"active\": true,\n    \"allow_public\": true\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3698,6 +4453,185 @@
 							"response": []
 						},
 						{
+							"name": "revisions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Get the revisions for a CMS Page', function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.be.json;",
+											"    pm.response.to.have.jsonBody('data');",
+											"    pm.response.to.have.jsonBody('meta');",
+											"    pm.response.to.not.have.jsonBody('error');",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"",
+											"    const responseJson = pm.response.json();",
+											"",
+											"    pm.expect(responseJson.data).to.be.a('array');",
+											"    pm.expect(responseJson.data[0]).to.be.a('object');",
+											"",
+											"    pm.expect(responseJson.data[0].id).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].id).to.not.be.empty;",
+											"",
+											"    pm.environment.set('CMS_RESOURCE_PAGE_REVISION_ID', responseJson.data[0].id);",
+											"    console.info('CMS_RESOURCE_PAGE_REVISION_ID', pm.environment.get('CMS_RESOURCE_PAGE_REVISION_ID'));",
+											"",
+											"    pm.expect(responseJson.data[0].page_id).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].page_id).to.not.be.empty;",
+											"    pm.expect(responseJson.data[0].page_id).to.be.equal(pm.environment.get('CMS_RESOURCE_PAGE_ID'));",
+											"",
+											"    pm.expect(responseJson.data[0].title).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].slug).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].content).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].created_at).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].active).to.be.true;",
+											"",
+											"    pm.expect(responseJson.meta).to.be.a('object');",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_PAGE_ID', function() {",
+											"    const CMS_RESOURCE_PAGE_ID = pm.environment.get('CMS_RESOURCE_PAGE_ID');",
+											"    console.info('CMS_RESOURCE_PAGE_ID', CMS_RESOURCE_PAGE_ID);",
+											"    pm.expect(CMS_RESOURCE_PAGE_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_PAGE_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/pages/{{CMS_RESOURCE_PAGE_ID}}/revisions",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"pages",
+										"{{CMS_RESOURCE_PAGE_ID}}",
+										"revisions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "revision",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Get a revision for a CMS Page', function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.be.json;",
+											"    pm.response.to.have.jsonBody('data');",
+											"    pm.response.to.have.jsonBody('meta');",
+											"    pm.response.to.not.have.jsonBody('error');",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"",
+											"    const responseJson = pm.response.json();",
+											"",
+											"    pm.expect(responseJson.data).to.be.a('object');",
+											"",
+											"    pm.expect(responseJson.data.id).to.be.a('string');",
+											"    pm.expect(responseJson.data.id).to.be.equal(pm.environment.get('CMS_RESOURCE_PAGE_REVISION_ID'));",
+											"",
+											"    pm.expect(responseJson.data.page_id).to.be.a('string');",
+											"    pm.expect(responseJson.data.page_id).to.be.equal(pm.environment.get('CMS_RESOURCE_PAGE_ID'));",
+											"",
+											"    pm.expect(responseJson.data.title).to.be.a('string');",
+											"    pm.expect(responseJson.data.slug).to.be.a('string');",
+											"    pm.expect(responseJson.data.content).to.be.a('string');",
+											"    pm.expect(responseJson.data.created_at).to.be.a('string');",
+											"    pm.expect(responseJson.data.active).to.be.true;",
+											"",
+											"    pm.expect(responseJson.meta).to.be.a('object');",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_PAGE_REVISION_ID', function() {",
+											"    const CMS_RESOURCE_PAGE_REVISION_ID = pm.environment.get('CMS_RESOURCE_PAGE_REVISION_ID');",
+											"    console.info('CMS_RESOURCE_PAGE_REVISION_ID', CMS_RESOURCE_PAGE_REVISION_ID);",
+											"    pm.expect(CMS_RESOURCE_PAGE_REVISION_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_PAGE_REVISION_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/pages/revision/{{CMS_RESOURCE_PAGE_REVISION_ID}}",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"pages",
+										"revision",
+										"{{CMS_RESOURCE_PAGE_REVISION_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "update",
 							"event": [
 								{
@@ -3770,7 +4704,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"slug\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"content\": \"Lorem impsum\",\n    \"_token\": \"{{TOKEN_CSRF}}\",\n    \"published\": true,\n    \"active\": true,\n    \"allow_public\": true\n}",
+									"raw": "{\n    \"title\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"slug\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"content\": \"Updated: Lorem impsum\",\n    \"_token\": \"{{TOKEN_CSRF}}\",\n    \"published\": true,\n    \"active\": true,\n    \"allow_public\": true\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3785,6 +4719,100 @@
 									"path": [
 										"pages",
 										"{{CMS_RESOURCE_PAGE_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restore revision",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Restore a CMS Page to a previous revision\", function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.be.json;",
+											"    pm.response.to.have.jsonBody(\"data\");",
+											"    pm.response.to.have.jsonBody(\"meta\");",
+											"    pm.response.to.not.have.jsonBody(\"error\");",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"",
+											"    const responseJson = pm.response.json();",
+											"",
+											"    pm.expect(responseJson.data).to.be.a('object');",
+											"",
+											"    pm.expect(responseJson.data.id).to.be.a('string');",
+											"    pm.expect(responseJson.data.id).to.be.equal(pm.environment.get('CMS_RESOURCE_PAGE_ID'));",
+											"",
+											"    pm.expect(responseJson.data.title).to.be.a('string');",
+											"    pm.expect(responseJson.data.slug).to.be.a('string');",
+											"    pm.expect(responseJson.data.slug).to.be.equal(pm.environment.get('CMS_RESOURCE_PAGE_SLUG'));",
+											"    pm.expect(responseJson.data.content).to.be.a('string');",
+											"    pm.expect(responseJson.data.created_at).to.be.a('string');",
+											"    pm.expect(responseJson.data.active).to.be.true;",
+											"",
+											"    pm.expect(responseJson.meta).to.be.a('object');",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_PAGE_REVISION_ID', function() {",
+											"    const CMS_RESOURCE_PAGE_REVISION_ID = pm.environment.get('CMS_RESOURCE_PAGE_REVISION_ID');",
+											"    console.info('CMS_RESOURCE_PAGE_REVISION_ID', CMS_RESOURCE_PAGE_REVISION_ID);",
+											"    pm.expect(CMS_RESOURCE_PAGE_REVISION_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_PAGE_REVISION_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"_token\": \"{{TOKEN_CSRF}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/pages/revision/{{CMS_RESOURCE_PAGE_REVISION_ID}}",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"pages",
+										"revision",
+										"{{CMS_RESOURCE_PAGE_REVISION_ID}}"
 									]
 								}
 							},
@@ -4358,7 +5386,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_token\": \"{{TOKEN_CSRF}}\"\n}",
+									"raw": "{\n    \"_token\": \"{{TOKEN_CSRF}}\",\n    \"force\": true\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4524,7 +5552,7 @@
 									"script": {
 										"exec": [
 											"pm.test('See an index response from CMS Snippets', function() {",
-											"    pm.response.to.have.status(200);",
+											"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
 											"    pm.response.to.not.be.error;",
 											"    pm.response.to.be.ok;",
 											"    pm.response.to.be.withBody;",
@@ -4578,7 +5606,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"slug\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"content\": \"Lorem impsum\",\n    \"_token\": \"{{TOKEN_CSRF}}\",\n    \"published\": true,\n    \"active\": true,\n    \"allow_public\": true\n}",
+									"raw": "{\n    \"title\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"slug\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"content\": \"Original: Lorem impsum\",\n    \"_token\": \"{{TOKEN_CSRF}}\",\n    \"published\": true,\n    \"active\": true,\n    \"allow_public\": true\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4974,7 +6002,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"title\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"slug\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"content\": \"Lorem impsum\",\n    \"_token\": \"{{TOKEN_CSRF}}\",\n    \"published\": true,\n    \"active\": true,\n    \"allow_public\": true\n}",
+									"raw": "{\n    \"title\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"slug\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"content\": \"Updated: Lorem impsum\",\n    \"_token\": \"{{TOKEN_CSRF}}\",\n    \"published\": true,\n    \"active\": true,\n    \"allow_public\": true\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4989,6 +6017,279 @@
 									"path": [
 										"snippets",
 										"{{CMS_RESOURCE_SNIPPET_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "revisions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Get the revisions for a CMS Snippet', function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.be.json;",
+											"    pm.response.to.have.jsonBody('data');",
+											"    pm.response.to.have.jsonBody('meta');",
+											"    pm.response.to.not.have.jsonBody('error');",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"",
+											"    const responseJson = pm.response.json();",
+											"",
+											"    pm.expect(responseJson.data).to.be.a('array');",
+											"    pm.expect(responseJson.data[0]).to.be.a('object');",
+											"",
+											"    pm.expect(responseJson.data[0].id).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].id).to.not.be.empty;",
+											"",
+											"    pm.environment.set('CMS_RESOURCE_SNIPPET_REVISION_ID', responseJson.data[0].id);",
+											"    console.info('CMS_RESOURCE_SNIPPET_REVISION_ID', pm.environment.get('CMS_RESOURCE_SNIPPET_REVISION_ID'));",
+											"",
+											"    pm.expect(responseJson.data[0].snippet_id).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].snippet_id).to.not.be.empty;",
+											"    pm.expect(responseJson.data[0].snippet_id).to.be.equal(pm.environment.get('CMS_RESOURCE_SNIPPET_ID'));",
+											"",
+											"    pm.expect(responseJson.data[0].title).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].slug).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].content).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].created_at).to.be.a('string');",
+											"    pm.expect(responseJson.data[0].active).to.be.true;",
+											"",
+											"    pm.expect(responseJson.meta).to.be.a('object');",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_SNIPPET_ID', function() {",
+											"    const CMS_RESOURCE_SNIPPET_ID = pm.environment.get('CMS_RESOURCE_SNIPPET_ID');",
+											"    console.info('CMS_RESOURCE_SNIPPET_ID', CMS_RESOURCE_SNIPPET_ID);",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/snippets/{{CMS_RESOURCE_SNIPPET_ID}}/revisions",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"snippets",
+										"{{CMS_RESOURCE_SNIPPET_ID}}",
+										"revisions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "revision",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test('Get a revision for a CMS Snippet', function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.be.json;",
+											"    pm.response.to.have.jsonBody('data');",
+											"    pm.response.to.have.jsonBody('meta');",
+											"    pm.response.to.not.have.jsonBody('error');",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"",
+											"    const responseJson = pm.response.json();",
+											"",
+											"    pm.expect(responseJson.data).to.be.a('object');",
+											"",
+											"    pm.expect(responseJson.data.id).to.be.a('string');",
+											"    pm.expect(responseJson.data.id).to.be.equal(pm.environment.get('CMS_RESOURCE_SNIPPET_REVISION_ID'));",
+											"",
+											"    pm.expect(responseJson.data.snippet_id).to.be.a('string');",
+											"    pm.expect(responseJson.data.snippet_id).to.be.equal(pm.environment.get('CMS_RESOURCE_SNIPPET_ID'));",
+											"",
+											"    pm.expect(responseJson.data.title).to.be.a('string');",
+											"    pm.expect(responseJson.data.slug).to.be.a('string');",
+											"    pm.expect(responseJson.data.content).to.be.a('string');",
+											"    pm.expect(responseJson.data.created_at).to.be.a('string');",
+											"    pm.expect(responseJson.data.active).to.be.true;",
+											"",
+											"    pm.expect(responseJson.meta).to.be.a('object');",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_SNIPPET_REVISION_ID', function() {",
+											"    const CMS_RESOURCE_SNIPPET_REVISION_ID = pm.environment.get('CMS_RESOURCE_SNIPPET_REVISION_ID');",
+											"    console.info('CMS_RESOURCE_SNIPPET_REVISION_ID', CMS_RESOURCE_SNIPPET_REVISION_ID);",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_REVISION_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_REVISION_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/snippets/revision/{{CMS_RESOURCE_SNIPPET_REVISION_ID}}",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"snippets",
+										"revision",
+										"{{CMS_RESOURCE_SNIPPET_REVISION_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "restore revision",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Restore a CMS Snippet to a previous revision\", function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.be.json;",
+											"    pm.response.to.have.jsonBody(\"data\");",
+											"    pm.response.to.have.jsonBody(\"meta\");",
+											"    pm.response.to.not.have.jsonBody(\"error\");",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"",
+											"    const responseJson = pm.response.json();",
+											"",
+											"    pm.expect(responseJson.data).to.be.a('object');",
+											"",
+											"    pm.expect(responseJson.data.id).to.be.a('string');",
+											"    pm.expect(responseJson.data.id).to.be.equal(pm.environment.get('CMS_RESOURCE_SNIPPET_ID'));",
+											"",
+											"    pm.expect(responseJson.data.title).to.be.a('string');",
+											"    pm.expect(responseJson.data.slug).to.be.a('string');",
+											"    pm.expect(responseJson.data.slug).to.be.equal(pm.environment.get('CMS_RESOURCE_SNIPPET_SLUG'));",
+											"    pm.expect(responseJson.data.content).to.be.a('string');",
+											"    pm.expect(responseJson.data.created_at).to.be.a('string');",
+											"    pm.expect(responseJson.data.active).to.be.true;",
+											"",
+											"    pm.expect(responseJson.meta).to.be.a('object');",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_SNIPPET_REVISION_ID', function() {",
+											"    const CMS_RESOURCE_SNIPPET_REVISION_ID = pm.environment.get('CMS_RESOURCE_SNIPPET_REVISION_ID');",
+											"    console.info('CMS_RESOURCE_SNIPPET_REVISION_ID', CMS_RESOURCE_SNIPPET_REVISION_ID);",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_REVISION_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_SNIPPET_REVISION_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"_token\": \"{{TOKEN_CSRF}}\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/snippets/revision/{{CMS_RESOURCE_SNIPPET_REVISION_ID}}",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"snippets",
+										"revision",
+										"{{CMS_RESOURCE_SNIPPET_REVISION_ID}}"
 									]
 								}
 							},
@@ -5562,7 +6863,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"_token\": \"{{TOKEN_CSRF}}\"\n}",
+									"raw": "{\n    \"_token\": \"{{TOKEN_CSRF}}\",\n    \"force\": true\n}",
 									"options": {
 										"raw": {
 											"language": "json"

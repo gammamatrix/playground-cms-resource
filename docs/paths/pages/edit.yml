@@ -7,14 +7,14 @@ parameters:
     schema:
       type: string
       format: uuid
-put:
+get:
   tags:
     - Page
-  summary: 'Restore a page from the trash by id.'
-  operationId: restore_page
+  summary: 'Edit a page form.'
+  operationId: edit_page
   responses:
     200:
-      description: 'The restored page.'
+      description: 'The edit information (JSON) or form (HTML).'
       content:
         application/json:
           schema:
@@ -24,6 +24,10 @@ put:
                 $ref: ../../models/page.yml
               meta:
                 type: object
+        text/html:
+          schema:
+            type: string
+            example: '<html><body><form method="POST" action="/resource/cms/pages/{id}">Edit a page</form></body></html>'
     401:
       description: Unauthorized
     403:

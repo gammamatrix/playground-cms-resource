@@ -13,8 +13,8 @@ info:
   title: Playground CMS Resource
   description: ''
   termsOfService: ''
-  contact:
-    email: support@example.com
+  # contact:
+  #   email: support@example.com
   version: 73.0.0
 externalDocs:
   description: ''
@@ -27,25 +27,45 @@ tags:
     name: Snippet
     description: 'Manage snippets in storage.'
 paths:
-  '/resource/snippets/{id}':
+  '/resource/cms/snippets/{id}':
     $ref: paths/snippets/id.yml
-  /resource/snippets:
+  /resource/cms/snippets:
     $ref: paths/snippets/index.yml
-  '/resource/snippets/lock/{id}':
+  /resource/cms/snippets/create:
+    $ref: paths/snippets/create.yml
+  '/resource/cms/snippets/edit/{id}':
+    $ref: paths/snippets/edit.yml
+  '/resource/cms/snippets/lock/{id}':
     $ref: paths/snippets/lock.yml
-  '/resource/snippets/restore/{id}':
+  '/resource/cms/snippets/restore/{id}':
     $ref: paths/snippets/restore.yml
-  '/resource/pages/{id}':
+  '/resource/cms/snippets/revision/{id}':
+    $ref: paths/snippets/revision.yml
+  '/resource/cms/snippets/{id}/revisions':
+    $ref: paths/snippets/revisions.yml
+  '/resource/cms/pages/{id}':
     $ref: paths/pages/id.yml
-  /resource/pages:
+  /resource/cms/pages:
     $ref: paths/pages/index.yml
-  '/resource/pages/lock/{id}':
+  /resource/cms/pages/create:
+    $ref: paths/pages/create.yml
+  '/resource/cms/pages/edit/{id}':
+    $ref: paths/pages/edit.yml
+  '/resource/cms/pages/lock/{id}':
     $ref: paths/pages/lock.yml
-  '/resource/pages/restore/{id}':
+  '/resource/cms/pages/restore/{id}':
     $ref: paths/pages/restore.yml
+  '/resource/cms/pages/revision/{id}':
+    $ref: paths/pages/revision.yml
+  '/resource/cms/pages/{id}/revisions':
+    $ref: paths/pages/revisions.yml
 components:
   schemas:
     Page:
       $ref: models/page.yml
+    PageRevision:
+      $ref: models/page-revision.yml
     Snippet:
       $ref: models/snippet.yml
+    SnippetRevision:
+      $ref: models/snippet-revision.yml
