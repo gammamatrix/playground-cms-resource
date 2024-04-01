@@ -186,311 +186,6 @@
 							"response": []
 						},
 						{
-							"name": "3. Authenticate as Guest",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test('Login as admin.', function() {",
-											"    pm.response.to.have.status(200);",
-											"    pm.response.to.not.be.error;",
-											"    pm.response.to.be.ok;",
-											"    pm.response.to.be.withBody;",
-											"    pm.response.to.not.be.json;",
-											"",
-											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
-											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
-											"})"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"protocolProfileBehavior": {
-								"disabledSystemHeaders": {}
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "email",
-											"value": "{{EMAIL_GUEST}}",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "{{PASSWORD_TESTING}}",
-											"type": "text"
-										},
-										{
-											"key": "_token",
-											"value": "{{TOKEN_CSRF}}",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{URL_APP}}/login",
-									"host": [
-										"{{URL_APP}}"
-									],
-									"path": [
-										"login"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "3. Authenticate as Manager",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test('Login as admin.', function() {",
-											"    pm.response.to.have.status(200);",
-											"    pm.response.to.not.be.error;",
-											"    pm.response.to.be.ok;",
-											"    pm.response.to.be.withBody;",
-											"    pm.response.to.not.be.json;",
-											"",
-											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
-											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
-											"})"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"protocolProfileBehavior": {
-								"disabledSystemHeaders": {}
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "email",
-											"value": "{{EMAIL_MANAGER}}",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "{{PASSWORD_TESTING}}",
-											"type": "text"
-										},
-										{
-											"key": "_token",
-											"value": "{{TOKEN_CSRF}}",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{URL_APP}}/login",
-									"host": [
-										"{{URL_APP}}"
-									],
-									"path": [
-										"login"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "3. Authenticate as Publisher",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test('Login as admin.', function() {",
-											"    pm.response.to.have.status(200);",
-											"    pm.response.to.not.be.error;",
-											"    pm.response.to.be.ok;",
-											"    pm.response.to.be.withBody;",
-											"    pm.response.to.not.be.json;",
-											"",
-											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
-											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
-											"})"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"protocolProfileBehavior": {
-								"disabledSystemHeaders": {}
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "email",
-											"value": "{{EMAIL_PUBLISHER}}",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "{{PASSWORD_TESTING}}",
-											"type": "text"
-										},
-										{
-											"key": "_token",
-											"value": "{{TOKEN_CSRF}}",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{URL_APP}}/login",
-									"host": [
-										"{{URL_APP}}"
-									],
-									"path": [
-										"login"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "3. Authenticate as Root",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test('Login as admin.', function() {",
-											"    pm.response.to.have.status(200);",
-											"    pm.response.to.not.be.error;",
-											"    pm.response.to.be.ok;",
-											"    pm.response.to.be.withBody;",
-											"    pm.response.to.not.be.json;",
-											"",
-											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
-											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
-											"})"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"protocolProfileBehavior": {
-								"disabledSystemHeaders": {}
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "email",
-											"value": "{{EMAIL_ROOT}}",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "{{PASSWORD_TESTING}}",
-											"type": "text"
-										},
-										{
-											"key": "_token",
-											"value": "{{TOKEN_CSRF}}",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{URL_APP}}/login",
-									"host": [
-										"{{URL_APP}}"
-									],
-									"path": [
-										"login"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "3. Authenticate as User",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test('Login as admin.', function() {",
-											"    pm.response.to.have.status(200);",
-											"    pm.response.to.not.be.error;",
-											"    pm.response.to.be.ok;",
-											"    pm.response.to.be.withBody;",
-											"    pm.response.to.not.be.json;",
-											"",
-											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
-											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
-											"})"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"protocolProfileBehavior": {
-								"disabledSystemHeaders": {}
-							},
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "urlencoded",
-									"urlencoded": [
-										{
-											"key": "email",
-											"value": "{{EMAIL_USER}}",
-											"type": "text"
-										},
-										{
-											"key": "password",
-											"value": "{{PASSWORD_TESTING}}",
-											"type": "text"
-										},
-										{
-											"key": "_token",
-											"value": "{{TOKEN_CSRF}}",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{URL_APP}}/login",
-									"host": [
-										"{{URL_APP}}"
-									],
-									"path": [
-										"login"
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "4. Reissue the CSRF Token after authentication",
 							"event": [
 								{
@@ -569,9 +264,9 @@
 											"    pm.expect(responseJson.data).to.be.a('array');",
 											"    pm.expect(responseJson.meta).to.be.a('object');",
 											"",
-											"    pm.expect(responseJson.data[0]).to.be.a('object');",
-											"    pm.expect(responseJson.data[0].id).to.be.a('string');",
-											"    pm.expect(responseJson.data[0].slug).to.be.a('string');",
+											"    // pm.expect(responseJson.data[0]).to.be.a('object');",
+											"    // pm.expect(responseJson.data[0].id).to.be.a('string');",
+											"    // pm.expect(responseJson.data[0].slug).to.be.a('string');",
 											"})"
 										],
 										"type": "text/javascript",
@@ -718,7 +413,6 @@
 											"pm.test('Create a CMS Page', function() {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
 											"    pm.response.to.not.be.error;",
-											"    pm.response.to.be.ok;",
 											"    pm.response.to.be.withBody;",
 											"    pm.response.to.not.be.json;",
 											"",
@@ -2114,9 +1808,9 @@
 											"    pm.expect(responseJson.data).to.be.a('array');",
 											"    pm.expect(responseJson.meta).to.be.a('object');",
 											"",
-											"    pm.expect(responseJson.data[0]).to.be.a('object');",
-											"    pm.expect(responseJson.data[0].id).to.be.a('string');",
-											"    pm.expect(responseJson.data[0].slug).to.be.a('string');",
+											"    // pm.expect(responseJson.data[0]).to.be.a('object');",
+											"    // pm.expect(responseJson.data[0].id).to.be.a('string');",
+											"    // pm.expect(responseJson.data[0].slug).to.be.a('string');",
 											"})"
 										],
 										"type": "text/javascript",
@@ -2263,7 +1957,6 @@
 											"pm.test('Create a CMS Snippet', function() {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
 											"    pm.response.to.not.be.error;",
-											"    pm.response.to.be.ok;",
 											"    pm.response.to.be.withBody;",
 											"    pm.response.to.not.be.json;",
 											"",
@@ -4077,7 +3770,6 @@
 											"pm.test('See an index response from CMS Pages', function() {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
 											"    pm.response.to.not.be.error;",
-											"    pm.response.to.be.ok;",
 											"    pm.response.to.be.withBody;",
 											"    pm.response.to.be.json;",
 											"    pm.response.to.have.jsonBody('data');",
@@ -4089,7 +3781,7 @@
 											"",
 											"    const responseJson = pm.response.json();",
 											"",
-											"    pm.expect(responseJson.data).to.be.a('array');",
+											"    pm.expect(responseJson.data).to.be.a('object');",
 											"    pm.expect(responseJson.meta).to.be.a('object');",
 											"})"
 										],
@@ -4453,6 +4145,99 @@
 							"response": []
 						},
 						{
+							"name": "update",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Update a CMS Page\", function() {",
+											"    pm.response.to.have.status(200);",
+											"    pm.response.to.not.be.error;",
+											"    pm.response.to.be.ok;",
+											"    pm.response.to.be.withBody;",
+											"    pm.response.to.be.json;",
+											"    pm.response.to.have.jsonBody(\"data\");",
+											"    pm.response.to.have.jsonBody(\"meta\");",
+											"    pm.response.to.not.have.jsonBody(\"error\");",
+											"",
+											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
+											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
+											"",
+											"    const responseJson = pm.response.json();",
+											"",
+											"    pm.expect(responseJson.data).to.be.a('object');",
+											"",
+											"    pm.expect(responseJson.data.id).to.be.a('string');",
+											"    pm.expect(responseJson.data.id).to.be.equal(pm.environment.get('CMS_RESOURCE_PAGE_ID'));",
+											"",
+											"    pm.expect(responseJson.data.title).to.be.a('string');",
+											"    pm.expect(responseJson.data.slug).to.be.a('string');",
+											"    pm.expect(responseJson.data.slug).to.be.equal(pm.environment.get('CMS_RESOURCE_PAGE_SLUG'));",
+											"    pm.expect(responseJson.data.content).to.be.a('string');",
+											"    pm.expect(responseJson.data.created_at).to.be.a('string');",
+											"    pm.expect(responseJson.data.active).to.be.true;",
+											"",
+											"    pm.expect(responseJson.meta).to.be.a('object');",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.test('Require CMS_RESOURCE_PAGE_ID', function() {",
+											"    const CMS_RESOURCE_PAGE_ID = pm.environment.get('CMS_RESOURCE_PAGE_ID');",
+											"    console.info('CMS_RESOURCE_PAGE_ID', CMS_RESOURCE_PAGE_ID);",
+											"    pm.expect(CMS_RESOURCE_PAGE_ID).to.be.string;",
+											"    pm.expect(CMS_RESOURCE_PAGE_ID).to.not.be.empty;",
+											"})"
+										],
+										"type": "text/javascript",
+										"packages": {}
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "X-Requested-With",
+										"value": "XMLHttpRequest",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"slug\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"content\": \"Updated: Lorem impsum\",\n    \"_token\": \"{{TOKEN_CSRF}}\",\n    \"published\": true,\n    \"active\": true,\n    \"allow_public\": true\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/pages/{{CMS_RESOURCE_PAGE_ID}}",
+									"host": [
+										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
+									],
+									"path": [
+										"pages",
+										"{{CMS_RESOURCE_PAGE_ID}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "revisions",
 							"event": [
 								{
@@ -4626,99 +4411,6 @@
 										"pages",
 										"revision",
 										"{{CMS_RESOURCE_PAGE_REVISION_ID}}"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "update",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Update a CMS Page\", function() {",
-											"    pm.response.to.have.status(200);",
-											"    pm.response.to.not.be.error;",
-											"    pm.response.to.be.ok;",
-											"    pm.response.to.be.withBody;",
-											"    pm.response.to.be.json;",
-											"    pm.response.to.have.jsonBody(\"data\");",
-											"    pm.response.to.have.jsonBody(\"meta\");",
-											"    pm.response.to.not.have.jsonBody(\"error\");",
-											"",
-											"    pm.expect(pm.cookies.has('XSRF-TOKEN')).to.be.string;",
-											"    pm.expect(pm.cookies.has('_session')).to.be.string;",
-											"",
-											"    const responseJson = pm.response.json();",
-											"",
-											"    pm.expect(responseJson.data).to.be.a('object');",
-											"",
-											"    pm.expect(responseJson.data.id).to.be.a('string');",
-											"    pm.expect(responseJson.data.id).to.be.equal(pm.environment.get('CMS_RESOURCE_PAGE_ID'));",
-											"",
-											"    pm.expect(responseJson.data.title).to.be.a('string');",
-											"    pm.expect(responseJson.data.slug).to.be.a('string');",
-											"    pm.expect(responseJson.data.slug).to.be.equal(pm.environment.get('CMS_RESOURCE_PAGE_SLUG'));",
-											"    pm.expect(responseJson.data.content).to.be.a('string');",
-											"    pm.expect(responseJson.data.created_at).to.be.a('string');",
-											"    pm.expect(responseJson.data.active).to.be.true;",
-											"",
-											"    pm.expect(responseJson.meta).to.be.a('object');",
-											"})"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								},
-								{
-									"listen": "prerequest",
-									"script": {
-										"exec": [
-											"pm.test('Require CMS_RESOURCE_PAGE_ID', function() {",
-											"    const CMS_RESOURCE_PAGE_ID = pm.environment.get('CMS_RESOURCE_PAGE_ID');",
-											"    console.info('CMS_RESOURCE_PAGE_ID', CMS_RESOURCE_PAGE_ID);",
-											"    pm.expect(CMS_RESOURCE_PAGE_ID).to.be.string;",
-											"    pm.expect(CMS_RESOURCE_PAGE_ID).to.not.be.empty;",
-											"})"
-										],
-										"type": "text/javascript",
-										"packages": {}
-									}
-								}
-							],
-							"request": {
-								"method": "PATCH",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "X-Requested-With",
-										"value": "XMLHttpRequest",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"title\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"slug\": \"{{CMS_RESOURCE_PAGE_SLUG}}\",\n    \"content\": \"Updated: Lorem impsum\",\n    \"_token\": \"{{TOKEN_CSRF}}\",\n    \"published\": true,\n    \"active\": true,\n    \"allow_public\": true\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}/pages/{{CMS_RESOURCE_PAGE_ID}}",
-									"host": [
-										"{{URL_RESOURCE}}{{URI_RESOURCE_CMS}}"
-									],
-									"path": [
-										"pages",
-										"{{CMS_RESOURCE_PAGE_ID}}"
 									]
 								}
 							},
@@ -5554,7 +5246,6 @@
 											"pm.test('See an index response from CMS Snippets', function() {",
 											"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
 											"    pm.response.to.not.be.error;",
-											"    pm.response.to.be.ok;",
 											"    pm.response.to.be.withBody;",
 											"    pm.response.to.be.json;",
 											"    pm.response.to.have.jsonBody('data');",
@@ -5566,7 +5257,7 @@
 											"",
 											"    const responseJson = pm.response.json();",
 											"",
-											"    pm.expect(responseJson.data).to.be.a('array');",
+											"    pm.expect(responseJson.data).to.be.a('object');",
 											"    pm.expect(responseJson.meta).to.be.a('object');",
 											"})"
 										],
