@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-04-01 22:36:05</timestamp>
+  <timestamp>2024-07-09 00:29:46</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>71</methodCount>
+    <methodCount>62</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>219</totalCrap>
+    <totalCrap>210</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -487,31 +487,9 @@
     <method>
       <package>Playground\Cms\Resource\Http\Resources</package>
       <className>Playground\Cms\Resource\Http\Resources\Page</className>
-      <methodName>toArray</methodName>
-      <methodSignature>toArray(Illuminate\Http\Request $request)</methodSignature>
-      <fullMethod>toArray(Illuminate\Http\Request $request)</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Cms\Resource\Http\Resources</package>
-      <className>Playground\Cms\Resource\Http\Resources\Page</className>
       <methodName>with</methodName>
       <methodSignature>with(Illuminate\Http\Request $request): array</methodSignature>
       <fullMethod>with(Illuminate\Http\Request $request): array</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Cms\Resource\Http\Resources</package>
-      <className>Playground\Cms\Resource\Http\Resources\PageCollection</className>
-      <methodName>toArray</methodName>
-      <methodSignature>toArray(Illuminate\Http\Request $request)</methodSignature>
-      <fullMethod>toArray(Illuminate\Http\Request $request)</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -531,31 +509,9 @@
     <method>
       <package>Playground\Cms\Resource\Http\Resources</package>
       <className>Playground\Cms\Resource\Http\Resources\PageRevision</className>
-      <methodName>toArray</methodName>
-      <methodSignature>toArray(Illuminate\Http\Request $request)</methodSignature>
-      <fullMethod>toArray(Illuminate\Http\Request $request)</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Cms\Resource\Http\Resources</package>
-      <className>Playground\Cms\Resource\Http\Resources\PageRevision</className>
       <methodName>with</methodName>
       <methodSignature>with(Illuminate\Http\Request $request): array</methodSignature>
       <fullMethod>with(Illuminate\Http\Request $request): array</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Cms\Resource\Http\Resources</package>
-      <className>Playground\Cms\Resource\Http\Resources\PageRevisionCollection</className>
-      <methodName>toArray</methodName>
-      <methodSignature>toArray(Illuminate\Http\Request $request)</methodSignature>
-      <fullMethod>toArray(Illuminate\Http\Request $request)</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -575,31 +531,9 @@
     <method>
       <package>Playground\Cms\Resource\Http\Resources</package>
       <className>Playground\Cms\Resource\Http\Resources\Snippet</className>
-      <methodName>toArray</methodName>
-      <methodSignature>toArray(Illuminate\Http\Request $request)</methodSignature>
-      <fullMethod>toArray(Illuminate\Http\Request $request)</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Cms\Resource\Http\Resources</package>
-      <className>Playground\Cms\Resource\Http\Resources\Snippet</className>
       <methodName>with</methodName>
       <methodSignature>with(Illuminate\Http\Request $request): array</methodSignature>
       <fullMethod>with(Illuminate\Http\Request $request): array</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Cms\Resource\Http\Resources</package>
-      <className>Playground\Cms\Resource\Http\Resources\SnippetCollection</className>
-      <methodName>toArray</methodName>
-      <methodSignature>toArray(Illuminate\Http\Request $request)</methodSignature>
-      <fullMethod>toArray(Illuminate\Http\Request $request)</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -619,31 +553,9 @@
     <method>
       <package>Playground\Cms\Resource\Http\Resources</package>
       <className>Playground\Cms\Resource\Http\Resources\SnippetRevision</className>
-      <methodName>toArray</methodName>
-      <methodSignature>toArray(Illuminate\Http\Request $request)</methodSignature>
-      <fullMethod>toArray(Illuminate\Http\Request $request)</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Cms\Resource\Http\Resources</package>
-      <className>Playground\Cms\Resource\Http\Resources\SnippetRevision</className>
       <methodName>with</methodName>
       <methodSignature>with(Illuminate\Http\Request $request): array</methodSignature>
       <fullMethod>with(Illuminate\Http\Request $request): array</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Cms\Resource\Http\Resources</package>
-      <className>Playground\Cms\Resource\Http\Resources\SnippetRevisionCollection</className>
-      <methodName>toArray</methodName>
-      <methodSignature>toArray(Illuminate\Http\Request $request)</methodSignature>
-      <fullMethod>toArray(Illuminate\Http\Request $request)</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -778,17 +690,6 @@
       <fullMethod>about(): void</fullMethod>
       <crap>23</crap>
       <complexity>23</complexity>
-      <coverage>100</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>Playground\Cms\Resource</package>
-      <className>Playground\Cms\Resource\ServiceProvider</className>
-      <methodName>version</methodName>
-      <methodSignature>version(): string</methodSignature>
-      <fullMethod>version(): string</fullMethod>
-      <crap>1</crap>
-      <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
