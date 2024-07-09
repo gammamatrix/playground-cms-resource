@@ -14,7 +14,7 @@ use Tests\Feature\Playground\Cms\Resource\TestCase;
  */
 class IndexRouteTest extends TestCase
 {
-    protected bool $load_migrations_playground = true;
+    protected bool $setUpUserForPlayground = true;
 
     public function test_guest_cannot_render_index_view(): void
     {

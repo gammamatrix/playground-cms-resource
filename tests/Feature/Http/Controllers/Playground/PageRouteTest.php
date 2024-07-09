@@ -14,6 +14,4 @@ use Tests\Feature\Playground\Cms\Resource\Http\Controllers\PageTestCase;
 class PageRouteTest extends PageTestCase
 {
     protected bool $load_migrations_playground = true;
-
-    protected bool $load_migrations_cms = true;
 }
