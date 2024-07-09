@@ -1,9 +1,9 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Playground
  */
+
+declare(strict_types=1);
 namespace Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground;
 
 use Tests\Feature\Playground\Cms\Resource\Http\Controllers\SnippetTestCase;
@@ -13,8 +13,6 @@ use Tests\Feature\Playground\Cms\Resource\Http\Controllers\SnippetTestCase;
  */
 class SnippetRouteTest extends SnippetTestCase
 {
-    use TestTrait;
-
     protected bool $load_migrations_playground = true;
 
     protected bool $load_migrations_cms = true;

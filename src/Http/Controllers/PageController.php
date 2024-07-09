@@ -1,9 +1,9 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Playground
  */
+
+declare(strict_types=1);
 namespace Playground\Cms\Resource\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;

@@ -1,9 +1,9 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Playground
  */
+
+declare(strict_types=1);
 namespace Tests\Unit\Playground\Cms\Resource\Http\Requests\Page;
 
 use Tests\Unit\Playground\Cms\Resource\Http\Requests\RequestTestCase;

@@ -1,14 +1,14 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Playground
  */
+
+declare(strict_types=1);
 namespace Tests\Feature\Playground\Cms\Resource\Http\Requests\FormRequest;
 
 use Illuminate\Support\Facades\Auth;
 use Playground\Cms\Resource\Http\Requests\FormRequest;
-use Playground\Test\Models\PlaygroundUser as User;
+use Playground\Models\User;
 use Tests\Feature\Playground\Cms\Resource\TestCase;
 
 /**

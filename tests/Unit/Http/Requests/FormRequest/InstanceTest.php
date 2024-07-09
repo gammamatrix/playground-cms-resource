@@ -1,13 +1,13 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Playground
  */
+
+declare(strict_types=1);
 namespace Tests\Unit\Playground\Cms\Resource\Http\Requests\FormRequest;
 
 use Playground\Cms\Resource\Http\Requests\FormRequest;
-use Playground\Test\Models\PlaygroundUser as User;
+use Playground\Models\User;
 use Playground\Test\Models\User as DefaultLaravelUser;
 use Tests\Unit\Playground\Cms\Resource\TestCase;
 

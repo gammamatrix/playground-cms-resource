@@ -1,9 +1,9 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Playground
  */
+
+declare(strict_types=1);
 namespace Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground;
 
 use Tests\Feature\Playground\Cms\Resource\Http\Controllers\PageTestCase;
@@ -13,8 +13,6 @@ use Tests\Feature\Playground\Cms\Resource\Http\Controllers\PageTestCase;
  */
 class PageRouteTest extends PageTestCase
 {
-    use TestTrait;
-
     protected bool $load_migrations_playground = true;
 
     protected bool $load_migrations_cms = true;

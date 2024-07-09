@@ -1,9 +1,9 @@
 <?php
-
-declare(strict_types=1);
 /**
  * Playground
  */
+
+declare(strict_types=1);
 namespace Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet;
 
 use Playground\Cms\Resource\Http\Requests\Snippet\StoreRequest;
