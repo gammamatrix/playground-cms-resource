@@ -26,13 +26,13 @@ class TestCase extends BaseTestCase
     use Resource\Playground\LockJsonTrait;
     use Resource\Playground\LockTrait;
     use Resource\Playground\RestoreJsonTrait;
+    use Resource\Playground\RestoreTrait;
     use Resource\Playground\RestoreRevisionJsonTrait;
     use Resource\Playground\RestoreRevisionTrait;
-    use Resource\Playground\RestoreTrait;
     use Resource\Playground\RevisionJsonTrait;
+    use Resource\Playground\RevisionTrait;
     use Resource\Playground\RevisionsJsonTrait;
     use Resource\Playground\RevisionsTrait;
-    use Resource\Playground\RevisionTrait;
     use Resource\Playground\ShowJsonTrait;
     use Resource\Playground\ShowTrait;
     use Resource\Playground\StoreJsonTrait;
@@ -48,7 +48,7 @@ class TestCase extends BaseTestCase
      * @var array<string, string>
      */
     public array $packageInfo = [
-        'model_attribute' => 'label',
+        'model_attribute' => 'title',
         'model_label' => '',
         'model_label_plural' => '',
         'model_route' => '',
@@ -58,9 +58,9 @@ class TestCase extends BaseTestCase
         'module_label_plural' => 'CMS',
         'module_route' => 'playground.cms.resource',
         'module_slug' => 'cms',
-        'privilege' => '',
+        'privilege' => 'playground-cms-resource:',
         'table' => '',
-        'view' => '',
+        'view' => 'playground-cms-resource::',
     ];
 
     /**

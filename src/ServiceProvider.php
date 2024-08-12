@@ -17,7 +17,7 @@ class ServiceProvider extends AuthServiceProvider
 {
     public const VERSION = '73.0.0';
 
-    protected string $package = 'playground-cms-resource';
+    public string $package = 'playground-cms-resource';
 
     /**
      * Bootstrap any package services.
@@ -60,21 +60,23 @@ class ServiceProvider extends AuthServiceProvider
                     $this->package
                 );
             }
-
-            if ($this->app->runningInConsole()) {
-                // Publish configuration
-                $this->publishes([
-                    sprintf('%1$s/config/%2$s.php', dirname(__DIR__), $this->package) => config_path(sprintf('%1$s.php', $this->package)),
-                ], 'playground-config');
-
-                // Publish routes
-                $this->publishes([
-                    dirname(__DIR__).'/routes' => base_path('routes/playground-cms-resource'),
-                ], 'playground-routes');
-            }
         }
 
-        $this->about();
+        if ($this->app->runningInConsole()) {
+            // Publish configuration
+            $this->publishes([
+                sprintf('%1$s/config/%2$s.php', dirname(__DIR__), $this->package) => config_path(sprintf('%1$s.php', $this->package)),
+            ], 'playground-config');
+
+            // Publish routes
+            $this->publishes([
+                dirname(__DIR__).'/routes' => base_path('routes/playground-cms-resource'),
+            ], 'playground-routes');
+        }
+
+        if (! empty($config['about'])) {
+            $this->about();
+        }
     }
 
     /**
@@ -128,11 +130,11 @@ class ServiceProvider extends AuthServiceProvider
         if (! empty($config['cms'])) {
             $this->loadRoutesFrom(dirname(__DIR__).'/routes/cms.php');
         }
-        if (! empty($config['snippets'])) {
-            $this->loadRoutesFrom(dirname(__DIR__).'/routes/snippets.php');
-        }
         if (! empty($config['pages'])) {
             $this->loadRoutesFrom(dirname(__DIR__).'/routes/pages.php');
+        }
+        if (! empty($config['snippets'])) {
+            $this->loadRoutesFrom(dirname(__DIR__).'/routes/snippets.php');
         }
     }
 
@@ -150,8 +152,10 @@ class ServiceProvider extends AuthServiceProvider
         $sitemap = ! empty($config['sitemap']) && is_array($config['sitemap']) ? $config['sitemap'] : [];
 
         AboutCommand::add('Playground: CMS Resource', fn () => [
+
             '<fg=yellow;options=bold>Load</> Policies' => ! empty($load['policies']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
             '<fg=yellow;options=bold>Load</> Routes' => ! empty($load['routes']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+            '<fg=yellow;options=bold>Load</> Translations' => ! empty($load['translations']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
             '<fg=yellow;options=bold>Load</> Views' => ! empty($load['views']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
 
             '<fg=yellow;options=bold>Middleware</> auth' => ! empty($middleware['auth']) ? sprintf('%s', json_encode($middleware['auth'])) : '',
@@ -166,8 +170,8 @@ class ServiceProvider extends AuthServiceProvider
             '<fg=magenta;options=bold>Sitemap</> [view]' => sprintf('[%s]', $sitemap['view']),
 
             '<fg=red;options=bold>Route</> cms' => ! empty($routes['cms']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
-            '<fg=red;options=bold>Route</> snippets' => ! empty($routes['snippets']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
             '<fg=red;options=bold>Route</> pages' => ! empty($routes['pages']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+            '<fg=red;options=bold>Route</> snippets' => ! empty($routes['snippets']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
 
             'Package' => $this->package,
             'Version' => ServiceProvider::VERSION,

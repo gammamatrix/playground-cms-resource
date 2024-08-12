@@ -19,9 +19,9 @@ trait PackageProviders
             \Playground\Blade\ServiceProvider::class,
             \Playground\Http\ServiceProvider::class,
             \Playground\Login\Blade\ServiceProvider::class,
+            \Playground\Site\Blade\ServiceProvider::class,
             \Playground\Cms\ServiceProvider::class,
             \Playground\Cms\Resource\ServiceProvider::class,
-            \Playground\Site\Blade\ServiceProvider::class,
         ];
     }
 }
