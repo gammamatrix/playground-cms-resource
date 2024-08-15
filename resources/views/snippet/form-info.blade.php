@@ -23,7 +23,7 @@
     <x-playground::forms.column column="snippet_type" label="Snippet Type" :rules="['maxlength' => 255]" />
 
     @if (!empty($parents))
-        <x-playground::forms.column-select column="parent_id" key="title" label="Parent Snippet" :records="$parents" />
+    <x-playground::forms.column-select column="parent_id" key="label" label="Parent Snippet" :records="$parents"/>
     @endif
 
 </fieldset>

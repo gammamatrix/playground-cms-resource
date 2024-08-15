@@ -5,7 +5,7 @@ get:
   operationId: create_page
   responses:
     200:
-      description: 'The create information (JSON) or form (HTML).'
+      description: 'The create page information (JSON) or (HTML).'
       content:
         application/json:
           schema:

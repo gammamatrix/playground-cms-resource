@@ -8,7 +8,7 @@ namespace Tests\Unit\Playground\Cms\Resource\Http\Requests\FormRequest;
 
 use Playground\Cms\Resource\Http\Requests\FormRequest;
 use Playground\Models\User;
-use Playground\Test\Models\User as DefaultLaravelUser;
+use Playground\Test\Models\DefaultUser;
 use Tests\Unit\Playground\Cms\Resource\TestCase;
 
 /**
@@ -55,9 +55,9 @@ class InstanceTest extends TestCase
     public function test_userHasAdminPrivileges_with_default_laravel_user(): void
     {
         /**
-         * @var DefaultLaravelUser $user
+         * @var DefaultUser $user
          */
-        $user = DefaultLaravelUser::factory()->admin()->make();
+        $user = DefaultUser::factory()->admin()->make();
 
         $instance = new FormRequest;
 

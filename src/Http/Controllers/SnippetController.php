@@ -13,23 +13,8 @@ use Illuminate\Support\Carbon;
 use Illuminate\View\View;
 use Playground\Cms\Models\Snippet;
 use Playground\Cms\Models\SnippetRevision;
-use Playground\Cms\Resource\Http\Requests\Snippet\CreateRequest;
-use Playground\Cms\Resource\Http\Requests\Snippet\DestroyRequest;
-use Playground\Cms\Resource\Http\Requests\Snippet\EditRequest;
-use Playground\Cms\Resource\Http\Requests\Snippet\IndexRequest;
-use Playground\Cms\Resource\Http\Requests\Snippet\LockRequest;
-use Playground\Cms\Resource\Http\Requests\Snippet\RestoreRequest;
-use Playground\Cms\Resource\Http\Requests\Snippet\RestoreRevisionRequest;
-use Playground\Cms\Resource\Http\Requests\Snippet\RevisionsRequest;
-use Playground\Cms\Resource\Http\Requests\Snippet\ShowRequest;
-use Playground\Cms\Resource\Http\Requests\Snippet\ShowRevisionRequest;
-use Playground\Cms\Resource\Http\Requests\Snippet\StoreRequest;
-use Playground\Cms\Resource\Http\Requests\Snippet\UnlockRequest;
-use Playground\Cms\Resource\Http\Requests\Snippet\UpdateRequest;
-use Playground\Cms\Resource\Http\Resources\Snippet as SnippetResource;
-use Playground\Cms\Resource\Http\Resources\SnippetCollection;
-use Playground\Cms\Resource\Http\Resources\SnippetRevision as SnippetRevisionResource;
-use Playground\Cms\Resource\Http\Resources\SnippetRevisionCollection;
+use Playground\Cms\Resource\Http\Requests;
+use Playground\Cms\Resource\Http\Resources;
 
 /**
  * \Playground\Cms\Resource\Http\Controllers\SnippetController
@@ -47,7 +32,7 @@ class SnippetController extends Controller
         'model_slug' => 'snippet',
         'model_slug_plural' => 'snippets',
         'module_label' => 'CMS',
-        'module_label_plural' => 'Matrices',
+        'module_label_plural' => 'CMS',
         'module_route' => 'playground.cms.resource',
         'module_slug' => 'cms',
         'privilege' => 'playground-cms-resource:snippet',
@@ -56,19 +41,25 @@ class SnippetController extends Controller
     ];
 
     /**
-     * CREATE the Snippet resource in storage.
+     * Create the Snippet resource in storage.
      *
      * @route GET /resource/cms/snippets/create playground.cms.resource.snippets.create
      */
     public function create(
-        CreateRequest $request
-    ): JsonResponse|View {
+        Requests\Snippet\CreateRequest $request
+    ): JsonResponse|View|Resources\Snippet {
 
         $validated = $request->validated();
 
         $user = $request->user();
 
         $snippet = new Snippet($validated);
+
+        if ($request->expectsJson()) {
+            return (new Resources\Snippet($snippet))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
+        }
 
         $meta = [
             'session_user_id' => $user?->id,
@@ -87,10 +78,6 @@ class SnippetController extends Controller
             '_method' => 'post',
         ];
 
-        if ($request->expectsJson()) {
-            return response()->json($data);
-        }
-
         $flash = $snippet->toArray();
 
         if (! empty($validated['_return_url'])) {
@@ -102,21 +89,35 @@ class SnippetController extends Controller
             session()->flashInput($flash);
         }
 
-        return view($this->getViewPath('snippet', 'form'), $data);
+        return view(sprintf('%1$s/form', $this->packageInfo['view']), $data);
     }
 
     /**
      * Edit the Snippet resource in storage.
      *
-     * @route GET /resource/cms/snippets/snippets/edit playground.cms.resource.snippets.edit
+     * @route GET /resource/cms/snippets/edit/{snippet} playground.cms.resource.snippets.edit
      */
     public function edit(
         Snippet $snippet,
-        EditRequest $request
-    ): JsonResponse|View {
+        Requests\Snippet\EditRequest $request
+    ): JsonResponse|View|Resources\Snippet {
+
         $validated = $request->validated();
 
         $user = $request->user();
+
+        if ($request->expectsJson()) {
+            return (new Resources\Snippet($snippet))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
+        }
+
+        $flash = $snippet->toArray();
+
+        if (! empty($validated['_return_url'])) {
+            $flash['_return_url'] = $validated['_return_url'];
+            $data['_return_url'] = $validated['_return_url'];
+        }
 
         $meta = [
             'session_user_id' => $user?->id,
@@ -135,23 +136,9 @@ class SnippetController extends Controller
             '_method' => 'patch',
         ];
 
-        if ($request->expectsJson()) {
-            return response()->json($data);
-        }
-
-        $flash = $snippet->toArray();
-
-        if (! empty($validated['_return_url'])) {
-            $flash['_return_url'] = $validated['_return_url'];
-            $data['_return_url'] = $validated['_return_url'];
-        }
-
         session()->flashInput($flash);
 
-        return view(
-            'playground-cms-resource::snippet/form',
-            $data
-        );
+        return view(sprintf('%1$s/form', $this->packageInfo['view']), $data);
     }
 
     /**
@@ -161,9 +148,16 @@ class SnippetController extends Controller
      */
     public function destroy(
         Snippet $snippet,
-        DestroyRequest $request
+        Requests\Snippet\DestroyRequest $request
     ): Response|RedirectResponse {
+
         $validated = $request->validated();
+
+        $user = $request->user();
+
+        if ($user?->id) {
+            $snippet->modified_by_id = $user->id;
+        }
 
         if (empty($validated['force'])) {
             $snippet->delete();
@@ -181,7 +175,7 @@ class SnippetController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.snippets'));
+        return redirect(route($this->packageInfo['model_route']));
     }
 
     /**
@@ -191,13 +185,18 @@ class SnippetController extends Controller
      */
     public function lock(
         Snippet $snippet,
-        LockRequest $request
-    ): JsonResponse|RedirectResponse|SnippetResource {
+        Requests\Snippet\LockRequest $request
+    ): JsonResponse|RedirectResponse|Resources\Snippet {
+
         $validated = $request->validated();
 
         $user = $request->user();
 
-        $snippet->setAttribute('locked', true);
+        if ($user?->id) {
+            $snippet->modified_by_id = $user->id;
+        }
+
+        $snippet->locked = true;
 
         $snippet->save();
 
@@ -207,10 +206,11 @@ class SnippetController extends Controller
             'timestamp' => Carbon::now()->toJson(),
             'info' => $this->packageInfo,
         ];
-        // dump($request);
 
         if ($request->expectsJson()) {
-            return (new SnippetResource($snippet))->response($request);
+            return (new Resources\Snippet($snippet))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -219,7 +219,10 @@ class SnippetController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.snippets.show', ['snippet' => $snippet->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['snippet' => $snippet->id]));
     }
 
     /**
@@ -228,8 +231,9 @@ class SnippetController extends Controller
      * @route GET /resource/cms/snippets playground.cms.resource.snippets
      */
     public function index(
-        IndexRequest $request
-    ): JsonResponse|View|SnippetCollection {
+        Requests\Snippet\IndexRequest $request
+    ): JsonResponse|View|Resources\SnippetCollection {
+
         $user = $request->user();
 
         $validated = $request->validated();
@@ -239,6 +243,7 @@ class SnippetController extends Controller
         $query->sort($validated['sort'] ?? null);
 
         if (! empty($validated['filter']) && is_array($validated['filter'])) {
+
             $query->filterTrash($validated['filter']['trash'] ?? null);
 
             $query->filterIds(
@@ -263,12 +268,12 @@ class SnippetController extends Controller
         }
 
         $perPage = ! empty($validated['perPage']) && is_int($validated['perPage']) ? $validated['perPage'] : null;
-        $paginator = $query->paginate( $perPage);
+        $paginator = $query->paginate($perPage);
 
         $paginator->appends($validated);
 
         if ($request->expectsJson()) {
-            return (new SnippetCollection($paginator))->response($request);
+            return (new Resources\SnippetCollection($paginator))->response($request);
         }
 
         $meta = [
@@ -289,10 +294,7 @@ class SnippetController extends Controller
             'meta' => $meta,
         ];
 
-        return view(
-            'playground-cms-resource::snippet/index',
-            $data
-        );
+        return view(sprintf('%1$s/index', $this->packageInfo['view']), $data);
     }
 
     /**
@@ -302,16 +304,23 @@ class SnippetController extends Controller
      */
     public function restore(
         Snippet $snippet,
-        RestoreRequest $request
-    ): JsonResponse|RedirectResponse|SnippetResource {
+        Requests\Snippet\RestoreRequest $request
+    ): JsonResponse|RedirectResponse|Resources\Snippet {
+
         $validated = $request->validated();
 
         $user = $request->user();
 
+        if ($user?->id) {
+            $snippet->modified_by_id = $user->id;
+        }
+
         $snippet->restore();
 
         if ($request->expectsJson()) {
-            return (new SnippetResource($snippet))->response($request);
+            return (new Resources\Snippet($snippet))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -320,7 +329,10 @@ class SnippetController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.snippets.show', ['snippet' => $snippet->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['snippet' => $snippet->id]));
     }
 
     /**
@@ -330,8 +342,8 @@ class SnippetController extends Controller
      */
     public function restoreRevision(
         SnippetRevision $snippet_revision,
-        RestoreRevisionRequest $request
-    ): JsonResponse|RedirectResponse|SnippetResource {
+        Requests\Snippet\RestoreRevisionRequest $request
+    ): JsonResponse|RedirectResponse|Resources\Snippet {
         $validated = $request->validated();
 
         /**
@@ -339,7 +351,7 @@ class SnippetController extends Controller
          */
         $snippet = Snippet::where(
             'id',
-            $snippet_revision->getAttributeValue('snippet_id')
+            $snippet_revision->snippet_id
         )->firstOrFail();
 
         $this->saveRevision($snippet);
@@ -356,7 +368,9 @@ class SnippetController extends Controller
         $snippet->save();
 
         if ($request->expectsJson()) {
-            return (new SnippetResource($snippet))->response($request);
+            return (new Resources\Snippet($snippet))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -365,7 +379,10 @@ class SnippetController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.snippets.show', ['snippet' => $snippet->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['snippet' => $snippet->id]));
     }
 
     /**
@@ -375,8 +392,15 @@ class SnippetController extends Controller
      */
     public function revision(
         SnippetRevision $snippet_revision,
-        ShowRevisionRequest $request
-    ): JsonResponse|View|SnippetRevisionResource {
+        Requests\Snippet\ShowRevisionRequest $request
+    ): JsonResponse|View|Resources\SnippetRevision {
+
+        if ($request->expectsJson()) {
+            return (new Resources\SnippetRevision($snippet_revision))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
+        }
+
         $validated = $request->validated();
 
         $user = $request->user();
@@ -387,24 +411,15 @@ class SnippetController extends Controller
             'timestamp' => Carbon::now()->toJson(),
             'validated' => $validated,
             'info' => $this->packageInfo,
+            'input' => $request->input(),
         ];
-
-        if ($request->expectsJson()) {
-            return (new SnippetRevisionResource($snippet_revision))->response($request);
-        }
-
-        $meta['input'] = $request->input();
-        $meta['validated'] = $request->validated();
 
         $data = [
             'data' => $snippet_revision,
             'meta' => $meta,
         ];
 
-        return view(
-            'playground-cms-resource::snippet/revision',
-            $data
-        );
+        return view(sprintf('%1$s/revision', $this->packageInfo['view']), $data);
     }
 
     /**
@@ -414,8 +429,8 @@ class SnippetController extends Controller
      */
     public function revisions(
         Snippet $snippet,
-        RevisionsRequest $request
-    ): JsonResponse|View|SnippetRevisionCollection {
+        Requests\Snippet\RevisionsRequest $request
+    ): JsonResponse|View|Resources\SnippetRevisionCollection {
         $user = $request->user();
 
         $validated = $request->validated();
@@ -454,7 +469,9 @@ class SnippetController extends Controller
         $paginator->appends($validated);
 
         if ($request->expectsJson()) {
-            return (new SnippetRevisionCollection($paginator))->response($request);
+            return (new Resources\SnippetRevisionCollection($paginator))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $meta = [
@@ -475,10 +492,7 @@ class SnippetController extends Controller
             'meta' => $meta,
         ];
 
-        return view(
-            'playground-cms-resource::snippet/revisions',
-            $data
-        );
+        return view(sprintf('%1$s/revisions', $this->packageInfo['view']), $data);
     }
 
     /**
@@ -488,17 +502,17 @@ class SnippetController extends Controller
     {
         $revision = new SnippetRevision($snippet->toArray());
 
-        $revision->setAttribute('created_by_id', $snippet->getAttributeValue('created_by_id'));
-        $revision->setAttribute('modified_by_id', $snippet->getAttributeValue('modified_by_id'));
-        $revision->setAttribute('owned_by_id', $snippet->getAttributeValue('owned_by_id'));
-        $revision->setAttribute('snippet_id', $snippet->getAttributeValue('id'));
+        $revision->created_by_id = $snippet->created_by_id;
+        $revision->modified_by_id = $snippet->modified_by_id;
+        $revision->owned_by_id = $snippet->owned_by_id;
+        $revision->snippet_id = $snippet->id;
 
         $r = SnippetRevision::where('snippet_id', $snippet->id)->max('revision');
         $r = ! is_numeric($r) || empty($r) || $r < 0 ? 0 : (int) $r;
         $r++;
 
-        $revision->setAttribute('revision', $r);
-        $snippet->setAttribute('revision', $r);
+        $revision->revision = $r;
+        $snippet->revision = $r;
 
         $revision->saveOrFail();
 
@@ -512,8 +526,15 @@ class SnippetController extends Controller
      */
     public function show(
         Snippet $snippet,
-        ShowRequest $request
-    ): JsonResponse|View|SnippetResource {
+        Requests\Snippet\ShowRequest $request
+    ): JsonResponse|View|Resources\Snippet {
+
+        if ($request->expectsJson()) {
+            return (new Resources\Snippet($snippet))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
+        }
+
         $validated = $request->validated();
 
         $user = $request->user();
@@ -524,48 +545,42 @@ class SnippetController extends Controller
             'timestamp' => Carbon::now()->toJson(),
             'validated' => $validated,
             'info' => $this->packageInfo,
+            'input' => $request->input(),
         ];
-
-        if ($request->expectsJson()) {
-            return (new SnippetResource($snippet))->response($request);
-        }
-
-        $meta['input'] = $request->input();
-        $meta['validated'] = $request->validated();
 
         $data = [
             'data' => $snippet,
             'meta' => $meta,
         ];
 
-        return view(
-            'playground-cms-resource::snippet/detail',
-            $data
-        );
+        return view(sprintf('%1$s/detail', $this->packageInfo['view']), $data);
     }
 
     /**
      * Store a newly created API Snippet resource in storage.
      *
-     * @route POST /resource/cms playground.cms.resource.snippets.post
+     * @route POST /resource/cms/snippets playground.cms.resource.snippets.post
      */
     public function store(
-        StoreRequest $request
-    ): Response|JsonResponse|RedirectResponse|SnippetResource {
+        Requests\Snippet\StoreRequest $request
+    ): Response|JsonResponse|RedirectResponse|Resources\Snippet {
+
         $validated = $request->validated();
 
         $user = $request->user();
 
         $snippet = new Snippet($validated);
 
-        $snippet->created_by_id = $user?->id;
+        if ($user?->id) {
+            $snippet->created_by_id = $user->id;
+        }
 
         $snippet->save();
 
         if ($request->expectsJson()) {
-            return (new SnippetResource($snippet))
-                ->response($request)
-                ->setStatusCode(201);
+            return (new Resources\Snippet($snippet))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -574,7 +589,10 @@ class SnippetController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.snippets.show', ['snippet' => $snippet->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['snippet' => $snippet->id]));
     }
 
     /**
@@ -584,18 +602,25 @@ class SnippetController extends Controller
      */
     public function unlock(
         Snippet $snippet,
-        UnlockRequest $request
-    ): JsonResponse|RedirectResponse|SnippetResource {
+        Requests\Snippet\UnlockRequest $request
+    ): JsonResponse|RedirectResponse|Resources\Snippet {
+
         $validated = $request->validated();
 
         $user = $request->user();
 
-        $snippet->setAttribute('locked', false);
+        $snippet->locked = false;
+
+        if ($user?->id) {
+            $snippet->modified_by_id = $user->id;
+        }
 
         $snippet->save();
 
         if ($request->expectsJson()) {
-            return (new SnippetResource($snippet))->response($request);
+            return (new Resources\Snippet($snippet))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -604,7 +629,10 @@ class SnippetController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.snippets.show', ['snippet' => $snippet->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['snippet' => $snippet->id]));
     }
 
     /**
@@ -614,20 +642,25 @@ class SnippetController extends Controller
      */
     public function update(
         Snippet $snippet,
-        UpdateRequest $request
-    ): JsonResponse|RedirectResponse|SnippetResource {
+        Requests\Snippet\UpdateRequest $request
+    ): JsonResponse|RedirectResponse|Resources\Snippet {
+
+        $this->saveRevision($snippet);
+
         $validated = $request->validated();
 
         $user = $request->user();
 
-        $this->saveRevision($snippet);
-
-        $snippet->modified_by_id = $user?->id;
+        if ($user?->id) {
+            $snippet->modified_by_id = $user->id;
+        }
 
         $snippet->update($validated);
 
         if ($request->expectsJson()) {
-            return (new SnippetResource($snippet))->response($request);
+            return (new Resources\Snippet($snippet))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -636,6 +669,9 @@ class SnippetController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.snippets.show', ['snippet' => $snippet->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['snippet' => $snippet->id]));
     }
 }

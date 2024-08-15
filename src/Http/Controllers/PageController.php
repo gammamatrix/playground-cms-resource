@@ -13,23 +13,8 @@ use Illuminate\Support\Carbon;
 use Illuminate\View\View;
 use Playground\Cms\Models\Page;
 use Playground\Cms\Models\PageRevision;
-use Playground\Cms\Resource\Http\Requests\Page\CreateRequest;
-use Playground\Cms\Resource\Http\Requests\Page\DestroyRequest;
-use Playground\Cms\Resource\Http\Requests\Page\EditRequest;
-use Playground\Cms\Resource\Http\Requests\Page\IndexRequest;
-use Playground\Cms\Resource\Http\Requests\Page\LockRequest;
-use Playground\Cms\Resource\Http\Requests\Page\RestoreRequest;
-use Playground\Cms\Resource\Http\Requests\Page\RestoreRevisionRequest;
-use Playground\Cms\Resource\Http\Requests\Page\RevisionsRequest;
-use Playground\Cms\Resource\Http\Requests\Page\ShowRequest;
-use Playground\Cms\Resource\Http\Requests\Page\ShowRevisionRequest;
-use Playground\Cms\Resource\Http\Requests\Page\StoreRequest;
-use Playground\Cms\Resource\Http\Requests\Page\UnlockRequest;
-use Playground\Cms\Resource\Http\Requests\Page\UpdateRequest;
-use Playground\Cms\Resource\Http\Resources\Page as PageResource;
-use Playground\Cms\Resource\Http\Resources\PageCollection;
-use Playground\Cms\Resource\Http\Resources\PageRevision as PageRevisionResource;
-use Playground\Cms\Resource\Http\Resources\PageRevisionCollection;
+use Playground\Cms\Resource\Http\Requests;
+use Playground\Cms\Resource\Http\Resources;
 
 /**
  * \Playground\Cms\Resource\Http\Controllers\PageController
@@ -47,7 +32,7 @@ class PageController extends Controller
         'model_slug' => 'page',
         'model_slug_plural' => 'pages',
         'module_label' => 'CMS',
-        'module_label_plural' => 'Matrices',
+        'module_label_plural' => 'CMS',
         'module_route' => 'playground.cms.resource',
         'module_slug' => 'cms',
         'privilege' => 'playground-cms-resource:page',
@@ -56,19 +41,25 @@ class PageController extends Controller
     ];
 
     /**
-     * CREATE the Page resource in storage.
+     * Create the Page resource in storage.
      *
      * @route GET /resource/cms/pages/create playground.cms.resource.pages.create
      */
     public function create(
-        CreateRequest $request
-    ): JsonResponse|View {
+        Requests\Page\CreateRequest $request
+    ): JsonResponse|View|Resources\Page {
 
         $validated = $request->validated();
 
         $user = $request->user();
 
         $page = new Page($validated);
+
+        if ($request->expectsJson()) {
+            return (new Resources\Page($page))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
+        }
 
         $meta = [
             'session_user_id' => $user?->id,
@@ -87,10 +78,6 @@ class PageController extends Controller
             '_method' => 'post',
         ];
 
-        if ($request->expectsJson()) {
-            return response()->json($data);
-        }
-
         $flash = $page->toArray();
 
         if (! empty($validated['_return_url'])) {
@@ -102,21 +89,35 @@ class PageController extends Controller
             session()->flashInput($flash);
         }
 
-        return view($this->getViewPath('page', 'form'), $data);
+        return view(sprintf('%1$s/form', $this->packageInfo['view']), $data);
     }
 
     /**
      * Edit the Page resource in storage.
      *
-     * @route GET /resource/cms/pages/pages/edit playground.cms.resource.pages.edit
+     * @route GET /resource/cms/pages/edit/{page} playground.cms.resource.pages.edit
      */
     public function edit(
         Page $page,
-        EditRequest $request
-    ): JsonResponse|View {
+        Requests\Page\EditRequest $request
+    ): JsonResponse|View|Resources\Page {
+
         $validated = $request->validated();
 
         $user = $request->user();
+
+        if ($request->expectsJson()) {
+            return (new Resources\Page($page))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
+        }
+
+        $flash = $page->toArray();
+
+        if (! empty($validated['_return_url'])) {
+            $flash['_return_url'] = $validated['_return_url'];
+            $data['_return_url'] = $validated['_return_url'];
+        }
 
         $meta = [
             'session_user_id' => $user?->id,
@@ -135,23 +136,9 @@ class PageController extends Controller
             '_method' => 'patch',
         ];
 
-        if ($request->expectsJson()) {
-            return response()->json($data);
-        }
-
-        $flash = $page->toArray();
-
-        if (! empty($validated['_return_url'])) {
-            $flash['_return_url'] = $validated['_return_url'];
-            $data['_return_url'] = $validated['_return_url'];
-        }
-
         session()->flashInput($flash);
 
-        return view(
-            'playground-cms-resource::page/form',
-            $data
-        );
+        return view(sprintf('%1$s/form', $this->packageInfo['view']), $data);
     }
 
     /**
@@ -161,9 +148,16 @@ class PageController extends Controller
      */
     public function destroy(
         Page $page,
-        DestroyRequest $request
+        Requests\Page\DestroyRequest $request
     ): Response|RedirectResponse {
+
         $validated = $request->validated();
+
+        $user = $request->user();
+
+        if ($user?->id) {
+            $page->modified_by_id = $user->id;
+        }
 
         if (empty($validated['force'])) {
             $page->delete();
@@ -181,7 +175,7 @@ class PageController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.pages'));
+        return redirect(route($this->packageInfo['model_route']));
     }
 
     /**
@@ -191,13 +185,18 @@ class PageController extends Controller
      */
     public function lock(
         Page $page,
-        LockRequest $request
-    ): JsonResponse|RedirectResponse|PageResource {
+        Requests\Page\LockRequest $request
+    ): JsonResponse|RedirectResponse|Resources\Page {
+
         $validated = $request->validated();
 
         $user = $request->user();
 
-        $page->setAttribute('locked', true);
+        if ($user?->id) {
+            $page->modified_by_id = $user->id;
+        }
+
+        $page->locked = true;
 
         $page->save();
 
@@ -207,10 +206,11 @@ class PageController extends Controller
             'timestamp' => Carbon::now()->toJson(),
             'info' => $this->packageInfo,
         ];
-        // dump($request);
 
         if ($request->expectsJson()) {
-            return (new PageResource($page))->response($request);
+            return (new Resources\Page($page))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -219,7 +219,10 @@ class PageController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.pages.show', ['page' => $page->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['page' => $page->id]));
     }
 
     /**
@@ -228,8 +231,9 @@ class PageController extends Controller
      * @route GET /resource/cms/pages playground.cms.resource.pages
      */
     public function index(
-        IndexRequest $request
-    ): JsonResponse|View|PageCollection {
+        Requests\Page\IndexRequest $request
+    ): JsonResponse|View|Resources\PageCollection {
+
         $user = $request->user();
 
         $validated = $request->validated();
@@ -239,6 +243,7 @@ class PageController extends Controller
         $query->sort($validated['sort'] ?? null);
 
         if (! empty($validated['filter']) && is_array($validated['filter'])) {
+
             $query->filterTrash($validated['filter']['trash'] ?? null);
 
             $query->filterIds(
@@ -263,12 +268,12 @@ class PageController extends Controller
         }
 
         $perPage = ! empty($validated['perPage']) && is_int($validated['perPage']) ? $validated['perPage'] : null;
-        $paginator = $query->paginate( $perPage);
+        $paginator = $query->paginate($perPage);
 
         $paginator->appends($validated);
 
         if ($request->expectsJson()) {
-            return (new PageCollection($paginator))->response($request);
+            return (new Resources\PageCollection($paginator))->response($request);
         }
 
         $meta = [
@@ -289,10 +294,7 @@ class PageController extends Controller
             'meta' => $meta,
         ];
 
-        return view(
-            'playground-cms-resource::page/index',
-            $data
-        );
+        return view(sprintf('%1$s/index', $this->packageInfo['view']), $data);
     }
 
     /**
@@ -302,16 +304,23 @@ class PageController extends Controller
      */
     public function restore(
         Page $page,
-        RestoreRequest $request
-    ): JsonResponse|RedirectResponse|PageResource {
+        Requests\Page\RestoreRequest $request
+    ): JsonResponse|RedirectResponse|Resources\Page {
+
         $validated = $request->validated();
 
         $user = $request->user();
 
+        if ($user?->id) {
+            $page->modified_by_id = $user->id;
+        }
+
         $page->restore();
 
         if ($request->expectsJson()) {
-            return (new PageResource($page))->response($request);
+            return (new Resources\Page($page))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -320,7 +329,10 @@ class PageController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.pages.show', ['page' => $page->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['page' => $page->id]));
     }
 
     /**
@@ -330,8 +342,8 @@ class PageController extends Controller
      */
     public function restoreRevision(
         PageRevision $page_revision,
-        RestoreRevisionRequest $request
-    ): JsonResponse|RedirectResponse|PageResource {
+        Requests\Page\RestoreRevisionRequest $request
+    ): JsonResponse|RedirectResponse|Resources\Page {
         $validated = $request->validated();
 
         /**
@@ -339,7 +351,7 @@ class PageController extends Controller
          */
         $page = Page::where(
             'id',
-            $page_revision->getAttributeValue('page_id')
+            $page_revision->page_id
         )->firstOrFail();
 
         $this->saveRevision($page);
@@ -356,7 +368,9 @@ class PageController extends Controller
         $page->save();
 
         if ($request->expectsJson()) {
-            return (new PageResource($page))->response($request);
+            return (new Resources\Page($page))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -365,7 +379,10 @@ class PageController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.pages.show', ['page' => $page->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['page' => $page->id]));
     }
 
     /**
@@ -375,8 +392,15 @@ class PageController extends Controller
      */
     public function revision(
         PageRevision $page_revision,
-        ShowRevisionRequest $request
-    ): JsonResponse|View|PageRevisionResource {
+        Requests\Page\ShowRevisionRequest $request
+    ): JsonResponse|View|Resources\PageRevision {
+
+        if ($request->expectsJson()) {
+            return (new Resources\PageRevision($page_revision))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
+        }
+
         $validated = $request->validated();
 
         $user = $request->user();
@@ -387,24 +411,15 @@ class PageController extends Controller
             'timestamp' => Carbon::now()->toJson(),
             'validated' => $validated,
             'info' => $this->packageInfo,
+            'input' => $request->input(),
         ];
-
-        if ($request->expectsJson()) {
-            return (new PageRevisionResource($page_revision))->response($request);
-        }
-
-        $meta['input'] = $request->input();
-        $meta['validated'] = $request->validated();
 
         $data = [
             'data' => $page_revision,
             'meta' => $meta,
         ];
 
-        return view(
-            'playground-cms-resource::page/revision',
-            $data
-        );
+        return view(sprintf('%1$s/revision', $this->packageInfo['view']), $data);
     }
 
     /**
@@ -414,8 +429,8 @@ class PageController extends Controller
      */
     public function revisions(
         Page $page,
-        RevisionsRequest $request
-    ): JsonResponse|View|PageRevisionCollection {
+        Requests\Page\RevisionsRequest $request
+    ): JsonResponse|View|Resources\PageRevisionCollection {
         $user = $request->user();
 
         $validated = $request->validated();
@@ -454,7 +469,9 @@ class PageController extends Controller
         $paginator->appends($validated);
 
         if ($request->expectsJson()) {
-            return (new PageRevisionCollection($paginator))->response($request);
+            return (new Resources\PageRevisionCollection($paginator))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $meta = [
@@ -475,10 +492,7 @@ class PageController extends Controller
             'meta' => $meta,
         ];
 
-        return view(
-            'playground-cms-resource::page/revisions',
-            $data
-        );
+        return view(sprintf('%1$s/revisions', $this->packageInfo['view']), $data);
     }
 
     /**
@@ -488,17 +502,17 @@ class PageController extends Controller
     {
         $revision = new PageRevision($page->toArray());
 
-        $revision->setAttribute('created_by_id', $page->getAttributeValue('created_by_id'));
-        $revision->setAttribute('modified_by_id', $page->getAttributeValue('modified_by_id'));
-        $revision->setAttribute('owned_by_id', $page->getAttributeValue('owned_by_id'));
-        $revision->setAttribute('page_id', $page->getAttributeValue('id'));
+        $revision->created_by_id = $page->created_by_id;
+        $revision->modified_by_id = $page->modified_by_id;
+        $revision->owned_by_id = $page->owned_by_id;
+        $revision->page_id = $page->id;
 
         $r = PageRevision::where('page_id', $page->id)->max('revision');
         $r = ! is_numeric($r) || empty($r) || $r < 0 ? 0 : (int) $r;
         $r++;
 
-        $revision->setAttribute('revision', $r);
-        $page->setAttribute('revision', $r);
+        $revision->revision = $r;
+        $page->revision = $r;
 
         $revision->saveOrFail();
 
@@ -512,8 +526,15 @@ class PageController extends Controller
      */
     public function show(
         Page $page,
-        ShowRequest $request
-    ): JsonResponse|View|PageResource {
+        Requests\Page\ShowRequest $request
+    ): JsonResponse|View|Resources\Page {
+
+        if ($request->expectsJson()) {
+            return (new Resources\Page($page))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
+        }
+
         $validated = $request->validated();
 
         $user = $request->user();
@@ -524,48 +545,42 @@ class PageController extends Controller
             'timestamp' => Carbon::now()->toJson(),
             'validated' => $validated,
             'info' => $this->packageInfo,
+            'input' => $request->input(),
         ];
-
-        if ($request->expectsJson()) {
-            return (new PageResource($page))->response($request);
-        }
-
-        $meta['input'] = $request->input();
-        $meta['validated'] = $request->validated();
 
         $data = [
             'data' => $page,
             'meta' => $meta,
         ];
 
-        return view(
-            'playground-cms-resource::page/detail',
-            $data
-        );
+        return view(sprintf('%1$s/detail', $this->packageInfo['view']), $data);
     }
 
     /**
      * Store a newly created API Page resource in storage.
      *
-     * @route POST /resource/cms playground.cms.resource.pages.post
+     * @route POST /resource/cms/pages playground.cms.resource.pages.post
      */
     public function store(
-        StoreRequest $request
-    ): Response|JsonResponse|RedirectResponse|PageResource {
+        Requests\Page\StoreRequest $request
+    ): Response|JsonResponse|RedirectResponse|Resources\Page {
+
         $validated = $request->validated();
 
         $user = $request->user();
 
         $page = new Page($validated);
 
-        $page->created_by_id = $user?->id;
+        if ($user?->id) {
+            $page->created_by_id = $user->id;
+        }
 
         $page->save();
 
         if ($request->expectsJson()) {
-            return (new PageResource($page))
-                ->response($request)
-                ->setStatusCode(201);
+            return (new Resources\Page($page))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -574,7 +589,10 @@ class PageController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.pages.show', ['page' => $page->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['page' => $page->id]));
     }
 
     /**
@@ -584,18 +602,25 @@ class PageController extends Controller
      */
     public function unlock(
         Page $page,
-        UnlockRequest $request
-    ): JsonResponse|RedirectResponse|PageResource {
+        Requests\Page\UnlockRequest $request
+    ): JsonResponse|RedirectResponse|Resources\Page {
+
         $validated = $request->validated();
 
         $user = $request->user();
 
-        $page->setAttribute('locked', false);
+        $page->locked = false;
+
+        if ($user?->id) {
+            $page->modified_by_id = $user->id;
+        }
 
         $page->save();
 
         if ($request->expectsJson()) {
-            return (new PageResource($page))->response($request);
+            return (new Resources\Page($page))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -604,7 +629,10 @@ class PageController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.pages.show', ['page' => $page->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['page' => $page->id]));
     }
 
     /**
@@ -614,20 +642,25 @@ class PageController extends Controller
      */
     public function update(
         Page $page,
-        UpdateRequest $request
-    ): JsonResponse|RedirectResponse|PageResource {
+        Requests\Page\UpdateRequest $request
+    ): JsonResponse|RedirectResponse|Resources\Page {
+
+        $this->saveRevision($page);
+
         $validated = $request->validated();
 
         $user = $request->user();
 
-        $this->saveRevision($page);
-
-        $page->modified_by_id = $user?->id;
+        if ($user?->id) {
+            $page->modified_by_id = $user->id;
+        }
 
         $page->update($validated);
 
         if ($request->expectsJson()) {
-            return (new PageResource($page))->response($request);
+            return (new Resources\Page($page))->additional(['meta' => [
+                'info' => $this->packageInfo,
+            ]])->response($request);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -636,6 +669,9 @@ class PageController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route('playground.cms.resource.pages.show', ['page' => $page->id]));
+        return redirect(route(sprintf(
+            '%1$s.show',
+            $this->packageInfo['model_route']
+        ), ['page' => $page->id]));
     }
 }

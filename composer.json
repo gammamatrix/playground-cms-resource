@@ -3,13 +3,12 @@
     "description": "Playground: Provides an API and a Blade UI for interacting with Playground CMS, a Content Management System for Laravel applications.",
     "keywords": [
         "cms",
-        "content management system",
         "gammamatrix",
         "laravel",
-        "playground-blade",
-        "playground"
+        "playground",
+        "playground-blade"
     ],
-    "homepage": "https://gammamatrix-playground.readthedocs.io/en/develop/components/cms.html",
+    "homepage": "https://github.com/gammamatrix/playground-cms-resource",
     "license": "MIT",
     "authors": [
         {
@@ -20,8 +19,8 @@
     ],
     "require": {
         "php": "^8.2",
+        "gammamatrix/playground": "*",
         "gammamatrix/playground-auth": "*",
-        "gammamatrix/playground-blade": "*",
         "gammamatrix/playground-http": "*",
         "gammamatrix/playground-cms": "*"
     },
@@ -30,8 +29,6 @@
         "gammamatrix/playground-login-blade": "*",
         "gammamatrix/playground-site-blade": "*"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
     "autoload": {
         "psr-4": {
             "Playground\\Cms\\Resource\\": "src/"
@@ -52,8 +49,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-develop": "73.x-dev",
-            "dev-master": "73.x-dev"
+            "dev-develop": "73.x-dev"
         },
         "laravel": {
             "providers": [
@@ -61,10 +57,12 @@
             ]
         }
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "scripts": {
         "analyse": "vendor/bin/phpstan analyse --verbose --debug --level max",
         "cloc": "cloc --exclude-dir=node_modules,output,vendor .",
         "format": "vendor/bin/php-cs-fixer fix",
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/testbench package:test"
     }
 }

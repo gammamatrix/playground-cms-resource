@@ -48,7 +48,7 @@ class TestCase extends BaseTestCase
      * @var array<string, string>
      */
     public array $packageInfo = [
-        'model_attribute' => 'label',
+        'model_attribute' => 'title',
         'model_label' => '',
         'model_label_plural' => '',
         'model_route' => '',
@@ -58,9 +58,9 @@ class TestCase extends BaseTestCase
         'module_label_plural' => 'CMS',
         'module_route' => 'playground.cms.resource',
         'module_slug' => 'cms',
-        'privilege' => '',
+        'privilege' => 'playground-cms-resource:',
         'table' => '',
-        'view' => '',
+        'view' => 'playground-cms-resource::',
     ];
 
     /**

@@ -1,24 +1,24 @@
 openapi: 3.0.3
+info:
+  title: 'Playground CMS Resource'
+  description: 'Playground: Provides an API and a Blade UI for interacting with Playground CMS, a Content Management System for Laravel applications.'
+  version: ''
+externalDocs:
+  url: 'https://gammamatrix-playground.readthedocs.io/en/develop/components/cms.html'
+  description: 'Read the Docs: Playground CMS Packages'
 servers:
   -
     url: 'https://api.example.com'
-    description: 'Production server'
+    description: 'Production Server'
   -
     url: 'https://api.staging.example.com'
-    description: 'Staging server'
+    description: 'Staging Server'
   -
     url: 'https://api.dev.example.com'
-    description: 'Dev server'
-info:
-  title: Playground CMS Resource
-  description: ''
-  termsOfService: ''
-  # contact:
-  #   email: support@example.com
-  version: 73.0.0
-externalDocs:
-  description: ''
-  url: ''
+    description: 'Dev Server'
+  -
+    url: 'http://localhost'
+    description: 'Local Server'
 tags:
   -
     name: Page
@@ -27,30 +27,12 @@ tags:
     name: Snippet
     description: 'Manage snippets in storage.'
 paths:
-  '/resource/cms/snippets/{id}':
-    $ref: paths/snippets/id.yml
-  /resource/cms/snippets:
-    $ref: paths/snippets/index.yml
-  /resource/cms/snippets/create:
-    $ref: paths/snippets/create.yml
-  '/resource/cms/snippets/edit/{id}':
-    $ref: paths/snippets/edit.yml
-  '/resource/cms/snippets/lock/{id}':
-    $ref: paths/snippets/lock.yml
-  '/resource/cms/snippets/restore/{id}':
-    $ref: paths/snippets/restore.yml
-  '/resource/cms/snippets/revision/{id}':
-    $ref: paths/snippets/revision.yml
-  '/resource/cms/snippets/{id}/revisions':
-    $ref: paths/snippets/revisions.yml
   '/resource/cms/pages/{id}':
     $ref: paths/pages/id.yml
   /resource/cms/pages:
     $ref: paths/pages/index.yml
-  /resource/cms/pages/create:
-    $ref: paths/pages/create.yml
-  '/resource/cms/pages/edit/{id}':
-    $ref: paths/pages/edit.yml
+  /resource/cms/pages/index:
+    $ref: paths/pages/index-form.yml
   '/resource/cms/pages/lock/{id}':
     $ref: paths/pages/lock.yml
   '/resource/cms/pages/restore/{id}':
@@ -59,6 +41,28 @@ paths:
     $ref: paths/pages/revision.yml
   '/resource/cms/pages/{id}/revisions':
     $ref: paths/pages/revisions.yml
+  /resource/cms/pages/create:
+    $ref: paths/pages/create.yml
+  '/resource/cms/pages/edit/{id}':
+    $ref: paths/pages/edit.yml
+  '/resource/cms/snippets/{id}':
+    $ref: paths/snippets/id.yml
+  /resource/cms/snippets:
+    $ref: paths/snippets/index.yml
+  /resource/cms/snippets/index:
+    $ref: paths/snippets/index-form.yml
+  '/resource/cms/snippets/lock/{id}':
+    $ref: paths/snippets/lock.yml
+  '/resource/cms/snippets/restore/{id}':
+    $ref: paths/snippets/restore.yml
+  '/resource/cms/snippets/revision/{id}':
+    $ref: paths/snippets/revision.yml
+  '/resource/cms/snippets/{id}/revisions':
+    $ref: paths/snippets/revisions.yml
+  /resource/cms/snippets/create:
+    $ref: paths/snippets/create.yml
+  '/resource/cms/snippets/edit/{id}':
+    $ref: paths/snippets/edit.yml
 components:
   schemas:
     Page:

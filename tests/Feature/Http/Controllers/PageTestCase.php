@@ -6,6 +6,8 @@
 declare(strict_types=1);
 namespace Tests\Feature\Playground\Cms\Resource\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * \Tests\Feature\Playground\Cms\Resource\Http\Controllers\PageTestCase
  */
@@ -13,6 +15,9 @@ class PageTestCase extends TestCase
 {
     public string $fqdn = \Playground\Cms\Models\Page::class;
 
+    /**
+     * @var class-string<Model>
+     */
     public string $fqdnRevision = \Playground\Cms\Models\PageRevision::class;
 
     public string $revisionId = 'page_id';
@@ -35,7 +40,7 @@ class PageTestCase extends TestCase
         'module_slug' => 'cms',
         'privilege' => 'playground-cms-resource:page',
         'table' => 'cms_pages',
-        'view' => 'playground-cms-resource::page',
+        'view' => 'playground.cms.resource::page',
     ];
 
     /**
@@ -43,28 +48,29 @@ class PageTestCase extends TestCase
      */
     protected $structure_model = [
         'id',
+        'page_type',
         'created_by_id',
         'modified_by_id',
         'owned_by_id',
         'parent_id',
-        'page_type',
+        'matrix_id',
         'created_at',
-        'deleted_at',
         'updated_at',
-        'start_at',
-        'planned_start_at',
-        'end_at',
-        'planned_end_at',
+        'deleted_at',
         'canceled_at',
         'closed_at',
         'embargo_at',
         'fixed_at',
+        'planned_end_at',
+        'planned_start_at',
         'postponed_at',
         'published_at',
         'released_at',
         'resumed_at',
         'resolved_at',
         'suspended_at',
+        'timer_end_at',
+        'timer_start_at',
         'gids',
         'po',
         'pg',
@@ -76,24 +82,45 @@ class PageTestCase extends TestCase
         'status',
         'rank',
         'size',
+        'revision',
+        'redirect_delay',
+        'status_code',
+        'route',
+        'matrix',
+        'x',
+        'y',
+        'z',
+        'r',
+        'theta',
+        'rho',
+        'phi',
+        'elevation',
+        'latitude',
+        'longitude',
         'active',
         'canceled',
         'closed',
         'completed',
+        'cron',
+        'duplicate',
         'fixed',
         'flagged',
         'internal',
+        'is_external',
+        'is_redirect',
         'locked',
         'pending',
         'planned',
+        'prioritized',
         'problem',
         'published',
         'released',
-        'retired',
         'resolved',
+        'retired',
         'sitemap',
         'suspended',
         'unknown',
+        'locale',
         'label',
         'title',
         'byline',
@@ -109,7 +136,9 @@ class PageTestCase extends TestCase
         'ui',
         'assets',
         'meta',
+        'notes',
         'options',
+        'params',
         'sources',
     ];
 }

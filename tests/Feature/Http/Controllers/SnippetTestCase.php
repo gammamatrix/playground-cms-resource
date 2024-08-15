@@ -6,6 +6,8 @@
 declare(strict_types=1);
 namespace Tests\Feature\Playground\Cms\Resource\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
+
 /**
  * \Tests\Feature\Playground\Cms\Resource\Http\Controllers\SnippetTestCase
  */
@@ -13,6 +15,9 @@ class SnippetTestCase extends TestCase
 {
     public string $fqdn = \Playground\Cms\Models\Snippet::class;
 
+    /**
+     * @var class-string<Model>
+     */
     public string $fqdnRevision = \Playground\Cms\Models\SnippetRevision::class;
 
     public string $revisionId = 'snippet_id';
@@ -35,7 +40,7 @@ class SnippetTestCase extends TestCase
         'module_slug' => 'cms',
         'privilege' => 'playground-cms-resource:snippet',
         'table' => 'cms_snippets',
-        'view' => 'playground-cms-resource::snippet',
+        'view' => 'playground.cms.resource::snippet',
     ];
 
     /**
@@ -43,28 +48,29 @@ class SnippetTestCase extends TestCase
      */
     protected $structure_model = [
         'id',
+        'snippet_type',
         'created_by_id',
         'modified_by_id',
         'owned_by_id',
         'parent_id',
-        'snippet_type',
+        'matrix_id',
         'created_at',
-        'deleted_at',
         'updated_at',
-        'start_at',
-        'planned_start_at',
-        'end_at',
-        'planned_end_at',
+        'deleted_at',
         'canceled_at',
         'closed_at',
         'embargo_at',
         'fixed_at',
+        'planned_end_at',
+        'planned_start_at',
         'postponed_at',
         'published_at',
         'released_at',
         'resumed_at',
         'resolved_at',
         'suspended_at',
+        'timer_end_at',
+        'timer_start_at',
         'gids',
         'po',
         'pg',
@@ -76,24 +82,39 @@ class SnippetTestCase extends TestCase
         'status',
         'rank',
         'size',
+        'revision',
+        'matrix',
+        'x',
+        'y',
+        'z',
+        'r',
+        'theta',
+        'rho',
+        'phi',
+        'elevation',
+        'latitude',
+        'longitude',
         'active',
         'canceled',
         'closed',
         'completed',
+        'cron',
+        'duplicate',
         'fixed',
         'flagged',
         'internal',
         'locked',
         'pending',
         'planned',
+        'prioritized',
         'problem',
         'published',
         'released',
-        'retired',
         'resolved',
-        'sitemap',
+        'retired',
         'suspended',
         'unknown',
+        'locale',
         'label',
         'title',
         'byline',
@@ -109,6 +130,7 @@ class SnippetTestCase extends TestCase
         'ui',
         'assets',
         'meta',
+        'notes',
         'options',
         'sources',
     ];

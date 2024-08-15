@@ -22,20 +22,7 @@
                     <h1>CMS</h1>
                 </div>
                 <div class="card-body">
-
                     <div class="row">
-
-                        <div class="col-sm-6">
-                            <div class="card m-1">
-                                <div class="card-body">
-                                    <h5 class="card-title">Snippets</h5>
-                                    <h6 class="card-subtitle mb-2 text-muted">Manage snippets</h6>
-                                    <p class="card-text"></p>
-                                    <a class="card-link" href="{{ route('playground.cms.resource.snippets') }}">View Snippets</a>
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="col-sm-6">
                             <div class="card m-1">
                                 <div class="card-body">
@@ -46,7 +33,16 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="col-sm-6">
+                            <div class="card m-1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Snippets</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Manage snippets</h6>
+                                    <p class="card-text"></p>
+                                    <a class="card-link" href="{{ route('playground.cms.resource.snippets') }}">View Snippets</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

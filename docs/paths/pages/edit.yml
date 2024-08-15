@@ -14,7 +14,7 @@ get:
   operationId: edit_page
   responses:
     200:
-      description: 'The edit information (JSON) or form (HTML).'
+      description: 'The edit page information (JSON) or (HTML).'
       content:
         application/json:
           schema:
