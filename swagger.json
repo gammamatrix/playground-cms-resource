@@ -38,7 +38,7 @@
     }
   ],
   "paths": {
-    "/api/cms/pages/{id}": {
+    "/resource/cms/pages/{id}": {
       "parameters": [
         {
           "in": "path",
@@ -540,7 +540,7 @@
         }
       }
     },
-    "/api/cms/pages": {
+    "/resource/cms/pages": {
       "get": {
         "tags": [
           "Page"
@@ -1012,7 +1012,7 @@
         }
       }
     },
-    "/api/cms/pages/index": {
+    "/resource/cms/pages/index": {
       "post": {
         "tags": [
           "Page"
@@ -1098,7 +1098,7 @@
         }
       }
     },
-    "/api/cms/pages/lock/{id}": {
+    "/resource/cms/pages/lock/{id}": {
       "parameters": [
         {
           "in": "path",
@@ -1163,7 +1163,7 @@
         }
       }
     },
-    "/api/cms/pages/restore/{id}": {
+    "/resource/cms/pages/restore/{id}": {
       "parameters": [
         {
           "in": "path",
@@ -1210,7 +1210,7 @@
         }
       }
     },
-    "/api/cms/pages/revision/{id}": {
+    "/resource/cms/pages/revision/{id}": {
       "parameters": [
         {
           "in": "path",
@@ -1290,7 +1290,7 @@
         }
       }
     },
-    "/api/cms/pages/{id}/revisions": {
+    "/resource/cms/pages/{id}/revisions": {
       "parameters": [
         {
           "in": "path",
@@ -1340,7 +1340,7 @@
         }
       }
     },
-    "/api/cms/pages/create": {
+    "/resource/cms/pages/create": {
       "get": {
         "tags": [
           "Page"
@@ -1381,7 +1381,7 @@
         }
       }
     },
-    "/api/cms/pages/edit/{id}": {
+    "/resource/cms/pages/edit/{id}": {
       "parameters": [
         {
           "in": "path",
@@ -1434,7 +1434,7 @@
         }
       }
     },
-    "/api/cms/snippets/{id}": {
+    "/resource/cms/snippets/{id}": {
       "parameters": [
         {
           "in": "path",
@@ -1903,7 +1903,7 @@
         }
       }
     },
-    "/api/cms/snippets": {
+    "/resource/cms/snippets": {
       "get": {
         "tags": [
           "Snippet"
@@ -2342,7 +2342,7 @@
         }
       }
     },
-    "/api/cms/snippets/index": {
+    "/resource/cms/snippets/index": {
       "post": {
         "tags": [
           "Snippet"
@@ -2428,7 +2428,7 @@
         }
       }
     },
-    "/api/cms/snippets/lock/{id}": {
+    "/resource/cms/snippets/lock/{id}": {
       "parameters": [
         {
           "in": "path",
@@ -2493,7 +2493,7 @@
         }
       }
     },
-    "/api/cms/snippets/restore/{id}": {
+    "/resource/cms/snippets/restore/{id}": {
       "parameters": [
         {
           "in": "path",
@@ -2540,7 +2540,7 @@
         }
       }
     },
-    "/api/cms/snippets/revision/{id}": {
+    "/resource/cms/snippets/revision/{id}": {
       "parameters": [
         {
           "in": "path",
@@ -2620,7 +2620,7 @@
         }
       }
     },
-    "/api/cms/snippets/{id}/revisions": {
+    "/resource/cms/snippets/{id}/revisions": {
       "parameters": [
         {
           "in": "path",
@@ -2670,7 +2670,7 @@
         }
       }
     },
-    "/api/cms/snippets/create": {
+    "/resource/cms/snippets/create": {
       "get": {
         "tags": [
           "Snippet"
@@ -2711,7 +2711,7 @@
         }
       }
     },
-    "/api/cms/snippets/edit/{id}": {
+    "/resource/cms/snippets/edit/{id}": {
       "parameters": [
         {
           "in": "path",
