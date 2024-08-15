@@ -1,4 +1,4 @@
-@extends('playground::layouts.resource')
+@extends('playground::layouts.resource.layout')
 
 @section('title', 'CMS')
 
@@ -29,7 +29,7 @@
                                     <h5 class="card-title">Pages</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Manage pages</h6>
                                     <p class="card-text"></p>
-                                    <a class="card-link" href="{{ route('playground.cms.resource.page') }}">View Pages</a>
+                                    <a class="card-link" href="{{ route('playground.cms.resource.pages') }}">View Pages</a>
                                 </div>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                                     <h5 class="card-title">Snippets</h5>
                                     <h6 class="card-subtitle mb-2 text-muted">Manage snippets</h6>
                                     <p class="card-text"></p>
-                                    <a class="card-link" href="{{ route('playground.cms.resource.snippet') }}">View Snippets</a>
+                                    <a class="card-link" href="{{ route('playground.cms.resource.snippets') }}">View Snippets</a>
                                 </div>
                             </div>
                         </div>

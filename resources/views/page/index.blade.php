@@ -5,7 +5,7 @@ $filters = empty($filters) || ! is_array($filters) ? [] : $filters;
 
 $validated = empty($validated) || ! is_array($validated) ? [] : $validated;
 
-$withTableColumns = [
+$columnsViewable = [
     'page_type' => [
         'hide-sm' => false,
         'label' => 'Page Type',
@@ -37,7 +37,7 @@ $withTableColumns = [
         'label' => 'Locale',
     ],
     'label' => [
-        'hide-sm' => true,
+        'hide-sm' => false,
         'linkType' => null,
         'linkRoute' => null,
         'label' => 'Label',
@@ -67,7 +67,7 @@ $withTableColumns = [
         'label' => 'Url',
     ],
     'description' => [
-        'hide-sm' => true,
+        'hide-sm' => false,
         'linkType' => null,
         'linkRoute' => null,
         'label' => 'Description',
@@ -78,20 +78,20 @@ $withTableColumns = [
         'linkRoute' => null,
         'label' => 'Introduction',
     ],
-    'content' => [
+    'icon' => [
         'hide-sm' => true,
-        'linkType' => null,
-        'linkRoute' => null,
-        'label' => 'Content',
+        'label' => 'Icon',
     ],
-    'summary' => [
+    'image' => [
         'hide-sm' => true,
-        'linkType' => null,
-        'linkRoute' => null,
-        'label' => 'Summary',
+        'label' => 'Image',
+    ],
+    'avatar' => [
+        'hide-sm' => true,
+        'label' => 'Avatar',
     ],
     'active' => [
-        'hide-sm' => false,
+        'hide-sm' => true,
         'flag' => true,
         'label' => 'Active',
         'onTrueClass' => 'fa-solid fa-person-running',
@@ -187,7 +187,7 @@ $withTableColumns = [
         'onTrueClass' => 'fa-solid fa-triangle-exclamation text-danger',
     ],
     'published' => [
-        'hide-sm' => true,
+        'hide-sm' => false,
         'flag' => true,
         'label' => 'Published',
         'onTrueClass' => 'fa-solid fa-book',
@@ -345,7 +345,7 @@ $withTableColumns = [
         'label' => 'Size',
     ],
     'revision' => [
-        'hide-sm' => true,
+        'hide-sm' => false,
         'label' => 'Revision',
     ],
     'redirect_delay' => [
@@ -360,65 +360,42 @@ $withTableColumns = [
         'hide-sm' => true,
         'label' => 'Route',
     ],
-    'matrix' => [
-        'hide-sm' => true,
-        'label' => 'Matrix',
-    ],
-    'x' => [
-        'hide-sm' => true,
-        'label' => 'X',
-    ],
-    'y' => [
-        'hide-sm' => true,
-        'label' => 'Y',
-    ],
-    'z' => [
-        'hide-sm' => true,
-        'label' => 'Z',
-    ],
-    'r' => [
-        'hide-sm' => true,
-        'label' => 'R',
-    ],
-    'theta' => [
-        'hide-sm' => true,
-        'label' => 'Theta',
-    ],
-    'rho' => [
-        'hide-sm' => true,
-        'label' => 'Rho',
-    ],
-    'phi' => [
-        'hide-sm' => true,
-        'label' => 'Phi',
-    ],
-    'elevation' => [
-        'hide-sm' => true,
-        'label' => 'Elevation',
-    ],
-    'latitude' => [
-        'hide-sm' => true,
-        'label' => 'Latitude',
-    ],
-    'longitude' => [
-        'hide-sm' => true,
-        'label' => 'Longitude',
-    ],
 ];
 
-$standardColumns = [
+$columnsMobile = [
     'title',
+    'page_type',
     'slug',
-    'active',
+    'description',
+    'published',
+];
+
+$columnsStandard = [
+    'title',
+    'page_type',
+    'slug',
+    'label',
+    'description',
+    'published',
+    'revision',
     'created_at',
     'updated_at',
-    'page_type',
 ];
 
-if (empty($validated['columns']) || $validated['columns'] !== 'all') {
-    $columns = Illuminate\Support\Arr::only($withTableColumns, $standardColumns);
+$viewableColumns = ! empty($validated['columns'])
+    && is_string($validated['columns'])
+    && in_array($validated['columns'], [
+        'all',
+        'standard',
+        'mobile',
+    ]) ? $validated['columns'] : 'standard';
+
+if ($viewableColumns === 'all') {
+    $columns = $columnsViewable;
+} elseif ($viewableColumns === 'mobile') {
+    $columns = Illuminate\Support\Arr::only($columnsViewable, $columnsMobile);
 } else {
-    $columns = $withTableColumns;
+    $columns = Illuminate\Support\Arr::only($columnsViewable, $columnsStandard);
 }
 
 ?>

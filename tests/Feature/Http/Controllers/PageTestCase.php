@@ -6,6 +6,7 @@
 declare(strict_types=1);
 namespace Tests\Feature\Playground\Cms\Resource\Http\Controllers;
 
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * \Tests\Feature\Playground\Cms\Resource\Http\Controllers\PageTestCase

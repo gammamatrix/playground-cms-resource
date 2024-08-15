@@ -1,29 +1,32 @@
 {
   "openapi": "3.0.3",
+  "info": {
+    "title": "Playground CMS Resource",
+    "description": "Playground: Provides an API and a Blade UI for interacting with Playground CMS, a Content Management System for Laravel applications.",
+    "version": ""
+  },
+  "externalDocs": {
+    "url": "https://gammamatrix-playground.readthedocs.io/en/develop/components/cms.html",
+    "description": "Read the Docs: Playground CMS Packages"
+  },
   "servers": [
     {
       "url": "https://api.example.com",
-      "description": "Production server"
+      "description": "Production Server"
     },
     {
       "url": "https://api.staging.example.com",
-      "description": "Staging server"
+      "description": "Staging Server"
     },
     {
       "url": "https://api.dev.example.com",
-      "description": "Dev server"
+      "description": "Dev Server"
+    },
+    {
+      "url": "http://localhost",
+      "description": "Local Server"
     }
   ],
-  "info": {
-    "title": "Playground CMS Resource",
-    "description": "",
-    "termsOfService": "",
-    "version": "73.0.0"
-  },
-  "externalDocs": {
-    "description": "",
-    "url": ""
-  },
   "tags": [
     {
       "name": "Page",
@@ -35,1207 +38,7 @@
     }
   ],
   "paths": {
-    "/resource/cms/snippets/{id}": {
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "description": "The snippet id.",
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          }
-        }
-      ],
-      "get": {
-        "tags": [
-          "Snippet"
-        ],
-        "summary": "Get a snippet by id.",
-        "operationId": "get_snippet",
-        "responses": {
-          "200": {
-            "description": "The snippet data.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Snippet"
-                    },
-                    "meta": {
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Snippet"
-        ],
-        "summary": "Delete a snippet by id.",
-        "operationId": "delete_snippet",
-        "responses": {
-          "204": {
-            "description": "The snippet has been deleted."
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "423": {
-            "description": "The snippet is locked. Unlock to delete."
-          }
-        }
-      },
-      "patch": {
-        "tags": [
-          "Snippet"
-        ],
-        "summary": "Update a snippet by id.",
-        "operationId": "patch_snippet",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "description": "The CMS Snippet fillable properties.",
-                "type": "object",
-                "properties": {
-                  "owned_by_id": {
-                    "description": "Foreign key: links an owned by user to this snippet.",
-                    "type": "string",
-                    "format": "uuid",
-                    "nullable": true
-                  },
-                  "parent_id": {
-                    "description": "Foreign key: links a parent to this snippet.",
-                    "type": "string",
-                    "format": "uuid",
-                    "nullable": true
-                  },
-                  "snippet_type": {
-                    "description": "The snippet type of this snippet.",
-                    "type": "string",
-                    "nullable": true
-                  },
-                  "start_at": {
-                    "description": "The start at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "planned_start_at": {
-                    "description": "The planned start at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "end_at": {
-                    "description": "The end at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "planned_end_at": {
-                    "description": "The planned end at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "canceled_at": {
-                    "description": "The canceled at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "closed_at": {
-                    "description": "The closed at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "embargo_at": {
-                    "description": "The embargo at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "fixed_at": {
-                    "description": "The fixed at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "postponed_at": {
-                    "description": "The postponed at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "published_at": {
-                    "description": "The published at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "released_at": {
-                    "description": "The released at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "resumed_at": {
-                    "description": "The resumed at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "resolved_at": {
-                    "description": "The resolved at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "suspended_at": {
-                    "description": "The suspended at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "gids": {
-                    "description": "Permissions: gids",
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "po": {
-                    "description": "Permissions: po",
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "pg": {
-                    "description": "Permissions: pg",
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "pw": {
-                    "description": "Permissions: pw",
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "only_admin": {
-                    "description": "Permissions: only admin",
-                    "type": "boolean"
-                  },
-                  "only_user": {
-                    "description": "Permissions: only user",
-                    "type": "boolean"
-                  },
-                  "only_guest": {
-                    "description": "Permissions: only guest",
-                    "type": "boolean"
-                  },
-                  "allow_public": {
-                    "description": "Permissions: allow public",
-                    "type": "boolean"
-                  },
-                  "status": {
-                    "description": "The status of the snippet.",
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "rank": {
-                    "description": "Status: rank",
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "size": {
-                    "description": "Status: size",
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "icon": {
-                    "description": "Ui: icon",
-                    "type": "string",
-                    "maxLength": 128
-                  },
-                  "image": {
-                    "description": "Ui: image",
-                    "type": "string",
-                    "maxLength": 512
-                  },
-                  "avatar": {
-                    "description": "Ui: avatar",
-                    "type": "string",
-                    "maxLength": 512
-                  },
-                  "ui": {
-                    "description": "The ui of the snippet.",
-                    "type": "object",
-                    "nullable": true
-                  },
-                  "active": {
-                    "description": "Flags: active",
-                    "type": "boolean"
-                  },
-                  "canceled": {
-                    "description": "Flags: canceled",
-                    "type": "boolean"
-                  },
-                  "closed": {
-                    "description": "Flags: closed",
-                    "type": "boolean"
-                  },
-                  "completed": {
-                    "description": "Flags: completed",
-                    "type": "boolean"
-                  },
-                  "duplicate": {
-                    "description": "Flags: duplicate",
-                    "type": "boolean"
-                  },
-                  "fixed": {
-                    "description": "Flags: fixed",
-                    "type": "boolean"
-                  },
-                  "flagged": {
-                    "description": "Flags: flagged",
-                    "type": "boolean"
-                  },
-                  "internal": {
-                    "description": "Flags: internal",
-                    "type": "boolean"
-                  },
-                  "locked": {
-                    "description": "Flags: locked",
-                    "type": "boolean"
-                  },
-                  "pending": {
-                    "description": "Flags: pending",
-                    "type": "boolean"
-                  },
-                  "planned": {
-                    "description": "Flags: planned",
-                    "type": "boolean"
-                  },
-                  "problem": {
-                    "description": "Flags: problem",
-                    "type": "boolean"
-                  },
-                  "published": {
-                    "description": "Flags: published",
-                    "type": "boolean"
-                  },
-                  "released": {
-                    "description": "Flags: released",
-                    "type": "boolean"
-                  },
-                  "retired": {
-                    "description": "Flags: retired",
-                    "type": "boolean"
-                  },
-                  "resolved": {
-                    "description": "Flags: resolved",
-                    "type": "boolean"
-                  },
-                  "suspended": {
-                    "description": "Flags: suspended",
-                    "type": "boolean"
-                  },
-                  "unknown": {
-                    "description": "Flags: unknown",
-                    "type": "boolean"
-                  },
-                  "label": {
-                    "description": "The label of the snippet.",
-                    "type": "string",
-                    "maxLength": 128
-                  },
-                  "title": {
-                    "description": "The title of the snippet.",
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "byline": {
-                    "description": "The byline of the snippet.",
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "slug": {
-                    "description": "The slug of the snippet.",
-                    "type": "string",
-                    "maxLength": 128,
-                    "nullable": true
-                  },
-                  "url": {
-                    "description": "The url of the snippet.",
-                    "type": "string",
-                    "maxLength": 512
-                  },
-                  "description": {
-                    "description": "The description of the snippet.",
-                    "type": "string",
-                    "maxLength": 512
-                  },
-                  "introduction": {
-                    "description": "The introduction of the snippet.",
-                    "type": "string",
-                    "maxLength": 512
-                  },
-                  "content": {
-                    "description": "The content of the snippet. Allows HTML.",
-                    "type": "string",
-                    "nullable": true
-                  },
-                  "summary": {
-                    "description": "The summary of the snippet. Allows HTML.",
-                    "type": "string",
-                    "nullable": true
-                  },
-                  "assets": {
-                    "description": "JSON: assets",
-                    "type": "object",
-                    "nullable": true
-                  },
-                  "meta": {
-                    "description": "JSON: meta",
-                    "type": "object",
-                    "nullable": true
-                  },
-                  "options": {
-                    "description": "JSON: options",
-                    "type": "object",
-                    "nullable": true
-                  },
-                  "sources": {
-                    "description": "JSON: sources",
-                    "type": "object",
-                    "nullable": true
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The updated snippet.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Snippet"
-                    },
-                    "meta": {
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "422": {
-            "description": "Validation error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "object",
-                      "properties": {
-                        "label": {
-                          "type": "array",
-                          "items": {
-                            "type": "string",
-                            "example": "The label field is required."
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/resource/cms/snippets": {
-      "get": {
-        "tags": [
-          "Snippet"
-        ],
-        "summary": "Get snippets from the index.",
-        "operationId": "get_snippets_index",
-        "responses": {
-          "200": {
-            "description": "Get the snippets from the index.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/Snippet"
-                      }
-                    },
-                    "meta": {
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Snippet"
-        ],
-        "summary": "Create a snippet.",
-        "operationId": "post_snippet",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "description": "The CMS Snippet fillable properties.",
-                "type": "object",
-                "properties": {
-                  "owned_by_id": {
-                    "description": "Foreign key: links an owned by user to this snippet.",
-                    "type": "string",
-                    "format": "uuid",
-                    "nullable": true
-                  },
-                  "parent_id": {
-                    "description": "Foreign key: links a parent to this snippet.",
-                    "type": "string",
-                    "format": "uuid",
-                    "nullable": true
-                  },
-                  "snippet_type": {
-                    "description": "The snippet type of this snippet.",
-                    "type": "string",
-                    "nullable": true
-                  },
-                  "start_at": {
-                    "description": "The start at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "planned_start_at": {
-                    "description": "The planned start at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "end_at": {
-                    "description": "The end at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "planned_end_at": {
-                    "description": "The planned end at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "canceled_at": {
-                    "description": "The canceled at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "closed_at": {
-                    "description": "The closed at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "embargo_at": {
-                    "description": "The embargo at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "fixed_at": {
-                    "description": "The fixed at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "postponed_at": {
-                    "description": "The postponed at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "published_at": {
-                    "description": "The published at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "released_at": {
-                    "description": "The released at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "resumed_at": {
-                    "description": "The resumed at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "resolved_at": {
-                    "description": "The resolved at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "suspended_at": {
-                    "description": "The suspended at date for this snippet.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "gids": {
-                    "description": "Permissions: gids",
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "po": {
-                    "description": "Permissions: po",
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "pg": {
-                    "description": "Permissions: pg",
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "pw": {
-                    "description": "Permissions: pw",
-                    "type": "integer",
-                    "format": "int32"
-                  },
-                  "only_admin": {
-                    "description": "Permissions: only admin",
-                    "type": "boolean"
-                  },
-                  "only_user": {
-                    "description": "Permissions: only user",
-                    "type": "boolean"
-                  },
-                  "only_guest": {
-                    "description": "Permissions: only guest",
-                    "type": "boolean"
-                  },
-                  "allow_public": {
-                    "description": "Permissions: allow public",
-                    "type": "boolean"
-                  },
-                  "status": {
-                    "description": "The status of the snippet.",
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "rank": {
-                    "description": "Status: rank",
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "size": {
-                    "description": "Status: size",
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "icon": {
-                    "description": "Ui: icon",
-                    "type": "string",
-                    "maxLength": 128
-                  },
-                  "image": {
-                    "description": "Ui: image",
-                    "type": "string",
-                    "maxLength": 512
-                  },
-                  "avatar": {
-                    "description": "Ui: avatar",
-                    "type": "string",
-                    "maxLength": 512
-                  },
-                  "ui": {
-                    "description": "The ui of the snippet.",
-                    "type": "object",
-                    "nullable": true
-                  },
-                  "active": {
-                    "description": "Flags: active",
-                    "type": "boolean"
-                  },
-                  "canceled": {
-                    "description": "Flags: canceled",
-                    "type": "boolean"
-                  },
-                  "closed": {
-                    "description": "Flags: closed",
-                    "type": "boolean"
-                  },
-                  "completed": {
-                    "description": "Flags: completed",
-                    "type": "boolean"
-                  },
-                  "duplicate": {
-                    "description": "Flags: duplicate",
-                    "type": "boolean"
-                  },
-                  "fixed": {
-                    "description": "Flags: fixed",
-                    "type": "boolean"
-                  },
-                  "flagged": {
-                    "description": "Flags: flagged",
-                    "type": "boolean"
-                  },
-                  "internal": {
-                    "description": "Flags: internal",
-                    "type": "boolean"
-                  },
-                  "locked": {
-                    "description": "Flags: locked",
-                    "type": "boolean"
-                  },
-                  "pending": {
-                    "description": "Flags: pending",
-                    "type": "boolean"
-                  },
-                  "planned": {
-                    "description": "Flags: planned",
-                    "type": "boolean"
-                  },
-                  "problem": {
-                    "description": "Flags: problem",
-                    "type": "boolean"
-                  },
-                  "published": {
-                    "description": "Flags: published",
-                    "type": "boolean"
-                  },
-                  "released": {
-                    "description": "Flags: released",
-                    "type": "boolean"
-                  },
-                  "retired": {
-                    "description": "Flags: retired",
-                    "type": "boolean"
-                  },
-                  "resolved": {
-                    "description": "Flags: resolved",
-                    "type": "boolean"
-                  },
-                  "suspended": {
-                    "description": "Flags: suspended",
-                    "type": "boolean"
-                  },
-                  "unknown": {
-                    "description": "Flags: unknown",
-                    "type": "boolean"
-                  },
-                  "label": {
-                    "description": "The label of the snippet.",
-                    "type": "string",
-                    "maxLength": 128
-                  },
-                  "title": {
-                    "description": "The title of the snippet.",
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "byline": {
-                    "description": "The byline of the snippet.",
-                    "type": "string",
-                    "maxLength": 255
-                  },
-                  "slug": {
-                    "description": "The slug of the snippet.",
-                    "type": "string",
-                    "maxLength": 128,
-                    "nullable": true
-                  },
-                  "url": {
-                    "description": "The url of the snippet.",
-                    "type": "string",
-                    "maxLength": 512
-                  },
-                  "description": {
-                    "description": "The description of the snippet.",
-                    "type": "string",
-                    "maxLength": 512
-                  },
-                  "introduction": {
-                    "description": "The introduction of the snippet.",
-                    "type": "string",
-                    "maxLength": 512
-                  },
-                  "content": {
-                    "description": "The content of the snippet. Allows HTML.",
-                    "type": "string",
-                    "nullable": true
-                  },
-                  "summary": {
-                    "description": "The summary of the snippet. Allows HTML.",
-                    "type": "string",
-                    "nullable": true
-                  },
-                  "assets": {
-                    "description": "JSON: assets",
-                    "type": "object",
-                    "nullable": true
-                  },
-                  "meta": {
-                    "description": "JSON: meta",
-                    "type": "object",
-                    "nullable": true
-                  },
-                  "options": {
-                    "description": "JSON: options",
-                    "type": "object",
-                    "nullable": true
-                  },
-                  "sources": {
-                    "description": "JSON: sources",
-                    "type": "object",
-                    "nullable": true
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The created snippets.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Snippet"
-                    },
-                    "meta": {
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "422": {
-            "description": "Validation error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "errors": {
-                      "type": "object",
-                      "properties": {
-                        "label": {
-                          "type": "array",
-                          "items": {
-                            "type": "string",
-                            "example": "The label field is required."
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/resource/cms/snippets/create": {
-      "get": {
-        "tags": [
-          "Snippet"
-        ],
-        "summary": "Create a snippet form.",
-        "operationId": "create_snippet",
-        "responses": {
-          "200": {
-            "description": "The create information (JSON) or form (HTML).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Snippet"
-                    },
-                    "meta": {
-                      "type": "object"
-                    }
-                  }
-                }
-              },
-              "text/html": {
-                "schema": {
-                  "type": "string",
-                  "example": "<html><body><form method=\"POST\" action=\"/resource/cms/snippets\">Create a snippet</form></body></html>"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/resource/cms/snippets/edit/{id}": {
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "description": "The snippet id.",
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          }
-        }
-      ],
-      "get": {
-        "tags": [
-          "Snippet"
-        ],
-        "summary": "Edit a snippet form.",
-        "operationId": "edit_snippet",
-        "responses": {
-          "200": {
-            "description": "The edit information (JSON) or form (HTML).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Snippet"
-                    },
-                    "meta": {
-                      "type": "object"
-                    }
-                  }
-                }
-              },
-              "text/html": {
-                "schema": {
-                  "type": "string",
-                  "example": "<html><body><form method=\"POST\" action=\"/resource/cms/snippets/{id}\">Edit a snippet</form></body></html>"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/resource/cms/snippets/lock/{id}": {
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "description": "The snippet id.",
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          }
-        }
-      ],
-      "delete": {
-        "tags": [
-          "Snippet"
-        ],
-        "summary": "Unlock a snippet by id.",
-        "operationId": "lock_snippet",
-        "responses": {
-          "204": {
-            "description": "The snippet has been unlocked."
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Snippet"
-        ],
-        "summary": "Lock a snippet by id.",
-        "operationId": "unlock_snippet",
-        "responses": {
-          "200": {
-            "description": "The unlocked snippet.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Snippet"
-                    },
-                    "meta": {
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/resource/cms/snippets/restore/{id}": {
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "description": "The snippet id.",
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          }
-        }
-      ],
-      "put": {
-        "tags": [
-          "Snippet"
-        ],
-        "summary": "Restore a snippet from the trash by id.",
-        "operationId": "restore_snippet",
-        "responses": {
-          "200": {
-            "description": "The restored snippet.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Snippet"
-                    },
-                    "meta": {
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/resource/cms/snippets/revision/{id}": {
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "description": "The snippet revision id.",
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          }
-        }
-      ],
-      "get": {
-        "tags": [
-          "Snippet"
-        ],
-        "summary": "Show a snippet revision.",
-        "operationId": "snippet_revision",
-        "responses": {
-          "200": {
-            "description": "The snippet revision.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/SnippetRevision"
-                    },
-                    "meta": {
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Snippet"
-        ],
-        "summary": "Restore a snippet revision.",
-        "operationId": "restore_snippet_revision",
-        "responses": {
-          "200": {
-            "description": "The updated snippet from the revision.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Snippet"
-                    },
-                    "meta": {
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/resource/cms/snippets/{id}/revisions": {
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "description": "The snippet id.",
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          }
-        }
-      ],
-      "get": {
-        "tags": [
-          "Snippet"
-        ],
-        "summary": "Get the revisions of a snippet.",
-        "operationId": "get_snippet_revisions_index",
-        "responses": {
-          "200": {
-            "description": "The snippet revisions.",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "type": "array",
-                      "items": {
-                        "$ref": "#/components/schemas/SnippetRevision"
-                      }
-                    },
-                    "meta": {
-                      "type": "object"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/resource/cms/pages/{id}": {
+    "/api/cms/pages/{id}": {
       "parameters": [
         {
           "in": "path",
@@ -1306,7 +109,7 @@
         "tags": [
           "Page"
         ],
-        "summary": "Update a page by id.",
+        "summary": "Patch a page by id.",
         "operationId": "patch_page",
         "requestBody": {
           "content": {
@@ -1315,6 +118,11 @@
                 "description": "The CMS Page fillable properties.",
                 "type": "object",
                 "properties": {
+                  "page_type": {
+                    "description": "The page type of this page.",
+                    "type": "string",
+                    "nullable": true
+                  },
                   "owned_by_id": {
                     "description": "Foreign key: links an owned by user to this page.",
                     "type": "string",
@@ -1322,38 +130,15 @@
                     "nullable": true
                   },
                   "parent_id": {
-                    "description": "Foreign key: links a parent to this page.",
+                    "description": "ID: a parent of this page.",
                     "type": "string",
                     "format": "uuid",
                     "nullable": true
                   },
-                  "page_type": {
-                    "description": "The page type of this page.",
+                  "matrix_id": {
+                    "description": "Foreign key: links a matrix to this page.",
                     "type": "string",
-                    "nullable": true
-                  },
-                  "start_at": {
-                    "description": "The start at date for this page.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "planned_start_at": {
-                    "description": "The planned start at date for this page.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "end_at": {
-                    "description": "The end at date for this page.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "planned_end_at": {
-                    "description": "The planned end at date for this page.",
-                    "type": "string",
-                    "format": "date-time",
+                    "format": "uuid",
                     "nullable": true
                   },
                   "canceled_at": {
@@ -1376,6 +161,18 @@
                   },
                   "fixed_at": {
                     "description": "The fixed at date for this page.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "planned_end_at": {
+                    "description": "The planned end at date for this page.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "planned_start_at": {
+                    "description": "The planned start at date for this page.",
                     "type": "string",
                     "format": "date-time",
                     "nullable": true
@@ -1412,6 +209,18 @@
                   },
                   "suspended_at": {
                     "description": "The suspended at date for this page.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "timer_end_at": {
+                    "description": "The timer end at date for this page.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "timer_start_at": {
+                    "description": "The timer start at date for this page.",
                     "type": "string",
                     "format": "date-time",
                     "nullable": true
@@ -1467,6 +276,22 @@
                     "type": "integer",
                     "format": "int64"
                   },
+                  "redirect_delay": {
+                    "description": "Status: redirect delay",
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "status_code": {
+                    "description": "Status: status code",
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "route": {
+                    "description": "Status: route",
+                    "type": "string",
+                    "maxLength": 255,
+                    "nullable": true
+                  },
                   "icon": {
                     "description": "Ui: icon",
                     "type": "string",
@@ -1503,6 +328,10 @@
                     "description": "Flags: completed",
                     "type": "boolean"
                   },
+                  "cron": {
+                    "description": "Flags: cron",
+                    "type": "boolean"
+                  },
                   "duplicate": {
                     "description": "Flags: duplicate",
                     "type": "boolean"
@@ -1519,6 +348,14 @@
                     "description": "Flags: internal",
                     "type": "boolean"
                   },
+                  "is_external": {
+                    "description": "Flags: is external",
+                    "type": "boolean"
+                  },
+                  "is_redirect": {
+                    "description": "Flags: is redirect",
+                    "type": "boolean"
+                  },
                   "locked": {
                     "description": "Flags: locked",
                     "type": "boolean"
@@ -1529,6 +366,10 @@
                   },
                   "planned": {
                     "description": "Flags: planned",
+                    "type": "boolean"
+                  },
+                  "prioritized": {
+                    "description": "Flags: prioritized",
                     "type": "boolean"
                   },
                   "problem": {
@@ -1543,12 +384,16 @@
                     "description": "Flags: released",
                     "type": "boolean"
                   },
+                  "resolved": {
+                    "description": "Flags: resolved",
+                    "type": "boolean"
+                  },
                   "retired": {
                     "description": "Flags: retired",
                     "type": "boolean"
                   },
-                  "resolved": {
-                    "description": "Flags: resolved",
+                  "sitemap": {
+                    "description": "Flags: sitemap",
                     "type": "boolean"
                   },
                   "suspended": {
@@ -1558,6 +403,11 @@
                   "unknown": {
                     "description": "Flags: unknown",
                     "type": "boolean"
+                  },
+                  "locale": {
+                    "description": "The locale of the page.",
+                    "type": "string",
+                    "maxLength": 255
                   },
                   "label": {
                     "description": "The label of the page.",
@@ -1620,6 +470,11 @@
                     "type": "object",
                     "nullable": true
                   },
+                  "params": {
+                    "description": "JSON: params",
+                    "type": "object",
+                    "nullable": true
+                  },
                   "sources": {
                     "description": "JSON: sources",
                     "type": "object",
@@ -1632,7 +487,7 @@
         },
         "responses": {
           "200": {
-            "description": "The updated page.",
+            "description": "The page has been patched.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1665,11 +520,11 @@
                     "errors": {
                       "type": "object",
                       "properties": {
-                        "label": {
+                        "title": {
                           "type": "array",
                           "items": {
                             "type": "string",
-                            "example": "The label field is required."
+                            "example": "The title field is required."
                           }
                         }
                       }
@@ -1678,11 +533,14 @@
                 }
               }
             }
+          },
+          "423": {
+            "description": "The page is locked. Unlock to patch."
           }
         }
       }
     },
-    "/resource/cms/pages": {
+    "/api/cms/pages": {
       "get": {
         "tags": [
           "Page"
@@ -1732,6 +590,11 @@
                 "description": "The CMS Page fillable properties.",
                 "type": "object",
                 "properties": {
+                  "page_type": {
+                    "description": "The page type of this page.",
+                    "type": "string",
+                    "nullable": true
+                  },
                   "owned_by_id": {
                     "description": "Foreign key: links an owned by user to this page.",
                     "type": "string",
@@ -1739,38 +602,15 @@
                     "nullable": true
                   },
                   "parent_id": {
-                    "description": "Foreign key: links a parent to this page.",
+                    "description": "ID: a parent of this page.",
                     "type": "string",
                     "format": "uuid",
                     "nullable": true
                   },
-                  "page_type": {
-                    "description": "The page type of this page.",
+                  "matrix_id": {
+                    "description": "Foreign key: links a matrix to this page.",
                     "type": "string",
-                    "nullable": true
-                  },
-                  "start_at": {
-                    "description": "The start at date for this page.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "planned_start_at": {
-                    "description": "The planned start at date for this page.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "end_at": {
-                    "description": "The end at date for this page.",
-                    "type": "string",
-                    "format": "date-time",
-                    "nullable": true
-                  },
-                  "planned_end_at": {
-                    "description": "The planned end at date for this page.",
-                    "type": "string",
-                    "format": "date-time",
+                    "format": "uuid",
                     "nullable": true
                   },
                   "canceled_at": {
@@ -1793,6 +633,18 @@
                   },
                   "fixed_at": {
                     "description": "The fixed at date for this page.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "planned_end_at": {
+                    "description": "The planned end at date for this page.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "planned_start_at": {
+                    "description": "The planned start at date for this page.",
                     "type": "string",
                     "format": "date-time",
                     "nullable": true
@@ -1829,6 +681,18 @@
                   },
                   "suspended_at": {
                     "description": "The suspended at date for this page.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "timer_end_at": {
+                    "description": "The timer end at date for this page.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "timer_start_at": {
+                    "description": "The timer start at date for this page.",
                     "type": "string",
                     "format": "date-time",
                     "nullable": true
@@ -1884,6 +748,22 @@
                     "type": "integer",
                     "format": "int64"
                   },
+                  "redirect_delay": {
+                    "description": "Status: redirect delay",
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "status_code": {
+                    "description": "Status: status code",
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "route": {
+                    "description": "Status: route",
+                    "type": "string",
+                    "maxLength": 255,
+                    "nullable": true
+                  },
                   "icon": {
                     "description": "Ui: icon",
                     "type": "string",
@@ -1920,6 +800,10 @@
                     "description": "Flags: completed",
                     "type": "boolean"
                   },
+                  "cron": {
+                    "description": "Flags: cron",
+                    "type": "boolean"
+                  },
                   "duplicate": {
                     "description": "Flags: duplicate",
                     "type": "boolean"
@@ -1936,6 +820,14 @@
                     "description": "Flags: internal",
                     "type": "boolean"
                   },
+                  "is_external": {
+                    "description": "Flags: is external",
+                    "type": "boolean"
+                  },
+                  "is_redirect": {
+                    "description": "Flags: is redirect",
+                    "type": "boolean"
+                  },
                   "locked": {
                     "description": "Flags: locked",
                     "type": "boolean"
@@ -1946,6 +838,10 @@
                   },
                   "planned": {
                     "description": "Flags: planned",
+                    "type": "boolean"
+                  },
+                  "prioritized": {
+                    "description": "Flags: prioritized",
                     "type": "boolean"
                   },
                   "problem": {
@@ -1960,12 +856,16 @@
                     "description": "Flags: released",
                     "type": "boolean"
                   },
+                  "resolved": {
+                    "description": "Flags: resolved",
+                    "type": "boolean"
+                  },
                   "retired": {
                     "description": "Flags: retired",
                     "type": "boolean"
                   },
-                  "resolved": {
-                    "description": "Flags: resolved",
+                  "sitemap": {
+                    "description": "Flags: sitemap",
                     "type": "boolean"
                   },
                   "suspended": {
@@ -1975,6 +875,11 @@
                   "unknown": {
                     "description": "Flags: unknown",
                     "type": "boolean"
+                  },
+                  "locale": {
+                    "description": "The locale of the page.",
+                    "type": "string",
+                    "maxLength": 255
                   },
                   "label": {
                     "description": "The label of the page.",
@@ -2037,6 +942,11 @@
                     "type": "object",
                     "nullable": true
                   },
+                  "params": {
+                    "description": "JSON: params",
+                    "type": "object",
+                    "nullable": true
+                  },
                   "sources": {
                     "description": "JSON: sources",
                     "type": "object",
@@ -2049,7 +959,7 @@
         },
         "responses": {
           "200": {
-            "description": "The created pages.",
+            "description": "The created page.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2082,11 +992,11 @@
                     "errors": {
                       "type": "object",
                       "properties": {
-                        "label": {
+                        "title": {
                           "type": "array",
                           "items": {
                             "type": "string",
-                            "example": "The label field is required."
+                            "example": "The title field is required."
                           }
                         }
                       }
@@ -2095,38 +1005,86 @@
                 }
               }
             }
+          },
+          "423": {
+            "description": "The page is locked. Unlock to patch."
           }
         }
       }
     },
-    "/resource/cms/pages/create": {
-      "get": {
+    "/api/cms/pages/index": {
+      "post": {
         "tags": [
           "Page"
         ],
-        "summary": "Create a page form.",
-        "operationId": "create_page",
+        "summary": "Get pages from the index using POST.",
+        "operationId": "post_pages_index",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "The CMS Page index form.",
+                "type": "object",
+                "properties": {
+                  "perPage": {
+                    "description": "Specify the number of records to display per page for pagination.",
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "page": {
+                    "description": "Select a page for pagination.",
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "offset": {
+                    "description": "Select the zero-based index offset for pagination.",
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "filter": {
+                    "description": "Filter options for the Page.",
+                    "type": "object",
+                    "properties": {
+                      "trash": {
+                        "description": "Filter trash options",
+                        "type": "integer",
+                        "example": 1,
+                        "enum": [
+                          "with",
+                          "only",
+                          ""
+                        ]
+                      },
+                      "page_type": {
+                        "description": "The Page type of this Page.",
+                        "type": "integer",
+                        "example": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "The create information (JSON) or form (HTML).",
+            "description": "Get the pages from the index.",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
                     "data": {
-                      "$ref": "#/components/schemas/Page"
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Page"
+                      }
                     },
                     "meta": {
                       "type": "object"
                     }
                   }
-                }
-              },
-              "text/html": {
-                "schema": {
-                  "type": "string",
-                  "example": "<html><body><form method=\"POST\" action=\"/resource/cms/pages\">Create a page</form></body></html>"
                 }
               }
             }
@@ -2140,60 +1098,7 @@
         }
       }
     },
-    "/resource/cms/pages/edit/{id}": {
-      "parameters": [
-        {
-          "in": "path",
-          "name": "id",
-          "required": true,
-          "description": "The page id.",
-          "schema": {
-            "type": "string",
-            "format": "uuid"
-          }
-        }
-      ],
-      "get": {
-        "tags": [
-          "Page"
-        ],
-        "summary": "Edit a page form.",
-        "operationId": "edit_page",
-        "responses": {
-          "200": {
-            "description": "The edit information (JSON) or form (HTML).",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "data": {
-                      "$ref": "#/components/schemas/Page"
-                    },
-                    "meta": {
-                      "type": "object"
-                    }
-                  }
-                }
-              },
-              "text/html": {
-                "schema": {
-                  "type": "string",
-                  "example": "<html><body><form method=\"POST\" action=\"/resource/cms/pages/{id}\">Edit a page</form></body></html>"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/resource/cms/pages/lock/{id}": {
+    "/api/cms/pages/lock/{id}": {
       "parameters": [
         {
           "in": "path",
@@ -2210,8 +1115,8 @@
         "tags": [
           "Page"
         ],
-        "summary": "Unlock a page by id.",
-        "operationId": "lock_page",
+        "summary": "Delete a page by id.",
+        "operationId": "unlock_page",
         "responses": {
           "204": {
             "description": "The page has been unlocked."
@@ -2228,8 +1133,8 @@
         "tags": [
           "Page"
         ],
-        "summary": "Lock a page by id.",
-        "operationId": "unlock_page",
+        "summary": "Lock a page by ID.",
+        "operationId": "lock_page",
         "responses": {
           "200": {
             "description": "The unlocked page.",
@@ -2258,7 +1163,7 @@
         }
       }
     },
-    "/resource/cms/pages/restore/{id}": {
+    "/api/cms/pages/restore/{id}": {
       "parameters": [
         {
           "in": "path",
@@ -2275,7 +1180,7 @@
         "tags": [
           "Page"
         ],
-        "summary": "Restore a page from the trash by id.",
+        "summary": "Restore a page from the trash by ID.",
         "operationId": "restore_page",
         "responses": {
           "200": {
@@ -2305,7 +1210,7 @@
         }
       }
     },
-    "/resource/cms/pages/revision/{id}": {
+    "/api/cms/pages/revision/{id}": {
       "parameters": [
         {
           "in": "path",
@@ -2322,8 +1227,8 @@
         "tags": [
           "Page"
         ],
-        "summary": "Show a page revision.",
-        "operationId": "page_revision",
+        "summary": "Show a page revision by ID.",
+        "operationId": "revision_page",
         "responses": {
           "200": {
             "description": "The page revision.",
@@ -2355,11 +1260,11 @@
         "tags": [
           "Page"
         ],
-        "summary": "Restore a page revision.",
-        "operationId": "restore_page_revision",
+        "summary": "Restore a page Revision by ID.",
+        "operationId": "restore_revision_page",
         "responses": {
           "200": {
-            "description": "The updated page from the revision.",
+            "description": "The restored page.",
             "content": {
               "application/json": {
                 "schema": {
@@ -2385,7 +1290,7 @@
         }
       }
     },
-    "/resource/cms/pages/{id}/revisions": {
+    "/api/cms/pages/{id}/revisions": {
       "parameters": [
         {
           "in": "path",
@@ -2403,7 +1308,7 @@
           "Page"
         ],
         "summary": "Get the revisions of a page.",
-        "operationId": "get_page_revisions_index",
+        "operationId": "revision_index_page",
         "responses": {
           "200": {
             "description": "The page revisions.",
@@ -2434,12 +1339,1436 @@
           }
         }
       }
+    },
+    "/api/cms/pages/create": {
+      "get": {
+        "tags": [
+          "Page"
+        ],
+        "summary": "Create a page form.",
+        "operationId": "create_page",
+        "responses": {
+          "200": {
+            "description": "The create page information (JSON) or (HTML).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Page"
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string",
+                  "example": "<html><body><form method=\"POST\" action=\"/resource/cms/pages\">Create a page</form></body></html>"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/cms/pages/edit/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "The page id.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "get": {
+        "tags": [
+          "Page"
+        ],
+        "summary": "Edit a page form.",
+        "operationId": "edit_page",
+        "responses": {
+          "200": {
+            "description": "The edit page information (JSON) or (HTML).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Page"
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string",
+                  "example": "<html><body><form method=\"POST\" action=\"/resource/cms/pages/{id}\">Edit a page</form></body></html>"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/cms/snippets/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "The snippet id.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "get": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Get a snippet by id.",
+        "operationId": "get_snippet",
+        "responses": {
+          "200": {
+            "description": "The snippet data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Snippet"
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Delete a snippet by id.",
+        "operationId": "delete_snippet",
+        "responses": {
+          "204": {
+            "description": "The snippet has been deleted."
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "423": {
+            "description": "The snippet is locked. Unlock to delete."
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Patch a snippet by id.",
+        "operationId": "patch_snippet",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "The CMS Snippet fillable properties.",
+                "type": "object",
+                "properties": {
+                  "snippet_type": {
+                    "description": "The snippet type of this snippet.",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "owned_by_id": {
+                    "description": "Foreign key: links an owned by user to this snippet.",
+                    "type": "string",
+                    "format": "uuid",
+                    "nullable": true
+                  },
+                  "parent_id": {
+                    "description": "ID: a parent of this snippet.",
+                    "type": "string",
+                    "format": "uuid",
+                    "nullable": true
+                  },
+                  "matrix_id": {
+                    "description": "Foreign key: links a matrix to this snippet.",
+                    "type": "string",
+                    "format": "uuid",
+                    "nullable": true
+                  },
+                  "canceled_at": {
+                    "description": "The canceled at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "closed_at": {
+                    "description": "The closed at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "embargo_at": {
+                    "description": "The embargo at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "fixed_at": {
+                    "description": "The fixed at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "planned_end_at": {
+                    "description": "The planned end at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "planned_start_at": {
+                    "description": "The planned start at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "postponed_at": {
+                    "description": "The postponed at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "published_at": {
+                    "description": "The published at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "released_at": {
+                    "description": "The released at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "resumed_at": {
+                    "description": "The resumed at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "resolved_at": {
+                    "description": "The resolved at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "suspended_at": {
+                    "description": "The suspended at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "timer_end_at": {
+                    "description": "The timer end at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "timer_start_at": {
+                    "description": "The timer start at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "gids": {
+                    "description": "Permissions: gids",
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "po": {
+                    "description": "Permissions: po",
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "pg": {
+                    "description": "Permissions: pg",
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "pw": {
+                    "description": "Permissions: pw",
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "only_admin": {
+                    "description": "Permissions: only admin",
+                    "type": "boolean"
+                  },
+                  "only_user": {
+                    "description": "Permissions: only user",
+                    "type": "boolean"
+                  },
+                  "only_guest": {
+                    "description": "Permissions: only guest",
+                    "type": "boolean"
+                  },
+                  "allow_public": {
+                    "description": "Permissions: allow public",
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "description": "The status of the snippet.",
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "rank": {
+                    "description": "Status: rank",
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "size": {
+                    "description": "Status: size",
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "icon": {
+                    "description": "Ui: icon",
+                    "type": "string",
+                    "maxLength": 128
+                  },
+                  "image": {
+                    "description": "Ui: image",
+                    "type": "string",
+                    "maxLength": 512
+                  },
+                  "avatar": {
+                    "description": "Ui: avatar",
+                    "type": "string",
+                    "maxLength": 512
+                  },
+                  "ui": {
+                    "description": "The ui of the snippet.",
+                    "type": "object",
+                    "nullable": true
+                  },
+                  "active": {
+                    "description": "Flags: active",
+                    "type": "boolean"
+                  },
+                  "canceled": {
+                    "description": "Flags: canceled",
+                    "type": "boolean"
+                  },
+                  "closed": {
+                    "description": "Flags: closed",
+                    "type": "boolean"
+                  },
+                  "completed": {
+                    "description": "Flags: completed",
+                    "type": "boolean"
+                  },
+                  "cron": {
+                    "description": "Flags: cron",
+                    "type": "boolean"
+                  },
+                  "duplicate": {
+                    "description": "Flags: duplicate",
+                    "type": "boolean"
+                  },
+                  "fixed": {
+                    "description": "Flags: fixed",
+                    "type": "boolean"
+                  },
+                  "flagged": {
+                    "description": "Flags: flagged",
+                    "type": "boolean"
+                  },
+                  "internal": {
+                    "description": "Flags: internal",
+                    "type": "boolean"
+                  },
+                  "locked": {
+                    "description": "Flags: locked",
+                    "type": "boolean"
+                  },
+                  "pending": {
+                    "description": "Flags: pending",
+                    "type": "boolean"
+                  },
+                  "planned": {
+                    "description": "Flags: planned",
+                    "type": "boolean"
+                  },
+                  "prioritized": {
+                    "description": "Flags: prioritized",
+                    "type": "boolean"
+                  },
+                  "problem": {
+                    "description": "Flags: problem",
+                    "type": "boolean"
+                  },
+                  "published": {
+                    "description": "Flags: published",
+                    "type": "boolean"
+                  },
+                  "released": {
+                    "description": "Flags: released",
+                    "type": "boolean"
+                  },
+                  "resolved": {
+                    "description": "Flags: resolved",
+                    "type": "boolean"
+                  },
+                  "retired": {
+                    "description": "Flags: retired",
+                    "type": "boolean"
+                  },
+                  "suspended": {
+                    "description": "Flags: suspended",
+                    "type": "boolean"
+                  },
+                  "unknown": {
+                    "description": "Flags: unknown",
+                    "type": "boolean"
+                  },
+                  "locale": {
+                    "description": "The locale of the snippet.",
+                    "type": "string",
+                    "maxLength": 255
+                  },
+                  "label": {
+                    "description": "The label of the snippet.",
+                    "type": "string",
+                    "maxLength": 128
+                  },
+                  "title": {
+                    "description": "The title of the snippet.",
+                    "type": "string",
+                    "maxLength": 255
+                  },
+                  "byline": {
+                    "description": "The byline of the snippet.",
+                    "type": "string",
+                    "maxLength": 255
+                  },
+                  "slug": {
+                    "description": "The slug of the snippet.",
+                    "type": "string",
+                    "maxLength": 128,
+                    "nullable": true
+                  },
+                  "url": {
+                    "description": "The url of the snippet.",
+                    "type": "string",
+                    "maxLength": 512
+                  },
+                  "description": {
+                    "description": "The description of the snippet.",
+                    "type": "string",
+                    "maxLength": 512
+                  },
+                  "introduction": {
+                    "description": "The introduction of the snippet.",
+                    "type": "string",
+                    "maxLength": 512
+                  },
+                  "content": {
+                    "description": "The content of the snippet. Allows HTML.",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "summary": {
+                    "description": "The summary of the snippet. Allows HTML.",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "assets": {
+                    "description": "JSON: assets",
+                    "type": "object",
+                    "nullable": true
+                  },
+                  "meta": {
+                    "description": "JSON: meta",
+                    "type": "object",
+                    "nullable": true
+                  },
+                  "options": {
+                    "description": "JSON: options",
+                    "type": "object",
+                    "nullable": true
+                  },
+                  "sources": {
+                    "description": "JSON: sources",
+                    "type": "object",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The snippet has been patched.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Snippet"
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "The title field is required."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "423": {
+            "description": "The snippet is locked. Unlock to patch."
+          }
+        }
+      }
+    },
+    "/api/cms/snippets": {
+      "get": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Get snippets from the index.",
+        "operationId": "get_snippets_index",
+        "responses": {
+          "200": {
+            "description": "Get the snippets from the index.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Snippet"
+                      }
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Create a snippet.",
+        "operationId": "post_snippet",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "The CMS Snippet fillable properties.",
+                "type": "object",
+                "properties": {
+                  "snippet_type": {
+                    "description": "The snippet type of this snippet.",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "owned_by_id": {
+                    "description": "Foreign key: links an owned by user to this snippet.",
+                    "type": "string",
+                    "format": "uuid",
+                    "nullable": true
+                  },
+                  "parent_id": {
+                    "description": "ID: a parent of this snippet.",
+                    "type": "string",
+                    "format": "uuid",
+                    "nullable": true
+                  },
+                  "matrix_id": {
+                    "description": "Foreign key: links a matrix to this snippet.",
+                    "type": "string",
+                    "format": "uuid",
+                    "nullable": true
+                  },
+                  "canceled_at": {
+                    "description": "The canceled at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "closed_at": {
+                    "description": "The closed at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "embargo_at": {
+                    "description": "The embargo at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "fixed_at": {
+                    "description": "The fixed at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "planned_end_at": {
+                    "description": "The planned end at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "planned_start_at": {
+                    "description": "The planned start at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "postponed_at": {
+                    "description": "The postponed at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "published_at": {
+                    "description": "The published at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "released_at": {
+                    "description": "The released at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "resumed_at": {
+                    "description": "The resumed at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "resolved_at": {
+                    "description": "The resolved at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "suspended_at": {
+                    "description": "The suspended at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "timer_end_at": {
+                    "description": "The timer end at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "timer_start_at": {
+                    "description": "The timer start at date for this snippet.",
+                    "type": "string",
+                    "format": "date-time",
+                    "nullable": true
+                  },
+                  "gids": {
+                    "description": "Permissions: gids",
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "po": {
+                    "description": "Permissions: po",
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "pg": {
+                    "description": "Permissions: pg",
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "pw": {
+                    "description": "Permissions: pw",
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "only_admin": {
+                    "description": "Permissions: only admin",
+                    "type": "boolean"
+                  },
+                  "only_user": {
+                    "description": "Permissions: only user",
+                    "type": "boolean"
+                  },
+                  "only_guest": {
+                    "description": "Permissions: only guest",
+                    "type": "boolean"
+                  },
+                  "allow_public": {
+                    "description": "Permissions: allow public",
+                    "type": "boolean"
+                  },
+                  "status": {
+                    "description": "The status of the snippet.",
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "rank": {
+                    "description": "Status: rank",
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "size": {
+                    "description": "Status: size",
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "icon": {
+                    "description": "Ui: icon",
+                    "type": "string",
+                    "maxLength": 128
+                  },
+                  "image": {
+                    "description": "Ui: image",
+                    "type": "string",
+                    "maxLength": 512
+                  },
+                  "avatar": {
+                    "description": "Ui: avatar",
+                    "type": "string",
+                    "maxLength": 512
+                  },
+                  "ui": {
+                    "description": "The ui of the snippet.",
+                    "type": "object",
+                    "nullable": true
+                  },
+                  "active": {
+                    "description": "Flags: active",
+                    "type": "boolean"
+                  },
+                  "canceled": {
+                    "description": "Flags: canceled",
+                    "type": "boolean"
+                  },
+                  "closed": {
+                    "description": "Flags: closed",
+                    "type": "boolean"
+                  },
+                  "completed": {
+                    "description": "Flags: completed",
+                    "type": "boolean"
+                  },
+                  "cron": {
+                    "description": "Flags: cron",
+                    "type": "boolean"
+                  },
+                  "duplicate": {
+                    "description": "Flags: duplicate",
+                    "type": "boolean"
+                  },
+                  "fixed": {
+                    "description": "Flags: fixed",
+                    "type": "boolean"
+                  },
+                  "flagged": {
+                    "description": "Flags: flagged",
+                    "type": "boolean"
+                  },
+                  "internal": {
+                    "description": "Flags: internal",
+                    "type": "boolean"
+                  },
+                  "locked": {
+                    "description": "Flags: locked",
+                    "type": "boolean"
+                  },
+                  "pending": {
+                    "description": "Flags: pending",
+                    "type": "boolean"
+                  },
+                  "planned": {
+                    "description": "Flags: planned",
+                    "type": "boolean"
+                  },
+                  "prioritized": {
+                    "description": "Flags: prioritized",
+                    "type": "boolean"
+                  },
+                  "problem": {
+                    "description": "Flags: problem",
+                    "type": "boolean"
+                  },
+                  "published": {
+                    "description": "Flags: published",
+                    "type": "boolean"
+                  },
+                  "released": {
+                    "description": "Flags: released",
+                    "type": "boolean"
+                  },
+                  "resolved": {
+                    "description": "Flags: resolved",
+                    "type": "boolean"
+                  },
+                  "retired": {
+                    "description": "Flags: retired",
+                    "type": "boolean"
+                  },
+                  "suspended": {
+                    "description": "Flags: suspended",
+                    "type": "boolean"
+                  },
+                  "unknown": {
+                    "description": "Flags: unknown",
+                    "type": "boolean"
+                  },
+                  "locale": {
+                    "description": "The locale of the snippet.",
+                    "type": "string",
+                    "maxLength": 255
+                  },
+                  "label": {
+                    "description": "The label of the snippet.",
+                    "type": "string",
+                    "maxLength": 128
+                  },
+                  "title": {
+                    "description": "The title of the snippet.",
+                    "type": "string",
+                    "maxLength": 255
+                  },
+                  "byline": {
+                    "description": "The byline of the snippet.",
+                    "type": "string",
+                    "maxLength": 255
+                  },
+                  "slug": {
+                    "description": "The slug of the snippet.",
+                    "type": "string",
+                    "maxLength": 128,
+                    "nullable": true
+                  },
+                  "url": {
+                    "description": "The url of the snippet.",
+                    "type": "string",
+                    "maxLength": 512
+                  },
+                  "description": {
+                    "description": "The description of the snippet.",
+                    "type": "string",
+                    "maxLength": 512
+                  },
+                  "introduction": {
+                    "description": "The introduction of the snippet.",
+                    "type": "string",
+                    "maxLength": 512
+                  },
+                  "content": {
+                    "description": "The content of the snippet. Allows HTML.",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "summary": {
+                    "description": "The summary of the snippet. Allows HTML.",
+                    "type": "string",
+                    "nullable": true
+                  },
+                  "assets": {
+                    "description": "JSON: assets",
+                    "type": "object",
+                    "nullable": true
+                  },
+                  "meta": {
+                    "description": "JSON: meta",
+                    "type": "object",
+                    "nullable": true
+                  },
+                  "options": {
+                    "description": "JSON: options",
+                    "type": "object",
+                    "nullable": true
+                  },
+                  "sources": {
+                    "description": "JSON: sources",
+                    "type": "object",
+                    "nullable": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The created snippet.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Snippet"
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "422": {
+            "description": "Validation error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "errors": {
+                      "type": "object",
+                      "properties": {
+                        "title": {
+                          "type": "array",
+                          "items": {
+                            "type": "string",
+                            "example": "The title field is required."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "423": {
+            "description": "The snippet is locked. Unlock to patch."
+          }
+        }
+      }
+    },
+    "/api/cms/snippets/index": {
+      "post": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Get snippets from the index using POST.",
+        "operationId": "post_snippets_index",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "description": "The CMS Snippet index form.",
+                "type": "object",
+                "properties": {
+                  "perPage": {
+                    "description": "Specify the number of records to display per page for pagination.",
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "page": {
+                    "description": "Select a page for pagination.",
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "offset": {
+                    "description": "Select the zero-based index offset for pagination.",
+                    "type": "integer",
+                    "example": 0
+                  },
+                  "filter": {
+                    "description": "Filter options for the Snippet.",
+                    "type": "object",
+                    "properties": {
+                      "trash": {
+                        "description": "Filter trash options",
+                        "type": "integer",
+                        "example": 1,
+                        "enum": [
+                          "with",
+                          "only",
+                          ""
+                        ]
+                      },
+                      "page_type": {
+                        "description": "The Snippet type of this Snippet.",
+                        "type": "integer",
+                        "example": 1
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Get the snippets from the index.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Snippet"
+                      }
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/cms/snippets/lock/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "The snippet id.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "delete": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Delete a snippet by id.",
+        "operationId": "unlock_snippet",
+        "responses": {
+          "204": {
+            "description": "The snippet has been unlocked."
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Lock a snippet by ID.",
+        "operationId": "lock_snippet",
+        "responses": {
+          "200": {
+            "description": "The unlocked snippet.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Snippet"
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/cms/snippets/restore/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "The snippet id.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "put": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Restore a snippet from the trash by ID.",
+        "operationId": "restore_snippet",
+        "responses": {
+          "200": {
+            "description": "The restored snippet.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Snippet"
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/cms/snippets/revision/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "The snippet revision id.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "get": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Show a snippet revision by ID.",
+        "operationId": "revision_snippet",
+        "responses": {
+          "200": {
+            "description": "The snippet revision.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/SnippetRevision"
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Restore a snippet Revision by ID.",
+        "operationId": "restore_revision_snippet",
+        "responses": {
+          "200": {
+            "description": "The restored snippet.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Snippet"
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/cms/snippets/{id}/revisions": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "The snippet id.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "get": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Get the revisions of a snippet.",
+        "operationId": "revision_index_snippet",
+        "responses": {
+          "200": {
+            "description": "The snippet revisions.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/SnippetRevision"
+                      }
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/cms/snippets/create": {
+      "get": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Create a snippet form.",
+        "operationId": "create_snippet",
+        "responses": {
+          "200": {
+            "description": "The create snippet information (JSON) or (HTML).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Snippet"
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string",
+                  "example": "<html><body><form method=\"POST\" action=\"/resource/cms/snippets\">Create a snippet</form></body></html>"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/api/cms/snippets/edit/{id}": {
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "required": true,
+          "description": "The snippet id.",
+          "schema": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      ],
+      "get": {
+        "tags": [
+          "Snippet"
+        ],
+        "summary": "Edit a snippet form.",
+        "operationId": "edit_snippet",
+        "responses": {
+          "200": {
+            "description": "The edit snippet information (JSON) or (HTML).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Snippet"
+                    },
+                    "meta": {
+                      "type": "object"
+                    }
+                  }
+                }
+              },
+              "text/html": {
+                "schema": {
+                  "type": "string",
+                  "example": "<html><body><form method=\"POST\" action=\"/resource/cms/snippets/{id}\">Edit a snippet</form></body></html>"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
       "Page": {
-        "description": "The CMS Page model.",
+        "description": "The CMS page model.",
         "type": "object",
         "properties": {
           "id": {
@@ -2447,6 +2776,11 @@
             "type": "string",
             "format": "uuid",
             "readOnly": true
+          },
+          "page_type": {
+            "description": "The page type of this page.",
+            "type": "string",
+            "nullable": true
           },
           "created_by_id": {
             "description": "Foreign key: links a created by user to this page.",
@@ -2467,14 +2801,15 @@
             "nullable": true
           },
           "parent_id": {
-            "description": "Foreign key: links a parent to this page.",
+            "description": "ID: a parent of this page.",
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "page_type": {
-            "description": "The page type of this page.",
+          "matrix_id": {
+            "description": "Foreign key: links a matrix to this page.",
             "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "created_at": {
@@ -2491,30 +2826,6 @@
           },
           "deleted_at": {
             "description": "Denotes the date and time, the page was put in the trash.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "start_at": {
-            "description": "The start at date for this page.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "planned_start_at": {
-            "description": "The planned start at date for this page.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "end_at": {
-            "description": "The end at date for this page.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "planned_end_at": {
-            "description": "The planned end at date for this page.",
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -2539,6 +2850,18 @@
           },
           "fixed_at": {
             "description": "The fixed at date for this page.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "planned_end_at": {
+            "description": "The planned end at date for this page.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "planned_start_at": {
+            "description": "The planned start at date for this page.",
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -2575,6 +2898,18 @@
           },
           "suspended_at": {
             "description": "The suspended at date for this page.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "timer_end_at": {
+            "description": "The timer end at date for this page.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "timer_start_at": {
+            "description": "The timer start at date for this page.",
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -2630,6 +2965,27 @@
             "type": "integer",
             "format": "int64"
           },
+          "revision": {
+            "description": "Status: revision",
+            "type": "integer",
+            "format": "int64"
+          },
+          "redirect_delay": {
+            "description": "Status: redirect delay",
+            "type": "integer",
+            "format": "int32"
+          },
+          "status_code": {
+            "description": "Status: status code",
+            "type": "integer",
+            "format": "int32"
+          },
+          "route": {
+            "description": "Status: route",
+            "type": "string",
+            "maxLength": 255,
+            "nullable": true
+          },
           "icon": {
             "description": "Ui: icon",
             "type": "string",
@@ -2666,6 +3022,10 @@
             "description": "Flags: completed",
             "type": "boolean"
           },
+          "cron": {
+            "description": "Flags: cron",
+            "type": "boolean"
+          },
           "duplicate": {
             "description": "Flags: duplicate",
             "type": "boolean"
@@ -2682,6 +3042,14 @@
             "description": "Flags: internal",
             "type": "boolean"
           },
+          "is_external": {
+            "description": "Flags: is external",
+            "type": "boolean"
+          },
+          "is_redirect": {
+            "description": "Flags: is redirect",
+            "type": "boolean"
+          },
           "locked": {
             "description": "Flags: locked",
             "type": "boolean"
@@ -2692,6 +3060,10 @@
           },
           "planned": {
             "description": "Flags: planned",
+            "type": "boolean"
+          },
+          "prioritized": {
+            "description": "Flags: prioritized",
             "type": "boolean"
           },
           "problem": {
@@ -2706,12 +3078,16 @@
             "description": "Flags: released",
             "type": "boolean"
           },
+          "resolved": {
+            "description": "Flags: resolved",
+            "type": "boolean"
+          },
           "retired": {
             "description": "Flags: retired",
             "type": "boolean"
           },
-          "resolved": {
-            "description": "Flags: resolved",
+          "sitemap": {
+            "description": "Flags: sitemap",
             "type": "boolean"
           },
           "suspended": {
@@ -2721,6 +3097,11 @@
           "unknown": {
             "description": "Flags: unknown",
             "type": "boolean"
+          },
+          "locale": {
+            "description": "The locale of the page.",
+            "type": "string",
+            "maxLength": 255
           },
           "label": {
             "description": "The label of the page.",
@@ -2788,6 +3169,11 @@
           },
           "options": {
             "description": "JSON: options",
+            "type": "object",
+            "nullable": true
+          },
+          "params": {
+            "description": "JSON: params",
             "type": "object",
             "nullable": true
           },
@@ -2799,7 +3185,7 @@
         }
       },
       "PageRevision": {
-        "description": "The CMS Page revision model.",
+        "description": "The CMS page revision model.",
         "type": "object",
         "properties": {
           "id": {
@@ -2808,139 +3194,145 @@
             "format": "uuid",
             "readOnly": true
           },
+          "page_type": {
+            "description": "The page type of this page revision.",
+            "type": "string",
+            "nullable": true
+          },
           "created_by_id": {
-            "description": "Foreign key: links a created by user to this page.",
+            "description": "Foreign key: links a created by user to this page revision.",
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
           "modified_by_id": {
-            "description": "Foreign key: links a modified by user to this page.",
+            "description": "Foreign key: links a modified by user to this page revision.",
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
           "owned_by_id": {
-            "description": "Foreign key: links an owned by user to this page.",
+            "description": "Foreign key: links an owned by user to this page revision.",
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
           "parent_id": {
-            "description": "Foreign key: links a parent to this page.",
+            "description": "ID: a parent of this page revision.",
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
           "page_id": {
-            "description": "Foreign key: links a page to this revision.",
+            "description": "Foreign key: links a page to this page revision.",
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "page_type": {
-            "description": "The page type of this page.",
+          "matrix_id": {
+            "description": "Foreign key: links a matrix to this page revision.",
             "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "created_at": {
-            "description": "Denotes the date and time, the page was created.",
+            "description": "Denotes the date and time, the page revision was created.",
             "type": "string",
             "format": "date-time",
             "readOnly": true
           },
           "updated_at": {
-            "description": "Denotes the date and time, the page was last modified.",
+            "description": "Denotes the date and time, the page revision was last modified.",
             "type": "string",
             "format": "date-time",
             "readOnly": true
           },
           "deleted_at": {
-            "description": "Denotes the date and time, the page was put in the trash.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "start_at": {
-            "description": "The start at date for this page.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "planned_start_at": {
-            "description": "The planned start at date for this page.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "end_at": {
-            "description": "The end at date for this page.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "planned_end_at": {
-            "description": "The planned end at date for this page.",
+            "description": "Denotes the date and time, the page revision was put in the trash.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "canceled_at": {
-            "description": "The canceled at date for this page.",
+            "description": "The canceled at date for this page revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "closed_at": {
-            "description": "The closed at date for this page.",
+            "description": "The closed at date for this page revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "embargo_at": {
-            "description": "The embargo at date for this page.",
+            "description": "The embargo at date for this page revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "fixed_at": {
-            "description": "The fixed at date for this page.",
+            "description": "The fixed at date for this page revision.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "planned_end_at": {
+            "description": "The planned end at date for this page revision.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "planned_start_at": {
+            "description": "The planned start at date for this page revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "postponed_at": {
-            "description": "The postponed at date for this page.",
+            "description": "The postponed at date for this page revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "published_at": {
-            "description": "The published at date for this page.",
+            "description": "The published at date for this page revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "released_at": {
-            "description": "The released at date for this page.",
+            "description": "The released at date for this page revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "resumed_at": {
-            "description": "The resumed at date for this page.",
+            "description": "The resumed at date for this page revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "resolved_at": {
-            "description": "The resolved at date for this page.",
+            "description": "The resolved at date for this page revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "suspended_at": {
-            "description": "The suspended at date for this page.",
+            "description": "The suspended at date for this page revision.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "timer_end_at": {
+            "description": "The timer end at date for this page revision.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "timer_start_at": {
+            "description": "The timer start at date for this page revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -2982,7 +3374,7 @@
             "type": "boolean"
           },
           "status": {
-            "description": "The status of the page.",
+            "description": "The status of the page revision.",
             "type": "integer",
             "format": "int64"
           },
@@ -2995,6 +3387,27 @@
             "description": "Status: size",
             "type": "integer",
             "format": "int64"
+          },
+          "revision": {
+            "description": "Status: revision",
+            "type": "integer",
+            "format": "int64"
+          },
+          "redirect_delay": {
+            "description": "Status: redirect delay",
+            "type": "integer",
+            "format": "int32"
+          },
+          "status_code": {
+            "description": "Status: status code",
+            "type": "integer",
+            "format": "int32"
+          },
+          "route": {
+            "description": "Status: route",
+            "type": "string",
+            "maxLength": 255,
+            "nullable": true
           },
           "icon": {
             "description": "Ui: icon",
@@ -3012,7 +3425,7 @@
             "maxLength": 512
           },
           "ui": {
-            "description": "The ui of the page.",
+            "description": "The ui of the page revision.",
             "type": "object",
             "nullable": true
           },
@@ -3032,6 +3445,10 @@
             "description": "Flags: completed",
             "type": "boolean"
           },
+          "cron": {
+            "description": "Flags: cron",
+            "type": "boolean"
+          },
           "duplicate": {
             "description": "Flags: duplicate",
             "type": "boolean"
@@ -3048,6 +3465,14 @@
             "description": "Flags: internal",
             "type": "boolean"
           },
+          "is_external": {
+            "description": "Flags: is external",
+            "type": "boolean"
+          },
+          "is_redirect": {
+            "description": "Flags: is redirect",
+            "type": "boolean"
+          },
           "locked": {
             "description": "Flags: locked",
             "type": "boolean"
@@ -3058,6 +3483,10 @@
           },
           "planned": {
             "description": "Flags: planned",
+            "type": "boolean"
+          },
+          "prioritized": {
+            "description": "Flags: prioritized",
             "type": "boolean"
           },
           "problem": {
@@ -3072,12 +3501,16 @@
             "description": "Flags: released",
             "type": "boolean"
           },
+          "resolved": {
+            "description": "Flags: resolved",
+            "type": "boolean"
+          },
           "retired": {
             "description": "Flags: retired",
             "type": "boolean"
           },
-          "resolved": {
-            "description": "Flags: resolved",
+          "sitemap": {
+            "description": "Flags: sitemap",
             "type": "boolean"
           },
           "suspended": {
@@ -3088,49 +3521,54 @@
             "description": "Flags: unknown",
             "type": "boolean"
           },
+          "locale": {
+            "description": "The locale of the page revision.",
+            "type": "string",
+            "maxLength": 255
+          },
           "label": {
-            "description": "The label of the page.",
+            "description": "The label of the page revision.",
             "type": "string",
             "maxLength": 128
           },
           "title": {
-            "description": "The title of the page.",
+            "description": "The title of the page revision.",
             "type": "string",
             "maxLength": 255
           },
           "byline": {
-            "description": "The byline of the page.",
+            "description": "The byline of the page revision.",
             "type": "string",
             "maxLength": 255
           },
           "slug": {
-            "description": "The slug of the page.",
+            "description": "The slug of the page revision.",
             "type": "string",
             "maxLength": 128,
             "nullable": true
           },
           "url": {
-            "description": "The url of the page.",
+            "description": "The url of the page revision.",
             "type": "string",
             "maxLength": 512
           },
           "description": {
-            "description": "The description of the page.",
+            "description": "The description of the page revision.",
             "type": "string",
             "maxLength": 512
           },
           "introduction": {
-            "description": "The introduction of the page.",
+            "description": "The introduction of the page revision.",
             "type": "string",
             "maxLength": 512
           },
           "content": {
-            "description": "The content of the page. Allows HTML.",
+            "description": "The content of the page revision. Allows HTML.",
             "type": "string",
             "nullable": true
           },
           "summary": {
-            "description": "The summary of the page. Allows HTML.",
+            "description": "The summary of the page revision. Allows HTML.",
             "type": "string",
             "nullable": true
           },
@@ -3157,6 +3595,11 @@
             "type": "object",
             "nullable": true
           },
+          "params": {
+            "description": "JSON: params",
+            "type": "object",
+            "nullable": true
+          },
           "sources": {
             "description": "JSON: sources",
             "type": "object",
@@ -3165,7 +3608,7 @@
         }
       },
       "Snippet": {
-        "description": "The CMS Snippet model.",
+        "description": "The CMS snippet model.",
         "type": "object",
         "properties": {
           "id": {
@@ -3173,6 +3616,11 @@
             "type": "string",
             "format": "uuid",
             "readOnly": true
+          },
+          "snippet_type": {
+            "description": "The snippet type of this snippet.",
+            "type": "string",
+            "nullable": true
           },
           "created_by_id": {
             "description": "Foreign key: links a created by user to this snippet.",
@@ -3193,14 +3641,15 @@
             "nullable": true
           },
           "parent_id": {
-            "description": "Foreign key: links a parent to this snippet.",
+            "description": "ID: a parent of this snippet.",
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "snippet_type": {
-            "description": "The snippet type of this snippet.",
+          "matrix_id": {
+            "description": "Foreign key: links a matrix to this snippet.",
             "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "created_at": {
@@ -3217,30 +3666,6 @@
           },
           "deleted_at": {
             "description": "Denotes the date and time, the snippet was put in the trash.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "start_at": {
-            "description": "The start at date for this snippet.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "planned_start_at": {
-            "description": "The planned start at date for this snippet.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "end_at": {
-            "description": "The end at date for this snippet.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "planned_end_at": {
-            "description": "The planned end at date for this snippet.",
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -3265,6 +3690,18 @@
           },
           "fixed_at": {
             "description": "The fixed at date for this snippet.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "planned_end_at": {
+            "description": "The planned end at date for this snippet.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "planned_start_at": {
+            "description": "The planned start at date for this snippet.",
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -3301,6 +3738,18 @@
           },
           "suspended_at": {
             "description": "The suspended at date for this snippet.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "timer_end_at": {
+            "description": "The timer end at date for this snippet.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "timer_start_at": {
+            "description": "The timer start at date for this snippet.",
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -3356,6 +3805,11 @@
             "type": "integer",
             "format": "int64"
           },
+          "revision": {
+            "description": "Status: revision",
+            "type": "integer",
+            "format": "int64"
+          },
           "icon": {
             "description": "Ui: icon",
             "type": "string",
@@ -3392,6 +3846,10 @@
             "description": "Flags: completed",
             "type": "boolean"
           },
+          "cron": {
+            "description": "Flags: cron",
+            "type": "boolean"
+          },
           "duplicate": {
             "description": "Flags: duplicate",
             "type": "boolean"
@@ -3420,6 +3878,10 @@
             "description": "Flags: planned",
             "type": "boolean"
           },
+          "prioritized": {
+            "description": "Flags: prioritized",
+            "type": "boolean"
+          },
           "problem": {
             "description": "Flags: problem",
             "type": "boolean"
@@ -3432,12 +3894,12 @@
             "description": "Flags: released",
             "type": "boolean"
           },
-          "retired": {
-            "description": "Flags: retired",
-            "type": "boolean"
-          },
           "resolved": {
             "description": "Flags: resolved",
+            "type": "boolean"
+          },
+          "retired": {
+            "description": "Flags: retired",
             "type": "boolean"
           },
           "suspended": {
@@ -3447,6 +3909,11 @@
           "unknown": {
             "description": "Flags: unknown",
             "type": "boolean"
+          },
+          "locale": {
+            "description": "The locale of the snippet.",
+            "type": "string",
+            "maxLength": 255
           },
           "label": {
             "description": "The label of the snippet.",
@@ -3525,7 +3992,7 @@
         }
       },
       "SnippetRevision": {
-        "description": "The CMS Snippet revision model.",
+        "description": "The CMS snippet revision model.",
         "type": "object",
         "properties": {
           "id": {
@@ -3534,139 +4001,145 @@
             "format": "uuid",
             "readOnly": true
           },
+          "snippet_type": {
+            "description": "The snippet type of this snippet revision.",
+            "type": "string",
+            "nullable": true
+          },
           "created_by_id": {
-            "description": "Foreign key: links a created by user to this snippet.",
+            "description": "Foreign key: links a created by user to this snippet revision.",
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
           "modified_by_id": {
-            "description": "Foreign key: links a modified by user to this snippet.",
+            "description": "Foreign key: links a modified by user to this snippet revision.",
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
           "owned_by_id": {
-            "description": "Foreign key: links an owned by user to this snippet.",
+            "description": "Foreign key: links an owned by user to this snippet revision.",
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
           "parent_id": {
-            "description": "Foreign key: links a parent to this snippet.",
+            "description": "ID: a parent of this snippet revision.",
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
           "snippet_id": {
-            "description": "Foreign key: links a snippet to this revision.",
+            "description": "Foreign key: links a snippet to this snippet revision.",
             "type": "string",
             "format": "uuid",
             "nullable": true
           },
-          "snippet_type": {
-            "description": "The snippet type of this snippet.",
+          "matrix_id": {
+            "description": "Foreign key: links a matrix to this snippet revision.",
             "type": "string",
+            "format": "uuid",
             "nullable": true
           },
           "created_at": {
-            "description": "Denotes the date and time, the snippet was created.",
+            "description": "Denotes the date and time, the snippet revision was created.",
             "type": "string",
             "format": "date-time",
             "readOnly": true
           },
           "updated_at": {
-            "description": "Denotes the date and time, the snippet was last modified.",
+            "description": "Denotes the date and time, the snippet revision was last modified.",
             "type": "string",
             "format": "date-time",
             "readOnly": true
           },
           "deleted_at": {
-            "description": "Denotes the date and time, the snippet was put in the trash.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "start_at": {
-            "description": "The start at date for this snippet.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "planned_start_at": {
-            "description": "The planned start at date for this snippet.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "end_at": {
-            "description": "The end at date for this snippet.",
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "planned_end_at": {
-            "description": "The planned end at date for this snippet.",
+            "description": "Denotes the date and time, the snippet revision was put in the trash.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "canceled_at": {
-            "description": "The canceled at date for this snippet.",
+            "description": "The canceled at date for this snippet revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "closed_at": {
-            "description": "The closed at date for this snippet.",
+            "description": "The closed at date for this snippet revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "embargo_at": {
-            "description": "The embargo at date for this snippet.",
+            "description": "The embargo at date for this snippet revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "fixed_at": {
-            "description": "The fixed at date for this snippet.",
+            "description": "The fixed at date for this snippet revision.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "planned_end_at": {
+            "description": "The planned end at date for this snippet revision.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "planned_start_at": {
+            "description": "The planned start at date for this snippet revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "postponed_at": {
-            "description": "The postponed at date for this snippet.",
+            "description": "The postponed at date for this snippet revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "published_at": {
-            "description": "The published at date for this snippet.",
+            "description": "The published at date for this snippet revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "released_at": {
-            "description": "The released at date for this snippet.",
+            "description": "The released at date for this snippet revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "resumed_at": {
-            "description": "The resumed at date for this snippet.",
+            "description": "The resumed at date for this snippet revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "resolved_at": {
-            "description": "The resolved at date for this snippet.",
+            "description": "The resolved at date for this snippet revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
           },
           "suspended_at": {
-            "description": "The suspended at date for this snippet.",
+            "description": "The suspended at date for this snippet revision.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "timer_end_at": {
+            "description": "The timer end at date for this snippet revision.",
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "timer_start_at": {
+            "description": "The timer start at date for this snippet revision.",
             "type": "string",
             "format": "date-time",
             "nullable": true
@@ -3708,7 +4181,7 @@
             "type": "boolean"
           },
           "status": {
-            "description": "The status of the snippet.",
+            "description": "The status of the snippet revision.",
             "type": "integer",
             "format": "int64"
           },
@@ -3719,6 +4192,11 @@
           },
           "size": {
             "description": "Status: size",
+            "type": "integer",
+            "format": "int64"
+          },
+          "revision": {
+            "description": "Status: revision",
             "type": "integer",
             "format": "int64"
           },
@@ -3738,7 +4216,7 @@
             "maxLength": 512
           },
           "ui": {
-            "description": "The ui of the snippet.",
+            "description": "The ui of the snippet revision.",
             "type": "object",
             "nullable": true
           },
@@ -3756,6 +4234,10 @@
           },
           "completed": {
             "description": "Flags: completed",
+            "type": "boolean"
+          },
+          "cron": {
+            "description": "Flags: cron",
             "type": "boolean"
           },
           "duplicate": {
@@ -3786,6 +4268,10 @@
             "description": "Flags: planned",
             "type": "boolean"
           },
+          "prioritized": {
+            "description": "Flags: prioritized",
+            "type": "boolean"
+          },
           "problem": {
             "description": "Flags: problem",
             "type": "boolean"
@@ -3798,12 +4284,12 @@
             "description": "Flags: released",
             "type": "boolean"
           },
-          "retired": {
-            "description": "Flags: retired",
-            "type": "boolean"
-          },
           "resolved": {
             "description": "Flags: resolved",
+            "type": "boolean"
+          },
+          "retired": {
+            "description": "Flags: retired",
             "type": "boolean"
           },
           "suspended": {
@@ -3814,49 +4300,54 @@
             "description": "Flags: unknown",
             "type": "boolean"
           },
+          "locale": {
+            "description": "The locale of the snippet revision.",
+            "type": "string",
+            "maxLength": 255
+          },
           "label": {
-            "description": "The label of the snippet.",
+            "description": "The label of the snippet revision.",
             "type": "string",
             "maxLength": 128
           },
           "title": {
-            "description": "The title of the snippet.",
+            "description": "The title of the snippet revision.",
             "type": "string",
             "maxLength": 255
           },
           "byline": {
-            "description": "The byline of the snippet.",
+            "description": "The byline of the snippet revision.",
             "type": "string",
             "maxLength": 255
           },
           "slug": {
-            "description": "The slug of the snippet.",
+            "description": "The slug of the snippet revision.",
             "type": "string",
             "maxLength": 128,
             "nullable": true
           },
           "url": {
-            "description": "The url of the snippet.",
+            "description": "The url of the snippet revision.",
             "type": "string",
             "maxLength": 512
           },
           "description": {
-            "description": "The description of the snippet.",
+            "description": "The description of the snippet revision.",
             "type": "string",
             "maxLength": 512
           },
           "introduction": {
-            "description": "The introduction of the snippet.",
+            "description": "The introduction of the snippet revision.",
             "type": "string",
             "maxLength": 512
           },
           "content": {
-            "description": "The content of the snippet. Allows HTML.",
+            "description": "The content of the snippet revision. Allows HTML.",
             "type": "string",
             "nullable": true
           },
           "summary": {
-            "description": "The summary of the snippet. Allows HTML.",
+            "description": "The summary of the snippet revision. Allows HTML.",
             "type": "string",
             "nullable": true
           },

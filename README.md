@@ -97,25 +97,25 @@ composer cloc
 ```
 
 ```
-➜  playground-cms-resource git:(develop) ✗ composer cloc
+➜  playground-cms-resource git:(feature/GH-7) ✗ composer cloc
 > cloc --exclude-dir=node_modules,output,vendor .
-     176 text files.
-     117 unique files.
-      60 files ignored.
+     211 text files.
+     143 unique files.
+      69 files ignored.
 
-github.com/AlDanial/cloc v 1.98  T=0.20 s (594.0 files/s, 101004.7 lines/s)
+github.com/AlDanial/cloc v 1.98  T=0.23 s (619.5 files/s, 94364.6 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-JSON                             4              0              0          10577
-PHP                             70            703           1058           3837
-YAML                            24              5              2           2724
-Blade                           13             60              7            527
-XML                              3              0              5            222
-Markdown                         2             48              1            103
+JSON                             5              0              0          10648
+PHP                             84            802           1181           4298
+YAML                            28              5              0           3041
+Blade                           19            105              7           1285
+XML                              3              0              7            215
+Markdown                         3             52              1            120
 INI                              1              3              0             12
 -------------------------------------------------------------------------------
-SUM:                           117            819           1073          18002
+SUM:                           143            967           1196          19619
 -------------------------------------------------------------------------------
 ```
 

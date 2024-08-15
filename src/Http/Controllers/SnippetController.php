@@ -343,7 +343,7 @@ class SnippetController extends Controller
     public function restoreRevision(
         SnippetRevision $snippet_revision,
         Requests\Snippet\RestoreRevisionRequest $request
-    ): JsonResponse|Resources\Snippet {
+    ): JsonResponse|RedirectResponse|Resources\Snippet {
         $validated = $request->validated();
 
         /**

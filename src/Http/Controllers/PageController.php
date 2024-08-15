@@ -343,7 +343,7 @@ class PageController extends Controller
     public function restoreRevision(
         PageRevision $page_revision,
         Requests\Page\RestoreRevisionRequest $request
-    ): JsonResponse|Resources\Page {
+    ): JsonResponse|RedirectResponse|Resources\Page {
         $validated = $request->validated();
 
         /**
