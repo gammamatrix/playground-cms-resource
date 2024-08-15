@@ -1,10 +1,28 @@
 Command (Tests\Feature\Playground\Cms\Resource\Console\Commands\About\Command)
- [x] Command about displays package information and succeed with code 0
+ [x] Command about displays package information and succeed
 
 Create Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\CreateRequest)
  [x] Request instance
 
 Create Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\CreateRequest)
+ [x] Request instance
+
+Destroy Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\DestroyRequest)
+ [x] Request instance
+
+Destroy Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\DestroyRequest)
+ [x] Request instance
+
+Edit Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\EditRequest)
+ [x] Request instance
+
+Edit Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\EditRequest)
+ [x] Request instance
+
+Index Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\IndexRequest)
+ [x] Request instance
+
+Index Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\IndexRequest)
  [x] Request instance
 
 Index Route (Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\IndexRoute)
@@ -26,6 +44,12 @@ Instance (Tests\Unit\Playground\Cms\Resource\ServiceProvider\Instance)
  [x] SetPolicies with empty array
  [x] SetPolicies with invalid model
  [x] SetPolicies with invalid policy
+
+Lock Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\LockRequest)
+ [x] Request instance
+
+Lock Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\LockRequest)
+ [x] Request instance
 
 Page Route (Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRoute)
  [x] Guest cannot render index view
@@ -125,6 +149,18 @@ Policy (Tests\Unit\Playground\Cms\Resource\Policies\PagePolicy\Policy)
 
 Policy (Tests\Unit\Playground\Cms\Resource\Policies\SnippetPolicy\Policy)
  [x] Policy instance
+
+Restore Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\RestoreRequest)
+ [x] Request instance
+
+Restore Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\RestoreRequest)
+ [x] Request instance
+
+Show Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\ShowRequest)
+ [x] Request instance
+
+Show Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\ShowRequest)
+ [x] Request instance
 
 Snippet Route (Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRoute)
  [x] Guest cannot render index view
@@ -228,6 +264,12 @@ Store Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\StoreReq
  [x] Request instance
  [x] StoreRequest rules with optional revisions disabled
  [x] StoreRequest rules with optional revisions enabled
+
+Unlock Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\UnlockRequest)
+ [x] Request instance
+
+Unlock Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\UnlockRequest)
+ [x] Request instance
 
 Update Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\UpdateRequest)
  [x] Request instance

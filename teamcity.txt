@@ -1,5 +1,5 @@
 
-##teamcity[testCount count='211' flowId='1']
+##teamcity[testCount count='225' flowId='1']
 
 ##teamcity[testSuiteStarted name='/app/phpunit-ci.xml' flowId='1']
 
@@ -9,19 +9,19 @@
 
 ##teamcity[testStarted name='test_FormRequest_authorize_without_user' locationHint='php_qn:///app/tests/Unit/Http/Requests/FormRequest/InstanceTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\FormRequest\InstanceTest::test_FormRequest_authorize_without_user' flowId='1']
 
-##teamcity[testFinished name='test_FormRequest_authorize_without_user' duration='176' flowId='1']
+##teamcity[testFinished name='test_FormRequest_authorize_without_user' duration='181' flowId='1']
 
 ##teamcity[testStarted name='test_RULES_is_empty_by_default' locationHint='php_qn:///app/tests/Unit/Http/Requests/FormRequest/InstanceTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\FormRequest\InstanceTest::test_RULES_is_empty_by_default' flowId='1']
 
-##teamcity[testFinished name='test_RULES_is_empty_by_default' duration='4' flowId='1']
+##teamcity[testFinished name='test_RULES_is_empty_by_default' duration='5' flowId='1']
 
 ##teamcity[testStarted name='test_userHasAdminPrivileges_without_user' locationHint='php_qn:///app/tests/Unit/Http/Requests/FormRequest/InstanceTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\FormRequest\InstanceTest::test_userHasAdminPrivileges_without_user' flowId='1']
 
-##teamcity[testFinished name='test_userHasAdminPrivileges_without_user' duration='4' flowId='1']
+##teamcity[testFinished name='test_userHasAdminPrivileges_without_user' duration='5' flowId='1']
 
 ##teamcity[testStarted name='test_userHasAdminPrivileges_with_admin' locationHint='php_qn:///app/tests/Unit/Http/Requests/FormRequest/InstanceTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\FormRequest\InstanceTest::test_userHasAdminPrivileges_with_admin' flowId='1']
 
-##teamcity[testFinished name='test_userHasAdminPrivileges_with_admin' duration='27' flowId='1']
+##teamcity[testFinished name='test_userHasAdminPrivileges_with_admin' duration='29' flowId='1']
 
 ##teamcity[testStarted name='test_userHasAdminPrivileges_with_default_laravel_user' locationHint='php_qn:///app/tests/Unit/Http/Requests/FormRequest/InstanceTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\FormRequest\InstanceTest::test_userHasAdminPrivileges_with_default_laravel_user' flowId='1']
 
@@ -33,19 +33,67 @@
 
 ##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\CreateRequestTest::test_request_instance' flowId='1']
 
-##teamcity[testFinished name='test_request_instance' duration='18' flowId='1']
+##teamcity[testFinished name='test_request_instance' duration='25' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\CreateRequestTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\DestroyRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Page/DestroyRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\DestroyRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\DestroyRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='8' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\DestroyRequestTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\EditRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Page/EditRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\EditRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\EditRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='24' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\EditRequestTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\IndexRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Page/IndexRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\IndexRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\IndexRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='69' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\IndexRequestTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\LockRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Page/LockRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\LockRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\LockRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='7' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\LockRequestTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\RestoreRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Page/RestoreRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\RestoreRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\RestoreRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='7' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\RestoreRequestTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\ShowRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Page/ShowRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\ShowRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\ShowRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='6' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\ShowRequestTest' flowId='1']
 
 ##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\StoreRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Page/StoreRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\StoreRequestTest' flowId='1']
 
 ##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\StoreRequestTest::test_request_instance' flowId='1']
 
-##teamcity[testFinished name='test_request_instance' duration='24' flowId='1']
+##teamcity[testFinished name='test_request_instance' duration='31' flowId='1']
 
 ##teamcity[testStarted name='test_StoreRequest_rules_with_optional_revisions_disabled' locationHint='php_qn:///app/tests/Unit/Http/Requests/Page/StoreRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\StoreRequestTest::test_StoreRequest_rules_with_optional_revisions_disabled' flowId='1']
 
-##teamcity[testFinished name='test_StoreRequest_rules_with_optional_revisions_disabled' duration='4' flowId='1']
+##teamcity[testFinished name='test_StoreRequest_rules_with_optional_revisions_disabled' duration='5' flowId='1']
 
 ##teamcity[testStarted name='test_StoreRequest_rules_with_optional_revisions_enabled' locationHint='php_qn:///app/tests/Unit/Http/Requests/Page/StoreRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\StoreRequestTest::test_StoreRequest_rules_with_optional_revisions_enabled' flowId='1']
 
@@ -53,11 +101,19 @@
 
 ##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\StoreRequestTest' flowId='1']
 
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\UnlockRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Page/UnlockRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\UnlockRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\UnlockRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='7' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\UnlockRequestTest' flowId='1']
+
 ##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\UpdateRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Page/UpdateRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\UpdateRequestTest' flowId='1']
 
 ##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\UpdateRequestTest::test_request_instance' flowId='1']
 
-##teamcity[testFinished name='test_request_instance' duration='23' flowId='1']
+##teamcity[testFinished name='test_request_instance' duration='27' flowId='1']
 
 ##teamcity[testStarted name='test_UpdateRequest_rules_with_optional_revisions_disabled' locationHint='php_qn:///app/tests/Unit/Http/Requests/Page/UpdateRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\UpdateRequestTest::test_UpdateRequest_rules_with_optional_revisions_disabled' flowId='1']
 
@@ -73,31 +129,87 @@
 
 ##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\CreateRequestTest::test_request_instance' flowId='1']
 
-##teamcity[testFinished name='test_request_instance' duration='18' flowId='1']
+##teamcity[testFinished name='test_request_instance' duration='22' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\CreateRequestTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\DestroyRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Snippet/DestroyRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\DestroyRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\DestroyRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='9' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\DestroyRequestTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\EditRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Snippet/EditRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\EditRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\EditRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='25' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\EditRequestTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\IndexRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Snippet/IndexRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\IndexRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\IndexRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='66' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\IndexRequestTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\LockRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Snippet/LockRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\LockRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\LockRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='7' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\LockRequestTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\RestoreRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Snippet/RestoreRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\RestoreRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\RestoreRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='7' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\RestoreRequestTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\ShowRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Snippet/ShowRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\ShowRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\ShowRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='7' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\ShowRequestTest' flowId='1']
 
 ##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\StoreRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Snippet/StoreRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\StoreRequestTest' flowId='1']
 
 ##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\StoreRequestTest::test_request_instance' flowId='1']
 
-##teamcity[testFinished name='test_request_instance' duration='21' flowId='1']
+##teamcity[testFinished name='test_request_instance' duration='26' flowId='1']
 
 ##teamcity[testStarted name='test_StoreRequest_rules_with_optional_revisions_disabled' locationHint='php_qn:///app/tests/Unit/Http/Requests/Snippet/StoreRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\StoreRequestTest::test_StoreRequest_rules_with_optional_revisions_disabled' flowId='1']
 
-##teamcity[testFinished name='test_StoreRequest_rules_with_optional_revisions_disabled' duration='4' flowId='1']
+##teamcity[testFinished name='test_StoreRequest_rules_with_optional_revisions_disabled' duration='5' flowId='1']
 
 ##teamcity[testStarted name='test_StoreRequest_rules_with_optional_revisions_enabled' locationHint='php_qn:///app/tests/Unit/Http/Requests/Snippet/StoreRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\StoreRequestTest::test_StoreRequest_rules_with_optional_revisions_enabled' flowId='1']
 
-##teamcity[testFinished name='test_StoreRequest_rules_with_optional_revisions_enabled' duration='4' flowId='1']
+##teamcity[testFinished name='test_StoreRequest_rules_with_optional_revisions_enabled' duration='5' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\StoreRequestTest' flowId='1']
+
+##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\UnlockRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Snippet/UnlockRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\UnlockRequestTest' flowId='1']
+
+##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\UnlockRequestTest::test_request_instance' flowId='1']
+
+##teamcity[testFinished name='test_request_instance' duration='7' flowId='1']
+
+##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\UnlockRequestTest' flowId='1']
 
 ##teamcity[testSuiteStarted name='Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\UpdateRequestTest' locationHint='php_qn:///app/tests/Unit/Http/Requests/Snippet/UpdateRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\UpdateRequestTest' flowId='1']
 
 ##teamcity[testStarted name='test_request_instance' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Unit/Http/Requests/RequestCase.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\UpdateRequestTest::test_request_instance' flowId='1']
 
-##teamcity[testFinished name='test_request_instance' duration='23' flowId='1']
+##teamcity[testFinished name='test_request_instance' duration='28' flowId='1']
 
 ##teamcity[testStarted name='test_UpdateRequest_rules_with_optional_revisions_disabled' locationHint='php_qn:///app/tests/Unit/Http/Requests/Snippet/UpdateRequestTest.php::\Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\UpdateRequestTest::test_UpdateRequest_rules_with_optional_revisions_disabled' flowId='1']
 
@@ -113,7 +225,7 @@
 
 ##teamcity[testStarted name='test_policy_instance' locationHint='php_qn:///app/tests/Unit/Policies/PagePolicy/PolicyTest.php::\Tests\Unit\Playground\Cms\Resource\Policies\PagePolicy\PolicyTest::test_policy_instance' flowId='1']
 
-##teamcity[testFinished name='test_policy_instance' duration='4' flowId='1']
+##teamcity[testFinished name='test_policy_instance' duration='5' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Policies\PagePolicy\PolicyTest' flowId='1']
 
@@ -121,7 +233,7 @@
 
 ##teamcity[testStarted name='test_policy_instance' locationHint='php_qn:///app/tests/Unit/Policies/SnippetPolicy/PolicyTest.php::\Tests\Unit\Playground\Cms\Resource\Policies\SnippetPolicy\PolicyTest::test_policy_instance' flowId='1']
 
-##teamcity[testFinished name='test_policy_instance' duration='4' flowId='1']
+##teamcity[testFinished name='test_policy_instance' duration='5' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\Policies\SnippetPolicy\PolicyTest' flowId='1']
 
@@ -129,19 +241,19 @@
 
 ##teamcity[testStarted name='test_version_matches' locationHint='php_qn:///app/tests/Unit/ServiceProvider/InstanceTest.php::\Tests\Unit\Playground\Cms\Resource\ServiceProvider\InstanceTest::test_version_matches' flowId='1']
 
-##teamcity[testFinished name='test_version_matches' duration='4' flowId='1']
+##teamcity[testFinished name='test_version_matches' duration='5' flowId='1']
 
 ##teamcity[testStarted name='test_setPolicies_with_empty_array' locationHint='php_qn:///app/tests/Unit/ServiceProvider/InstanceTest.php::\Tests\Unit\Playground\Cms\Resource\ServiceProvider\InstanceTest::test_setPolicies_with_empty_array' flowId='1']
 
-##teamcity[testFinished name='test_setPolicies_with_empty_array' duration='4' flowId='1']
+##teamcity[testFinished name='test_setPolicies_with_empty_array' duration='5' flowId='1']
 
 ##teamcity[testStarted name='test_setPolicies_with_invalid_model' locationHint='php_qn:///app/tests/Unit/ServiceProvider/InstanceTest.php::\Tests\Unit\Playground\Cms\Resource\ServiceProvider\InstanceTest::test_setPolicies_with_invalid_model' flowId='1']
 
-##teamcity[testFinished name='test_setPolicies_with_invalid_model' duration='5' flowId='1']
+##teamcity[testFinished name='test_setPolicies_with_invalid_model' duration='6' flowId='1']
 
 ##teamcity[testStarted name='test_setPolicies_with_invalid_policy' locationHint='php_qn:///app/tests/Unit/ServiceProvider/InstanceTest.php::\Tests\Unit\Playground\Cms\Resource\ServiceProvider\InstanceTest::test_setPolicies_with_invalid_policy' flowId='1']
 
-##teamcity[testFinished name='test_setPolicies_with_invalid_policy' duration='4' flowId='1']
+##teamcity[testFinished name='test_setPolicies_with_invalid_policy' duration='5' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Unit\Playground\Cms\Resource\ServiceProvider\InstanceTest' flowId='1']
 
@@ -151,9 +263,9 @@
 
 ##teamcity[testSuiteStarted name='Tests\Feature\Playground\Cms\Resource\Console\Commands\About\CommandTest' locationHint='php_qn:///app/tests/Feature/Console/Commands/About/CommandTest.php::\Tests\Feature\Playground\Cms\Resource\Console\Commands\About\CommandTest' flowId='1']
 
-##teamcity[testStarted name='test_command_about_displays_package_information_and_succeed_with_code_0' locationHint='php_qn:///app/tests/Feature/Console/Commands/About/CommandTest.php::\Tests\Feature\Playground\Cms\Resource\Console\Commands\About\CommandTest::test_command_about_displays_package_information_and_succeed_with_code_0' flowId='1']
+##teamcity[testStarted name='test_command_about_displays_package_information_and_succeed' locationHint='php_qn:///app/tests/Feature/Console/Commands/About/CommandTest.php::\Tests\Feature\Playground\Cms\Resource\Console\Commands\About\CommandTest::test_command_about_displays_package_information_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_command_about_displays_package_information_and_succeed_with_code_0' duration='241' flowId='1']
+##teamcity[testFinished name='test_command_about_displays_package_information_and_succeed' duration='245' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Cms\Resource\Console\Commands\About\CommandTest' flowId='1']
 
@@ -161,11 +273,11 @@
 
 ##teamcity[testStarted name='test_guest_cannot_render_index_view' locationHint='php_qn:///app/tests/Feature/Http/Controllers/Playground/IndexRouteTest.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\IndexRouteTest::test_guest_cannot_render_index_view' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_render_index_view' duration='74' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_render_index_view' duration='78' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_index_view' locationHint='php_qn:///app/tests/Feature/Http/Controllers/Playground/IndexRouteTest.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\IndexRouteTest::test_admin_can_render_index_view' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_index_view' duration='98' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_index_view' duration='103' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\IndexRouteTest' flowId='1']
 
@@ -173,11 +285,11 @@
 
 ##teamcity[testStarted name='test_json_guest_cannot_get_create_info' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_guest_cannot_get_create_info' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_get_create_info' duration='113' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_get_create_info' duration='124' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_get_create_info' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_admin_can_get_create_info' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_get_create_info' duration='65' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_get_create_info' duration='76' flowId='1']
 
 ##teamcity[testStarted name='test_json_get_create_info_as_admin_with_invalid_parameter_and_fail_validation' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_get_create_info_as_admin_with_invalid_parameter_and_fail_validation' flowId='1']
 
@@ -185,11 +297,11 @@
 
 ##teamcity[testStarted name='test_guest_cannot_render_create_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_guest_cannot_render_create_view' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_render_create_view' duration='40' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_render_create_view' duration='43' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_create_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_admin_can_render_create_view' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_create_view' duration='138' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_create_view' duration='146' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_create_view_with_return_url' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_admin_can_render_create_view_with_return_url' flowId='1']
 
@@ -197,15 +309,15 @@
 
 ##teamcity[testStarted name='test_create_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_create_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' flowId='1']
 
-##teamcity[testFinished name='test_create_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' duration='54' flowId='1']
+##teamcity[testFinished name='test_create_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' duration='60' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_destroy' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_guest_cannot_destroy' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_destroy' duration='60' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_destroy' duration='55' flowId='1']
 
 ##teamcity[testStarted name='test_json_destroy_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_destroy_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed' duration='60' flowId='1']
+##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed' duration='62' flowId='1']
 
 ##teamcity[testStarted name='test_json_destroy_as_admin_and_succeed_with_force_delete' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_destroy_as_admin_and_succeed_with_force_delete' flowId='1']
 
@@ -213,279 +325,279 @@
 
 ##teamcity[testStarted name='test_json_destroy_as_admin_and_succeed_with_no_content' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_destroy_as_admin_and_succeed_with_no_content' flowId='1']
 
-##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed_with_no_content' duration='59' flowId='1']
+##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed_with_no_content' duration='62' flowId='1']
 
 ##teamcity[testStarted name='test_json_destroy_as_admin_and_succeed_and_ignore_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_destroy_as_admin_and_succeed_and_ignore_redirect' flowId='1']
 
-##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed_and_ignore_redirect' duration='60' flowId='1']
+##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed_and_ignore_redirect' duration='63' flowId='1']
 
 ##teamcity[testStarted name='test_json_destroy_as_user_and_get_denied_and_no_force_delete_allowed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_destroy_as_user_and_get_denied_and_no_force_delete_allowed' flowId='1']
 
-##teamcity[testFinished name='test_json_destroy_as_user_and_get_denied_and_no_force_delete_allowed' duration='58' flowId='1']
+##teamcity[testFinished name='test_json_destroy_as_user_and_get_denied_and_no_force_delete_allowed' duration='60' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_destroy' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_guest_cannot_destroy' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_destroy' duration='51' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_destroy' duration='53' flowId='1']
 
 ##teamcity[testStarted name='test_destroy_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_destroy_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_destroy_as_admin_and_succeed' duration='60' flowId='1']
+##teamcity[testFinished name='test_destroy_as_admin_and_succeed' duration='64' flowId='1']
 
 ##teamcity[testStarted name='test_destroy_as_admin_and_succeed_with_force_delete' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_destroy_as_admin_and_succeed_with_force_delete' flowId='1']
 
-##teamcity[testFinished name='test_destroy_as_admin_and_succeed_with_force_delete' duration='59' flowId='1']
+##teamcity[testFinished name='test_destroy_as_admin_and_succeed_with_force_delete' duration='63' flowId='1']
 
 ##teamcity[testStarted name='test_destroy_as_admin_and_succeed_with_redirect_to_index_with_trash' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_destroy_as_admin_and_succeed_with_redirect_to_index_with_trash' flowId='1']
 
-##teamcity[testFinished name='test_destroy_as_admin_and_succeed_with_redirect_to_index_with_trash' duration='60' flowId='1']
+##teamcity[testFinished name='test_destroy_as_admin_and_succeed_with_redirect_to_index_with_trash' duration='63' flowId='1']
 
 ##teamcity[testStarted name='test_destroy_as_user_and_get_denied_and_no_force_delete_allowed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_destroy_as_user_and_get_denied_and_no_force_delete_allowed' flowId='1']
 
-##teamcity[testFinished name='test_destroy_as_user_and_get_denied_and_no_force_delete_allowed' duration='60' flowId='1']
+##teamcity[testFinished name='test_destroy_as_user_and_get_denied_and_no_force_delete_allowed' duration='62' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_get_edit_info' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_guest_cannot_get_edit_info' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_get_edit_info' duration='64' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_get_edit_info' duration='55' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_get_edit_info' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_admin_can_get_edit_info' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_get_edit_info' duration='69' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_get_edit_info' duration='73' flowId='1']
 
 ##teamcity[testStarted name='test_json_edit_as_admin_and_fail_validation_with_invalid_parameter' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_edit_as_admin_and_fail_validation_with_invalid_parameter' flowId='1']
 
-##teamcity[testFinished name='test_json_edit_as_admin_and_fail_validation_with_invalid_parameter' duration='64' flowId='1']
+##teamcity[testFinished name='test_json_edit_as_admin_and_fail_validation_with_invalid_parameter' duration='68' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_render_edit_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_guest_cannot_render_edit_view' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_render_edit_view' duration='53' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_render_edit_view' duration='54' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_edit_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_admin_can_render_edit_view' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_edit_view' duration='87' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_edit_view' duration='108' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_edit_view_with_return_url' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_admin_can_render_edit_view_with_return_url' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_edit_view_with_return_url' duration='85' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_edit_view_with_return_url' duration='91' flowId='1']
 
 ##teamcity[testStarted name='test_edit_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_edit_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' flowId='1']
 
-##teamcity[testFinished name='test_edit_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' duration='65' flowId='1']
+##teamcity[testFinished name='test_edit_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' duration='68' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_get_index' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/IndexJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_guest_cannot_get_index' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_get_index' duration='105' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_get_index' duration='50' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_get_index' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/IndexJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_admin_can_get_index' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_get_index' duration='79' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_get_index' duration='78' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_get_index_with_filters' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/IndexJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_admin_can_get_index_with_filters' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_get_index_with_filters' duration='80' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_get_index_with_filters' duration='74' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_render_index_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/IndexTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_guest_cannot_render_index_view' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_render_index_view' duration='50' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_render_index_view' duration='51' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_index_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/IndexTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_admin_can_render_index_view' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_index_view' duration='163' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_index_view' duration='180' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_index_view_with_filters' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/IndexTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_admin_can_render_index_view_with_filters' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_index_view_with_filters' duration='91' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_index_view_with_filters' duration='96' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_lock' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_guest_cannot_lock' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_lock' duration='53' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_lock' duration='52' flowId='1']
 
 ##teamcity[testStarted name='test_json_lock_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_lock_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_json_lock_as_admin_and_succeed' duration='68' flowId='1']
+##teamcity[testFinished name='test_json_lock_as_admin_and_succeed' duration='71' flowId='1']
 
 ##teamcity[testStarted name='test_json_lock_as_admin_and_succeed_with_no_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_lock_as_admin_and_succeed_with_no_redirect' flowId='1']
 
-##teamcity[testFinished name='test_json_lock_as_admin_and_succeed_with_no_redirect' duration='71' flowId='1']
+##teamcity[testFinished name='test_json_lock_as_admin_and_succeed_with_no_redirect' duration='72' flowId='1']
 
 ##teamcity[testStarted name='test_json_lock_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_lock_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_json_lock_as_user_and_get_denied' duration='59' flowId='1']
+##teamcity[testFinished name='test_json_lock_as_user_and_get_denied' duration='61' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_lock' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_guest_cannot_lock' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_lock' duration='52' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_lock' duration='53' flowId='1']
 
 ##teamcity[testStarted name='test_lock_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_lock_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_lock_as_admin_and_succeed' duration='66' flowId='1']
+##teamcity[testFinished name='test_lock_as_admin_and_succeed' duration='68' flowId='1']
 
 ##teamcity[testStarted name='test_lock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_locked_desc' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_lock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_locked_desc' flowId='1']
 
-##teamcity[testFinished name='test_lock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_locked_desc' duration='74' flowId='1']
+##teamcity[testFinished name='test_lock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_locked_desc' duration='66' flowId='1']
 
 ##teamcity[testStarted name='test_lock_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_lock_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_lock_as_user_and_get_denied' duration='60' flowId='1']
+##teamcity[testFinished name='test_lock_as_user_and_get_denied' duration='66' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_restore' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_guest_cannot_restore' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_restore' duration='54' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_restore' duration='53' flowId='1']
 
 ##teamcity[testStarted name='test_json_restore_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_restore_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_json_restore_as_admin_and_succeed' duration='70' flowId='1']
+##teamcity[testFinished name='test_json_restore_as_admin_and_succeed' duration='72' flowId='1']
 
 ##teamcity[testStarted name='test_json_restore_as_admin_and_succeed_with_no_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_restore_as_admin_and_succeed_with_no_redirect' flowId='1']
 
-##teamcity[testFinished name='test_json_restore_as_admin_and_succeed_with_no_redirect' duration='69' flowId='1']
+##teamcity[testFinished name='test_json_restore_as_admin_and_succeed_with_no_redirect' duration='72' flowId='1']
 
 ##teamcity[testStarted name='test_json_restore_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_restore_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_json_restore_as_user_and_get_denied' duration='60' flowId='1']
+##teamcity[testFinished name='test_json_restore_as_user_and_get_denied' duration='63' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_restore_revision' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_guest_cannot_restore_revision' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_restore_revision' duration='62' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_restore_revision' duration='64' flowId='1']
 
 ##teamcity[testStarted name='test_json_restore_revision_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_restore_revision_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_json_restore_revision_as_admin_and_succeed' duration='155' flowId='1']
+##teamcity[testFinished name='test_json_restore_revision_as_admin_and_succeed' duration='139' flowId='1']
 
 ##teamcity[testStarted name='test_json_restore_revision_as_admin_and_succeed_without_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_restore_revision_as_admin_and_succeed_without_redirect' flowId='1']
 
-##teamcity[testFinished name='test_json_restore_revision_as_admin_and_succeed_without_redirect' duration='125' flowId='1']
+##teamcity[testFinished name='test_json_restore_revision_as_admin_and_succeed_without_redirect' duration='131' flowId='1']
 
 ##teamcity[testStarted name='test_json_restore_revision_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_restore_revision_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_json_restore_revision_as_user_and_get_denied' duration='68' flowId='1']
+##teamcity[testFinished name='test_json_restore_revision_as_user_and_get_denied' duration='70' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_restore_revision' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_guest_cannot_restore_revision' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_restore_revision' duration='75' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_restore_revision' duration='66' flowId='1']
 
 ##teamcity[testStarted name='test_restore_revision_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_restore_revision_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_restore_revision_as_admin_and_succeed' duration='121' flowId='1']
+##teamcity[testFinished name='test_restore_revision_as_admin_and_succeed' duration='189' flowId='1']
 
 ##teamcity[testStarted name='test_restore_revision_as_admin_and_succeed_with_redirect_to_index_with_only_trash' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_restore_revision_as_admin_and_succeed_with_redirect_to_index_with_only_trash' flowId='1']
 
-##teamcity[testFinished name='test_restore_revision_as_admin_and_succeed_with_redirect_to_index_with_only_trash' duration='120' flowId='1']
+##teamcity[testFinished name='test_restore_revision_as_admin_and_succeed_with_redirect_to_index_with_only_trash' duration='126' flowId='1']
 
 ##teamcity[testStarted name='test_restore_revision_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_restore_revision_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_restore_revision_as_user_and_get_denied' duration='69' flowId='1']
+##teamcity[testFinished name='test_restore_revision_as_user_and_get_denied' duration='70' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_restore' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_guest_cannot_restore' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_restore' duration='52' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_restore' duration='59' flowId='1']
 
 ##teamcity[testStarted name='test_restore_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_restore_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_restore_as_admin_and_succeed' duration='65' flowId='1']
+##teamcity[testFinished name='test_restore_as_admin_and_succeed' duration='67' flowId='1']
 
 ##teamcity[testStarted name='test_restore_as_admin_and_succeed_with_redirect_to_index_with_only_trash' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_restore_as_admin_and_succeed_with_redirect_to_index_with_only_trash' flowId='1']
 
-##teamcity[testFinished name='test_restore_as_admin_and_succeed_with_redirect_to_index_with_only_trash' duration='65' flowId='1']
+##teamcity[testFinished name='test_restore_as_admin_and_succeed_with_redirect_to_index_with_only_trash' duration='67' flowId='1']
 
 ##teamcity[testStarted name='test_restore_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_restore_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_restore_as_user_and_get_denied' duration='60' flowId='1']
+##teamcity[testFinished name='test_restore_as_user_and_get_denied' duration='63' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_render_revision_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_guest_cannot_render_revision_view' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_render_revision_view' duration='62' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_render_revision_view' duration='65' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_get_revision_info' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_admin_can_get_revision_info' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_get_revision_info' duration='79' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_get_revision_info' duration='85' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_get_revisions' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionsJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_guest_cannot_get_revisions' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_get_revisions' duration='115' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_get_revisions' duration='129' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_get_revisions' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionsJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_admin_can_get_revisions' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_get_revisions' duration='85' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_get_revisions' duration='89' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_get_revisions_with_filters' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionsJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_admin_can_get_revisions_with_filters' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_get_revisions_with_filters' duration='83' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_get_revisions_with_filters' duration='87' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_render_revisions_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionsTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_guest_cannot_render_revisions_view' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_render_revisions_view' duration='61' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_render_revisions_view' duration='64' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_revisions_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionsTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_admin_can_render_revisions_view' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_revisions_view' duration='113' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_revisions_view' duration='122' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_revisions_view_with_filters' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionsTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_admin_can_render_revisions_view_with_filters' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_revisions_view_with_filters' duration='105' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_revisions_view_with_filters' duration='110' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_render_revision_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_guest_cannot_render_revision_view' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_render_revision_view' duration='61' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_render_revision_view' duration='65' flowId='1']
 
 ##teamcity[testStarted name='test_revision_view_rendered_by_admin' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_revision_view_rendered_by_admin' flowId='1']
 
-##teamcity[testFinished name='test_revision_view_rendered_by_admin' duration='100' flowId='1']
+##teamcity[testFinished name='test_revision_view_rendered_by_admin' duration='103' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_see_info' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/ShowJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_guest_cannot_see_info' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_see_info' duration='59' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_see_info' duration='53' flowId='1']
 
 ##teamcity[testStarted name='test_json_show_info_for_admin' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/ShowJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_show_info_for_admin' flowId='1']
 
-##teamcity[testFinished name='test_json_show_info_for_admin' duration='67' flowId='1']
+##teamcity[testFinished name='test_json_show_info_for_admin' duration='75' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_render_show_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/ShowTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_guest_cannot_render_show_view' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_render_show_view' duration='52' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_render_show_view' duration='54' flowId='1']
 
 ##teamcity[testStarted name='test_show_view_rendered_by_admin' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/ShowTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_show_view_rendered_by_admin' flowId='1']
 
-##teamcity[testFinished name='test_show_view_rendered_by_admin' duration='73' flowId='1']
+##teamcity[testFinished name='test_show_view_rendered_by_admin' duration='77' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_store' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_guest_cannot_store' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_store' duration='48' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_store' duration='56' flowId='1']
 
 ##teamcity[testStarted name='test_json_store_as_admin_without_payload_and_fail_validation' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_store_as_admin_without_payload_and_fail_validation' flowId='1']
 
-##teamcity[testFinished name='test_json_store_as_admin_without_payload_and_fail_validation' duration='61' flowId='1']
+##teamcity[testFinished name='test_json_store_as_admin_without_payload_and_fail_validation' duration='63' flowId='1']
 
 ##teamcity[testStarted name='test_json_store_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_store_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_json_store_as_admin_and_succeed' duration='128' flowId='1']
+##teamcity[testFinished name='test_json_store_as_admin_and_succeed' duration='116' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_store' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_guest_cannot_store' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_store' duration='48' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_store' duration='50' flowId='1']
 
 ##teamcity[testStarted name='test_store_as_admin_without_payload_and_fail_validation' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_store_as_admin_without_payload_and_fail_validation' flowId='1']
 
-##teamcity[testFinished name='test_store_as_admin_without_payload_and_fail_validation' duration='58' flowId='1']
+##teamcity[testFinished name='test_store_as_admin_without_payload_and_fail_validation' duration='61' flowId='1']
 
 ##teamcity[testStarted name='test_store_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_store_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_store_as_admin_and_succeed' duration='82' flowId='1']
+##teamcity[testFinished name='test_store_as_admin_and_succeed' duration='92' flowId='1']
 
 ##teamcity[testStarted name='test_store_as_admin_and_succeed_with_return_url' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_store_as_admin_and_succeed_with_return_url' flowId='1']
 
-##teamcity[testFinished name='test_store_as_admin_and_succeed_with_return_url' duration='82' flowId='1']
+##teamcity[testFinished name='test_store_as_admin_and_succeed_with_return_url' duration='88' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_unlock' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_guest_cannot_unlock' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_unlock' duration='54' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_unlock' duration='52' flowId='1']
 
 ##teamcity[testStarted name='test_json_unlock_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_unlock_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_json_unlock_as_admin_and_succeed' duration='70' flowId='1']
+##teamcity[testFinished name='test_json_unlock_as_admin_and_succeed' duration='73' flowId='1']
 
 ##teamcity[testStarted name='test_json_unlock_as_admin_and_succeed_with_no_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_unlock_as_admin_and_succeed_with_no_redirect' flowId='1']
 
-##teamcity[testFinished name='test_json_unlock_as_admin_and_succeed_with_no_redirect' duration='77' flowId='1']
+##teamcity[testFinished name='test_json_unlock_as_admin_and_succeed_with_no_redirect' duration='73' flowId='1']
 
 ##teamcity[testStarted name='test_json_unlock_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_unlock_as_user_and_get_denied' flowId='1']
 
@@ -493,47 +605,47 @@
 
 ##teamcity[testStarted name='test_guest_cannot_unlock' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_guest_cannot_unlock' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_unlock' duration='52' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_unlock' duration='54' flowId='1']
 
 ##teamcity[testStarted name='test_unlock_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_unlock_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_unlock_as_admin_and_succeed' duration='66' flowId='1']
+##teamcity[testFinished name='test_unlock_as_admin_and_succeed' duration='67' flowId='1']
 
 ##teamcity[testStarted name='test_unlock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_unlocked_desc' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_unlock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_unlocked_desc' flowId='1']
 
-##teamcity[testFinished name='test_unlock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_unlocked_desc' duration='66' flowId='1']
+##teamcity[testFinished name='test_unlock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_unlocked_desc' duration='68' flowId='1']
 
 ##teamcity[testStarted name='test_unlock_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_unlock_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_unlock_as_user_and_get_denied' duration='61' flowId='1']
+##teamcity[testFinished name='test_unlock_as_user_and_get_denied' duration='73' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_update' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_guest_cannot_update' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_update' duration='50' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_update' duration='53' flowId='1']
 
 ##teamcity[testStarted name='test_json_update_as_admin_without_payload_and_fail_validation' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_update_as_admin_without_payload_and_fail_validation' flowId='1']
 
-##teamcity[testFinished name='test_json_update_as_admin_without_payload_and_fail_validation' duration='65' flowId='1']
+##teamcity[testFinished name='test_json_update_as_admin_without_payload_and_fail_validation' duration='68' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_update' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_json_admin_can_update' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_update' duration='124' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_update' duration='164' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_update' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_guest_cannot_update' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_update' duration='51' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_update' duration='54' flowId='1']
 
 ##teamcity[testStarted name='test_update_as_admin_without_payload_and_fail_validation' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_update_as_admin_without_payload_and_fail_validation' flowId='1']
 
-##teamcity[testFinished name='test_update_as_admin_without_payload_and_fail_validation' duration='71' flowId='1']
+##teamcity[testFinished name='test_update_as_admin_without_payload_and_fail_validation' duration='73' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_update' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_admin_can_update' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_update' duration='162' flowId='1']
+##teamcity[testFinished name='test_admin_can_update' duration='131' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_update_view_with_return_url' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest::test_admin_can_update_view_with_return_url' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_update_view_with_return_url' duration='120' flowId='1']
+##teamcity[testFinished name='test_admin_can_update_view_with_return_url' duration='185' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\PageRouteTest' flowId='1']
 
@@ -541,51 +653,51 @@
 
 ##teamcity[testStarted name='test_json_guest_cannot_get_create_info' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_guest_cannot_get_create_info' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_get_create_info' duration='112' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_get_create_info' duration='122' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_get_create_info' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_admin_can_get_create_info' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_get_create_info' duration='58' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_get_create_info' duration='67' flowId='1']
 
 ##teamcity[testStarted name='test_json_get_create_info_as_admin_with_invalid_parameter_and_fail_validation' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_get_create_info_as_admin_with_invalid_parameter_and_fail_validation' flowId='1']
 
-##teamcity[testFinished name='test_json_get_create_info_as_admin_with_invalid_parameter_and_fail_validation' duration='54' flowId='1']
+##teamcity[testFinished name='test_json_get_create_info_as_admin_with_invalid_parameter_and_fail_validation' duration='57' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_render_create_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_guest_cannot_render_create_view' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_render_create_view' duration='40' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_render_create_view' duration='42' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_create_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_admin_can_render_create_view' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_create_view' duration='102' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_create_view' duration='108' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_create_view_with_return_url' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_admin_can_render_create_view_with_return_url' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_create_view_with_return_url' duration='75' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_create_view_with_return_url' duration='79' flowId='1']
 
 ##teamcity[testStarted name='test_create_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/CreateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_create_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' flowId='1']
 
-##teamcity[testFinished name='test_create_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' duration='54' flowId='1']
+##teamcity[testFinished name='test_create_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' duration='64' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_destroy' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_guest_cannot_destroy' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_destroy' duration='54' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_destroy' duration='51' flowId='1']
 
 ##teamcity[testStarted name='test_json_destroy_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_destroy_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed' duration='60' flowId='1']
+##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed' duration='61' flowId='1']
 
 ##teamcity[testStarted name='test_json_destroy_as_admin_and_succeed_with_force_delete' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_destroy_as_admin_and_succeed_with_force_delete' flowId='1']
 
-##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed_with_force_delete' duration='64' flowId='1']
+##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed_with_force_delete' duration='61' flowId='1']
 
 ##teamcity[testStarted name='test_json_destroy_as_admin_and_succeed_with_no_content' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_destroy_as_admin_and_succeed_with_no_content' flowId='1']
 
-##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed_with_no_content' duration='60' flowId='1']
+##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed_with_no_content' duration='62' flowId='1']
 
 ##teamcity[testStarted name='test_json_destroy_as_admin_and_succeed_and_ignore_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_destroy_as_admin_and_succeed_and_ignore_redirect' flowId='1']
 
-##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed_and_ignore_redirect' duration='61' flowId='1']
+##teamcity[testFinished name='test_json_destroy_as_admin_and_succeed_and_ignore_redirect' duration='62' flowId='1']
 
 ##teamcity[testStarted name='test_json_destroy_as_user_and_get_denied_and_no_force_delete_allowed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_destroy_as_user_and_get_denied_and_no_force_delete_allowed' flowId='1']
 
@@ -593,7 +705,7 @@
 
 ##teamcity[testStarted name='test_guest_cannot_destroy' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_guest_cannot_destroy' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_destroy' duration='51' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_destroy' duration='52' flowId='1']
 
 ##teamcity[testStarted name='test_destroy_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_destroy_as_admin_and_succeed' flowId='1']
 
@@ -601,47 +713,47 @@
 
 ##teamcity[testStarted name='test_destroy_as_admin_and_succeed_with_force_delete' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_destroy_as_admin_and_succeed_with_force_delete' flowId='1']
 
-##teamcity[testFinished name='test_destroy_as_admin_and_succeed_with_force_delete' duration='62' flowId='1']
+##teamcity[testFinished name='test_destroy_as_admin_and_succeed_with_force_delete' duration='61' flowId='1']
 
 ##teamcity[testStarted name='test_destroy_as_admin_and_succeed_with_redirect_to_index_with_trash' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_destroy_as_admin_and_succeed_with_redirect_to_index_with_trash' flowId='1']
 
-##teamcity[testFinished name='test_destroy_as_admin_and_succeed_with_redirect_to_index_with_trash' duration='61' flowId='1']
+##teamcity[testFinished name='test_destroy_as_admin_and_succeed_with_redirect_to_index_with_trash' duration='62' flowId='1']
 
 ##teamcity[testStarted name='test_destroy_as_user_and_get_denied_and_no_force_delete_allowed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/DestroyTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_destroy_as_user_and_get_denied_and_no_force_delete_allowed' flowId='1']
 
-##teamcity[testFinished name='test_destroy_as_user_and_get_denied_and_no_force_delete_allowed' duration='58' flowId='1']
+##teamcity[testFinished name='test_destroy_as_user_and_get_denied_and_no_force_delete_allowed' duration='61' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_get_edit_info' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_guest_cannot_get_edit_info' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_get_edit_info' duration='63' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_get_edit_info' duration='52' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_get_edit_info' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_admin_can_get_edit_info' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_get_edit_info' duration='79' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_get_edit_info' duration='72' flowId='1']
 
 ##teamcity[testStarted name='test_json_edit_as_admin_and_fail_validation_with_invalid_parameter' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_edit_as_admin_and_fail_validation_with_invalid_parameter' flowId='1']
 
-##teamcity[testFinished name='test_json_edit_as_admin_and_fail_validation_with_invalid_parameter' duration='64' flowId='1']
+##teamcity[testFinished name='test_json_edit_as_admin_and_fail_validation_with_invalid_parameter' duration='72' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_render_edit_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_guest_cannot_render_edit_view' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_render_edit_view' duration='51' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_render_edit_view' duration='52' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_edit_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_admin_can_render_edit_view' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_edit_view' duration='88' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_edit_view' duration='96' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_edit_view_with_return_url' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_admin_can_render_edit_view_with_return_url' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_edit_view_with_return_url' duration='86' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_edit_view_with_return_url' duration='90' flowId='1']
 
 ##teamcity[testStarted name='test_edit_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/EditTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_edit_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' flowId='1']
 
-##teamcity[testFinished name='test_edit_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' duration='64' flowId='1']
+##teamcity[testFinished name='test_edit_view_as_admin_with_invalid_parameter_and_fail_validation_and_redirect' duration='77' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_get_index' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/IndexJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_guest_cannot_get_index' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_get_index' duration='100' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_get_index' duration='50' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_get_index' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/IndexJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_admin_can_get_index' flowId='1']
 
@@ -649,15 +761,15 @@
 
 ##teamcity[testStarted name='test_json_admin_can_get_index_with_filters' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/IndexJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_admin_can_get_index_with_filters' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_get_index_with_filters' duration='71' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_get_index_with_filters' duration='73' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_render_index_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/IndexTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_guest_cannot_render_index_view' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_render_index_view' duration='50' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_render_index_view' duration='52' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_index_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/IndexTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_admin_can_render_index_view' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_index_view' duration='89' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_index_view' duration='110' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_index_view_with_filters' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/IndexTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_admin_can_render_index_view_with_filters' flowId='1']
 
@@ -669,67 +781,67 @@
 
 ##teamcity[testStarted name='test_json_lock_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_lock_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_json_lock_as_admin_and_succeed' duration='76' flowId='1']
+##teamcity[testFinished name='test_json_lock_as_admin_and_succeed' duration='69' flowId='1']
 
 ##teamcity[testStarted name='test_json_lock_as_admin_and_succeed_with_no_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_lock_as_admin_and_succeed_with_no_redirect' flowId='1']
 
-##teamcity[testFinished name='test_json_lock_as_admin_and_succeed_with_no_redirect' duration='68' flowId='1']
+##teamcity[testFinished name='test_json_lock_as_admin_and_succeed_with_no_redirect' duration='71' flowId='1']
 
 ##teamcity[testStarted name='test_json_lock_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_lock_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_json_lock_as_user_and_get_denied' duration='58' flowId='1']
+##teamcity[testFinished name='test_json_lock_as_user_and_get_denied' duration='60' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_lock' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_guest_cannot_lock' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_lock' duration='51' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_lock' duration='53' flowId='1']
 
 ##teamcity[testStarted name='test_lock_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_lock_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_lock_as_admin_and_succeed' duration='68' flowId='1']
+##teamcity[testFinished name='test_lock_as_admin_and_succeed' duration='66' flowId='1']
 
 ##teamcity[testStarted name='test_lock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_locked_desc' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_lock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_locked_desc' flowId='1']
 
-##teamcity[testFinished name='test_lock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_locked_desc' duration='63' flowId='1']
+##teamcity[testFinished name='test_lock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_locked_desc' duration='67' flowId='1']
 
 ##teamcity[testStarted name='test_lock_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/LockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_lock_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_lock_as_user_and_get_denied' duration='58' flowId='1']
+##teamcity[testFinished name='test_lock_as_user_and_get_denied' duration='61' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_restore' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_guest_cannot_restore' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_restore' duration='53' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_restore' duration='52' flowId='1']
 
 ##teamcity[testStarted name='test_json_restore_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_restore_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_json_restore_as_admin_and_succeed' duration='75' flowId='1']
+##teamcity[testFinished name='test_json_restore_as_admin_and_succeed' duration='96' flowId='1']
 
 ##teamcity[testStarted name='test_json_restore_as_admin_and_succeed_with_no_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_restore_as_admin_and_succeed_with_no_redirect' flowId='1']
 
-##teamcity[testFinished name='test_json_restore_as_admin_and_succeed_with_no_redirect' duration='73' flowId='1']
+##teamcity[testFinished name='test_json_restore_as_admin_and_succeed_with_no_redirect' duration='70' flowId='1']
 
 ##teamcity[testStarted name='test_json_restore_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_restore_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_json_restore_as_user_and_get_denied' duration='60' flowId='1']
+##teamcity[testFinished name='test_json_restore_as_user_and_get_denied' duration='61' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_restore_revision' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_guest_cannot_restore_revision' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_restore_revision' duration='61' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_restore_revision' duration='64' flowId='1']
 
 ##teamcity[testStarted name='test_json_restore_revision_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_restore_revision_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_json_restore_revision_as_admin_and_succeed' duration='121' flowId='1']
+##teamcity[testFinished name='test_json_restore_revision_as_admin_and_succeed' duration='124' flowId='1']
 
 ##teamcity[testStarted name='test_json_restore_revision_as_admin_and_succeed_without_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_restore_revision_as_admin_and_succeed_without_redirect' flowId='1']
 
-##teamcity[testFinished name='test_json_restore_revision_as_admin_and_succeed_without_redirect' duration='192' flowId='1']
+##teamcity[testFinished name='test_json_restore_revision_as_admin_and_succeed_without_redirect' duration='124' flowId='1']
 
 ##teamcity[testStarted name='test_json_restore_revision_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_restore_revision_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_json_restore_revision_as_user_and_get_denied' duration='68' flowId='1']
+##teamcity[testFinished name='test_json_restore_revision_as_user_and_get_denied' duration='75' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_restore_revision' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_guest_cannot_restore_revision' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_restore_revision' duration='60' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_restore_revision' duration='61' flowId='1']
 
 ##teamcity[testStarted name='test_restore_revision_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_restore_revision_as_admin_and_succeed' flowId='1']
 
@@ -737,171 +849,171 @@
 
 ##teamcity[testStarted name='test_restore_revision_as_admin_and_succeed_with_redirect_to_index_with_only_trash' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_restore_revision_as_admin_and_succeed_with_redirect_to_index_with_only_trash' flowId='1']
 
-##teamcity[testFinished name='test_restore_revision_as_admin_and_succeed_with_redirect_to_index_with_only_trash' duration='123' flowId='1']
+##teamcity[testFinished name='test_restore_revision_as_admin_and_succeed_with_redirect_to_index_with_only_trash' duration='119' flowId='1']
 
 ##teamcity[testStarted name='test_restore_revision_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreRevisionTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_restore_revision_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_restore_revision_as_user_and_get_denied' duration='68' flowId='1']
+##teamcity[testFinished name='test_restore_revision_as_user_and_get_denied' duration='70' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_restore' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_guest_cannot_restore' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_restore' duration='52' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_restore' duration='54' flowId='1']
 
 ##teamcity[testStarted name='test_restore_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_restore_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_restore_as_admin_and_succeed' duration='64' flowId='1']
+##teamcity[testFinished name='test_restore_as_admin_and_succeed' duration='65' flowId='1']
 
 ##teamcity[testStarted name='test_restore_as_admin_and_succeed_with_redirect_to_index_with_only_trash' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_restore_as_admin_and_succeed_with_redirect_to_index_with_only_trash' flowId='1']
 
-##teamcity[testFinished name='test_restore_as_admin_and_succeed_with_redirect_to_index_with_only_trash' duration='64' flowId='1']
+##teamcity[testFinished name='test_restore_as_admin_and_succeed_with_redirect_to_index_with_only_trash' duration='66' flowId='1']
 
 ##teamcity[testStarted name='test_restore_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RestoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_restore_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_restore_as_user_and_get_denied' duration='69' flowId='1']
+##teamcity[testFinished name='test_restore_as_user_and_get_denied' duration='61' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_render_revision_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_guest_cannot_render_revision_view' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_render_revision_view' duration='62' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_render_revision_view' duration='63' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_get_revision_info' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_admin_can_get_revision_info' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_get_revision_info' duration='99' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_get_revision_info' duration='80' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_get_revisions' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionsJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_guest_cannot_get_revisions' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_get_revisions' duration='112' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_get_revisions' duration='125' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_get_revisions' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionsJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_admin_can_get_revisions' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_get_revisions' duration='84' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_get_revisions' duration='86' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_get_revisions_with_filters' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionsJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_admin_can_get_revisions_with_filters' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_get_revisions_with_filters' duration='82' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_get_revisions_with_filters' duration='87' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_render_revisions_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionsTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_guest_cannot_render_revisions_view' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_render_revisions_view' duration='60' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_render_revisions_view' duration='70' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_revisions_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionsTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_admin_can_render_revisions_view' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_revisions_view' duration='101' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_revisions_view' duration='123' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_render_revisions_view_with_filters' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionsTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_admin_can_render_revisions_view_with_filters' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_render_revisions_view_with_filters' duration='100' flowId='1']
+##teamcity[testFinished name='test_admin_can_render_revisions_view_with_filters' duration='104' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_render_revision_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_guest_cannot_render_revision_view' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_render_revision_view' duration='60' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_render_revision_view' duration='65' flowId='1']
 
 ##teamcity[testStarted name='test_revision_view_rendered_by_admin' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/RevisionTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_revision_view_rendered_by_admin' flowId='1']
 
-##teamcity[testFinished name='test_revision_view_rendered_by_admin' duration='80' flowId='1']
+##teamcity[testFinished name='test_revision_view_rendered_by_admin' duration='82' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_see_info' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/ShowJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_guest_cannot_see_info' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_see_info' duration='52' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_see_info' duration='53' flowId='1']
 
 ##teamcity[testStarted name='test_json_show_info_for_admin' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/ShowJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_show_info_for_admin' flowId='1']
 
-##teamcity[testFinished name='test_json_show_info_for_admin' duration='64' flowId='1']
+##teamcity[testFinished name='test_json_show_info_for_admin' duration='67' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_render_show_view' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/ShowTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_guest_cannot_render_show_view' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_render_show_view' duration='51' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_render_show_view' duration='54' flowId='1']
 
 ##teamcity[testStarted name='test_show_view_rendered_by_admin' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/ShowTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_show_view_rendered_by_admin' flowId='1']
 
-##teamcity[testFinished name='test_show_view_rendered_by_admin' duration='72' flowId='1']
+##teamcity[testFinished name='test_show_view_rendered_by_admin' duration='74' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_store' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_guest_cannot_store' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_store' duration='47' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_store' duration='49' flowId='1']
 
 ##teamcity[testStarted name='test_json_store_as_admin_without_payload_and_fail_validation' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_store_as_admin_without_payload_and_fail_validation' flowId='1']
 
-##teamcity[testFinished name='test_json_store_as_admin_without_payload_and_fail_validation' duration='57' flowId='1']
+##teamcity[testFinished name='test_json_store_as_admin_without_payload_and_fail_validation' duration='61' flowId='1']
 
 ##teamcity[testStarted name='test_json_store_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_store_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_json_store_as_admin_and_succeed' duration='103' flowId='1']
+##teamcity[testFinished name='test_json_store_as_admin_and_succeed' duration='91' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_store' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_guest_cannot_store' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_store' duration='47' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_store' duration='50' flowId='1']
 
 ##teamcity[testStarted name='test_store_as_admin_without_payload_and_fail_validation' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_store_as_admin_without_payload_and_fail_validation' flowId='1']
 
-##teamcity[testFinished name='test_store_as_admin_without_payload_and_fail_validation' duration='59' flowId='1']
+##teamcity[testFinished name='test_store_as_admin_without_payload_and_fail_validation' duration='67' flowId='1']
 
 ##teamcity[testStarted name='test_store_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_store_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_store_as_admin_and_succeed' duration='83' flowId='1']
+##teamcity[testFinished name='test_store_as_admin_and_succeed' duration='93' flowId='1']
 
 ##teamcity[testStarted name='test_store_as_admin_and_succeed_with_return_url' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/StoreTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_store_as_admin_and_succeed_with_return_url' flowId='1']
 
-##teamcity[testFinished name='test_store_as_admin_and_succeed_with_return_url' duration='95' flowId='1']
+##teamcity[testFinished name='test_store_as_admin_and_succeed_with_return_url' duration='86' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_unlock' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_guest_cannot_unlock' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_unlock' duration='55' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_unlock' duration='54' flowId='1']
 
 ##teamcity[testStarted name='test_json_unlock_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_unlock_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_json_unlock_as_admin_and_succeed' duration='69' flowId='1']
+##teamcity[testFinished name='test_json_unlock_as_admin_and_succeed' duration='73' flowId='1']
 
 ##teamcity[testStarted name='test_json_unlock_as_admin_and_succeed_with_no_redirect' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_unlock_as_admin_and_succeed_with_no_redirect' flowId='1']
 
-##teamcity[testFinished name='test_json_unlock_as_admin_and_succeed_with_no_redirect' duration='79' flowId='1']
+##teamcity[testFinished name='test_json_unlock_as_admin_and_succeed_with_no_redirect' duration='73' flowId='1']
 
 ##teamcity[testStarted name='test_json_unlock_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_unlock_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_json_unlock_as_user_and_get_denied' duration='61' flowId='1']
+##teamcity[testFinished name='test_json_unlock_as_user_and_get_denied' duration='62' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_unlock' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_guest_cannot_unlock' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_unlock' duration='52' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_unlock' duration='55' flowId='1']
 
 ##teamcity[testStarted name='test_unlock_as_admin_and_succeed' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_unlock_as_admin_and_succeed' flowId='1']
 
-##teamcity[testFinished name='test_unlock_as_admin_and_succeed' duration='64' flowId='1']
+##teamcity[testFinished name='test_unlock_as_admin_and_succeed' duration='68' flowId='1']
 
 ##teamcity[testStarted name='test_unlock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_unlocked_desc' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_unlock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_unlocked_desc' flowId='1']
 
-##teamcity[testFinished name='test_unlock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_unlocked_desc' duration='65' flowId='1']
+##teamcity[testFinished name='test_unlock_as_admin_and_succeed_with_redirect_to_index_with_sorted_by_unlocked_desc' duration='67' flowId='1']
 
 ##teamcity[testStarted name='test_unlock_as_user_and_get_denied' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UnlockTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_unlock_as_user_and_get_denied' flowId='1']
 
-##teamcity[testFinished name='test_unlock_as_user_and_get_denied' duration='69' flowId='1']
+##teamcity[testFinished name='test_unlock_as_user_and_get_denied' duration='63' flowId='1']
 
 ##teamcity[testStarted name='test_json_guest_cannot_update' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_guest_cannot_update' flowId='1']
 
-##teamcity[testFinished name='test_json_guest_cannot_update' duration='50' flowId='1']
+##teamcity[testFinished name='test_json_guest_cannot_update' duration='57' flowId='1']
 
 ##teamcity[testStarted name='test_json_update_as_admin_without_payload_and_fail_validation' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_update_as_admin_without_payload_and_fail_validation' flowId='1']
 
-##teamcity[testFinished name='test_json_update_as_admin_without_payload_and_fail_validation' duration='65' flowId='1']
+##teamcity[testFinished name='test_json_update_as_admin_without_payload_and_fail_validation' duration='69' flowId='1']
 
 ##teamcity[testStarted name='test_json_admin_can_update' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateJsonTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_json_admin_can_update' flowId='1']
 
-##teamcity[testFinished name='test_json_admin_can_update' duration='123' flowId='1']
+##teamcity[testFinished name='test_json_admin_can_update' duration='132' flowId='1']
 
 ##teamcity[testStarted name='test_guest_cannot_update' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_guest_cannot_update' flowId='1']
 
-##teamcity[testFinished name='test_guest_cannot_update' duration='51' flowId='1']
+##teamcity[testFinished name='test_guest_cannot_update' duration='54' flowId='1']
 
 ##teamcity[testStarted name='test_update_as_admin_without_payload_and_fail_validation' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_update_as_admin_without_payload_and_fail_validation' flowId='1']
 
-##teamcity[testFinished name='test_update_as_admin_without_payload_and_fail_validation' duration='73' flowId='1']
+##teamcity[testFinished name='test_update_as_admin_without_payload_and_fail_validation' duration='78' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_update' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_admin_can_update' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_update' duration='122' flowId='1']
+##teamcity[testFinished name='test_admin_can_update' duration='124' flowId='1']
 
 ##teamcity[testStarted name='test_admin_can_update_view_with_return_url' locationHint='php_qn:///app/vendor/gammamatrix/playground-test/src/Feature/Http/Controllers/Resource/Playground/UpdateTrait.php::\Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest::test_admin_can_update_view_with_return_url' flowId='1']
 
-##teamcity[testFinished name='test_admin_can_update_view_with_return_url' duration='119' flowId='1']
+##teamcity[testFinished name='test_admin_can_update_view_with_return_url' duration='127' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\SnippetRouteTest' flowId='1']
 
@@ -909,7 +1021,7 @@
 
 ##teamcity[testStarted name='test_FormRequest_authorize_with_admin' locationHint='php_qn:///app/tests/Feature/Http/Requests/FormRequest/InstanceTest.php::\Tests\Feature\Playground\Cms\Resource\Http\Requests\FormRequest\InstanceTest::test_FormRequest_authorize_with_admin' flowId='1']
 
-##teamcity[testFinished name='test_FormRequest_authorize_with_admin' duration='40' flowId='1']
+##teamcity[testFinished name='test_FormRequest_authorize_with_admin' duration='41' flowId='1']
 
 ##teamcity[testSuiteFinished name='Tests\Feature\Playground\Cms\Resource\Http\Requests\FormRequest\InstanceTest' flowId='1']
 
