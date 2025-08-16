@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Playground
  */
@@ -7,6 +8,53 @@ declare(strict_types=1);
 
 /**
  * Playground: CMS Resource Configuration and Environment Variables
+ *
+ * @return array{
+ *       about: bool,
+ *       layout: string,
+ *       load: array{
+ *           policies: bool,
+ *           routes: bool,
+ *           translations: bool,
+ *           views: bool
+ *       },
+ *       middleware: array{
+ *           default: string|string[],
+ *           auth: string|string[],
+ *           guest: string|string[]
+ *       },
+ *       policies: array<
+ *           class-string<\Illuminate\Database\Eloquent\Model>,
+ *           class-string<\Playground\Auth\Policies\Policy>
+ *       >,
+ *       revisions: array{
+ *           options: bool,
+ *           pages: bool,
+ *           snippets: bool,
+ *       },
+ *       routes: array{
+ *           cms: bool,
+ *           pages: bool,
+ *           snippets: bool
+ *       },
+ *       blade: string,
+ *       cache: array{
+ *           enable: bool,
+ *           page: bool,
+ *           page_store: string,
+ *           page_ttl: int,
+ *           snippet: bool,
+ *           snippet_store: string,
+ *           snippet_ttl: int
+ *       },
+ *       abilities: array<string, string[]>,
+ *       sitemap: array{
+ *            enable: bool,
+ *            guest: bool,
+ *            user: bool,
+ *            view: string
+ *       }
+ *   }
  */
 return [
 
