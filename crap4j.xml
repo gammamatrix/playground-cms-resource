@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2024-08-16 05:44:55</timestamp>
+  <timestamp>2025-08-16 17:34:30</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>61</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>220</totalCrap>
+    <totalCrap>221</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -347,8 +347,8 @@
       <methodName>rules</methodName>
       <methodSignature>rules(): array</methodSignature>
       <fullMethod>rules(): array</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
+      <crap>1</crap>
+      <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -356,8 +356,8 @@
       <package>Playground\Cms\Resource\Http\Requests</package>
       <className>Playground\Cms\Resource\Http\Requests\FormRequest</className>
       <methodName>userHasAdminPrivileges</methodName>
-      <methodSignature>userHasAdminPrivileges(Illuminate\Contracts\Auth\Authenticatable $user): bool</methodSignature>
-      <fullMethod>userHasAdminPrivileges(Illuminate\Contracts\Auth\Authenticatable $user): bool</fullMethod>
+      <methodSignature>userHasAdminPrivileges(?Illuminate\Contracts\Auth\Authenticatable $user): bool</methodSignature>
+      <fullMethod>userHasAdminPrivileges(?Illuminate\Contracts\Auth\Authenticatable $user): bool</fullMethod>
       <crap>3</crap>
       <complexity>3</complexity>
       <coverage>100</coverage>
@@ -655,8 +655,8 @@
       <methodName>setPolicies</methodName>
       <methodSignature>setPolicies(array $policies): void</methodSignature>
       <fullMethod>setPolicies(array $policies): void</fullMethod>
-      <crap>10</crap>
-      <complexity>10</complexity>
+      <crap>9</crap>
+      <complexity>9</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -677,8 +677,8 @@
       <methodName>about</methodName>
       <methodSignature>about(): void</methodSignature>
       <fullMethod>about(): void</fullMethod>
-      <crap>24</crap>
-      <complexity>24</complexity>
+      <crap>27</crap>
+      <complexity>27</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>

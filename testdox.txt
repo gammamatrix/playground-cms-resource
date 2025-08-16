@@ -30,20 +30,20 @@ Index Route (Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\I
  [x] Admin can render index view
 
 Instance (Tests\Feature\Playground\Cms\Resource\Http\Requests\FormRequest\Instance)
- [x] FormRequest authorize with admin
+ [x] Form request authorize with admin
 
 Instance (Tests\Unit\Playground\Cms\Resource\Http\Requests\FormRequest\Instance)
- [x] FormRequest authorize without user
- [x] RULES is empty by default
- [x] UserHasAdminPrivileges without user
- [x] UserHasAdminPrivileges with admin
- [x] UserHasAdminPrivileges with default laravel user
+ [x] Form request authorize without user
+ [x] Rule s is empty by default
+ [x] User has admin privileges without user
+ [x] User has admin privileges with admin
+ [x] User has admin privileges with default laravel user
 
 Instance (Tests\Unit\Playground\Cms\Resource\ServiceProvider\Instance)
  [x] Version matches
- [x] SetPolicies with empty array
- [x] SetPolicies with invalid model
- [x] SetPolicies with invalid policy
+ [x] Set policies with empty array
+ [x] Set policies with invalid model
+ [x] Set policies with invalid policy
 
 Lock Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\LockRequest)
  [x] Request instance
@@ -95,8 +95,8 @@ Page Route (Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\Pa
  [x] Json restore as admin and succeed
  [x] Restore as admin and succeed
  [x] Admin can render create view with return url
- [x] Json update as admin without payload and fail validation
- [x] Update as admin without payload and fail validation
+ [x] Json update as admin without payload and passes validation
+ [x] Update as admin without payload and passes validation
  [x] Json lock as admin and succeed
  [x] Json store as admin without payload and fail validation
  [x] Json unlock as admin and succeed
@@ -111,8 +111,6 @@ Page Route (Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\Pa
  [x] Json admin can get index with filters
  [x] Json edit as admin and fail validation with invalid parameter
  [x] Store as admin and succeed
- [x] Json admin can update
- [x] Admin can update
  [x] Create view as admin with invalid parameter and fail validation and redirect
  [x] Json store as admin and succeed
  [x] Lock as admin and succeed with redirect to index with sorted by locked desc
@@ -126,18 +124,20 @@ Page Route (Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground\Pa
  [x] Json unlock as admin and succeed with no redirect
  [x] Edit view as admin with invalid parameter and fail validation and redirect
  [x] Unlock as admin and succeed with redirect to index with sorted by unlocked desc
+ [x] Json admin can update
  [x] Restore revision as admin and succeed with redirect to index with only trash
+ [x] Admin can update
  [x] Json restore revision as admin and succeed without redirect
  [x] Destroy as admin and succeed with redirect to index with trash
  [x] Json destroy as admin and succeed with no content
  [x] Lock as user and get denied
- [x] Admin can update view with return url
  [x] Store as admin and succeed with return url
  [x] Json lock as user and get denied
  [x] Json restore as user and get denied
  [x] Json unlock as user and get denied
  [x] Restore as user and get denied
  [x] Unlock as user and get denied
+ [x] Admin can update view with return url
  [x] Restore revision as user and get denied
  [x] Json destroy as admin and succeed and ignore redirect
  [x] Destroy as user and get denied and no force delete allowed
@@ -206,8 +206,8 @@ Snippet Route (Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground
  [x] Json restore as admin and succeed
  [x] Restore as admin and succeed
  [x] Admin can render create view with return url
- [x] Json update as admin without payload and fail validation
- [x] Update as admin without payload and fail validation
+ [x] Json update as admin without payload and passes validation
+ [x] Update as admin without payload and passes validation
  [x] Json lock as admin and succeed
  [x] Json store as admin without payload and fail validation
  [x] Json unlock as admin and succeed
@@ -222,8 +222,6 @@ Snippet Route (Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground
  [x] Json admin can get index with filters
  [x] Json edit as admin and fail validation with invalid parameter
  [x] Store as admin and succeed
- [x] Json admin can update
- [x] Admin can update
  [x] Create view as admin with invalid parameter and fail validation and redirect
  [x] Json store as admin and succeed
  [x] Lock as admin and succeed with redirect to index with sorted by locked desc
@@ -237,18 +235,20 @@ Snippet Route (Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground
  [x] Json unlock as admin and succeed with no redirect
  [x] Edit view as admin with invalid parameter and fail validation and redirect
  [x] Unlock as admin and succeed with redirect to index with sorted by unlocked desc
+ [x] Json admin can update
  [x] Restore revision as admin and succeed with redirect to index with only trash
+ [x] Admin can update
  [x] Json restore revision as admin and succeed without redirect
  [x] Destroy as admin and succeed with redirect to index with trash
  [x] Json destroy as admin and succeed with no content
  [x] Lock as user and get denied
- [x] Admin can update view with return url
  [x] Store as admin and succeed with return url
  [x] Json lock as user and get denied
  [x] Json restore as user and get denied
  [x] Json unlock as user and get denied
  [x] Restore as user and get denied
  [x] Unlock as user and get denied
+ [x] Admin can update view with return url
  [x] Restore revision as user and get denied
  [x] Json destroy as admin and succeed and ignore redirect
  [x] Destroy as user and get denied and no force delete allowed
@@ -257,13 +257,13 @@ Snippet Route (Tests\Feature\Playground\Cms\Resource\Http\Controllers\Playground
 
 Store Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\StoreRequest)
  [x] Request instance
- [x] StoreRequest rules with optional revisions disabled
- [x] StoreRequest rules with optional revisions enabled
+ [x] Store request rules with optional revisions disabled
+ [x] Store request rules with optional revisions enabled
 
 Store Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\StoreRequest)
  [x] Request instance
- [x] StoreRequest rules with optional revisions disabled
- [x] StoreRequest rules with optional revisions enabled
+ [x] Store request rules with optional revisions disabled
+ [x] Store request rules with optional revisions enabled
 
 Unlock Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\UnlockRequest)
  [x] Request instance
@@ -273,11 +273,11 @@ Unlock Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\UnlockR
 
 Update Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Page\UpdateRequest)
  [x] Request instance
- [x] UpdateRequest rules with optional revisions disabled
- [x] UpdateRequest rules with optional revisions enabled
+ [x] Update request rules with optional revisions disabled
+ [x] Update request rules with optional revisions enabled
 
 Update Request (Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet\UpdateRequest)
  [x] Request instance
- [x] UpdateRequest rules with optional revisions disabled
- [x] UpdateRequest rules with optional revisions enabled
+ [x] Update request rules with optional revisions disabled
+ [x] Update request rules with optional revisions enabled
 
