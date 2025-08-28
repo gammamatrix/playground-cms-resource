@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-08-16 17:34:30</timestamp>
+  <timestamp>2025-08-28 23:05:04</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>61</methodCount>
@@ -15,8 +15,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\IndexController</className>
       <methodName>index</methodName>
-      <methodSignature>index(): Illuminate\View\View</methodSignature>
-      <fullMethod>index(): Illuminate\View\View</fullMethod>
+      <methodSignature>index(): View</methodSignature>
+      <fullMethod>index(): View</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -26,8 +26,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>create</methodName>
-      <methodSignature>create(Playground\Cms\Resource\Http\Requests\Page\CreateRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\Page</methodSignature>
-      <fullMethod>create(Playground\Cms\Resource\Http\Requests\Page\CreateRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\Page</fullMethod>
+      <methodSignature>create(Requests\Page\CreateRequest $request): JsonResponse|View|Resources\Page</methodSignature>
+      <fullMethod>create(Requests\Page\CreateRequest $request): JsonResponse|View|Resources\Page</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>100</coverage>
@@ -37,8 +37,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>edit</methodName>
-      <methodSignature>edit(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\EditRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\Page</methodSignature>
-      <fullMethod>edit(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\EditRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\Page</fullMethod>
+      <methodSignature>edit(Page $page, Requests\Page\EditRequest $request): JsonResponse|View|Resources\Page</methodSignature>
+      <fullMethod>edit(Page $page, Requests\Page\EditRequest $request): JsonResponse|View|Resources\Page</fullMethod>
       <crap>3</crap>
       <complexity>3</complexity>
       <coverage>100</coverage>
@@ -48,8 +48,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>destroy</methodName>
-      <methodSignature>destroy(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\DestroyRequest $request): \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse</methodSignature>
-      <fullMethod>destroy(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\DestroyRequest $request): \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse</fullMethod>
+      <methodSignature>destroy(Page $page, Requests\Page\DestroyRequest $request): Response|RedirectResponse</methodSignature>
+      <fullMethod>destroy(Page $page, Requests\Page\DestroyRequest $request): Response|RedirectResponse</fullMethod>
       <crap>6</crap>
       <complexity>6</complexity>
       <coverage>100</coverage>
@@ -59,8 +59,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>lock</methodName>
-      <methodSignature>lock(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\LockRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Page</methodSignature>
-      <fullMethod>lock(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\LockRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Page</fullMethod>
+      <methodSignature>lock(Page $page, Requests\Page\LockRequest $request): JsonResponse|RedirectResponse|Resources\Page</methodSignature>
+      <fullMethod>lock(Page $page, Requests\Page\LockRequest $request): JsonResponse|RedirectResponse|Resources\Page</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -70,8 +70,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>index</methodName>
-      <methodSignature>index(Playground\Cms\Resource\Http\Requests\Page\IndexRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\PageCollection</methodSignature>
-      <fullMethod>index(Playground\Cms\Resource\Http\Requests\Page\IndexRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\PageCollection</fullMethod>
+      <methodSignature>index(Requests\Page\IndexRequest $request): JsonResponse|View|Resources\PageCollection</methodSignature>
+      <fullMethod>index(Requests\Page\IndexRequest $request): JsonResponse|View|Resources\PageCollection</fullMethod>
       <crap>6</crap>
       <complexity>6</complexity>
       <coverage>100</coverage>
@@ -81,8 +81,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>restore</methodName>
-      <methodSignature>restore(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\RestoreRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Page</methodSignature>
-      <fullMethod>restore(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\RestoreRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Page</fullMethod>
+      <methodSignature>restore(Page $page, Requests\Page\RestoreRequest $request): JsonResponse|RedirectResponse|Resources\Page</methodSignature>
+      <fullMethod>restore(Page $page, Requests\Page\RestoreRequest $request): JsonResponse|RedirectResponse|Resources\Page</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -92,8 +92,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>restoreRevision</methodName>
-      <methodSignature>restoreRevision(Playground\Cms\Models\PageRevision $page_revision, Playground\Cms\Resource\Http\Requests\Page\RestoreRevisionRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Page</methodSignature>
-      <fullMethod>restoreRevision(Playground\Cms\Models\PageRevision $page_revision, Playground\Cms\Resource\Http\Requests\Page\RestoreRevisionRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Page</fullMethod>
+      <methodSignature>restoreRevision(PageRevision $page_revision, Requests\Page\RestoreRevisionRequest $request): JsonResponse|RedirectResponse|Resources\Page</methodSignature>
+      <fullMethod>restoreRevision(PageRevision $page_revision, Requests\Page\RestoreRevisionRequest $request): JsonResponse|RedirectResponse|Resources\Page</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -103,8 +103,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>revision</methodName>
-      <methodSignature>revision(Playground\Cms\Models\PageRevision $page_revision, Playground\Cms\Resource\Http\Requests\Page\ShowRevisionRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\PageRevision</methodSignature>
-      <fullMethod>revision(Playground\Cms\Models\PageRevision $page_revision, Playground\Cms\Resource\Http\Requests\Page\ShowRevisionRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\PageRevision</fullMethod>
+      <methodSignature>revision(PageRevision $page_revision, Requests\Page\ShowRevisionRequest $request): JsonResponse|View|Resources\PageRevision</methodSignature>
+      <fullMethod>revision(PageRevision $page_revision, Requests\Page\ShowRevisionRequest $request): JsonResponse|View|Resources\PageRevision</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>100</coverage>
@@ -114,8 +114,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>revisions</methodName>
-      <methodSignature>revisions(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\RevisionsRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\PageRevisionCollection</methodSignature>
-      <fullMethod>revisions(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\RevisionsRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\PageRevisionCollection</fullMethod>
+      <methodSignature>revisions(Page $page, Requests\Page\RevisionsRequest $request): JsonResponse|View|Resources\PageRevisionCollection</methodSignature>
+      <fullMethod>revisions(Page $page, Requests\Page\RevisionsRequest $request): JsonResponse|View|Resources\PageRevisionCollection</fullMethod>
       <crap>6</crap>
       <complexity>6</complexity>
       <coverage>100</coverage>
@@ -125,8 +125,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>saveRevision</methodName>
-      <methodSignature>saveRevision(Playground\Cms\Models\Page $page): Playground\Cms\Models\PageRevision</methodSignature>
-      <fullMethod>saveRevision(Playground\Cms\Models\Page $page): Playground\Cms\Models\PageRevision</fullMethod>
+      <methodSignature>saveRevision(Page $page): PageRevision</methodSignature>
+      <fullMethod>saveRevision(Page $page): PageRevision</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>100</coverage>
@@ -136,8 +136,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>show</methodName>
-      <methodSignature>show(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\ShowRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\Page</methodSignature>
-      <fullMethod>show(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\ShowRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\Page</fullMethod>
+      <methodSignature>show(Page $page, Requests\Page\ShowRequest $request): JsonResponse|View|Resources\Page</methodSignature>
+      <fullMethod>show(Page $page, Requests\Page\ShowRequest $request): JsonResponse|View|Resources\Page</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>100</coverage>
@@ -147,8 +147,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>store</methodName>
-      <methodSignature>store(Playground\Cms\Resource\Http\Requests\Page\StoreRequest $request): \Illuminate\Http\Response|\Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Page</methodSignature>
-      <fullMethod>store(Playground\Cms\Resource\Http\Requests\Page\StoreRequest $request): \Illuminate\Http\Response|\Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Page</fullMethod>
+      <methodSignature>store(Requests\Page\StoreRequest $request): Response|JsonResponse|RedirectResponse|Resources\Page</methodSignature>
+      <fullMethod>store(Requests\Page\StoreRequest $request): Response|JsonResponse|RedirectResponse|Resources\Page</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -158,8 +158,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>unlock</methodName>
-      <methodSignature>unlock(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\UnlockRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Page</methodSignature>
-      <fullMethod>unlock(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\UnlockRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Page</fullMethod>
+      <methodSignature>unlock(Page $page, Requests\Page\UnlockRequest $request): JsonResponse|RedirectResponse|Resources\Page</methodSignature>
+      <fullMethod>unlock(Page $page, Requests\Page\UnlockRequest $request): JsonResponse|RedirectResponse|Resources\Page</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -169,8 +169,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\PageController</className>
       <methodName>update</methodName>
-      <methodSignature>update(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\UpdateRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Page</methodSignature>
-      <fullMethod>update(Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\UpdateRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Page</fullMethod>
+      <methodSignature>update(Page $page, Requests\Page\UpdateRequest $request): JsonResponse|RedirectResponse|Resources\Page</methodSignature>
+      <fullMethod>update(Page $page, Requests\Page\UpdateRequest $request): JsonResponse|RedirectResponse|Resources\Page</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -180,8 +180,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>create</methodName>
-      <methodSignature>create(Playground\Cms\Resource\Http\Requests\Snippet\CreateRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\Snippet</methodSignature>
-      <fullMethod>create(Playground\Cms\Resource\Http\Requests\Snippet\CreateRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\Snippet</fullMethod>
+      <methodSignature>create(Requests\Snippet\CreateRequest $request): JsonResponse|View|Resources\Snippet</methodSignature>
+      <fullMethod>create(Requests\Snippet\CreateRequest $request): JsonResponse|View|Resources\Snippet</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>100</coverage>
@@ -191,8 +191,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>edit</methodName>
-      <methodSignature>edit(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\EditRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\Snippet</methodSignature>
-      <fullMethod>edit(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\EditRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\Snippet</fullMethod>
+      <methodSignature>edit(Snippet $snippet, Requests\Snippet\EditRequest $request): JsonResponse|View|Resources\Snippet</methodSignature>
+      <fullMethod>edit(Snippet $snippet, Requests\Snippet\EditRequest $request): JsonResponse|View|Resources\Snippet</fullMethod>
       <crap>3</crap>
       <complexity>3</complexity>
       <coverage>100</coverage>
@@ -202,8 +202,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>destroy</methodName>
-      <methodSignature>destroy(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\DestroyRequest $request): \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse</methodSignature>
-      <fullMethod>destroy(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\DestroyRequest $request): \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse</fullMethod>
+      <methodSignature>destroy(Snippet $snippet, Requests\Snippet\DestroyRequest $request): Response|RedirectResponse</methodSignature>
+      <fullMethod>destroy(Snippet $snippet, Requests\Snippet\DestroyRequest $request): Response|RedirectResponse</fullMethod>
       <crap>6</crap>
       <complexity>6</complexity>
       <coverage>100</coverage>
@@ -213,8 +213,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>lock</methodName>
-      <methodSignature>lock(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\LockRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Snippet</methodSignature>
-      <fullMethod>lock(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\LockRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Snippet</fullMethod>
+      <methodSignature>lock(Snippet $snippet, Requests\Snippet\LockRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</methodSignature>
+      <fullMethod>lock(Snippet $snippet, Requests\Snippet\LockRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -224,8 +224,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>index</methodName>
-      <methodSignature>index(Playground\Cms\Resource\Http\Requests\Snippet\IndexRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\SnippetCollection</methodSignature>
-      <fullMethod>index(Playground\Cms\Resource\Http\Requests\Snippet\IndexRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\SnippetCollection</fullMethod>
+      <methodSignature>index(Requests\Snippet\IndexRequest $request): JsonResponse|View|Resources\SnippetCollection</methodSignature>
+      <fullMethod>index(Requests\Snippet\IndexRequest $request): JsonResponse|View|Resources\SnippetCollection</fullMethod>
       <crap>6</crap>
       <complexity>6</complexity>
       <coverage>100</coverage>
@@ -235,8 +235,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>restore</methodName>
-      <methodSignature>restore(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\RestoreRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Snippet</methodSignature>
-      <fullMethod>restore(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\RestoreRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Snippet</fullMethod>
+      <methodSignature>restore(Snippet $snippet, Requests\Snippet\RestoreRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</methodSignature>
+      <fullMethod>restore(Snippet $snippet, Requests\Snippet\RestoreRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -246,8 +246,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>restoreRevision</methodName>
-      <methodSignature>restoreRevision(Playground\Cms\Models\SnippetRevision $snippet_revision, Playground\Cms\Resource\Http\Requests\Snippet\RestoreRevisionRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Snippet</methodSignature>
-      <fullMethod>restoreRevision(Playground\Cms\Models\SnippetRevision $snippet_revision, Playground\Cms\Resource\Http\Requests\Snippet\RestoreRevisionRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Snippet</fullMethod>
+      <methodSignature>restoreRevision(SnippetRevision $snippet_revision, Requests\Snippet\RestoreRevisionRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</methodSignature>
+      <fullMethod>restoreRevision(SnippetRevision $snippet_revision, Requests\Snippet\RestoreRevisionRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -257,8 +257,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>revision</methodName>
-      <methodSignature>revision(Playground\Cms\Models\SnippetRevision $snippet_revision, Playground\Cms\Resource\Http\Requests\Snippet\ShowRevisionRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\SnippetRevision</methodSignature>
-      <fullMethod>revision(Playground\Cms\Models\SnippetRevision $snippet_revision, Playground\Cms\Resource\Http\Requests\Snippet\ShowRevisionRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\SnippetRevision</fullMethod>
+      <methodSignature>revision(SnippetRevision $snippet_revision, Requests\Snippet\ShowRevisionRequest $request): JsonResponse|View|Resources\SnippetRevision</methodSignature>
+      <fullMethod>revision(SnippetRevision $snippet_revision, Requests\Snippet\ShowRevisionRequest $request): JsonResponse|View|Resources\SnippetRevision</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>100</coverage>
@@ -268,8 +268,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>revisions</methodName>
-      <methodSignature>revisions(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\RevisionsRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\SnippetRevisionCollection</methodSignature>
-      <fullMethod>revisions(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\RevisionsRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\SnippetRevisionCollection</fullMethod>
+      <methodSignature>revisions(Snippet $snippet, Requests\Snippet\RevisionsRequest $request): JsonResponse|View|Resources\SnippetRevisionCollection</methodSignature>
+      <fullMethod>revisions(Snippet $snippet, Requests\Snippet\RevisionsRequest $request): JsonResponse|View|Resources\SnippetRevisionCollection</fullMethod>
       <crap>6</crap>
       <complexity>6</complexity>
       <coverage>100</coverage>
@@ -279,8 +279,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>saveRevision</methodName>
-      <methodSignature>saveRevision(Playground\Cms\Models\Snippet $snippet): Playground\Cms\Models\SnippetRevision</methodSignature>
-      <fullMethod>saveRevision(Playground\Cms\Models\Snippet $snippet): Playground\Cms\Models\SnippetRevision</fullMethod>
+      <methodSignature>saveRevision(Snippet $snippet): SnippetRevision</methodSignature>
+      <fullMethod>saveRevision(Snippet $snippet): SnippetRevision</fullMethod>
       <crap>4</crap>
       <complexity>4</complexity>
       <coverage>100</coverage>
@@ -290,8 +290,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>show</methodName>
-      <methodSignature>show(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\ShowRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\Snippet</methodSignature>
-      <fullMethod>show(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\ShowRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\View\View|\Playground\Cms\Resource\Http\Resources\Snippet</fullMethod>
+      <methodSignature>show(Snippet $snippet, Requests\Snippet\ShowRequest $request): JsonResponse|View|Resources\Snippet</methodSignature>
+      <fullMethod>show(Snippet $snippet, Requests\Snippet\ShowRequest $request): JsonResponse|View|Resources\Snippet</fullMethod>
       <crap>2</crap>
       <complexity>2</complexity>
       <coverage>100</coverage>
@@ -301,8 +301,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>store</methodName>
-      <methodSignature>store(Playground\Cms\Resource\Http\Requests\Snippet\StoreRequest $request): \Illuminate\Http\Response|\Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Snippet</methodSignature>
-      <fullMethod>store(Playground\Cms\Resource\Http\Requests\Snippet\StoreRequest $request): \Illuminate\Http\Response|\Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Snippet</fullMethod>
+      <methodSignature>store(Requests\Snippet\StoreRequest $request): Response|JsonResponse|RedirectResponse|Resources\Snippet</methodSignature>
+      <fullMethod>store(Requests\Snippet\StoreRequest $request): Response|JsonResponse|RedirectResponse|Resources\Snippet</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -312,8 +312,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>unlock</methodName>
-      <methodSignature>unlock(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\UnlockRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Snippet</methodSignature>
-      <fullMethod>unlock(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\UnlockRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Snippet</fullMethod>
+      <methodSignature>unlock(Snippet $snippet, Requests\Snippet\UnlockRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</methodSignature>
+      <fullMethod>unlock(Snippet $snippet, Requests\Snippet\UnlockRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -323,8 +323,8 @@
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\SnippetController</className>
       <methodName>update</methodName>
-      <methodSignature>update(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\UpdateRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Snippet</methodSignature>
-      <fullMethod>update(Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\UpdateRequest $request): \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Playground\Cms\Resource\Http\Resources\Snippet</fullMethod>
+      <methodSignature>update(Snippet $snippet, Requests\Snippet\UpdateRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</methodSignature>
+      <fullMethod>update(Snippet $snippet, Requests\Snippet\UpdateRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</fullMethod>
       <crap>5</crap>
       <complexity>5</complexity>
       <coverage>100</coverage>
@@ -356,8 +356,8 @@
       <package>Playground\Cms\Resource\Http\Requests</package>
       <className>Playground\Cms\Resource\Http\Requests\FormRequest</className>
       <methodName>userHasAdminPrivileges</methodName>
-      <methodSignature>userHasAdminPrivileges(?Illuminate\Contracts\Auth\Authenticatable $user): bool</methodSignature>
-      <fullMethod>userHasAdminPrivileges(?Illuminate\Contracts\Auth\Authenticatable $user): bool</fullMethod>
+      <methodSignature>userHasAdminPrivileges(?Authenticatable $user): bool</methodSignature>
+      <fullMethod>userHasAdminPrivileges(?Authenticatable $user): bool</fullMethod>
       <crap>3</crap>
       <complexity>3</complexity>
       <coverage>100</coverage>
@@ -477,8 +477,8 @@
       <package>Playground\Cms\Resource\Http\Resources</package>
       <className>Playground\Cms\Resource\Http\Resources\Page</className>
       <methodName>with</methodName>
-      <methodSignature>with(Illuminate\Http\Request $request): array</methodSignature>
-      <fullMethod>with(Illuminate\Http\Request $request): array</fullMethod>
+      <methodSignature>with(Request $request): array</methodSignature>
+      <fullMethod>with(Request $request): array</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -488,8 +488,8 @@
       <package>Playground\Cms\Resource\Http\Resources</package>
       <className>Playground\Cms\Resource\Http\Resources\PageCollection</className>
       <methodName>with</methodName>
-      <methodSignature>with(Illuminate\Http\Request $request): array</methodSignature>
-      <fullMethod>with(Illuminate\Http\Request $request): array</fullMethod>
+      <methodSignature>with(Request $request): array</methodSignature>
+      <fullMethod>with(Request $request): array</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -499,8 +499,8 @@
       <package>Playground\Cms\Resource\Http\Resources</package>
       <className>Playground\Cms\Resource\Http\Resources\PageRevision</className>
       <methodName>with</methodName>
-      <methodSignature>with(Illuminate\Http\Request $request): array</methodSignature>
-      <fullMethod>with(Illuminate\Http\Request $request): array</fullMethod>
+      <methodSignature>with(Request $request): array</methodSignature>
+      <fullMethod>with(Request $request): array</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -510,8 +510,8 @@
       <package>Playground\Cms\Resource\Http\Resources</package>
       <className>Playground\Cms\Resource\Http\Resources\PageRevisionCollection</className>
       <methodName>with</methodName>
-      <methodSignature>with(Illuminate\Http\Request $request): array</methodSignature>
-      <fullMethod>with(Illuminate\Http\Request $request): array</fullMethod>
+      <methodSignature>with(Request $request): array</methodSignature>
+      <fullMethod>with(Request $request): array</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -521,8 +521,8 @@
       <package>Playground\Cms\Resource\Http\Resources</package>
       <className>Playground\Cms\Resource\Http\Resources\Snippet</className>
       <methodName>with</methodName>
-      <methodSignature>with(Illuminate\Http\Request $request): array</methodSignature>
-      <fullMethod>with(Illuminate\Http\Request $request): array</fullMethod>
+      <methodSignature>with(Request $request): array</methodSignature>
+      <fullMethod>with(Request $request): array</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -532,8 +532,8 @@
       <package>Playground\Cms\Resource\Http\Resources</package>
       <className>Playground\Cms\Resource\Http\Resources\SnippetCollection</className>
       <methodName>with</methodName>
-      <methodSignature>with(Illuminate\Http\Request $request): array</methodSignature>
-      <fullMethod>with(Illuminate\Http\Request $request): array</fullMethod>
+      <methodSignature>with(Request $request): array</methodSignature>
+      <fullMethod>with(Request $request): array</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -543,8 +543,8 @@
       <package>Playground\Cms\Resource\Http\Resources</package>
       <className>Playground\Cms\Resource\Http\Resources\SnippetRevision</className>
       <methodName>with</methodName>
-      <methodSignature>with(Illuminate\Http\Request $request): array</methodSignature>
-      <fullMethod>with(Illuminate\Http\Request $request): array</fullMethod>
+      <methodSignature>with(Request $request): array</methodSignature>
+      <fullMethod>with(Request $request): array</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -554,8 +554,8 @@
       <package>Playground\Cms\Resource\Http\Resources</package>
       <className>Playground\Cms\Resource\Http\Resources\SnippetRevisionCollection</className>
       <methodName>with</methodName>
-      <methodSignature>with(Illuminate\Http\Request $request): array</methodSignature>
-      <fullMethod>with(Illuminate\Http\Request $request): array</fullMethod>
+      <methodSignature>with(Request $request): array</methodSignature>
+      <fullMethod>with(Request $request): array</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -565,8 +565,8 @@
       <package>Playground\Cms\Resource\Policies</package>
       <className>Playground\Cms\Resource\Policies\PagePolicy</className>
       <methodName>revisions</methodName>
-      <methodSignature>revisions(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>revisions(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <methodSignature>revisions(Authenticatable $user): bool|Response</methodSignature>
+      <fullMethod>revisions(Authenticatable $user): bool|Response</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -576,8 +576,8 @@
       <package>Playground\Cms\Resource\Policies</package>
       <className>Playground\Cms\Resource\Policies\PagePolicy</className>
       <methodName>viewRevision</methodName>
-      <methodSignature>viewRevision(Illuminate\Contracts\Auth\Authenticatable $user, Playground\Cms\Models\PageRevision $page_revision): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>viewRevision(Illuminate\Contracts\Auth\Authenticatable $user, Playground\Cms\Models\PageRevision $page_revision): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <methodSignature>viewRevision(Authenticatable $user, PageRevision $page_revision): bool|Response</methodSignature>
+      <fullMethod>viewRevision(Authenticatable $user, PageRevision $page_revision): bool|Response</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -587,8 +587,8 @@
       <package>Playground\Cms\Resource\Policies</package>
       <className>Playground\Cms\Resource\Policies\PagePolicy</className>
       <methodName>restoreRevision</methodName>
-      <methodSignature>restoreRevision(Illuminate\Contracts\Auth\Authenticatable $user, Playground\Cms\Models\PageRevision $page_revision): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>restoreRevision(Illuminate\Contracts\Auth\Authenticatable $user, Playground\Cms\Models\PageRevision $page_revision): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <methodSignature>restoreRevision(Authenticatable $user, PageRevision $page_revision): bool|Response</methodSignature>
+      <fullMethod>restoreRevision(Authenticatable $user, PageRevision $page_revision): bool|Response</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -598,8 +598,8 @@
       <package>Playground\Cms\Resource\Policies</package>
       <className>Playground\Cms\Resource\Policies\SnippetPolicy</className>
       <methodName>revisions</methodName>
-      <methodSignature>revisions(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>revisions(Illuminate\Contracts\Auth\Authenticatable $user): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <methodSignature>revisions(Authenticatable $user): bool|Response</methodSignature>
+      <fullMethod>revisions(Authenticatable $user): bool|Response</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -609,8 +609,8 @@
       <package>Playground\Cms\Resource\Policies</package>
       <className>Playground\Cms\Resource\Policies\SnippetPolicy</className>
       <methodName>viewRevision</methodName>
-      <methodSignature>viewRevision(Illuminate\Contracts\Auth\Authenticatable $user, Playground\Cms\Models\SnippetRevision $snippet_revision): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>viewRevision(Illuminate\Contracts\Auth\Authenticatable $user, Playground\Cms\Models\SnippetRevision $snippet_revision): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <methodSignature>viewRevision(Authenticatable $user, SnippetRevision $snippet_revision): bool|Response</methodSignature>
+      <fullMethod>viewRevision(Authenticatable $user, SnippetRevision $snippet_revision): bool|Response</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
@@ -620,8 +620,8 @@
       <package>Playground\Cms\Resource\Policies</package>
       <className>Playground\Cms\Resource\Policies\SnippetPolicy</className>
       <methodName>restoreRevision</methodName>
-      <methodSignature>restoreRevision(Illuminate\Contracts\Auth\Authenticatable $user, Playground\Cms\Models\SnippetRevision $snippet_revision): bool|\Illuminate\Auth\Access\Response</methodSignature>
-      <fullMethod>restoreRevision(Illuminate\Contracts\Auth\Authenticatable $user, Playground\Cms\Models\SnippetRevision $snippet_revision): bool|\Illuminate\Auth\Access\Response</fullMethod>
+      <methodSignature>restoreRevision(Authenticatable $user, SnippetRevision $snippet_revision): bool|Response</methodSignature>
+      <fullMethod>restoreRevision(Authenticatable $user, SnippetRevision $snippet_revision): bool|Response</fullMethod>
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>

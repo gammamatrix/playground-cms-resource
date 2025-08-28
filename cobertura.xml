@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
-<coverage line-rate="1" branch-rate="0" lines-covered="901" lines-valid="901" branches-covered="0" branches-valid="0" complexity="221" version="0.4" timestamp="1755365670">
+<coverage line-rate="1" branch-rate="0" lines-covered="901" lines-valid="901" branches-covered="0" branches-valid="0" complexity="221" version="0.4" timestamp="1756422304">
   <sources>
     <source>/app/src</source>
   </sources>
@@ -33,7 +33,7 @@
       <classes>
         <class name="Playground\Cms\Resource\Http\Controllers\PageController" filename="Http/Controllers/PageController.php" line-rate="1" branch-rate="0" complexity="63">
           <methods>
-            <method name="create" signature="Playground\Cms\Resource\Http\Requests\Page\CreateRequest $request" line-rate="1" branch-rate="0" complexity="4">
+            <method name="create" signature="Requests\Page\CreateRequest $request" line-rate="1" branch-rate="0" complexity="4">
               <lines>
                 <line number="54" hits="3"/>
                 <line number="56" hits="3"/>
@@ -65,7 +65,7 @@
                 <line number="94" hits="2"/>
               </lines>
             </method>
-            <method name="edit" signature="Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\EditRequest $request" line-rate="1" branch-rate="0" complexity="3">
+            <method name="edit" signature="Page $page, Requests\Page\EditRequest $request" line-rate="1" branch-rate="0" complexity="3">
               <lines>
                 <line number="107" hits="3"/>
                 <line number="109" hits="3"/>
@@ -95,7 +95,7 @@
                 <line number="143" hits="2"/>
               </lines>
             </method>
-            <method name="destroy" signature="Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\DestroyRequest $request" line-rate="1" branch-rate="0" complexity="6">
+            <method name="destroy" signature="Page $page, Requests\Page\DestroyRequest $request" line-rate="1" branch-rate="0" complexity="6">
               <lines>
                 <line number="156" hits="7"/>
                 <line number="158" hits="7"/>
@@ -112,7 +112,7 @@
                 <line number="180" hits="2"/>
               </lines>
             </method>
-            <method name="lock" signature="Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\LockRequest $request" line-rate="1" branch-rate="0" complexity="5">
+            <method name="lock" signature="Page $page, Requests\Page\LockRequest $request" line-rate="1" branch-rate="0" complexity="5">
               <lines>
                 <line number="193" hits="4"/>
                 <line number="195" hits="4"/>
@@ -139,7 +139,7 @@
                 <line number="227" hits="1"/>
               </lines>
             </method>
-            <method name="index" signature="Playground\Cms\Resource\Http\Requests\Page\IndexRequest $request" line-rate="1" branch-rate="0" complexity="6">
+            <method name="index" signature="Requests\Page\IndexRequest $request" line-rate="1" branch-rate="0" complexity="6">
               <lines>
                 <line number="239" hits="4"/>
                 <line number="241" hits="4"/>
@@ -187,7 +187,7 @@
                 <line number="299" hits="2"/>
               </lines>
             </method>
-            <method name="restore" signature="Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\RestoreRequest $request" line-rate="1" branch-rate="0" complexity="5">
+            <method name="restore" signature="Page $page, Requests\Page\RestoreRequest $request" line-rate="1" branch-rate="0" complexity="5">
               <lines>
                 <line number="312" hits="4"/>
                 <line number="314" hits="4"/>
@@ -207,7 +207,7 @@
                 <line number="337" hits="1"/>
               </lines>
             </method>
-            <method name="restoreRevision" signature="Playground\Cms\Models\PageRevision $page_revision, Playground\Cms\Resource\Http\Requests\Page\RestoreRevisionRequest $request" line-rate="1" branch-rate="0" complexity="5">
+            <method name="restoreRevision" signature="PageRevision $page_revision, Requests\Page\RestoreRevisionRequest $request" line-rate="1" branch-rate="0" complexity="5">
               <lines>
                 <line number="349" hits="4"/>
                 <line number="354" hits="4"/>
@@ -235,7 +235,7 @@
                 <line number="387" hits="1"/>
               </lines>
             </method>
-            <method name="revision" signature="Playground\Cms\Models\PageRevision $page_revision, Playground\Cms\Resource\Http\Requests\Page\ShowRevisionRequest $request" line-rate="1" branch-rate="0" complexity="2">
+            <method name="revision" signature="PageRevision $page_revision, Requests\Page\ShowRevisionRequest $request" line-rate="1" branch-rate="0" complexity="2">
               <lines>
                 <line number="400" hits="2"/>
                 <line number="401" hits="1"/>
@@ -258,7 +258,7 @@
                 <line number="424" hits="1"/>
               </lines>
             </method>
-            <method name="revisions" signature="Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\RevisionsRequest $request" line-rate="1" branch-rate="0" complexity="6">
+            <method name="revisions" signature="Page $page, Requests\Page\RevisionsRequest $request" line-rate="1" branch-rate="0" complexity="6">
               <lines>
                 <line number="436" hits="4"/>
                 <line number="438" hits="4"/>
@@ -308,7 +308,7 @@
                 <line number="497" hits="2"/>
               </lines>
             </method>
-            <method name="saveRevision" signature="Playground\Cms\Models\Page $page" line-rate="1" branch-rate="0" complexity="4">
+            <method name="saveRevision" signature="Page $page" line-rate="1" branch-rate="0" complexity="4">
               <lines>
                 <line number="505" hits="9"/>
                 <line number="507" hits="9"/>
@@ -324,7 +324,7 @@
                 <line number="521" hits="9"/>
               </lines>
             </method>
-            <method name="show" signature="Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\ShowRequest $request" line-rate="1" branch-rate="0" complexity="2">
+            <method name="show" signature="Page $page, Requests\Page\ShowRequest $request" line-rate="1" branch-rate="0" complexity="2">
               <lines>
                 <line number="534" hits="2"/>
                 <line number="535" hits="1"/>
@@ -347,7 +347,7 @@
                 <line number="558" hits="1"/>
               </lines>
             </method>
-            <method name="store" signature="Playground\Cms\Resource\Http\Requests\Page\StoreRequest $request" line-rate="1" branch-rate="0" complexity="5">
+            <method name="store" signature="Requests\Page\StoreRequest $request" line-rate="1" branch-rate="0" complexity="5">
               <lines>
                 <line number="570" hits="3"/>
                 <line number="572" hits="3"/>
@@ -368,7 +368,7 @@
                 <line number="597" hits="1"/>
               </lines>
             </method>
-            <method name="unlock" signature="Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\UnlockRequest $request" line-rate="1" branch-rate="0" complexity="5">
+            <method name="unlock" signature="Page $page, Requests\Page\UnlockRequest $request" line-rate="1" branch-rate="0" complexity="5">
               <lines>
                 <line number="610" hits="4"/>
                 <line number="612" hits="4"/>
@@ -389,7 +389,7 @@
                 <line number="637" hits="1"/>
               </lines>
             </method>
-            <method name="update" signature="Playground\Cms\Models\Page $page, Playground\Cms\Resource\Http\Requests\Page\UpdateRequest $request" line-rate="1" branch-rate="0" complexity="5">
+            <method name="update" signature="Page $page, Requests\Page\UpdateRequest $request" line-rate="1" branch-rate="0" complexity="5">
               <lines>
                 <line number="650" hits="5"/>
                 <line number="652" hits="5"/>
@@ -741,7 +741,7 @@
       <classes>
         <class name="Playground\Cms\Resource\Http\Controllers\SnippetController" filename="Http/Controllers/SnippetController.php" line-rate="1" branch-rate="0" complexity="63">
           <methods>
-            <method name="create" signature="Playground\Cms\Resource\Http\Requests\Snippet\CreateRequest $request" line-rate="1" branch-rate="0" complexity="4">
+            <method name="create" signature="Requests\Snippet\CreateRequest $request" line-rate="1" branch-rate="0" complexity="4">
               <lines>
                 <line number="54" hits="3"/>
                 <line number="56" hits="3"/>
@@ -773,7 +773,7 @@
                 <line number="94" hits="2"/>
               </lines>
             </method>
-            <method name="edit" signature="Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\EditRequest $request" line-rate="1" branch-rate="0" complexity="3">
+            <method name="edit" signature="Snippet $snippet, Requests\Snippet\EditRequest $request" line-rate="1" branch-rate="0" complexity="3">
               <lines>
                 <line number="107" hits="3"/>
                 <line number="109" hits="3"/>
@@ -803,7 +803,7 @@
                 <line number="143" hits="2"/>
               </lines>
             </method>
-            <method name="destroy" signature="Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\DestroyRequest $request" line-rate="1" branch-rate="0" complexity="6">
+            <method name="destroy" signature="Snippet $snippet, Requests\Snippet\DestroyRequest $request" line-rate="1" branch-rate="0" complexity="6">
               <lines>
                 <line number="156" hits="7"/>
                 <line number="158" hits="7"/>
@@ -820,7 +820,7 @@
                 <line number="180" hits="2"/>
               </lines>
             </method>
-            <method name="lock" signature="Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\LockRequest $request" line-rate="1" branch-rate="0" complexity="5">
+            <method name="lock" signature="Snippet $snippet, Requests\Snippet\LockRequest $request" line-rate="1" branch-rate="0" complexity="5">
               <lines>
                 <line number="193" hits="4"/>
                 <line number="195" hits="4"/>
@@ -847,7 +847,7 @@
                 <line number="227" hits="1"/>
               </lines>
             </method>
-            <method name="index" signature="Playground\Cms\Resource\Http\Requests\Snippet\IndexRequest $request" line-rate="1" branch-rate="0" complexity="6">
+            <method name="index" signature="Requests\Snippet\IndexRequest $request" line-rate="1" branch-rate="0" complexity="6">
               <lines>
                 <line number="239" hits="4"/>
                 <line number="241" hits="4"/>
@@ -895,7 +895,7 @@
                 <line number="299" hits="2"/>
               </lines>
             </method>
-            <method name="restore" signature="Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\RestoreRequest $request" line-rate="1" branch-rate="0" complexity="5">
+            <method name="restore" signature="Snippet $snippet, Requests\Snippet\RestoreRequest $request" line-rate="1" branch-rate="0" complexity="5">
               <lines>
                 <line number="312" hits="4"/>
                 <line number="314" hits="4"/>
@@ -915,7 +915,7 @@
                 <line number="337" hits="1"/>
               </lines>
             </method>
-            <method name="restoreRevision" signature="Playground\Cms\Models\SnippetRevision $snippet_revision, Playground\Cms\Resource\Http\Requests\Snippet\RestoreRevisionRequest $request" line-rate="1" branch-rate="0" complexity="5">
+            <method name="restoreRevision" signature="SnippetRevision $snippet_revision, Requests\Snippet\RestoreRevisionRequest $request" line-rate="1" branch-rate="0" complexity="5">
               <lines>
                 <line number="349" hits="4"/>
                 <line number="354" hits="4"/>
@@ -943,7 +943,7 @@
                 <line number="387" hits="1"/>
               </lines>
             </method>
-            <method name="revision" signature="Playground\Cms\Models\SnippetRevision $snippet_revision, Playground\Cms\Resource\Http\Requests\Snippet\ShowRevisionRequest $request" line-rate="1" branch-rate="0" complexity="2">
+            <method name="revision" signature="SnippetRevision $snippet_revision, Requests\Snippet\ShowRevisionRequest $request" line-rate="1" branch-rate="0" complexity="2">
               <lines>
                 <line number="400" hits="2"/>
                 <line number="401" hits="1"/>
@@ -966,7 +966,7 @@
                 <line number="424" hits="1"/>
               </lines>
             </method>
-            <method name="revisions" signature="Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\RevisionsRequest $request" line-rate="1" branch-rate="0" complexity="6">
+            <method name="revisions" signature="Snippet $snippet, Requests\Snippet\RevisionsRequest $request" line-rate="1" branch-rate="0" complexity="6">
               <lines>
                 <line number="436" hits="4"/>
                 <line number="438" hits="4"/>
@@ -1016,7 +1016,7 @@
                 <line number="497" hits="2"/>
               </lines>
             </method>
-            <method name="saveRevision" signature="Playground\Cms\Models\Snippet $snippet" line-rate="1" branch-rate="0" complexity="4">
+            <method name="saveRevision" signature="Snippet $snippet" line-rate="1" branch-rate="0" complexity="4">
               <lines>
                 <line number="505" hits="9"/>
                 <line number="507" hits="9"/>
@@ -1032,7 +1032,7 @@
                 <line number="521" hits="9"/>
               </lines>
             </method>
-            <method name="show" signature="Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\ShowRequest $request" line-rate="1" branch-rate="0" complexity="2">
+            <method name="show" signature="Snippet $snippet, Requests\Snippet\ShowRequest $request" line-rate="1" branch-rate="0" complexity="2">
               <lines>
                 <line number="534" hits="2"/>
                 <line number="535" hits="1"/>
@@ -1055,7 +1055,7 @@
                 <line number="558" hits="1"/>
               </lines>
             </method>
-            <method name="store" signature="Playground\Cms\Resource\Http\Requests\Snippet\StoreRequest $request" line-rate="1" branch-rate="0" complexity="5">
+            <method name="store" signature="Requests\Snippet\StoreRequest $request" line-rate="1" branch-rate="0" complexity="5">
               <lines>
                 <line number="570" hits="3"/>
                 <line number="572" hits="3"/>
@@ -1076,7 +1076,7 @@
                 <line number="597" hits="1"/>
               </lines>
             </method>
-            <method name="unlock" signature="Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\UnlockRequest $request" line-rate="1" branch-rate="0" complexity="5">
+            <method name="unlock" signature="Snippet $snippet, Requests\Snippet\UnlockRequest $request" line-rate="1" branch-rate="0" complexity="5">
               <lines>
                 <line number="610" hits="4"/>
                 <line number="612" hits="4"/>
@@ -1097,7 +1097,7 @@
                 <line number="637" hits="1"/>
               </lines>
             </method>
-            <method name="update" signature="Playground\Cms\Models\Snippet $snippet, Playground\Cms\Resource\Http\Requests\Snippet\UpdateRequest $request" line-rate="1" branch-rate="0" complexity="5">
+            <method name="update" signature="Snippet $snippet, Requests\Snippet\UpdateRequest $request" line-rate="1" branch-rate="0" complexity="5">
               <lines>
                 <line number="650" hits="5"/>
                 <line number="652" hits="5"/>
@@ -1462,7 +1462,7 @@
                 <line number="45" hits="75"/>
               </lines>
             </method>
-            <method name="userHasAdminPrivileges" signature="?Illuminate\Contracts\Auth\Authenticatable $user" line-rate="1" branch-rate="0" complexity="3">
+            <method name="userHasAdminPrivileges" signature="?Authenticatable $user" line-rate="1" branch-rate="0" complexity="3">
               <lines>
                 <line number="50" hits="17"/>
                 <line number="51" hits="17"/>
@@ -1877,7 +1877,7 @@
       <classes>
         <class name="Playground\Cms\Resource\Http\Resources\Page" filename="Http/Resources/Page.php" line-rate="1" branch-rate="0" complexity="1">
           <methods>
-            <method name="with" signature="Illuminate\Http\Request $request" line-rate="1" branch-rate="0" complexity="1">
+            <method name="with" signature="Request $request" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="34" hits="14"/>
                 <line number="39" hits="14"/>
@@ -1913,7 +1913,7 @@
       <classes>
         <class name="Playground\Cms\Resource\Http\Resources\PageCollection" filename="Http/Resources/PageCollection.php" line-rate="1" branch-rate="0" complexity="1">
           <methods>
-            <method name="with" signature="Illuminate\Http\Request $request" line-rate="1" branch-rate="0" complexity="1">
+            <method name="with" signature="Request $request" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="29" hits="2"/>
                 <line number="30" hits="2"/>
@@ -1953,7 +1953,7 @@
       <classes>
         <class name="Playground\Cms\Resource\Http\Resources\PageRevision" filename="Http/Resources/PageRevision.php" line-rate="1" branch-rate="0" complexity="1">
           <methods>
-            <method name="with" signature="Illuminate\Http\Request $request" line-rate="1" branch-rate="0" complexity="1">
+            <method name="with" signature="Request $request" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="34" hits="1"/>
                 <line number="39" hits="1"/>
@@ -1989,7 +1989,7 @@
       <classes>
         <class name="Playground\Cms\Resource\Http\Resources\PageRevisionCollection" filename="Http/Resources/PageRevisionCollection.php" line-rate="1" branch-rate="0" complexity="1">
           <methods>
-            <method name="with" signature="Illuminate\Http\Request $request" line-rate="1" branch-rate="0" complexity="1">
+            <method name="with" signature="Request $request" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="29" hits="2"/>
                 <line number="30" hits="2"/>
@@ -2029,7 +2029,7 @@
       <classes>
         <class name="Playground\Cms\Resource\Http\Resources\Snippet" filename="Http/Resources/Snippet.php" line-rate="1" branch-rate="0" complexity="1">
           <methods>
-            <method name="with" signature="Illuminate\Http\Request $request" line-rate="1" branch-rate="0" complexity="1">
+            <method name="with" signature="Request $request" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="34" hits="14"/>
                 <line number="39" hits="14"/>
@@ -2065,7 +2065,7 @@
       <classes>
         <class name="Playground\Cms\Resource\Http\Resources\SnippetCollection" filename="Http/Resources/SnippetCollection.php" line-rate="1" branch-rate="0" complexity="1">
           <methods>
-            <method name="with" signature="Illuminate\Http\Request $request" line-rate="1" branch-rate="0" complexity="1">
+            <method name="with" signature="Request $request" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="29" hits="2"/>
                 <line number="30" hits="2"/>
@@ -2105,7 +2105,7 @@
       <classes>
         <class name="Playground\Cms\Resource\Http\Resources\SnippetRevision" filename="Http/Resources/SnippetRevision.php" line-rate="1" branch-rate="0" complexity="1">
           <methods>
-            <method name="with" signature="Illuminate\Http\Request $request" line-rate="1" branch-rate="0" complexity="1">
+            <method name="with" signature="Request $request" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="34" hits="1"/>
                 <line number="39" hits="1"/>
@@ -2141,7 +2141,7 @@
       <classes>
         <class name="Playground\Cms\Resource\Http\Resources\SnippetRevisionCollection" filename="Http/Resources/SnippetRevisionCollection.php" line-rate="1" branch-rate="0" complexity="1">
           <methods>
-            <method name="with" signature="Illuminate\Http\Request $request" line-rate="1" branch-rate="0" complexity="1">
+            <method name="with" signature="Request $request" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="29" hits="2"/>
                 <line number="30" hits="2"/>
@@ -2181,17 +2181,17 @@
       <classes>
         <class name="Playground\Cms\Resource\Policies\PagePolicy" filename="Policies/PagePolicy.php" line-rate="1" branch-rate="0" complexity="3">
           <methods>
-            <method name="revisions" signature="Illuminate\Contracts\Auth\Authenticatable $user" line-rate="1" branch-rate="0" complexity="1">
+            <method name="revisions" signature="Authenticatable $user" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="51" hits="4"/>
               </lines>
             </method>
-            <method name="viewRevision" signature="Illuminate\Contracts\Auth\Authenticatable $user, Playground\Cms\Models\PageRevision $page_revision" line-rate="1" branch-rate="0" complexity="1">
+            <method name="viewRevision" signature="Authenticatable $user, PageRevision $page_revision" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="59" hits="2"/>
               </lines>
             </method>
-            <method name="restoreRevision" signature="Illuminate\Contracts\Auth\Authenticatable $user, Playground\Cms\Models\PageRevision $page_revision" line-rate="1" branch-rate="0" complexity="1">
+            <method name="restoreRevision" signature="Authenticatable $user, PageRevision $page_revision" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="67" hits="6"/>
               </lines>
@@ -2209,17 +2209,17 @@
       <classes>
         <class name="Playground\Cms\Resource\Policies\SnippetPolicy" filename="Policies/SnippetPolicy.php" line-rate="1" branch-rate="0" complexity="3">
           <methods>
-            <method name="revisions" signature="Illuminate\Contracts\Auth\Authenticatable $user" line-rate="1" branch-rate="0" complexity="1">
+            <method name="revisions" signature="Authenticatable $user" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="51" hits="4"/>
               </lines>
             </method>
-            <method name="viewRevision" signature="Illuminate\Contracts\Auth\Authenticatable $user, Playground\Cms\Models\SnippetRevision $snippet_revision" line-rate="1" branch-rate="0" complexity="1">
+            <method name="viewRevision" signature="Authenticatable $user, SnippetRevision $snippet_revision" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="59" hits="2"/>
               </lines>
             </method>
-            <method name="restoreRevision" signature="Illuminate\Contracts\Auth\Authenticatable $user, Playground\Cms\Models\SnippetRevision $snippet_revision" line-rate="1" branch-rate="0" complexity="1">
+            <method name="restoreRevision" signature="Authenticatable $user, SnippetRevision $snippet_revision" line-rate="1" branch-rate="0" complexity="1">
               <lines>
                 <line number="67" hits="6"/>
               </lines>
