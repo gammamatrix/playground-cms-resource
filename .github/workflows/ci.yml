@@ -106,7 +106,7 @@ jobs:
       env:
         XDEBUG_MODE: coverage
       with:
-        version: "11.0"
+        version: "12.3"
         php_version: "8.4"
         php_extensions: intl xdebug
         configuration: phpunit-ci.xml
@@ -127,7 +127,7 @@ jobs:
         user_email: 'github-actions[bot]@users.noreply.github.com'
 #    - uses: php-actions/phpstan@v3
 #      with:
-#        level: 9
+#        level: 10
 #        php_version: "8.4"
 #        path: config/ lang/ resources/views/ routes/ src/ tests/Feature/ tests/Unit/
 #        args: --verbose --debug

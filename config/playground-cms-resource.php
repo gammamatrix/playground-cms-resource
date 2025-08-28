@@ -35,7 +35,7 @@ declare(strict_types=1);
  *       routes: array{
  *           cms: bool,
  *           pages: bool,
- *           snippets: bool
+ *           snippets: bool,
  *       },
  *       blade: string,
  *       cache: array{
@@ -45,7 +45,7 @@ declare(strict_types=1);
  *           page_ttl: int,
  *           snippet: bool,
  *           snippet_store: string,
- *           snippet_ttl: int
+ *           snippet_ttl: int,
  *       },
  *       abilities: array<string, string[]>,
  *       sitemap: array{
@@ -125,7 +125,7 @@ return [
     */
 
     'revisions' => [
-        'optional' => (bool) env('PLAYGROUND_CMS_RESOURCE_ROUTES_OPTIONAL', false),
+        'optional' => (bool) env('PLAYGROUND_CMS_RESOURCE_REVISIONS_OPTIONAL', false),
         'pages' => (bool) env('PLAYGROUND_CMS_RESOURCE_REVISIONS_PAGES', true),
         'snippets' => (bool) env('PLAYGROUND_CMS_RESOURCE_REVISIONS_SNIPPETS', true),
     ],
@@ -139,9 +139,9 @@ return [
     */
 
     'routes' => [
-        'cms' => (bool) env('PLAYGROUND_CMS_RESOURCE_CMS', true),
-        'pages' => (bool) env('PLAYGROUND_CMS_RESOURCE_PAGES', true),
-        'snippets' => (bool) env('PLAYGROUND_CMS_RESOURCE_SNIPPETS', true),
+        'cms' => (bool) env('PLAYGROUND_CMS_RESOURCE_ROUTES_CMS', true),
+        'pages' => (bool) env('PLAYGROUND_CMS_RESOURCE_ROUTES_PAGES', true),
+        'snippets' => (bool) env('PLAYGROUND_CMS_RESOURCE_ROUTES_SNIPPETS', true),
     ],
 
     /*

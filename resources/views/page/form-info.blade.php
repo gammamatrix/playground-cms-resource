@@ -22,8 +22,21 @@
 
     <x-playground::forms.column column="page_type" label="Page Type" :rules="['maxlength' => 255]" />
 
-    @if (!empty($parents))
-    <x-playground::forms.column-select column="parent_id" key="label" label="Parent Page" :records="$parents"/>
+
+
+    @php
+    if ('patch' === $_method) {
+        $parents = Playground\Cms\Models\Page::where('id', '!=', $data->id)->get();
+    } else {
+        $parents = Playground\Cms\Models\Page::isNotClosed()->isActive()->get();
+    }
+    @endphp
+    @if ($parents->isEmpty())
+    <input type="hidden" name="parent_id" value="" />
+    @else
+    <x-playground::forms.column-select column="parent_id" key="label" label="Page" :records="$parents->toArray()"/>
     @endif
+
+
 
 </fieldset>

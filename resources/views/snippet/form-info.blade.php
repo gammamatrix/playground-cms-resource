@@ -22,8 +22,21 @@
 
     <x-playground::forms.column column="snippet_type" label="Snippet Type" :rules="['maxlength' => 255]" />
 
-    @if (!empty($parents))
-    <x-playground::forms.column-select column="parent_id" key="label" label="Parent Snippet" :records="$parents"/>
+
+
+    @php
+    if ('patch' === $_method) {
+        $parents = Playground\Cms\Models\Snippet::where('id', '!=', $data->id)->get();
+    } else {
+        $parents = Playground\Cms\Models\Snippet::isNotClosed()->isActive()->get();
+    }
+    @endphp
+    @if ($parents->isEmpty())
+    <input type="hidden" name="parent_id" value="" />
+    @else
+    <x-playground::forms.column-select column="parent_id" key="label" label="Snippet" :records="$parents->toArray()"/>
     @endif
+
+
 
 </fieldset>

@@ -22,7 +22,7 @@ class PolicyTest extends TestCase
     {
         $instance = new SnippetPolicy;
 
-        /**  @phpstan-ignore method.alreadyNarrowedType */
+        /** @phpstan-ignore method.alreadyNarrowedType */
         $this->assertInstanceOf(SnippetPolicy::class, $instance);
     }
 }

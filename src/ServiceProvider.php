@@ -53,19 +53,19 @@ class ServiceProvider extends AuthServiceProvider
          *            snippets: bool,
          *        },
          *        routes: array{
-         *            cms: bool,
-         *            pages: bool,
-         *            snippets: bool
+         *             cms: bool,
+         *             pages: bool,
+         *             snippets: bool,
          *        },
          *        blade: string,
          *        cache: array{
          *            enable: bool,
-         *            page: bool,
-         *            page_store: string,
-         *            page_ttl: int,
-         *            snippet: bool,
-         *            snippet_store: string,
-         *            snippet_ttl: int
+         *           page: bool,
+         *           page_store: string,
+         *           page_ttl: int,
+         *           snippet: bool,
+         *           snippet_store: string,
+         *           snippet_ttl: int,
          *        },
          *        abilities: array<string, string[]>,
          *        sitemap: array{

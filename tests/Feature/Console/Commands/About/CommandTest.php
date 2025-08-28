@@ -19,6 +19,19 @@ use Tests\Feature\Playground\Cms\Resource\TestCase;
 #[CoversClass(ServiceProvider::class)]
 class CommandTest extends TestCase
 {
+    /**
+     * Define environment setup.
+     *
+     * @param  \Illuminate\Foundation\Application  $app
+     * @return void
+     */
+    protected function defineEnvironment($app)
+    {
+        parent::defineEnvironment($app);
+
+        $app['config']->set('playground-cms-resource.load.migrations', true);
+    }
+
     public function test_command_about_displays_package_information_and_succeed(): void
     {
         /**

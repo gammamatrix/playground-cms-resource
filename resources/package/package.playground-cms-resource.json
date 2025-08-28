@@ -41,16 +41,18 @@
         }
     ],
     "package_require": {
-        "php": "^8.2",
+        "php": "^8.4",
         "gammamatrix/playground": "*",
         "gammamatrix/playground-auth": "*",
         "gammamatrix/playground-http": "*",
-        "gammamatrix/playground-cms": "*"
+        "gammamatrix/playground-cms": "*",
+        "illuminate/support": "^12.0"
     },
     "package_require_dev": {
         "gammamatrix/playground-test": "*",
         "gammamatrix/playground-login-blade": "*",
-        "gammamatrix/playground-site-blade": "*"
+        "gammamatrix/playground-site-blade": "*",
+        "illuminate/testing": "^12.0"
     },
     "package_suggest": [],
     "package_autoload_psr4": [],
@@ -60,14 +62,25 @@
         "Playground/Cms/Resource/ServiceProvider"
     ],
     "packagist": "gammamatrix/playground-cms-resource",
-    "controllers": [],
+    "controllers": [
+        "resources/package/controller.base.json",
+        "resources/package/index/controller.json",
+        "resources/package/page/controller.json",
+        "resources/package/snippet/controller.json"
+    ],
     "models": [],
     "policies": [],
-    "requests": [],
-    "routes": [],
+    "requests": [
+        "resources/package/form.request.json"
+    ],
+    "routes": {
+        "cms": "",
+        "pages": "resources/package/page/route.json",
+        "snippets": "resources/package/snippet/route.json"
+    },
     "transformers": [],
     "uses": [],
     "service_provider": "",
     "type": "playground-resource",
-    "version": "73.0.0"
+    "version": "74.0.0"
 }

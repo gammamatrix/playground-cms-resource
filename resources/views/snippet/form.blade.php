@@ -1,10 +1,10 @@
 @extends('playground::layouts.resource.form', [
     'withFormInfo' => 'playground-cms-resource::snippet/form-info',
-    'withFormStatus' => 'playground-cms-resource::snippet/form-status',
+    'withFormStatus' => 'playground-cms-resource::snippet/form-flags',
 ])
 
 @section('form-tertiary')
-@include('playground-cms-resource::snippet/form-publishing')
+@include('playground-cms-resource::snippet/form-dates')
 @endsection
 
 @section('form-quaternary')
