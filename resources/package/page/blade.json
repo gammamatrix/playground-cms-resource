@@ -1,0 +1,20 @@
+{
+    "class": "index.blade",
+    "config": "playground-cms-resource",
+    "fqdn": "index.blade",
+    "module": "CMS",
+    "module_slug": "cms",
+    "name": "Page",
+    "namespace": "Playground/Cms/Resource",
+    "organization": "Playground",
+    "package": "playground-cms-resource",
+    "extends": "playground::layouts.resource.layout",
+    "folder": "page",
+    "model": "Page",
+    "model_column": "page",
+    "model_label": "Page",
+    "type": "playground-resource-index",
+    "route": "playground.cms.resource",
+    "title": "CMS",
+    "models": []
+}

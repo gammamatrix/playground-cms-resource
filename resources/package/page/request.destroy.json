@@ -1,0 +1,22 @@
+{
+    "class": "DestroyRequest",
+    "config": "playground-cms-resource",
+    "fqdn": "Playground/Cms/Resource/Http/Requests/Page/Page",
+    "model": "Page",
+    "model_fqdn": "",
+    "module": "CMS",
+    "module_slug": "cms",
+    "name": "Page",
+    "namespace": "Playground/Cms/Resource",
+    "organization": "Playground",
+    "package": "playground-cms-resource",
+    "abstract": false,
+    "pagination": false,
+    "playground": false,
+    "store": false,
+    "slug": false,
+    "type": "destroy",
+    "extends": "FormRequest",
+    "extends_use": "Playground/Cms/Resource/Http/Requests/FormRequest",
+    "models": []
+}

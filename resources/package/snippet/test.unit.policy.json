@@ -1,0 +1,23 @@
+{
+    "class": "PolicyTest",
+    "config": "playground-cms-resource",
+    "extends": "",
+    "fqdn": "Tests/Unit/Playground/Cms/Resource/Policies/SnippetPolicy/PolicyTest",
+    "model": "Snippet",
+    "model_fqdn": "",
+    "module": "CMS",
+    "module_slug": "cms",
+    "name": "PolicyTest",
+    "namespace": "Tests/Unit/Playground/Cms/Resource/Policies/SnippetPolicy",
+    "organization": "Playground",
+    "package": "playground-cms-resource",
+    "playground": true,
+    "suite": "unit",
+    "type": "policy",
+    "uses": [
+        "Tests/Unit/Playground/Cms/Resource/TestCase",
+        "Playground/Cms/Resource/Policies/SnippetPolicy"
+    ],
+    "models": [],
+    "package_providers": []
+}

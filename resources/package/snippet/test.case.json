@@ -1,0 +1,22 @@
+{
+    "class": "SnippetTestCase",
+    "config": "playground-cms-resource",
+    "extends": "TestCase",
+    "fqdn": "Tests/Feature/Playground/Cms/Resource/Http/Controllers/SnippetTestCase",
+    "model": "Snippet",
+    "model_fqdn": "",
+    "module": "CMS",
+    "module_slug": "cms",
+    "name": "SnippetTestCase",
+    "namespace": "Tests/Feature/Playground/Cms/Resource/Http/Controllers",
+    "organization": "Playground",
+    "package": "playground-cms-resource",
+    "playground": true,
+    "suite": "feature",
+    "type": "playground-resource-controller-model-case",
+    "uses": [],
+    "models": {
+        "Snippet": "resources/configurations/playground-cms/model.snippet.json"
+    },
+    "package_providers": []
+}

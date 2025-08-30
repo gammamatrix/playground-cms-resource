@@ -1,0 +1,22 @@
+{
+    "class": "TestCase",
+    "config": "playground-cms-resource",
+    "extends": "OrchestraTestCase",
+    "fqdn": "Tests/Unit/Playground/Cms/Resource/TestCase",
+    "model": "",
+    "model_fqdn": "",
+    "module": "CMS",
+    "module_slug": "cms",
+    "name": "TestCase",
+    "namespace": "Tests/Unit/Playground/Cms/Resource",
+    "organization": "Playground",
+    "package": "playground-cms-resource",
+    "playground": true,
+    "suite": "unit",
+    "type": "playground-resource-test-case",
+    "uses": [
+        "Playground/Test/OrchestraTestCase"
+    ],
+    "models": [],
+    "package_providers": []
+}

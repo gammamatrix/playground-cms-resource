@@ -1,0 +1,17 @@
+{
+    "class": "SnippetRevisionCollection",
+    "config": "playground-cms-resource",
+    "fqdn": "Playground/Cms/Resource/Http/Resources/SnippetRevisionCollection",
+    "module": "CMS",
+    "module_slug": "cms",
+    "name": "SnippetRevisionCollection",
+    "namespace": "Playground/Cms/Resource",
+    "organization": "Playground",
+    "package": "playground-cms-resource",
+    "collection": true,
+    "model": "SnippetRevision",
+    "model_fqdn": "Playground/Cms/Models/SnippetRevision",
+    "model_slug": "snippet-revision",
+    "type": "",
+    "models": []
+}

@@ -1,0 +1,20 @@
+{
+    "class": "CommandTest",
+    "config": "playground-cms-resource",
+    "extends": "",
+    "fqdn": "Tests/Feature/Playground/Cms/Resource/CommandTest",
+    "model": "",
+    "model_fqdn": "",
+    "module": "CMS",
+    "module_slug": "cms",
+    "name": "CMSResource",
+    "namespace": "Tests/Feature/Playground/Cms/Resource",
+    "organization": "Playground",
+    "package": "playground-cms-resource",
+    "playground": true,
+    "suite": "feature",
+    "type": "command-about",
+    "uses": [],
+    "models": [],
+    "package_providers": []
+}

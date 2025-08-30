@@ -1,0 +1,20 @@
+{
+    "class": "IndexRouteTest",
+    "config": "playground-cms-resource",
+    "extends": "",
+    "fqdn": "Tests/Feature/Playground/Cms/Resource/IndexRouteTest",
+    "model": "Page",
+    "model_fqdn": "",
+    "module": "CMS",
+    "module_slug": "cms",
+    "name": "IndexRouteTest",
+    "namespace": "Tests/Feature/Playground/Cms/Resource",
+    "organization": "Playground",
+    "package": "playground-cms-resource",
+    "playground": true,
+    "suite": "feature",
+    "type": "playground-resource-index",
+    "uses": [],
+    "models": [],
+    "package_providers": []
+}

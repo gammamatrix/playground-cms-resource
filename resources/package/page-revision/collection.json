@@ -1,0 +1,17 @@
+{
+    "class": "PageRevisionCollection",
+    "config": "playground-cms-resource",
+    "fqdn": "Playground/Cms/Resource/Http/Resources/PageRevisionCollection",
+    "module": "CMS",
+    "module_slug": "cms",
+    "name": "PageRevisionCollection",
+    "namespace": "Playground/Cms/Resource",
+    "organization": "Playground",
+    "package": "playground-cms-resource",
+    "collection": true,
+    "model": "PageRevision",
+    "model_fqdn": "Playground/Cms/Models/PageRevision",
+    "model_slug": "page-revision",
+    "type": "",
+    "models": []
+}

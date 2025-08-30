@@ -63,7 +63,7 @@ Route::group([
     Route::get('/{page}', [
         'as' => 'playground.cms.resource.pages.show',
         'uses' => 'PageController@show',
-    ])->whereUuid('page')->can('detail', 'page');
+    ])->whereUuid('page')->can('detail', 'page')->withTrashed();
 
     Route::get('/{page}/revisions', [
         'as' => 'playground.cms.resource.pages.revisions',

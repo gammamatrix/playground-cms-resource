@@ -1,0 +1,22 @@
+{
+    "class": "snippet/index.blade",
+    "config": "playground-cms-resource",
+    "fqdn": "snippet/index.blade",
+    "module": "CMS",
+    "module_slug": "cms",
+    "name": "Snippet",
+    "namespace": "Playground/Cms/Resource",
+    "organization": "Playground",
+    "package": "playground-cms-resource",
+    "extends": "playground::layouts.resource",
+    "folder": "snippet",
+    "model": "Snippet",
+    "model_column": "snippet",
+    "model_label": "Snippet",
+    "type": "playground-resource",
+    "route": "playground.cms.resource",
+    "title": "Snippet",
+    "models": {
+        "Snippet": "resources/configurations/playground-cms/model.snippet.json"
+    }
+}

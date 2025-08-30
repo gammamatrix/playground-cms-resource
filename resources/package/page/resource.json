@@ -1,0 +1,17 @@
+{
+    "class": "Page",
+    "config": "playground-cms-resource",
+    "fqdn": "Playground/Cms/Resource/Http/Resources/Page",
+    "module": "CMS",
+    "module_slug": "cms",
+    "name": "Page",
+    "namespace": "Playground/Cms/Resource",
+    "organization": "Playground",
+    "package": "playground-cms-resource",
+    "collection": false,
+    "model": "Page",
+    "model_fqdn": "Playground/Cms/Models/Page",
+    "model_slug": "page",
+    "type": "",
+    "models": []
+}
