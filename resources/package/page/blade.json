@@ -1,20 +1,22 @@
 {
-    "class": "index.blade",
+    "class": "page/index.blade",
     "config": "playground-cms-resource",
-    "fqdn": "index.blade",
+    "fqdn": "page/index.blade",
     "module": "CMS",
     "module_slug": "cms",
     "name": "Page",
     "namespace": "Playground/Cms/Resource",
     "organization": "Playground",
     "package": "playground-cms-resource",
-    "extends": "playground::layouts.resource.layout",
+    "extends": "playground::layouts.resource",
     "folder": "page",
     "model": "Page",
     "model_column": "page",
     "model_label": "Page",
-    "type": "playground-resource-index",
+    "type": "playground-resource",
     "route": "playground.cms.resource",
-    "title": "CMS",
-    "models": []
+    "title": "Page",
+    "models": {
+        "Page": "resources/configurations/playground-cms/model.page.json"
+    }
 }

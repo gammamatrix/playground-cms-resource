@@ -18,8 +18,8 @@
     "model_label": "Page",
     "model_slug": "page",
     "model_slug_plural": "pages",
-    "type": "playground-resource-index",
-    "route": "playground.cms.resource",
-    "route_prefix": "resource/cms",
+    "type": "playground-resource",
+    "route": "playground.cms.resource.pages",
+    "route_prefix": "resource/cms/pages",
     "title": ""
 }
