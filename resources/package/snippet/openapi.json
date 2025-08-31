@@ -1,0 +1,19 @@
+{
+    "class": "",
+    "config": "playground-cms-resource",
+    "fqdn": "",
+    "model": "Snippet",
+    "model_fqdn": "",
+    "model_column": "",
+    "model_label": "",
+    "model_slug_plural": "",
+    "module": "CMS",
+    "module_slug": "cms",
+    "name": "Snippet",
+    "namespace": "Playground/Cms/Resource",
+    "organization": "Playground",
+    "package": "playground-cms-resource",
+    "models": [],
+    "folder": "",
+    "type": "playground-resource"
+}
