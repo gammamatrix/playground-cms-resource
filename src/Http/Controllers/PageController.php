@@ -51,6 +51,8 @@ class PageController extends Controller
         Requests\Page\CreateRequest $request
     ): JsonResponse|View|Resources\Page {
 
+        $packageInfo = $this->packageInfo();
+
         $validated = $request->validated();
 
         $user = $request->user();
@@ -58,8 +60,8 @@ class PageController extends Controller
         $page = new Page($validated);
 
         if ($request->expectsJson()) {
-            return (new Resources\Page($page))->additional(['meta' => [
-                'info' => $this->packageInfo,
+            return new Resources\Page($page)->additional(['meta' => [
+                'info' => $packageInfo,
             ]])->response($request);
         }
 
@@ -67,12 +69,8 @@ class PageController extends Controller
             'session_user_id' => $user?->id,
             'id' => null,
             'timestamp' => Carbon::now()->toJson(),
-            'validated' => $validated,
-            'info' => $this->packageInfo,
+            'info' => $packageInfo,
         ];
-
-        $meta['input'] = $request->input();
-        $meta['validated'] = $request->validated();
 
         $data = [
             'data' => $page,
@@ -91,7 +89,12 @@ class PageController extends Controller
             session()->flashInput($flash);
         }
 
-        return view(sprintf('%1$s/form', $this->packageInfo['view']), $data);
+        /**
+         * @var view-string $view
+         */
+        $view = sprintf('%1$s/form', $packageInfo->view());
+
+        return view($view, $data);
     }
 
     /**
@@ -104,13 +107,15 @@ class PageController extends Controller
         Requests\Page\EditRequest $request
     ): JsonResponse|View|Resources\Page {
 
+        $packageInfo = $this->packageInfo();
+
         $validated = $request->validated();
 
         $user = $request->user();
 
         if ($request->expectsJson()) {
-            return (new Resources\Page($page))->additional(['meta' => [
-                'info' => $this->packageInfo,
+            return new Resources\Page($page)->additional(['meta' => [
+                'info' => $packageInfo,
             ]])->response($request);
         }
 
@@ -118,19 +123,14 @@ class PageController extends Controller
 
         if (! empty($validated['_return_url'])) {
             $flash['_return_url'] = $validated['_return_url'];
-            $data['_return_url'] = $validated['_return_url'];
         }
 
         $meta = [
             'session_user_id' => $user?->id,
             'id' => $page->id,
             'timestamp' => Carbon::now()->toJson(),
-            'validated' => $validated,
-            'info' => $this->packageInfo,
+            'info' => $packageInfo,
         ];
-
-        $meta['input'] = $request->input();
-        $meta['validated'] = $request->validated();
 
         $data = [
             'data' => $page,
@@ -140,7 +140,12 @@ class PageController extends Controller
 
         session()->flashInput($flash);
 
-        return view(sprintf('%1$s/form', $this->packageInfo['view']), $data);
+        /**
+         * @var view-string $view
+         */
+        $view = sprintf('%1$s/form', $packageInfo->view());
+
+        return view($view, $data);
     }
 
     /**
@@ -152,6 +157,8 @@ class PageController extends Controller
         Page $page,
         Requests\Page\DestroyRequest $request
     ): Response|RedirectResponse {
+
+        $packageInfo = $this->packageInfo();
 
         $validated = $request->validated();
 
@@ -177,7 +184,7 @@ class PageController extends Controller
             return redirect($returnUrl);
         }
 
-        return redirect(route($this->packageInfo['model_route']));
+        return redirect(route($packageInfo->model_route()));
     }
 
     /**
@@ -189,6 +196,8 @@ class PageController extends Controller
         Page $page,
         Requests\Page\LockRequest $request
     ): JsonResponse|RedirectResponse|Resources\Page {
+
+        $packageInfo = $this->packageInfo();
 
         $validated = $request->validated();
 
@@ -202,16 +211,9 @@ class PageController extends Controller
 
         $page->save();
 
-        $meta = [
-            'session_user_id' => $user?->id,
-            'id' => $page->id,
-            'timestamp' => Carbon::now()->toJson(),
-            'info' => $this->packageInfo,
-        ];
-
         if ($request->expectsJson()) {
-            return (new Resources\Page($page))->additional(['meta' => [
-                'info' => $this->packageInfo,
+            return new Resources\Page($page)->additional(['meta' => [
+                'info' => $packageInfo,
             ]])->response($request);
         }
 
@@ -223,7 +225,7 @@ class PageController extends Controller
 
         return redirect(route(sprintf(
             '%1$s.show',
-            $this->packageInfo['model_route']
+            $packageInfo->model_route()
         ), ['page' => $page->id]));
     }
 
@@ -236,11 +238,22 @@ class PageController extends Controller
         Requests\Page\IndexRequest $request
     ): JsonResponse|View|Resources\PageCollection {
 
+        $packageInfo = $this->packageInfo();
+
         $user = $request->user();
 
+        /**
+         * @var array{
+         *     sort: string|array<mixed>,
+         *     filter: array{
+         *         trash: string
+         *     },
+         *     perPage: int
+         * } $validated
+         */
         $validated = $request->validated();
 
-        $query = Page::addSelect(sprintf('%1$s.*', $this->packageInfo['table']));
+        $query = Page::addSelect(sprintf('%1$s.*', $packageInfo->table()));
 
         $query->sort($validated['sort'] ?? null);
 
@@ -275,7 +288,7 @@ class PageController extends Controller
         $paginator->appends($validated);
 
         if ($request->expectsJson()) {
-            return (new Resources\PageCollection($paginator))->response($request);
+            return new Resources\PageCollection($paginator)->response($request);
         }
 
         $meta = [
@@ -288,7 +301,7 @@ class PageController extends Controller
             'sortable' => $request->getSortable(),
             'timestamp' => Carbon::now()->toJson(),
             'validated' => $validated,
-            'info' => $this->packageInfo,
+            'info' => $packageInfo,
         ];
 
         $data = [
@@ -296,7 +309,12 @@ class PageController extends Controller
             'meta' => $meta,
         ];
 
-        return view(sprintf('%1$s/index', $this->packageInfo['view']), $data);
+        /**
+         * @var view-string $view
+         */
+        $view = sprintf('%1$s/index', $packageInfo->view());
+
+        return view($view, $data);
     }
 
     /**
@@ -309,6 +327,8 @@ class PageController extends Controller
         Requests\Page\RestoreRequest $request
     ): JsonResponse|RedirectResponse|Resources\Page {
 
+        $packageInfo = $this->packageInfo();
+
         $validated = $request->validated();
 
         $user = $request->user();
@@ -320,8 +340,8 @@ class PageController extends Controller
         $page->restore();
 
         if ($request->expectsJson()) {
-            return (new Resources\Page($page))->additional(['meta' => [
-                'info' => $this->packageInfo,
+            return new Resources\Page($page)->additional(['meta' => [
+                'info' => $packageInfo,
             ]])->response($request);
         }
 
@@ -333,7 +353,7 @@ class PageController extends Controller
 
         return redirect(route(sprintf(
             '%1$s.show',
-            $this->packageInfo['model_route']
+            $packageInfo->model_route()
         ), ['page' => $page->id]));
     }
 
@@ -346,6 +366,9 @@ class PageController extends Controller
         PageRevision $page_revision,
         Requests\Page\RestoreRevisionRequest $request
     ): JsonResponse|RedirectResponse|Resources\Page {
+
+        $packageInfo = $this->packageInfo();
+
         $validated = $request->validated();
 
         /**
@@ -370,8 +393,8 @@ class PageController extends Controller
         $page->save();
 
         if ($request->expectsJson()) {
-            return (new Resources\Page($page))->additional(['meta' => [
-                'info' => $this->packageInfo,
+            return new Resources\Page($page)->additional(['meta' => [
+                'info' => $packageInfo,
             ]])->response($request);
         }
 
@@ -383,7 +406,7 @@ class PageController extends Controller
 
         return redirect(route(sprintf(
             '%1$s.show',
-            $this->packageInfo['model_route']
+            $packageInfo->model_route()
         ), ['page' => $page->id]));
     }
 
@@ -397,9 +420,11 @@ class PageController extends Controller
         Requests\Page\ShowRevisionRequest $request
     ): JsonResponse|View|Resources\PageRevision {
 
+        $packageInfo = $this->packageInfo();
+
         if ($request->expectsJson()) {
-            return (new Resources\PageRevision($page_revision))->additional(['meta' => [
-                'info' => $this->packageInfo,
+            return new Resources\PageRevision($page_revision)->additional(['meta' => [
+                'info' => $packageInfo,
             ]])->response($request);
         }
 
@@ -411,9 +436,7 @@ class PageController extends Controller
             'session_user_id' => $user?->id,
             'id' => $page_revision->id,
             'timestamp' => Carbon::now()->toJson(),
-            'validated' => $validated,
-            'info' => $this->packageInfo,
-            'input' => $request->input(),
+            'info' => $packageInfo,
         ];
 
         $data = [
@@ -421,7 +444,12 @@ class PageController extends Controller
             'meta' => $meta,
         ];
 
-        return view(sprintf('%1$s/revision', $this->packageInfo['view']), $data);
+        /**
+         * @var view-string $view
+         */
+        $view = sprintf('%1$s/revision', $packageInfo->view());
+
+        return view($view, $data);
     }
 
     /**
@@ -433,8 +461,19 @@ class PageController extends Controller
         Page $page,
         Requests\Page\RevisionsRequest $request
     ): JsonResponse|View|Resources\PageRevisionCollection {
+        $packageInfo = $this->packageInfo();
+
         $user = $request->user();
 
+        /**
+         * @var array{
+         *     sort: string|array<mixed>,
+         *     filter: array{
+         *         trash: string
+         *     },
+         *     perPage: int
+         * } $validated
+         */
         $validated = $request->validated();
 
         $query = $page->revisions();
@@ -471,8 +510,8 @@ class PageController extends Controller
         $paginator->appends($validated);
 
         if ($request->expectsJson()) {
-            return (new Resources\PageRevisionCollection($paginator))->additional(['meta' => [
-                'info' => $this->packageInfo,
+            return new Resources\PageRevisionCollection($paginator)->additional(['meta' => [
+                'info' => $packageInfo,
             ]])->response($request);
         }
 
@@ -486,7 +525,7 @@ class PageController extends Controller
             'sortable' => $request->getSortable(),
             'timestamp' => Carbon::now()->toJson(),
             'validated' => $validated,
-            'info' => $this->packageInfo,
+            'info' => $packageInfo,
         ];
 
         $data = [
@@ -494,7 +533,12 @@ class PageController extends Controller
             'meta' => $meta,
         ];
 
-        return view(sprintf('%1$s/revisions', $this->packageInfo['view']), $data);
+        /**
+         * @var view-string $view
+         */
+        $view = sprintf('%1$s/revisions', $packageInfo->view());
+
+        return view($view, $data);
     }
 
     /**
@@ -502,7 +546,12 @@ class PageController extends Controller
      */
     public function saveRevision(Page $page): PageRevision
     {
-        $revision = new PageRevision($page->toArray());
+        /**
+         * @var array<string, mixed> $data
+         */
+        $data = $page->toArray();
+
+        $revision = new PageRevision($data);
 
         $revision->created_by_id = $page->created_by_id;
         $revision->modified_by_id = $page->modified_by_id;
@@ -531,9 +580,11 @@ class PageController extends Controller
         Requests\Page\ShowRequest $request
     ): JsonResponse|View|Resources\Page {
 
+        $packageInfo = $this->packageInfo();
+
         if ($request->expectsJson()) {
-            return (new Resources\Page($page))->additional(['meta' => [
-                'info' => $this->packageInfo,
+            return new Resources\Page($page)->additional(['meta' => [
+                'info' => $packageInfo,
             ]])->response($request);
         }
 
@@ -545,9 +596,7 @@ class PageController extends Controller
             'session_user_id' => $user?->id,
             'id' => $page->id,
             'timestamp' => Carbon::now()->toJson(),
-            'validated' => $validated,
-            'info' => $this->packageInfo,
-            'input' => $request->input(),
+            'info' => $packageInfo,
         ];
 
         $data = [
@@ -555,7 +604,12 @@ class PageController extends Controller
             'meta' => $meta,
         ];
 
-        return view(sprintf('%1$s/detail', $this->packageInfo['view']), $data);
+        /**
+         * @var view-string $view
+         */
+        $view = sprintf('%1$s/detail', $packageInfo->view());
+
+        return view($view, $data);
     }
 
     /**
@@ -566,6 +620,8 @@ class PageController extends Controller
     public function store(
         Requests\Page\StoreRequest $request
     ): Response|JsonResponse|RedirectResponse|Resources\Page {
+
+        $packageInfo = $this->packageInfo();
 
         $validated = $request->validated();
 
@@ -580,8 +636,8 @@ class PageController extends Controller
         $page->save();
 
         if ($request->expectsJson()) {
-            return (new Resources\Page($page))->additional(['meta' => [
-                'info' => $this->packageInfo,
+            return new Resources\Page($page)->additional(['meta' => [
+                'info' => $packageInfo,
             ]])->response($request);
         }
 
@@ -593,7 +649,7 @@ class PageController extends Controller
 
         return redirect(route(sprintf(
             '%1$s.show',
-            $this->packageInfo['model_route']
+            $packageInfo->model_route()
         ), ['page' => $page->id]));
     }
 
@@ -606,6 +662,8 @@ class PageController extends Controller
         Page $page,
         Requests\Page\UnlockRequest $request
     ): JsonResponse|RedirectResponse|Resources\Page {
+
+        $packageInfo = $this->packageInfo();
 
         $validated = $request->validated();
 
@@ -620,8 +678,8 @@ class PageController extends Controller
         $page->save();
 
         if ($request->expectsJson()) {
-            return (new Resources\Page($page))->additional(['meta' => [
-                'info' => $this->packageInfo,
+            return new Resources\Page($page)->additional(['meta' => [
+                'info' => $packageInfo,
             ]])->response($request);
         }
 
@@ -633,7 +691,7 @@ class PageController extends Controller
 
         return redirect(route(sprintf(
             '%1$s.show',
-            $this->packageInfo['model_route']
+            $packageInfo->model_route()
         ), ['page' => $page->id]));
     }
 
@@ -646,6 +704,8 @@ class PageController extends Controller
         Page $page,
         Requests\Page\UpdateRequest $request
     ): JsonResponse|RedirectResponse|Resources\Page {
+
+        $packageInfo = $this->packageInfo();
 
         $this->saveRevision($page);
 
@@ -660,8 +720,8 @@ class PageController extends Controller
         $page->update($validated);
 
         if ($request->expectsJson()) {
-            return (new Resources\Page($page))->additional(['meta' => [
-                'info' => $this->packageInfo,
+            return new Resources\Page($page)->additional(['meta' => [
+                'info' => $packageInfo,
             ]])->response($request);
         }
 
@@ -673,7 +733,7 @@ class PageController extends Controller
 
         return redirect(route(sprintf(
             '%1$s.show',
-            $this->packageInfo['model_route']
+            $packageInfo->model_route()
         ), ['page' => $page->id]));
     }
 }

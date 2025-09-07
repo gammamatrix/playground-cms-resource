@@ -16,10 +16,31 @@ use Illuminate\View\View;
 class IndexController extends Controller
 {
     /**
+     * @var array<string, string>
+     */
+    public array $packageInfo = [
+        'module_label' => 'CMS',
+        'module_label_plural' => 'CMS',
+        'module_route' => 'playground.cms.resource',
+        'module_slug' => 'cms',
+        'privilege' => 'playground-cms-resource',
+        'view' => 'playground-cms-resource',
+    ];
+
+    /**
      * Show the index.
      */
     public function index(): View
     {
-        return view('playground-cms-resource::index');
+        $packageInfo = $this->packageInfo();
+
+        /**
+         * @var view-string $view
+         */
+        $view = sprintf('%1$s::index', $packageInfo->view());
+
+        return view($view, [
+            'packageInfo' => $packageInfo,
+        ]);
     }
 }

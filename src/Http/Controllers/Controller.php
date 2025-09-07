@@ -12,6 +12,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 // use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Playground\PackageInfo;
 
 /**
  * \Playground\Cms\Resource\Http\Controllers\Controller
@@ -21,4 +22,20 @@ abstract class Controller extends BaseController
     use AuthorizesRequests;
     use ValidatesRequests;
     // use DispatchesJobs;
+
+    /**
+     * @var array<string, string>
+     */
+    public array $packageInfo = [
+        'module_label' => 'CMS',
+        'module_label_plural' => 'CMS',
+        'module_route' => 'playground.cms.resource',
+        'module_slug' => 'cms',
+        'privilege' => 'playground-cms-resource',
+    ];
+
+    public function packageInfo(): PackageInfo
+    {
+        return new PackageInfo()->setOptions($this->packageInfo);
+    }
 }

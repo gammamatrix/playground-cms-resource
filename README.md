@@ -2,8 +2,7 @@
 
 [![Playground CI Workflow](https://github.com/gammamatrix/playground-cms-resource/actions/workflows/ci.yml/badge.svg?branch=develop)](https://raw.githubusercontent.com/gammamatrix/playground-cms-resource/testing/develop/testdox.txt)
 [![Test Coverage](https://raw.githubusercontent.com/gammamatrix/playground-cms-resource/testing/develop/coverage.svg)](tests)
-
-[//]: # ([![PHPStan Level 10]&#40;https://img.shields.io/badge/PHPStan-level%2010-brightgreen&#41;]&#40;.github/workflows/ci.yml#L128&#41;)
+[![PHPStan Level 10](https://img.shields.io/badge/PHPStan-level%2010-brightgreen)](.github/workflows/ci.yml#L128)
 
 Playground: CMS Resource
 
@@ -97,23 +96,28 @@ composer cloc
 
 ```
 ➜  playground-cms-resource git:(develop) ✗ composer cloc
-     232 text files.
-     220 unique files.
-      55 files ignored.
+     237 text files.
+     226 unique files.
+     112 files ignored.
 
-github.com/AlDanial/cloc v 2.06  T=0.07 s (3156.6 files/s, 348901.2 lines/s)
+github.com/AlDanial/cloc v 2.06  T=0.09 s (2383.2 files/s, 272248.4 lines/s)
+     239 text files.
+     227 unique files.
+     122 files ignored.
+
+github.com/AlDanial/cloc v 2.06  T=0.10 s (2191.0 files/s, 380588.8 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-JSON                            82              0              0          12989
-PHP                             83            958           1273           4067
-YAML                            29              5              6           3047
-Blade                           18            132              0           1398
-XML                              4              0              7            239
-Markdown                         3             55              2            124
+JSON                            83              0              0          26082
+PHP                             83            998           1360           4089
+YAML                            29              5              0           3053
+Blade                           20            105              0           2768
+XML                              8              0              7            765
+Markdown                         3             55              1            129
 INI                              1              3              0             12
 -------------------------------------------------------------------------------
-SUM:                           220           1153           1288          21876
+SUM:                           227           1166           1368          36898
 -------------------------------------------------------------------------------
 ```
 
@@ -148,6 +152,11 @@ composer test
 Run unit and feature tests:
 ```sh
 composer test-dev
+```
+
+Run unit and feature tests in parallel:
+```sh
+composer test-parallel
 ```
 
 ## Changelog

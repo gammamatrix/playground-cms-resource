@@ -1,15 +1,18 @@
-@extends('playground::layouts.resource.form', [
-    'withFormInfo' => 'playground-cms-resource::snippet/form-info',
-    'withFormStatus' => 'playground-cms-resource::snippet/form-flags',
-])
+@extends(
+    "playground::layouts.resource.form",
+    [
+        "withFormInfo" => "playground-cms-resource::snippet/form-info",
+        "withFormStatus" => "playground-cms-resource::snippet/form-flags",
+    ]
+)
 
-@section('form-tertiary')
-@include('playground-cms-resource::snippet/form-dates')
+@section("form-tertiary")
+    @include("playground-cms-resource::snippet/form-dates")
 @endsection
 
-@section('form-quaternary')
-@includeWhen(
-    !empty($_method) && 'patch' === $_method,
-    'playground-cms-resource::snippet/form-revisions'
-)
+@section("form-quaternary")
+    @includeWhen(
+        ! empty($_method) && "patch" === $_method,
+        "playground-cms-resource::snippet/form-revisions"
+    )
 @endsection

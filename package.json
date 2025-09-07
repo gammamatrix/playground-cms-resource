@@ -23,6 +23,7 @@
         "lodash": "^4.17.21",
         "postcss": "^8.2.13",
         "postcss-import": "^15.1.0",
+        "prettier-plugin-blade": "^2.1.21",
         "vue": "^3.3.7",
         "vue-loader": "^17.3.1"
     }
