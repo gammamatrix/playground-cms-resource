@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-08-31 20:17:46</timestamp>
+  <timestamp>2025-09-07 01:48:56</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>61</methodCount>
+    <methodCount>62</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>221</totalCrap>
+    <totalCrap>222</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
+    <method>
+      <package>Playground\Cms\Resource\Http\Controllers</package>
+      <className>Playground\Cms\Resource\Http\Controllers\Controller</className>
+      <methodName>packageInfo</methodName>
+      <methodSignature>packageInfo(): PackageInfo</methodSignature>
+      <fullMethod>packageInfo(): PackageInfo</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
     <method>
       <package>Playground\Cms\Resource\Http\Controllers</package>
       <className>Playground\Cms\Resource\Http\Controllers\IndexController</className>
