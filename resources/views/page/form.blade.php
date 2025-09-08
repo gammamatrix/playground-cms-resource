@@ -2,13 +2,9 @@
     "playground::layouts.resource.form",
     [
         "withFormInfo" => "playground-cms-resource::page/form-info",
-        "withFormStatus" => "playground-cms-resource::page/form-flags",
+        "withFormAccess" => true,
     ]
 )
-
-@section("form-tertiary")
-    @include("playground-cms-resource::page/form-dates")
-@endsection
 
 @section("form-quaternary")
     @includeWhen(
