@@ -253,7 +253,7 @@ class SnippetController extends Controller
          */
         $validated = $request->validated();
 
-        $query = Snippet::addSelect(sprintf('%1$s.*', $this->packageInfo['table']));
+        $query = Snippet::addSelect(sprintf('%1$s.*', $packageInfo->table()));
 
         $query->sort($validated['sort'] ?? null);
 
@@ -366,6 +366,7 @@ class SnippetController extends Controller
         SnippetRevision $snippet_revision,
         Requests\Snippet\RestoreRevisionRequest $request
     ): JsonResponse|RedirectResponse|Resources\Snippet {
+
         $packageInfo = $this->packageInfo();
 
         $validated = $request->validated();
@@ -426,8 +427,6 @@ class SnippetController extends Controller
                 'info' => $packageInfo,
             ]])->response($request);
         }
-
-        $validated = $request->validated();
 
         $user = $request->user();
 

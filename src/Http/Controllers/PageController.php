@@ -428,8 +428,6 @@ class PageController extends Controller
             ]])->response($request);
         }
 
-        $validated = $request->validated();
-
         $user = $request->user();
 
         $meta = [

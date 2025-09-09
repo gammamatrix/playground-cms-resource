@@ -8,7 +8,7 @@ Playground: CMS Resource
 
 This package provides an API and a Blade UI for interacting with the [Playground: CMS](https://github.com/gammamatrix/playground-cms), a model package for Laravel.
 
-If you need a CMS without a UI, then have a look at [Playground: CMS API.](https://github.com/gammamatrix/playground-cms-api)
+If you need a JSON API without a UI, then have a look at [Playground: CMS API.](https://github.com/gammamatrix/playground-cms-api)
 
 ## Documentation
 

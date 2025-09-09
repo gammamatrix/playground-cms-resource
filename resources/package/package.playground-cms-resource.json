@@ -18,7 +18,7 @@
     "withPolicies": true,
     "withRequests": true,
     "withRoutes": true,
-    "withOpenAPI": false,
+    "withOpenAPI": true,
     "withTests": true,
     "playground": true,
     "revision": true,
