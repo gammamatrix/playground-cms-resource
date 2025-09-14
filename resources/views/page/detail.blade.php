@@ -177,7 +177,7 @@ $flags = [
 @endsection
 
 @section("detail-card-body-header")
-
+    
 @endsection
 
 @section("detail-accordion-body-header")
