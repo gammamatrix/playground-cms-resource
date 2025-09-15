@@ -30,9 +30,9 @@
     "slug_plural": "",
     "model_route": "playground.cms.resource.pages",
     "module_route": "playground.cms.resource",
-    "privilege": "playground-cms-resource:page",
+    "privilege": "playground-cms-resource",
     "route": "playground.cms.resource",
-    "view": "playground-cms-resource::page",
+    "view": "playground-cms-resource",
     "implements": [],
     "uses": [],
     "packageInfo": {
@@ -47,8 +47,8 @@
         "module_label_plural": "CMS",
         "module_route": "playground.cms.resource",
         "module_slug": "cms",
-        "privilege": "playground-cms-resource:page",
+        "privilege": "playground-cms-resource",
         "table": "cms_pages",
-        "view": "playground-cms-resource::page"
+        "view": "playground-cms-resource"
     }
 }
