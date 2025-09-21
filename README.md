@@ -12,7 +12,7 @@ If you need a JSON API without a UI, then have a look at [Playground: CMS API.](
 
 ## Documentation
 
-Read more on using [Playground: CMS Resource at Read the Docs: Playground Documentation](https://gammamatrix-playground.readthedocs.io/en/develop/components/cms.html)
+Read more on using [Playground: CMS Resource at Read the Docs: Playground Documentation](https://gammamatrix-playground.readthedocs.io/en/develop/built-components/cms.html)
 
 ### Postman
 
@@ -21,7 +21,7 @@ A postman collection is provided in the repository: [postman-playground-cms-reso
 
 ### OpenAPI
 
-This application provides OpenAPI documentation: [openapi.json](openapi.json).
+This application provides OpenAPI documentation: [openapi.yaml](openapi.yaml).
 - The endpoint models support locks, trash with force delete, restoring, revisions and more.
 - Index endpoints support advanced query filtering.
 
@@ -36,14 +36,14 @@ Install npm.
 npm install
 ```
 
-Build the documentation to generate the [openapi.json](openapi.json) configuration.
+Build the documentation to generate the [openapi.yaml](openapi.yaml) configuration.
 
 ```sh
 npm run docs
 ```
 
 Documentation
-- Preview [openapi.json on the Redocly Editor UI.](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/gammamatrix/playground-cms-resource/develop/openapi.json)
+- Preview [openapi.yaml on the Redocly Editor UI.](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/gammamatrix/playground-cms-resource/develop/openapi.yaml)
 
 ## Installation
 
@@ -100,19 +100,19 @@ composer cloc
      231 unique files.
       52 files ignored.
 
-github.com/AlDanial/cloc v 2.06  T=0.11 s (2198.9 files/s, 373545.0 lines/s)
+github.com/AlDanial/cloc v 2.06  T=0.08 s (2914.0 files/s, 481589.0 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-JSON                            85              0              0          26140
+JSON                            84              0              0          21754
+YAML                            30              5              0           6359
 PHP                             83            997           1360           4083
-YAML                            29              5              0           3053
 Blade                           18             91              0           2439
-XML                             12              0              7            867
+XML                             12              0              7            882
 Markdown                         3             55              1            129
 INI                              1              3              0             12
 -------------------------------------------------------------------------------
-SUM:                           231           1151           1368          36723
+SUM:                           231           1151           1368          35658
 -------------------------------------------------------------------------------
 ```
 
