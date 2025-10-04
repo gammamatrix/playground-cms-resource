@@ -34,7 +34,7 @@ class SnippetController extends Controller
         'model_slug' => 'snippet',
         'model_slug_plural' => 'snippets',
         'module_label' => 'CMS',
-        'module_label_plural' => 'CMS',
+        'module_label_plural' => 'CMSs',
         'module_route' => 'playground.cms.resource',
         'module_slug' => 'cms',
         'privilege' => 'playground-cms-resource:snippet',
@@ -55,8 +55,6 @@ class SnippetController extends Controller
 
         $validated = $request->validated();
 
-        $user = $request->user();
-
         $snippet = new Snippet($validated);
 
         if ($request->expectsJson()) {
@@ -64,6 +62,8 @@ class SnippetController extends Controller
                 'info' => $packageInfo,
             ]])->response($request);
         }
+
+        $user = $request->user();
 
         $meta = [
             'session_user_id' => $user?->id,
@@ -111,13 +111,13 @@ class SnippetController extends Controller
 
         $validated = $request->validated();
 
-        $user = $request->user();
-
         if ($request->expectsJson()) {
             return new Resources\Snippet($snippet)->additional(['meta' => [
                 'info' => $packageInfo,
             ]])->response($request);
         }
+
+        $user = $request->user();
 
         $flash = $snippet->toArray();
 
@@ -137,6 +137,10 @@ class SnippetController extends Controller
             'meta' => $meta,
             '_method' => 'patch',
         ];
+
+        if (! empty($validated['_return_url'])) {
+            $data['_return_url'] = $validated['_return_url'];
+        }
 
         session()->flashInput($flash);
 
@@ -240,8 +244,6 @@ class SnippetController extends Controller
 
         $packageInfo = $this->packageInfo();
 
-        $user = $request->user();
-
         /**
          * @var array{
          *     sort: string|array<mixed>,
@@ -291,6 +293,8 @@ class SnippetController extends Controller
             return new Resources\SnippetCollection($paginator)->response($request);
         }
 
+        $user = $request->user();
+
         $meta = [
             'session_user_id' => $user?->id,
             'columns' => $request->getPaginationColumns(),
@@ -333,9 +337,7 @@ class SnippetController extends Controller
 
         $user = $request->user();
 
-        if ($user?->id) {
-            $snippet->modified_by_id = $user->id;
-        }
+        $snippet->modified_by_id = $user?->id;
 
         $snippet->restore();
 
@@ -459,6 +461,7 @@ class SnippetController extends Controller
         Snippet $snippet,
         Requests\Snippet\RevisionsRequest $request
     ): JsonResponse|View|Resources\SnippetRevisionCollection {
+
         $packageInfo = $this->packageInfo();
 
         $user = $request->user();
@@ -586,8 +589,6 @@ class SnippetController extends Controller
             ]])->response($request);
         }
 
-        $validated = $request->validated();
-
         $user = $request->user();
 
         $meta = [
@@ -627,16 +628,14 @@ class SnippetController extends Controller
 
         $snippet = new Snippet($validated);
 
-        if ($user?->id) {
-            $snippet->created_by_id = $user->id;
-        }
+        $snippet->created_by_id = $user?->id;
 
         $snippet->save();
 
         if ($request->expectsJson()) {
             return new Resources\Snippet($snippet)->additional(['meta' => [
                 'info' => $packageInfo,
-            ]])->response($request);
+            ]])->response($request)->setStatusCode(201);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -669,9 +668,7 @@ class SnippetController extends Controller
 
         $snippet->locked = false;
 
-        if ($user?->id) {
-            $snippet->modified_by_id = $user->id;
-        }
+        $snippet->modified_by_id = $user?->id;
 
         $snippet->save();
 
@@ -711,9 +708,7 @@ class SnippetController extends Controller
 
         $user = $request->user();
 
-        if ($user?->id) {
-            $snippet->modified_by_id = $user->id;
-        }
+        $snippet->modified_by_id = $user?->id;
 
         $snippet->update($validated);
 

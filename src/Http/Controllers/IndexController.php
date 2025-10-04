@@ -20,7 +20,7 @@ class IndexController extends Controller
      */
     public array $packageInfo = [
         'module_label' => 'CMS',
-        'module_label_plural' => 'CMS',
+        'module_label_plural' => 'CMSs',
         'module_route' => 'playground.cms.resource',
         'module_slug' => 'cms',
         'privilege' => 'playground-cms-resource',

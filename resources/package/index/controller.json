@@ -44,7 +44,7 @@
         "model_slug": "page",
         "model_slug_plural": "pages",
         "module_label": "CMS",
-        "module_label_plural": "CMS",
+        "module_label_plural": "CMSs",
         "module_route": "playground.cms.resource",
         "module_slug": "cms",
         "privilege": "playground-cms-resource",

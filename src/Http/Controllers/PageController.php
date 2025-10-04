@@ -34,7 +34,7 @@ class PageController extends Controller
         'model_slug' => 'page',
         'model_slug_plural' => 'pages',
         'module_label' => 'CMS',
-        'module_label_plural' => 'CMS',
+        'module_label_plural' => 'CMSs',
         'module_route' => 'playground.cms.resource',
         'module_slug' => 'cms',
         'privilege' => 'playground-cms-resource:page',
@@ -55,8 +55,6 @@ class PageController extends Controller
 
         $validated = $request->validated();
 
-        $user = $request->user();
-
         $page = new Page($validated);
 
         if ($request->expectsJson()) {
@@ -64,6 +62,8 @@ class PageController extends Controller
                 'info' => $packageInfo,
             ]])->response($request);
         }
+
+        $user = $request->user();
 
         $meta = [
             'session_user_id' => $user?->id,
@@ -111,13 +111,13 @@ class PageController extends Controller
 
         $validated = $request->validated();
 
-        $user = $request->user();
-
         if ($request->expectsJson()) {
             return new Resources\Page($page)->additional(['meta' => [
                 'info' => $packageInfo,
             ]])->response($request);
         }
+
+        $user = $request->user();
 
         $flash = $page->toArray();
 
@@ -137,6 +137,10 @@ class PageController extends Controller
             'meta' => $meta,
             '_method' => 'patch',
         ];
+
+        if (! empty($validated['_return_url'])) {
+            $data['_return_url'] = $validated['_return_url'];
+        }
 
         session()->flashInput($flash);
 
@@ -240,8 +244,6 @@ class PageController extends Controller
 
         $packageInfo = $this->packageInfo();
 
-        $user = $request->user();
-
         /**
          * @var array{
          *     sort: string|array<mixed>,
@@ -291,6 +293,8 @@ class PageController extends Controller
             return new Resources\PageCollection($paginator)->response($request);
         }
 
+        $user = $request->user();
+
         $meta = [
             'session_user_id' => $user?->id,
             'columns' => $request->getPaginationColumns(),
@@ -333,9 +337,7 @@ class PageController extends Controller
 
         $user = $request->user();
 
-        if ($user?->id) {
-            $page->modified_by_id = $user->id;
-        }
+        $page->modified_by_id = $user?->id;
 
         $page->restore();
 
@@ -459,6 +461,7 @@ class PageController extends Controller
         Page $page,
         Requests\Page\RevisionsRequest $request
     ): JsonResponse|View|Resources\PageRevisionCollection {
+
         $packageInfo = $this->packageInfo();
 
         $user = $request->user();
@@ -586,8 +589,6 @@ class PageController extends Controller
             ]])->response($request);
         }
 
-        $validated = $request->validated();
-
         $user = $request->user();
 
         $meta = [
@@ -627,16 +628,14 @@ class PageController extends Controller
 
         $page = new Page($validated);
 
-        if ($user?->id) {
-            $page->created_by_id = $user->id;
-        }
+        $page->created_by_id = $user?->id;
 
         $page->save();
 
         if ($request->expectsJson()) {
             return new Resources\Page($page)->additional(['meta' => [
                 'info' => $packageInfo,
-            ]])->response($request);
+            ]])->response($request)->setStatusCode(201);
         }
 
         $returnUrl = $validated['_return_url'] ?? '';
@@ -669,9 +668,7 @@ class PageController extends Controller
 
         $page->locked = false;
 
-        if ($user?->id) {
-            $page->modified_by_id = $user->id;
-        }
+        $page->modified_by_id = $user?->id;
 
         $page->save();
 
@@ -711,9 +708,7 @@ class PageController extends Controller
 
         $user = $request->user();
 
-        if ($user?->id) {
-            $page->modified_by_id = $user->id;
-        }
+        $page->modified_by_id = $user?->id;
 
         $page->update($validated);
 
