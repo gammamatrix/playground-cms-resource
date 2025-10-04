@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2025-09-21 17:04:20</timestamp>
+  <timestamp>2025-10-04 05:01:07</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>62</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>222</totalCrap>
+    <totalCrap>216</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -50,8 +50,8 @@
       <methodName>edit</methodName>
       <methodSignature>edit(Page $page, Requests\Page\EditRequest $request): JsonResponse|View|Resources\Page</methodSignature>
       <fullMethod>edit(Page $page, Requests\Page\EditRequest $request): JsonResponse|View|Resources\Page</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -94,8 +94,8 @@
       <methodName>restore</methodName>
       <methodSignature>restore(Page $page, Requests\Page\RestoreRequest $request): JsonResponse|RedirectResponse|Resources\Page</methodSignature>
       <fullMethod>restore(Page $page, Requests\Page\RestoreRequest $request): JsonResponse|RedirectResponse|Resources\Page</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -160,8 +160,8 @@
       <methodName>store</methodName>
       <methodSignature>store(Requests\Page\StoreRequest $request): Response|JsonResponse|RedirectResponse|Resources\Page</methodSignature>
       <fullMethod>store(Requests\Page\StoreRequest $request): Response|JsonResponse|RedirectResponse|Resources\Page</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -171,8 +171,8 @@
       <methodName>unlock</methodName>
       <methodSignature>unlock(Page $page, Requests\Page\UnlockRequest $request): JsonResponse|RedirectResponse|Resources\Page</methodSignature>
       <fullMethod>unlock(Page $page, Requests\Page\UnlockRequest $request): JsonResponse|RedirectResponse|Resources\Page</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -182,8 +182,8 @@
       <methodName>update</methodName>
       <methodSignature>update(Page $page, Requests\Page\UpdateRequest $request): JsonResponse|RedirectResponse|Resources\Page</methodSignature>
       <fullMethod>update(Page $page, Requests\Page\UpdateRequest $request): JsonResponse|RedirectResponse|Resources\Page</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -204,8 +204,8 @@
       <methodName>edit</methodName>
       <methodSignature>edit(Snippet $snippet, Requests\Snippet\EditRequest $request): JsonResponse|View|Resources\Snippet</methodSignature>
       <fullMethod>edit(Snippet $snippet, Requests\Snippet\EditRequest $request): JsonResponse|View|Resources\Snippet</fullMethod>
-      <crap>3</crap>
-      <complexity>3</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -248,8 +248,8 @@
       <methodName>restore</methodName>
       <methodSignature>restore(Snippet $snippet, Requests\Snippet\RestoreRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</methodSignature>
       <fullMethod>restore(Snippet $snippet, Requests\Snippet\RestoreRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -314,8 +314,8 @@
       <methodName>store</methodName>
       <methodSignature>store(Requests\Snippet\StoreRequest $request): Response|JsonResponse|RedirectResponse|Resources\Snippet</methodSignature>
       <fullMethod>store(Requests\Snippet\StoreRequest $request): Response|JsonResponse|RedirectResponse|Resources\Snippet</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -325,8 +325,8 @@
       <methodName>unlock</methodName>
       <methodSignature>unlock(Snippet $snippet, Requests\Snippet\UnlockRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</methodSignature>
       <fullMethod>unlock(Snippet $snippet, Requests\Snippet\UnlockRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -336,8 +336,8 @@
       <methodName>update</methodName>
       <methodSignature>update(Snippet $snippet, Requests\Snippet\UpdateRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</methodSignature>
       <fullMethod>update(Snippet $snippet, Requests\Snippet\UpdateRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</fullMethod>
-      <crap>5</crap>
-      <complexity>5</complexity>
+      <crap>4</crap>
+      <complexity>4</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
