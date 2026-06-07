@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Playground\Cms\Resource\Http\Requests\Snippet;
 
+use Playground\Cms\Resource\Http\Requests\Snippet\EditRequest;
 use Tests\Unit\Playground\Cms\Resource\Http\Requests\RequestTestCase;
 
 /**
@@ -15,5 +16,5 @@ use Tests\Unit\Playground\Cms\Resource\Http\Requests\RequestTestCase;
  */
 class EditRequestTest extends RequestTestCase
 {
-    protected string $requestClass = \Playground\Cms\Resource\Http\Requests\Snippet\EditRequest::class;
+    protected string $requestClass = EditRequest::class;
 }

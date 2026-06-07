@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Tests\Unit\Playground\Cms\Resource\Http\Requests\Page;
 
+use Playground\Cms\Resource\Http\Requests\Page\CreateRequest;
 use Tests\Unit\Playground\Cms\Resource\Http\Requests\RequestTestCase;
 
 /**
@@ -15,5 +16,5 @@ use Tests\Unit\Playground\Cms\Resource\Http\Requests\RequestTestCase;
  */
 class CreateRequestTest extends RequestTestCase
 {
-    protected string $requestClass = \Playground\Cms\Resource\Http\Requests\Page\CreateRequest::class;
+    protected string $requestClass = CreateRequest::class;
 }

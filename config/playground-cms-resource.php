@@ -5,6 +5,14 @@
  */
 
 declare(strict_types=1);
+use Illuminate\Database\Eloquent\Model;
+use Playground\Auth\Policies\Policy;
+use Playground\Cms\Models\Page;
+use Playground\Cms\Models\PageRevision;
+use Playground\Cms\Models\Snippet;
+use Playground\Cms\Models\SnippetRevision;
+use Playground\Cms\Resource\Policies\PagePolicy;
+use Playground\Cms\Resource\Policies\SnippetPolicy;
 
 /**
  * Playground: CMS Resource Configuration and Environment Variables
@@ -27,8 +35,8 @@ declare(strict_types=1);
  *           guest: string|string[]
  *       },
  *       policies: array<
- *           class-string<\Illuminate\Database\Eloquent\Model>,
- *           class-string<\Playground\Auth\Policies\Policy>
+ *           class-string<Model>,
+ *           class-string<Policy>
  *       >,
  *       revisions: array{
  *           options: bool,
@@ -125,10 +133,10 @@ return [
     */
 
     'policies' => [
-        Playground\Cms\Models\Page::class => Playground\Cms\Resource\Policies\PagePolicy::class,
-        Playground\Cms\Models\PageRevision::class => Playground\Cms\Resource\Policies\PagePolicy::class,
-        Playground\Cms\Models\Snippet::class => Playground\Cms\Resource\Policies\SnippetPolicy::class,
-        Playground\Cms\Models\SnippetRevision::class => Playground\Cms\Resource\Policies\SnippetPolicy::class,
+        Page::class => PagePolicy::class,
+        PageRevision::class => PagePolicy::class,
+        Snippet::class => SnippetPolicy::class,
+        SnippetRevision::class => SnippetPolicy::class,
     ],
 
     /*
