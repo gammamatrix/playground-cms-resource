@@ -27,8 +27,8 @@ use Playground\Cms\Resource\Policies\SnippetPolicy;
  *           views: bool
  *       },
  *       matrix: array{
- *            enabled: bool,
- *        },
+ *          enabled: bool,
+ *       },
  *       middleware: array{
  *           default: string|string[],
  *           auth: string|string[],

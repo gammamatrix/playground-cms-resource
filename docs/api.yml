@@ -37,6 +37,10 @@ paths:
     $ref: paths/pages/lock.yml
   '/resource/cms/pages/restore/{id}':
     $ref: paths/pages/restore.yml
+  '/resource/cms/pages/revision/{id}':
+    $ref: paths/pages/revision.yml
+  '/resource/cms/pages/{id}/revisions':
+    $ref: paths/pages/revisions.yml
   /resource/cms/pages/create:
     $ref: paths/pages/create.yml
   '/resource/cms/pages/edit/{id}':
@@ -51,6 +55,10 @@ paths:
     $ref: paths/snippets/lock.yml
   '/resource/cms/snippets/restore/{id}':
     $ref: paths/snippets/restore.yml
+  '/resource/cms/snippets/revision/{id}':
+    $ref: paths/snippets/revision.yml
+  '/resource/cms/snippets/{id}/revisions':
+    $ref: paths/snippets/revisions.yml
   /resource/cms/snippets/create:
     $ref: paths/snippets/create.yml
   '/resource/cms/snippets/edit/{id}':
