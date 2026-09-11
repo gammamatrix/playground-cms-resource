@@ -33,6 +33,8 @@ class SnippetController extends Controller
         'model_route' => 'playground.cms.resource.snippets',
         'model_slug' => 'snippet',
         'model_slug_plural' => 'snippets',
+        'model_variable' => 'snippet',
+        'model_variable_plural' => 'snippets',
         'module_label' => 'CMS',
         'module_label_plural' => 'CMSs',
         'module_route' => 'playground.cms.resource',

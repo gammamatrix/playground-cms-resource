@@ -13,10 +13,13 @@
     "model": "Snippet",
     "model_column": "snippet",
     "model_label": "Snippet",
+    "model_slug": "snippet",
+    "model_variable": "snippet",
+    "model_variable_plural": "snippets",
     "type": "playground-resource",
     "route": "playground.cms.resource",
     "title": "Snippet",
     "models": {
-        "Snippet": "resources/configurations/playground-cms/model.snippet.json"
+        "Snippet": "resources/configurations/playground-cms/snippet/model.json"
     }
 }

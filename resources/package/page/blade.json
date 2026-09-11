@@ -13,10 +13,13 @@
     "model": "Page",
     "model_column": "page",
     "model_label": "Page",
+    "model_slug": "page",
+    "model_variable": "page",
+    "model_variable_plural": "pages",
     "type": "playground-resource",
     "route": "playground.cms.resource",
     "title": "Page",
     "models": {
-        "Page": "resources/configurations/playground-cms/model.page.json"
+        "Page": "resources/configurations/playground-cms/page/model.json"
     }
 }

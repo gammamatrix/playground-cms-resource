@@ -15,10 +15,10 @@ if (
 }
 
 $routePatch = route(sprintf('%1$s.patch', $packageInfo->model_route()), [
-    $packageInfo->model_slug() => $data->getAttributeValue("id"),
+    $packageInfo->model_variable() => $data->getAttributeValue("id"),
 ]);
 $routeShow = route(sprintf('%1$s.show', $packageInfo->model_route()), [
-    $packageInfo->model_slug() => $data->getAttributeValue("id"),
+    $packageInfo->model_variable() => $data->getAttributeValue("id"),
 ]);
 
 $flags = [
@@ -61,7 +61,7 @@ $flags = [
     "fixed" => [
         "column" => "fixed",
         "label" => "Fixed",
-        "icon" => "fa-solid fa-wrench",
+        "icon" => "fa-solid fa-wrench text-success",
         "badge" => "",
     ],
     "flagged" => [

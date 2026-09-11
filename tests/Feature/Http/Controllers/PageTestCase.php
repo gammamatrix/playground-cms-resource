@@ -15,7 +15,7 @@ use Playground\Cms\Models\PageRevision;
 /**
  * \Tests\Feature\Playground\Cms\Resource\Http\Controllers\PageTestCase
  */
-class PageTestCase extends TestCase
+class PageTestCase extends PlaygroundCase
 {
     public string $fqdn = Page::class;
 
@@ -38,6 +38,8 @@ class PageTestCase extends TestCase
         'model_route' => 'playground.cms.resource.pages',
         'model_slug' => 'page',
         'model_slug_plural' => 'pages',
+        'model_variable' => 'page',
+        'model_variable_plural' => 'pages',
         'module_label' => 'CMS',
         'module_label_plural' => 'CMS',
         'module_route' => 'playground.cms.resource',
@@ -70,8 +72,8 @@ class PageTestCase extends TestCase
         'postponed_at',
         'published_at',
         'released_at',
-        'resumed_at',
         'resolved_at',
+        'resumed_at',
         'suspended_at',
         'timer_end_at',
         'timer_start_at',

@@ -1,7 +1,7 @@
 {
-    "class": "cms",
+    "class": "snippets",
     "config": "playground-cms-resource",
-    "fqdn": "cms",
+    "fqdn": "snippets",
     "module": "CMS",
     "module_slug": "cms",
     "name": "Snippet",

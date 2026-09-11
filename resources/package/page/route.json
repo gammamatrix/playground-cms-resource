@@ -1,7 +1,7 @@
 {
-    "class": "cms",
+    "class": "pages",
     "config": "playground-cms-resource",
-    "fqdn": "cms",
+    "fqdn": "pages",
     "module": "CMS",
     "module_slug": "cms",
     "name": "Page",
