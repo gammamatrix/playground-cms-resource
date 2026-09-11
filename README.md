@@ -96,23 +96,23 @@ composer cloc
 
 ```
 ➜  playground-cms-resource git:(develop) ✗ composer cloc
-     241 text files.
-     232 unique files.
-      52 files ignored.
+     243 text files.
+     234 unique files.                                          
+     136 files ignored.
 
-github.com/AlDanial/cloc v 2.06  T=0.08 s (2875.3 files/s, 473540.1 lines/s)
+github.com/AlDanial/cloc v 2.08  T=0.11 s (2042.8 files/s, 317977.0 lines/s)
 -------------------------------------------------------------------------------
 Language                     files          blank        comment           code
 -------------------------------------------------------------------------------
-JSON                            84              0              0          21759
-YAML                            30              5              0           6359
-PHP                             83            999           1360           4071
-Blade                           18             91              0           2439
-XML                             13              0              7            908
-Markdown                         3             58              1            137
+JSON                            85              0              0          20134
+YAML                            30              4              0           6264
+PHP                             84           1006           1376           4119
+Blade                           18             91              0           2244
+XML                             13              0              7            967
+Markdown                         3             58              1            138
 INI                              1              3              0             12
 -------------------------------------------------------------------------------
-SUM:                           232           1156           1368          35685
+SUM:                           234           1162           1384          33878
 -------------------------------------------------------------------------------
 ```
 

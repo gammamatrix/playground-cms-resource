@@ -1,8 +1,8 @@
-@extends("playground::layouts.resource.layout")
+@extends ("playground::layouts.resource.layout")
 
-@section("title", "CMS")
+@section ("title", "CMS")
 
-@section("breadcrumbs")
+@section ("breadcrumbs")
     <div class="container-fluid mt-3">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -15,7 +15,7 @@
     </div>
 @endsection
 
-@section("content")
+@section ("content")
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -37,10 +37,9 @@
                                         <p class="card-text"></p>
                                         <a
                                             class="card-link"
-                                            href="{{ route("playground.cms.resource.pages") }}"
+                                            href="{{ route('playground.cms.resource.pages') }}"
+                                            >View Pages</a
                                         >
-                                            View Pages
-                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -56,10 +55,9 @@
                                         <p class="card-text"></p>
                                         <a
                                             class="card-link"
-                                            href="{{ route("playground.cms.resource.snippets") }}"
+                                            href="{{ route('playground.cms.resource.snippets') }}"
+                                            >View Snippets</a
                                         >
-                                            View Snippets
-                                        </a>
                                     </div>
                                 </div>
                             </div>
