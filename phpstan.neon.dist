@@ -10,7 +10,7 @@ parameters:
 
     paths:
         - config
-        # - lang
+        - lang
         - resources
         - routes
         - src
