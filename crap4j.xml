@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2026-09-12 17:26:40</timestamp>
+  <timestamp>2026-09-12 17:53:19</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>62</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>356</totalCrap>
+    <totalCrap>216</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -105,9 +105,9 @@
       <methodName>restoreRevision</methodName>
       <methodSignature>restoreRevision(PageRevision $page_revision, Requests\Page\RestoreRevisionRequest $request): JsonResponse|RedirectResponse|Resources\Page</methodSignature>
       <fullMethod>restoreRevision(PageRevision $page_revision, Requests\Page\RestoreRevisionRequest $request): JsonResponse|RedirectResponse|Resources\Page</fullMethod>
-      <crap>30</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -116,9 +116,9 @@
       <methodName>revision</methodName>
       <methodSignature>revision(PageRevision $page_revision, Requests\Page\ShowRevisionRequest $request): JsonResponse|View|Resources\PageRevision</methodSignature>
       <fullMethod>revision(PageRevision $page_revision, Requests\Page\ShowRevisionRequest $request): JsonResponse|View|Resources\PageRevision</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -127,9 +127,9 @@
       <methodName>revisions</methodName>
       <methodSignature>revisions(Page $page, Requests\Page\RevisionsRequest $request): JsonResponse|View|Resources\PageRevisionCollection</methodSignature>
       <fullMethod>revisions(Page $page, Requests\Page\RevisionsRequest $request): JsonResponse|View|Resources\PageRevisionCollection</fullMethod>
-      <crap>42</crap>
+      <crap>6</crap>
       <complexity>6</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -259,9 +259,9 @@
       <methodName>restoreRevision</methodName>
       <methodSignature>restoreRevision(SnippetRevision $snippet_revision, Requests\Snippet\RestoreRevisionRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</methodSignature>
       <fullMethod>restoreRevision(SnippetRevision $snippet_revision, Requests\Snippet\RestoreRevisionRequest $request): JsonResponse|RedirectResponse|Resources\Snippet</fullMethod>
-      <crap>30</crap>
+      <crap>5</crap>
       <complexity>5</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -270,9 +270,9 @@
       <methodName>revision</methodName>
       <methodSignature>revision(SnippetRevision $snippet_revision, Requests\Snippet\ShowRevisionRequest $request): JsonResponse|View|Resources\SnippetRevision</methodSignature>
       <fullMethod>revision(SnippetRevision $snippet_revision, Requests\Snippet\ShowRevisionRequest $request): JsonResponse|View|Resources\SnippetRevision</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -281,9 +281,9 @@
       <methodName>revisions</methodName>
       <methodSignature>revisions(Snippet $snippet, Requests\Snippet\RevisionsRequest $request): JsonResponse|View|Resources\SnippetRevisionCollection</methodSignature>
       <fullMethod>revisions(Snippet $snippet, Requests\Snippet\RevisionsRequest $request): JsonResponse|View|Resources\SnippetRevisionCollection</fullMethod>
-      <crap>42</crap>
+      <crap>6</crap>
       <complexity>6</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -512,9 +512,9 @@
       <methodName>with</methodName>
       <methodSignature>with(Request $request): array</methodSignature>
       <fullMethod>with(Request $request): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -523,9 +523,9 @@
       <methodName>with</methodName>
       <methodSignature>with(Request $request): array</methodSignature>
       <fullMethod>with(Request $request): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -556,9 +556,9 @@
       <methodName>with</methodName>
       <methodSignature>with(Request $request): array</methodSignature>
       <fullMethod>with(Request $request): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -567,9 +567,9 @@
       <methodName>with</methodName>
       <methodSignature>with(Request $request): array</methodSignature>
       <fullMethod>with(Request $request): array</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -578,9 +578,9 @@
       <methodName>revisions</methodName>
       <methodSignature>revisions(Authenticatable $user): bool|Response</methodSignature>
       <fullMethod>revisions(Authenticatable $user): bool|Response</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -589,9 +589,9 @@
       <methodName>viewRevision</methodName>
       <methodSignature>viewRevision(Authenticatable $user, PageRevision $page_revision): bool|Response</methodSignature>
       <fullMethod>viewRevision(Authenticatable $user, PageRevision $page_revision): bool|Response</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -600,9 +600,9 @@
       <methodName>restoreRevision</methodName>
       <methodSignature>restoreRevision(Authenticatable $user, PageRevision $page_revision): bool|Response</methodSignature>
       <fullMethod>restoreRevision(Authenticatable $user, PageRevision $page_revision): bool|Response</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -611,9 +611,9 @@
       <methodName>revisions</methodName>
       <methodSignature>revisions(Authenticatable $user): bool|Response</methodSignature>
       <fullMethod>revisions(Authenticatable $user): bool|Response</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -622,9 +622,9 @@
       <methodName>viewRevision</methodName>
       <methodSignature>viewRevision(Authenticatable $user, SnippetRevision $snippet_revision): bool|Response</methodSignature>
       <fullMethod>viewRevision(Authenticatable $user, SnippetRevision $snippet_revision): bool|Response</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -633,9 +633,9 @@
       <methodName>restoreRevision</methodName>
       <methodSignature>restoreRevision(Authenticatable $user, SnippetRevision $snippet_revision): bool|Response</methodSignature>
       <fullMethod>restoreRevision(Authenticatable $user, SnippetRevision $snippet_revision): bool|Response</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
