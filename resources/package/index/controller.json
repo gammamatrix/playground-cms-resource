@@ -57,7 +57,7 @@
     "uses": [],
     "packageInfo": {
         "model_attribute_required": true,
-        "model_attribute": "",
+        "model_attribute": "title",
         "model_camel": "page",
         "model_camels": "pages",
         "model_kebab": "page",
@@ -82,9 +82,9 @@
         "module_label_plural": "CMSs",
         "module_route": "playground.cms.resource",
         "module_slug": "cms",
-        "module_slugs": "cms",
+        "module_slugs": "cmss",
         "privilege": "playground-cms-resource",
-        "table": "",
+        "table": "cms_pages",
         "view": "playground-cms-resource"
     }
 }

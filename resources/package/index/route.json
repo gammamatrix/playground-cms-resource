@@ -17,7 +17,7 @@
     "models": [],
     "model": "Page",
     "model_column": "page",
-    "model_fqdn": "",
+    "model_fqdn": "Playground/Cms/Models/Page",
     "model_route": "",
     "model_route_param": "page",
     "module_route": "",

@@ -3,7 +3,7 @@
     "config": "playground-cms-resource",
     "extends": "TestCase",
     "fqdn": "Tests/Feature/Playground/Cms/Resource/IndexRouteTest",
-    "model": "",
+    "model": "Page",
     "model_fqdn": "",
     "model_camel": "",
     "model_camels": "",
