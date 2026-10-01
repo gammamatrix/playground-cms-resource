@@ -4,7 +4,10 @@
     "config_space": "PLAYGROUND_CMS_RESOURCE",
     "fqdn": "Playground/Cms/Resource/ServiceProvider",
     "module": "CMS",
+    "module_label": "CMS",
+    "module_labels": "CMSs",
     "module_slug": "cms",
+    "module_slugs": "cmss",
     "name": "CMS Resource",
     "namespace": "Playground/Cms/Resource",
     "organization": "Playground",
@@ -73,22 +76,11 @@
         "gammamatrix/playground-site-blade": "*"
     },
     "package_suggest": [],
-    "controllers": [
-        "resources/package/controller.base.json",
-        "resources/package/index/controller.json",
-        "resources/package/page/controller.json",
-        "resources/package/snippet/controller.json"
-    ],
+    "controllers": [],
     "models": [],
     "policies": [],
-    "requests": [
-        "resources/package/form.request.json"
-    ],
-    "routes": {
-        "cms": "",
-        "pages": "resources/package/page/route.json",
-        "snippets": "resources/package/snippet/route.json"
-    },
+    "requests": [],
+    "routes": [],
     "seeders": [],
     "transformers": [],
     "translations": [],
