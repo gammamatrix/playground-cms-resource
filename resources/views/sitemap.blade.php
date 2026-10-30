@@ -15,8 +15,15 @@ $viewSnippets = \Playground\Auth\Facades\Can::access($user, [
     'roles' => ['admin', 'manager', 'publisher'],
 ])->allowed();
 
+$viewTags = \Playground\Auth\Facades\Can::access($user, [
+    'allow' => false,
+    'any' => true,
+    'privilege' => 'playground-cms-resource:tag:viewAny',
+    'roles' => ['admin', 'manager', 'publisher'],
+])->allowed();
 
-if (!$viewPages && !$viewSnippets) {
+
+if (!$viewPages && !$viewSnippets && !$viewTags) {
     return;
 }
 ?>
@@ -29,7 +36,9 @@ if (!$viewPages && !$viewSnippets) {
                 <div class="card">
                     <div class="card-header">
                         Content Management System
-                        <small class="text-muted">pages and snippets</small>
+                        <small class="text-muted"
+                            >pages, snippets and tags</small
+                        >
                     </div>
                     <ul class="list-group list-group-flush">
                         @if ($viewPages)
@@ -47,6 +56,15 @@ if (!$viewPages && !$viewSnippets) {
                                 class="list-group-item list-group-item-action"
                             >
                                 Snippets
+                            </a>
+                        @endif
+
+                        @if ($viewTags)
+                            <a
+                                href="{{ route('playground.cms.resource.tags') }}"
+                                class="list-group-item list-group-item-action"
+                            >
+                                Tags
                             </a>
                         @endif
                     </ul>

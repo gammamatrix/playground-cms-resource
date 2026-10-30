@@ -58,6 +58,8 @@ class ServiceProvider extends AuthServiceProvider
          *             cms: bool,
          *             pages: bool,
          *             snippets: bool,
+         *             tags: bool,
+         *             tagged: bool,
          *        },
          *        blade: string,
          *        cache: array{
@@ -186,6 +188,12 @@ class ServiceProvider extends AuthServiceProvider
         if (! empty($config['snippets'])) {
             $this->loadRoutesFrom(dirname(__DIR__).'/routes/snippets.php');
         }
+        if (! empty($config['tags'])) {
+            $this->loadRoutesFrom(dirname(__DIR__).'/routes/tags.php');
+        }
+        if (! empty($config['tagged'])) {
+            $this->loadRoutesFrom(dirname(__DIR__).'/routes/tagged.php');
+        }
     }
 
     public function about(): void
@@ -222,6 +230,8 @@ class ServiceProvider extends AuthServiceProvider
             '<fg=red;options=bold>Route</> cms' => ! empty($routes['cms']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
             '<fg=red;options=bold>Route</> pages' => ! empty($routes['pages']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
             '<fg=red;options=bold>Route</> snippets' => ! empty($routes['snippets']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+            '<fg=red;options=bold>Route</> tags' => ! empty($routes['tags']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
+            '<fg=red;options=bold>Route</> tagged' => ! empty($routes['tagged']) ? '<fg=green;options=bold>ENABLED</>' : '<fg=yellow;options=bold>DISABLED</>',
 
             'Package' => $this->package,
             'Version' => ServiceProvider::VERSION,

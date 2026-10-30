@@ -1,7 +1,7 @@
 {
     "class": "SnippetTestCase",
     "config": "playground-cms-resource",
-    "extends": "PlaygroundCase",
+    "extends": "RevisionTestCase",
     "fqdn": "Tests/Feature/Playground/Cms/Resource/Http/Controllers/SnippetTestCase",
     "model": "Snippet",
     "model_fqdn": "Playground/Cms/Models/Snippet",

@@ -11,8 +11,12 @@ use Playground\Cms\Models\Page;
 use Playground\Cms\Models\PageRevision;
 use Playground\Cms\Models\Snippet;
 use Playground\Cms\Models\SnippetRevision;
+use Playground\Cms\Models\Tag;
+use Playground\Cms\Models\Tagged;
 use Playground\Cms\Resource\Policies\PagePolicy;
 use Playground\Cms\Resource\Policies\SnippetPolicy;
+use Playground\Cms\Resource\Policies\TaggedPolicy;
+use Playground\Cms\Resource\Policies\TagPolicy;
 
 /**
  * Playground: CMS Resource Configuration and Environment Variables
@@ -47,6 +51,8 @@ use Playground\Cms\Resource\Policies\SnippetPolicy;
  *           cms: bool,
  *           pages: bool,
  *           snippets: bool,
+ *           tags: bool,
+ *           tagged: bool,
  *       },
  *       blade: string,
  *       cache: array{
@@ -137,6 +143,8 @@ return [
         PageRevision::class => PagePolicy::class,
         Snippet::class => SnippetPolicy::class,
         SnippetRevision::class => SnippetPolicy::class,
+        Tag::class => TagPolicy::class,
+        Tagged::class => TaggedPolicy::class,
     ],
 
     /*
@@ -165,6 +173,8 @@ return [
         'cms' => (bool) env('PLAYGROUND_CMS_RESOURCE_ROUTES_CMS', true),
         'pages' => (bool) env('PLAYGROUND_CMS_RESOURCE_ROUTES_PAGES', true),
         'snippets' => (bool) env('PLAYGROUND_CMS_RESOURCE_ROUTES_SNIPPETS', true),
+        'tags' => (bool) env('PLAYGROUND_CMS_RESOURCE_ROUTES_TAGS', true),
+        'tagged' => (bool) env('PLAYGROUND_CMS_RESOURCE_ROUTES_TAGGED', true),
     ],
 
     /*
@@ -207,12 +217,18 @@ return [
         'manager' => [
             'playground-cms-resource:page:*',
             'playground-cms-resource:snippet:*',
+            'playground-cms-resource:tag:*',
+            'playground-cms-resource:tagged:*',
         ],
         'user' => [
             'playground-cms-resource:page:view',
             'playground-cms-resource:page:viewAny',
             'playground-cms-resource:snippet:view',
             'playground-cms-resource:snippet:viewAny',
+            'playground-cms-resource:tag:view',
+            'playground-cms-resource:tag:viewAny',
+            'playground-cms-resource:tagged:view',
+            'playground-cms-resource:tagged:viewAny',
         ],
     ],
 ];
