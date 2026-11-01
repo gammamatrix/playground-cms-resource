@@ -55,6 +55,7 @@
     "privilege": "playground-cms-resource:snippet",
     "route": "playground.cms.resource",
     "view": "playground-cms-resource::snippet",
+    "actions": [],
     "implements": [],
     "uses": [],
     "packageInfo": {

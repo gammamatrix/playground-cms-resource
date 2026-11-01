@@ -55,6 +55,7 @@
     "privilege": "playground-cms-resource:page",
     "route": "playground.cms.resource",
     "view": "playground-cms-resource::page",
+    "actions": [],
     "implements": [],
     "uses": [],
     "packageInfo": {
